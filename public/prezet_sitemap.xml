@@ -6,6 +6,41 @@
 
             </url>
     <url>
+        <loc>http://localhost/prezet/testing</loc>
+        <lastmod>2026-03-01T12:50:52+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/prezet/testing/laravel-database-testing</loc>
+        <lastmod>2026-03-01T12:50:52+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/prezet/testing/laravel-fakes</loc>
+        <lastmod>2026-03-01T12:50:52+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/prezet/testing/laravel-mocking</loc>
+        <lastmod>2026-03-01T12:50:52+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/prezet/testing/laravel-testing</loc>
+        <lastmod>2026-03-01T12:50:52+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/prezet/laravel-vite</loc>
+        <lastmod>2026-03-01T12:50:52+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/prezet/laravel-validation</loc>
+        <lastmod>2026-03-01T12:50:52+00:00</lastmod>
+
+            </url>
+    <url>
         <loc>http://localhost/prezet/features/sitemap</loc>
         <lastmod>2026-03-01T12:33:13+00:00</lastmod>
 
@@ -48,6 +83,41 @@
     <url>
         <loc>http://localhost/prezet/features/seo</loc>
         <lastmod>2026-03-01T12:33:13+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/prezet/laravel-queues</loc>
+        <lastmod>2026-03-01T12:50:52+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/prezet/laravel-routing</loc>
+        <lastmod>2026-03-01T12:50:52+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/prezet/laravel-artisan</loc>
+        <lastmod>2026-03-01T12:50:52+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/prezet/laravel-middleware</loc>
+        <lastmod>2026-03-01T12:50:52+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/prezet/eloquent-basics</loc>
+        <lastmod>2026-03-01T12:50:52+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/prezet/blade-templating</loc>
+        <lastmod>2026-03-01T12:50:52+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/prezet/laravel-events</loc>
+        <lastmod>2026-03-01T12:50:52+00:00</lastmod>
 
             </url>
 </urlset>
