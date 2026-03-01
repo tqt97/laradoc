@@ -4,6 +4,7 @@ date: 2024-05-06
 category: Features
 excerpt: Learn about Prezet's powerful image features including automatic optimization and interactive zoom capabilities.
 image: /prezet/img/ogimages/features-images.webp
+author: bob
 ---
 
 Prezet offers comprehensive image handling capabilities out of the box, enhancing your markdown-based blog with both responsive, efficiently-loaded images and interactive viewing features.
@@ -17,6 +18,7 @@ Try it out with this example - click the image below to see the zoomed version w
 ![Example of a complex configuration file with small text](images-20240509210223449.webp)
 
 When you click an image, you'll notice:
+
 - The image opens in a fullscreen overlay
 - You can zoom in/out using the buttons or mouse wheel
 - You can pan around the zoomed image by dragging
@@ -88,13 +90,11 @@ Route::get('prezet/img/{path}', ImageController::class)
 ...
 ```
 
-
-The package's ImageController serves the optimized image based on the requested width and format. 
+The package's ImageController serves the optimized image based on the requested width and format.
 
 For example, when a browser requests `/prezet/img/images-20240509210223449-480w.webp`, the controller generates and returns a 480px wide WebP image from the original image file.
 
 This approach ensures that your blog images are served in the most efficient format and size for the user's device, network conditions, and layout requirements.
-
 
 ## The `srcset` Attribute
 
@@ -113,6 +113,7 @@ srcset="
 ```
 
 Each entry in the `srcset` consists of two parts:
+
 1. The URL of the image source
 2. The intrinsic width of the image in pixels, denoted by the `w` unit
 
@@ -122,7 +123,7 @@ By leveraging the `srcset` attribute, Prezet enables your blog to serve the most
 
 ## The `sizes` Attribute
 
-The `sizes` attribute tells the browser how wide the image will be displayed at different viewport sizes. 
+The `sizes` attribute tells the browser how wide the image will be displayed at different viewport sizes.
 
 In the example above:
 
@@ -131,6 +132,7 @@ sizes="92vw, (max-width: 1024px) 92vw, 768px"
 ```
 
 Tells the browser that:
+
 - For viewports up to 1024px wide, the image will occupy 92% of the viewport width.
 - For viewports wider than 1024px, the image will be 768px wide.
 

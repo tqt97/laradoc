@@ -16,7 +16,7 @@ Route::withoutMiddleware([
     VerifyCsrfToken::class,
 ])
     ->group(function () {
-        Route::get('prezet/search', SearchController::class)->name('prezet.search');
+        Route::get('search', SearchController::class)->name('prezet.search');
 
         Route::get('prezet/img/{path}', ImageController::class)
             ->name('prezet.image')
@@ -26,10 +26,10 @@ Route::withoutMiddleware([
             ->name('prezet.ogimage')
             ->where('slug', '.*');
 
-        Route::get('prezet', IndexController::class)
+        Route::get('/', IndexController::class)
             ->name('prezet.index');
 
-        Route::get('prezet/{slug}', ShowController::class)
+        Route::get('{slug}', ShowController::class)
             ->name('prezet.show')
             ->where('slug', '.*'); // https://laravel.com/docs/11.x/routing#parameters-encoded-forward-slashes
     });
