@@ -11,7 +11,7 @@
 
 @theme {
     --font-sans:
-        Inter, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+        'Be Vietnam Pro', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
         'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
     --container-8xl: 88rem;
@@ -80,82 +80,6 @@
     a.prezet-heading {
         margin-right: 8px;
         scroll-margin-top: 112px;
-    }
-
-    /*
-|--------------------------------------------------------------------------
-| Fonts
-|--------------------------------------------------------------------------
-|
-|
-*/
-
-    /* inter-latin-400-normal */
-    @font-face {
-        font-family: 'Inter';
-        font-style: normal;
-        font-display: optional;
-        font-weight: 400;
-        src:
-            url(https://cdn.jsdelivr.net/fontsource/fonts/inter@5.0.16/latin-400-normal.woff2)
-                format('woff2'),
-            url(https://cdn.jsdelivr.net/fontsource/fonts/inter@5.0.16/latin-400-normal.woff)
-                format('woff');
-        unicode-range:
-            U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-            U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122,
-            U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-    }
-
-    /* inter-latin-500-normal */
-    @font-face {
-        font-family: 'Inter';
-        font-style: normal;
-        font-display: optional;
-        font-weight: 500;
-        src:
-            url(https://cdn.jsdelivr.net/fontsource/fonts/inter@5.0.16/latin-500-normal.woff2)
-                format('woff2'),
-            url(https://cdn.jsdelivr.net/fontsource/fonts/inter@5.0.16/latin-500-normal.woff)
-                format('woff');
-        unicode-range:
-            U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-            U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122,
-            U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-    }
-
-    /* inter-latin-600-normal */
-    @font-face {
-        font-family: 'Inter';
-        font-style: normal;
-        font-display: optional;
-        font-weight: 600;
-        src:
-            url(https://cdn.jsdelivr.net/fontsource/fonts/inter@5.0.16/latin-600-normal.woff2)
-                format('woff2'),
-            url(https://cdn.jsdelivr.net/fontsource/fonts/inter@5.0.16/latin-600-normal.woff)
-                format('woff');
-        unicode-range:
-            U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-            U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122,
-            U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-    }
-
-    /* inter-latin-700-normal */
-    @font-face {
-        font-family: 'Inter';
-        font-style: normal;
-        font-display: optional;
-        font-weight: 700;
-        src:
-            url(https://cdn.jsdelivr.net/fontsource/fonts/inter@5.0.16/latin-700-normal.woff2)
-                format('woff2'),
-            url(https://cdn.jsdelivr.net/fontsource/fonts/inter@5.0.16/latin-700-normal.woff)
-                format('woff');
-        unicode-range:
-            U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-            U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122,
-            U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
     }
 
     /*
@@ -377,4 +301,24 @@
     .zoomable-loading-indicator[hidden] {
         display: none;
     }
+}
+
+@keyframes mouse-scroll {
+  0% { opacity: 0; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(5px); }
+  100% { opacity: 0; transform: translateY(10px); }
+}
+
+.animate-mouse-scroll {
+  animation: mouse-scroll 2s infinite;
+}
+
+@keyframes shimmer {
+  to {
+    background-position: 200% center;
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 5s linear infinite;
 }

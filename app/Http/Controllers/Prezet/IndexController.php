@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Prezet\Prezet\Data\DocumentData;
 use Prezet\Prezet\Models\Document;
+use Prezet\Prezet\Models\Tag;
 
 class IndexController
 {
@@ -20,7 +21,7 @@ class IndexController
             ->where('draft', false);
 
         if ($category) {
-            $query->where('category', $category);
+            $query->whereRaw('LOWER(category) = ?', [strtolower($category)]);
         }
 
         if ($tag) {
@@ -45,6 +46,31 @@ class IndexController
             return $post->createdAt->format('Y');
         })->sortKeysDesc();
 
+        $allCategories = app(Document::class)::query()
+            ->where('content_type', 'article')
+            ->where('draft', false)
+            ->whereNotNull('category')
+            ->select('category')
+            ->selectRaw('count(*) as post_count')
+            ->groupBy('category')
+            ->orderBy('category')
+            ->get();
+
+        $allTags = app(Tag::class)::query()
+            ->whereHas('documents', function ($q) {
+                $q->where('content_type', 'article')->where('draft', false);
+            })
+            ->withCount(['documents' => function ($q) {
+                $q->where('content_type', 'article')->where('draft', false);
+            }])
+            ->orderBy('name')
+            ->get();
+
+        $allPostsCount = app(Document::class)::query()
+            ->where('content_type', 'article')
+            ->where('draft', false)
+            ->count();
+
         return view('prezet.index', [
             'articles' => $docsData,
             'paginator' => $docs,
@@ -52,6 +78,9 @@ class IndexController
             'currentCategory' => $request->query('category'),
             'currentAuthor' => $currentAuthor,
             'postsByYear' => $postsByYear,
+            'allCategories' => $allCategories,
+            'allTags' => $allTags,
+            'allPostsCount' => $allPostsCount,
         ]);
     }
 }
