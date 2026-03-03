@@ -8,6 +8,7 @@
     /* @var \Illuminate\Support\Collection $allCategories */
     /* @var \Illuminate\Support\Collection $allTags */
     /* @var int $allPostsCount */
+    /* @var \Illuminate\Pagination\LengthAwarePaginator $paginator */
 @endphp
 
 <x-prezet.template>
@@ -218,6 +219,12 @@
                         </section>
                     @endforeach
                 </div>
+
+                @if ($paginator->hasPages())
+                    <div class="mt-24 border-t border-zinc-100 dark:border-zinc-800 pt-16">
+                        {{ $paginator->links() }}
+                    </div>
+                @endif
             </main>
 
             {{-- Right Sidebar: Widgets --}}

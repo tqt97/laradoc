@@ -80,7 +80,7 @@ return [
             'phiki' => [
                 'theme' => \Phiki\Theme\Theme::NightOwl,
                 'with_wrapper' => false,
-                'with_gutter' => true,
+                'with_gutter' => false,
             ],
         ],
     ],

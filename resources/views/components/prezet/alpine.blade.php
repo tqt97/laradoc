@@ -25,7 +25,10 @@
                                     : current,
                         )
 
-                        this.activeHeading = topHeading.target.querySelector('a').id
+                        const link = topHeading.target.querySelector('a')
+                        if (link) {
+                            this.activeHeading = link.id
+                        }
                     }
                 },
                 { rootMargin: '0px 0px -75% 0px', threshold: 1 },

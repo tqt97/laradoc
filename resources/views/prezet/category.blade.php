@@ -7,7 +7,7 @@
     ])
 
     <x-prezet.alpine>
-        <div class="mx-auto max-w-5xl space-y-8">
+        <div id="articles-content" class="mx-auto max-w-5xl space-y-8">
             <div class="">
                 <li class="flex items-center dark:text-white">
                     <span>

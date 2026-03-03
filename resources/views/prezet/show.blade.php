@@ -21,7 +21,7 @@
     @endpush
 
     <x-prezet.alpine>
-        <div class="grid grid-cols-12 gap-8">
+        <div id="articles-content" class="grid grid-cols-12 gap-8">
             <div class="col-span-12">
                 <h1
                     class="mt-6 mb-6 text-3xl !leading-snug font-bold sm:text-4xl md:mb-8 lg:text-5xl lg:!leading-tight dark:text-white">
@@ -56,7 +56,7 @@
                         </li>
                         <li class="flex items-center gap-1 text-zinc-600 dark:text-zinc-400">
                             <x-prezet.icon-calendar class="size-5" />
-                            <span>Dec 05, 2023</span>
+                            <span>{{ $document->createdAt->format('M d, Y') }}</span>
                         </li>
                     </ul>
 
@@ -64,11 +64,13 @@
             </div>
             {{-- Hero Image --}}
 
-            <div class="-mx-8 sm:mx-0 col-span-12 lg:my-4">
-                <img src="/prezet/img/bobs.webp" alt="bob" width="1120" height="595" loading="lazy"
-                    decoding="async"
-                    class="h-auto max-h-[500px] w-full sm:rounded-2xl bg-zinc-50 object-cover dark:bg-zinc-800" />
-            </div>
+            @if ($document->frontmatter->image)
+                <div class="-mx-8 sm:mx-0 col-span-12 lg:my-4">
+                    <img src="{{ url($document->frontmatter->image) }}" alt="{{ $document->frontmatter->title }}"
+                        width="1120" height="595" loading="lazy" decoding="async"
+                        class="h-auto max-h-[500px] w-full sm:rounded-2xl bg-zinc-50 object-cover dark:bg-zinc-800" />
+                </div>
+            @endif
 
 
             <div class="col-span-12">

@@ -36,7 +36,11 @@ class ShowController
         $linkedData = json_encode(Prezet::getLinkedData($docData), JSON_UNESCAPED_SLASHES);
         $headings = Prezet::getHeadings($html);
         $authorKey = $docData->frontmatter->author;
-        $author = config('prezet.authors.'.$authorKey, null);
+        $author = config('prezet.authors.'.$authorKey, [
+            'name' => 'Anonymous',
+            'image' => '',
+            'bio' => '',
+        ]);
 
         return view('prezet.show', [
             'document' => $docData,
