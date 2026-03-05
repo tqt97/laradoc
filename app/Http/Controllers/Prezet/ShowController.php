@@ -24,7 +24,15 @@ class ShowController
                 ->where('category', $doc->category)
                 ->orderBy('created_at', 'desc')->get();
 
-            $docsData = $docs->map(fn (Document $doc) => app(DocumentData::class)::fromModel($doc));
+            $docsData = $docs->map(function (Document $doc) {
+                $docData = app(DocumentData::class)::fromModel($doc);
+                $md = Prezet::getMarkdown($doc->filepath);
+                $html = Prezet::parseMarkdown($md)->getContent();
+                $wordCount = str_word_count(strip_tags($html));
+                $docData->readingTime = max(1, ceil($wordCount / 200));
+
+                return $docData;
+            });
 
             return view('prezet.category', [
                 'document' => $docData,
@@ -42,12 +50,36 @@ class ShowController
             'bio' => '',
         ]);
 
+        // Calculate reading time
+        $wordCount = str_word_count(strip_tags($html));
+        $readingTime = max(1, ceil($wordCount / 200));
+
+        // Fetch related posts
+        $relatedPosts = app(Document::class)::query()
+            ->where('content_type', 'article')
+            ->where('draft', false)
+            ->where('category', $doc->category)
+            ->where('slug', '!=', $slug)
+            ->limit(4)
+            ->get()
+            ->map(function (Document $doc) {
+                $docData = app(DocumentData::class)::fromModel($doc);
+                $md = Prezet::getMarkdown($doc->filepath);
+                $html = Prezet::parseMarkdown($md)->getContent();
+                $wordCount = str_word_count(strip_tags($html));
+                $docData->readingTime = max(1, ceil($wordCount / 200));
+
+                return $docData;
+            });
+
         return view('prezet.show', [
             'document' => $docData,
             'linkedData' => $linkedData,
             'headings' => $headings,
             'body' => $html,
             'author' => $author,
+            'readingTime' => $readingTime,
+            'relatedPosts' => $relatedPosts,
         ]);
     }
 }

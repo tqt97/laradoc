@@ -6,8 +6,8 @@
         'image' => url($document->frontmatter->image),
     ])
 
-    <x-prezet.alpine>
-        <div id="articles-content" class="mx-auto max-w-5xl space-y-8">
+    <div id="articles-content">
+        <x-prezet.alpine class="mx-auto max-w-5xl space-y-8">
             <div class="">
                 <li class="flex items-center dark:text-white">
                     <span>
@@ -37,6 +37,6 @@
                     <x-prezet.article :article="$post" :author="config('prezet.authors.' . $post->frontmatter->author)" />
                 @endforeach
             </div>
-        </div>
-    </x-prezet.alpine>
+        </x-prezet.alpine>
+    </div>
 </x-prezet.template>

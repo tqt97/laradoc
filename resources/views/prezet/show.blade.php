@@ -20,8 +20,8 @@
         </script>
     @endpush
 
-    <x-prezet.alpine>
-        <div id="articles-content" class="grid grid-cols-12 gap-8">
+    <div id="articles-content">
+        <x-prezet.alpine class="grid grid-cols-12 gap-8">
             <div class="col-span-12">
                 <h1
                     class="mt-6 mb-6 text-3xl !leading-snug font-bold sm:text-4xl md:mb-8 lg:text-5xl lg:!leading-tight dark:text-white">
@@ -57,6 +57,17 @@
                         <li class="flex items-center gap-1 text-zinc-600 dark:text-zinc-400">
                             <x-prezet.icon-calendar class="size-5" />
                             <span>{{ $document->createdAt->format('M d, Y') }}</span>
+                        </li>
+                        <li class="hidden text-zinc-600 sm:inline-block dark:text-zinc-400">
+                            —
+                        </li>
+                        <li class="flex items-center gap-1 text-zinc-600 dark:text-zinc-400">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke-width="1.5" stroke="currentColor" class="size-5">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                            </svg>
+                            <span>{{ $readingTime }} min read</span>
                         </li>
                     </ul>
 
@@ -169,7 +180,17 @@
                         </a>
                     </div>
                 </div>
-            </div>
-        </div>
-    </x-prezet.alpine>
+
+                @if ($relatedPosts->isNotEmpty())
+                    <div class="mt-16 mb-16 border-t border-zinc-200 pt-16 dark:border-zinc-700">
+                        <h3 class="mb-8 text-2xl font-bold text-zinc-900 dark:text-white">Related Articles</h3>
+                        <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+                            @foreach ($relatedPosts as $relatedPost)
+                                <x-prezet.article :article="$relatedPost" :author="config('prezet.authors.' . $relatedPost->frontmatter->author)" />
+                            @endforeach
+                        </div>
+                    </div>
+                @endif
+        </x-prezet.alpine>
+    </div>
 </x-prezet.template>

@@ -7,6 +7,7 @@ use Illuminate\View\View;
 use Prezet\Prezet\Data\DocumentData;
 use Prezet\Prezet\Models\Document;
 use Prezet\Prezet\Models\Tag;
+use Prezet\Prezet\Prezet;
 
 class IndexController
 {
@@ -39,7 +40,15 @@ class IndexController
 
         $docs = $query->orderBy('created_at', 'desc')->paginate(10)->withQueryString();
 
-        $docsData = $docs->getCollection()->map(fn (Document $doc) => app(DocumentData::class)::fromModel($doc));
+        $docsData = $docs->getCollection()->map(function (Document $doc) {
+            $docData = app(DocumentData::class)::fromModel($doc);
+            $md = Prezet::getMarkdown($doc->filepath);
+            $html = Prezet::parseMarkdown($md)->getContent();
+            $wordCount = str_word_count(strip_tags($html));
+            $docData->readingTime = max(1, ceil($wordCount / 200));
+
+            return $docData;
+        });
 
         // Group posts by year
         $postsByYear = $docsData->groupBy(function ($post) {
