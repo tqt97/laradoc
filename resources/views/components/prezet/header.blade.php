@@ -1,5 +1,9 @@
 <header
     class="sticky top-0 z-50 w-full border-b border-zinc-200/50 bg-white/80 backdrop-blur-md transition-colors duration-300 dark:border-zinc-800/50 dark:bg-zinc-950/80">
+    <div class="absolute top-0 left-0 w-full h-[2px] bg-transparent overflow-hidden pointer-events-none">
+        <div class="h-full bg-zinc-900 dark:bg-white transition-all duration-300 ease-out shadow-[0_0_10px_rgba(0,0,0,0.1)] dark:shadow-[0_0_10px_rgba(255,255,255,0.1)]"
+            :style="`width: ${progress}%`" x-show="progress > 0"></div>
+    </div>
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-20 items-center justify-between gap-8">
             {{-- Logo & Brand --}}

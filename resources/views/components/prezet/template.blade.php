@@ -50,10 +50,12 @@
                 b = document.body,
                 st = 'scrollTop',
                 sh = 'scrollHeight';
-            this.progress = (h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight) * 100;
+            const progress = (h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight) * 100;
+            this.progress = isNaN(progress) ? 0 : Math.min(100, Math.max(0, progress));
             this.scrolled = window.scrollY > 500;
         }
-    }" x-init="window.addEventListener('scroll', () => updateScroll())">
+    }" x-init="updateScroll();
+    window.addEventListener('scroll', () => updateScroll())">
 
     <div class="min-h-screen flex flex-col bg-white dark:bg-zinc-950 transition-colors duration-300">
         <x-prezet.header />
@@ -67,24 +69,28 @@
                 <div class="flex flex-col items-center text-center space-y-12">
                     {{-- Compact Newsletter --}}
                     <div class="max-w-2xl w-full">
-                        <h3 class="text-2xl font-black text-zinc-900 dark:text-white mb-3 tracking-tight">Weekly Digest</h3>
+                        <h3 class="text-2xl font-black text-zinc-900 dark:text-white mb-3 tracking-tight">Weekly Digest
+                        </h3>
                         <p class="text-zinc-500 dark:text-zinc-400 font-medium mb-8">
                             Join developers getting high-quality Laravel content weekly.
                         </p>
 
                         @if (session('success'))
-                            <div class="mb-8 p-4 rounded-xl bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400 font-bold text-sm">
+                            <div
+                                class="mb-8 p-4 rounded-xl bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400 font-bold text-sm">
                                 {{ session('success') }}
                             </div>
                         @endif
 
-                        <form action="{{ route('newsletter.subscribe') }}" method="POST" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+                        <form action="{{ route('newsletter.subscribe') }}" method="POST"
+                            class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
                             @csrf
                             <div class="flex-grow relative">
                                 <input type="email" name="email" placeholder="Email address" required
                                     class="w-full px-5 py-3 rounded-xl bg-white dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700 text-sm focus:ring-2 focus:ring-zinc-900 dark:focus:ring-white transition-all outline-none font-medium shadow-sm" />
                                 @error('email')
-                                    <span class="absolute -bottom-6 left-0 text-[10px] text-red-500 font-bold uppercase tracking-wider">{{ $message }}</span>
+                                    <span
+                                        class="absolute -bottom-6 left-0 text-[10px] text-red-500 font-bold uppercase tracking-wider">{{ $message }}</span>
                                 @enderror
                             </div>
                             <button type="submit"
