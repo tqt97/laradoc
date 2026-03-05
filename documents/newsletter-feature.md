@@ -19,7 +19,10 @@ This document provides a comprehensive overview of the Newsletter Feature implem
   - [6. Automated Newsletter Task](#6-automated-newsletter-task)
     - [Artisan Command](#artisan-command)
     - [Scheduling](#scheduling)
-  - [7. Dependencies \& Requirements](#7-dependencies--requirements)
+  - [7. CLI Commands](#7-cli-commands)
+    - [Create a New Post](#create-a-new-post)
+    - [Send Weekly Newsletter](#send-weekly-newsletter)
+  - [8. Dependencies \& Requirements](#8-dependencies--requirements)
 
 ---
 
@@ -133,7 +136,33 @@ The command is scheduled to run once a week.
 Schedule::command('newsletter:send-weekly')->weeklyOn(1, '09:00'); // Mondays at 9 AM
 ```
 
-## 7. Dependencies & Requirements
+## 7. CLI Commands
+
+### Create a New Post
+
+A convenience command to create a new markdown post with a fully interactive setup.
+
+```bash
+php artisan prezet:make
+```
+
+This command will interactively guide you through:
+
+1. **Title**: Prompts for the post title and generates a slug.
+2. **Category**: Choose from a list of predefined categories.
+3. **Author**: Select from authors configured in `config/prezet.php`.
+4. **Parent Folder**: Choose an existing sub-folder, or select **[ Create New Folder ]** to input a new directory name.
+5. **Index Update**: Defaults to updating the Prezet index after creation.
+
+### Send Weekly Newsletter
+
+Manually trigger the weekly newsletter sending.
+
+```bash
+php artisan newsletter:send-weekly
+```
+
+## 8. Dependencies & Requirements
 
 - **Middleware**: The routes displaying the form MUST have session-related middleware enabled (`StartSession`, `ShareErrorsFromSession`). Without these, the `$errors` variable will be undefined in the view.
 - **Mail Configuration**: Standard Laravel mail settings in `.env` (SMTP, Mailgun, etc.) must be configured.
