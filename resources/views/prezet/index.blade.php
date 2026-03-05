@@ -76,7 +76,7 @@
             </aside>
 
             {{-- Main Content: Articles Feed --}}
-            <main class="col-span-1 lg:col-span-6">
+            <main class="col-span-1 lg:col-span-9">
                 <header class="mb-16">
                     <h1
                         class="text-4xl font-bold tracking-tight text-zinc-900 dark:text-white sm:text-6xl mb-6 leading-[1.1]">
@@ -189,63 +189,6 @@
                     </div>
                 @endif
             </main>
-
-            {{-- Right Sidebar: Widgets --}}
-            <aside class="hidden lg:block lg:col-span-3">
-                <div class="sticky top-24 space-y-10">
-                    {{-- About Widget --}}
-                    <div class="p-8 rounded-3xl bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 shadow-2xl">
-                        <h3 class="text-2xl font-bold mb-4 tracking-tight leading-tight">Crafted for Clarity.</h3>
-                        <p class="text-zinc-400 dark:text-zinc-500 text-sm leading-relaxed mb-8 font-medium">
-                            Experience the future of documentation. Beautifully crafted with Laravel, Tailwind, and
-                            Alpine.js.
-                        </p>
-                        <a href="https://prezet.com" target="_blank"
-                            class="inline-flex items-center gap-2 text-sm font-bold group">
-                            Visit Prezet
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3"
-                                stroke="currentColor" class="size-4 group-hover:translate-x-1 transition-transform">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
-                            </svg>
-                        </a>
-                    </div>
-
-                    {{-- Newsletter Widget --}}
-                    <div class="p-8 rounded-3xl border-2 border-zinc-100 dark:border-zinc-800">
-                        <h3 class="text-xl font-bold mb-3 text-zinc-900 dark:text-white tracking-tight">Weekly Digest
-                        </h3>
-                        <p class="text-zinc-500 dark:text-zinc-400 text-sm mb-8 font-medium">
-                            Join developers getting high-quality Laravel content weekly.
-                        </p>
-                        <div class="space-y-4">
-                            <input type="email" placeholder="Email address"
-                                class="w-full px-5 py-4 rounded-2xl bg-zinc-50 dark:bg-zinc-800 border-none text-sm focus:ring-2 focus:ring-zinc-900 dark:focus:ring-white transition-all outline-none font-medium" />
-                            <button
-                                class="w-full py-4 rounded-2xl bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold text-sm shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all">
-                                Subscribe
-                            </button>
-                        </div>
-                    </div>
-
-                    {{-- Links Widget --}}
-                    <div class="px-8">
-                        <h3 class="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400 dark:text-zinc-500 mb-8">
-                            Connect</h3>
-                        <ul class="space-y-5 text-sm font-bold">
-                            <li><a href="#"
-                                    class="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">GitHub</a>
-                            </li>
-                            <li><a href="#"
-                                    class="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">Twitter</a>
-                            </li>
-                            <li><a href="#"
-                                    class="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">Documentation</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </aside>
         </div>
     </div>
 </x-prezet.template>
