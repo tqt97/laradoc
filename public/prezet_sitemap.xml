@@ -1,123 +1,128 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
     <url>
-        <loc>http://localhost/features/jsonld</loc>
+        <loc>http://127.0.0.1:8000/features/jsonld</loc>
         <lastmod>2026-03-01T12:33:13+00:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/testing</loc>
+        <loc>http://127.0.0.1:8000/testing</loc>
         <lastmod>2026-03-01T12:50:52+00:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/testing/laravel-database-testing</loc>
+        <loc>http://127.0.0.1:8000/testing/laravel-database-testing</loc>
         <lastmod>2026-03-01T12:50:52+00:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/testing/laravel-fakes</loc>
+        <loc>http://127.0.0.1:8000/testing/laravel-fakes</loc>
         <lastmod>2026-03-01T12:50:52+00:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/testing/laravel-mocking</loc>
+        <loc>http://127.0.0.1:8000/testing/laravel-mocking</loc>
         <lastmod>2026-03-01T12:50:52+00:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/testing/laravel-testing</loc>
+        <loc>http://127.0.0.1:8000/testing/laravel-testing</loc>
         <lastmod>2026-03-01T12:50:52+00:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/laravel-vite</loc>
+        <loc>http://127.0.0.1:8000/laravel-vite</loc>
         <lastmod>2026-03-01T12:50:52+00:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/laravel-validation</loc>
+        <loc>http://127.0.0.1:8000/laravel-validation</loc>
         <lastmod>2026-03-01T12:50:52+00:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/features/sitemap</loc>
+        <loc>http://127.0.0.1:8000/features/sitemap</loc>
         <lastmod>2026-03-01T12:33:13+00:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/configuration</loc>
+        <loc>http://127.0.0.1:8000/configuration</loc>
         <lastmod>2026-03-01T12:33:13+00:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/index</loc>
+        <loc>http://127.0.0.1:8000/index</loc>
         <lastmod>2026-03-01T12:33:13+00:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/features/markdown</loc>
+        <loc>http://127.0.0.1:8000/features/markdown</loc>
+        <lastmod>2026-03-05T14:34:09+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/features/blade</loc>
         <lastmod>2026-03-01T12:33:13+00:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/features/blade</loc>
+        <loc>http://127.0.0.1:8000/features/ogimage</loc>
         <lastmod>2026-03-01T12:33:13+00:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/features/ogimage</loc>
+        <loc>http://127.0.0.1:8000/features/frontmatter</loc>
         <lastmod>2026-03-01T12:33:13+00:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/features/frontmatter</loc>
-        <lastmod>2026-03-01T12:33:13+00:00</lastmod>
-
-            </url>
-    <url>
-        <loc>http://localhost/features/images</loc>
+        <loc>http://127.0.0.1:8000/features/images</loc>
         <lastmod>2026-03-01T23:31:27+00:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/features/seo</loc>
+        <loc>http://127.0.0.1:8000/features/seo</loc>
         <lastmod>2026-03-01T12:33:13+00:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/laravel-queues</loc>
+        <loc>http://127.0.0.1:8000/laravel-queues</loc>
         <lastmod>2026-03-01T12:50:52+00:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/laravel-routing</loc>
+        <loc>http://127.0.0.1:8000/laravel-routing</loc>
         <lastmod>2026-03-01T12:50:52+00:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/laravel-artisan</loc>
+        <loc>http://127.0.0.1:8000/laravel-artisan</loc>
         <lastmod>2026-03-01T12:50:52+00:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/laravel-middleware</loc>
+        <loc>http://127.0.0.1:8000/laravel-middleware</loc>
         <lastmod>2026-03-01T12:50:52+00:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/eloquent-basics</loc>
+        <loc>http://127.0.0.1:8000/eloquent-basics</loc>
         <lastmod>2026-03-01T12:50:52+00:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/blade-templating</loc>
+        <loc>http://127.0.0.1:8000/blade-templating</loc>
         <lastmod>2026-03-01T12:50:52+00:00</lastmod>
 
             </url>
     <url>
-        <loc>http://localhost/laravel-events</loc>
+        <loc>http://127.0.0.1:8000/laravel-events</loc>
         <lastmod>2026-03-01T12:50:52+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/features/newsletter</loc>
+        <lastmod>2026-03-05T14:43:28+00:00</lastmod>
 
             </url>
 </urlset>

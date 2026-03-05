@@ -13,3 +13,4 @@
 -  [JSON-LD](content/features/jsonld)
 -  [Ogimage Generation](content/features/ogimage)
 -  [Sitemap Generation](content/features/sitemap)
+-  [Newsletter Subscription](content/features/newsletter)

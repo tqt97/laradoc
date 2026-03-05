@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\Prezet\ImageController;
 use App\Http\Controllers\Prezet\IndexController;
 use App\Http\Controllers\Prezet\OgimageController;
@@ -11,8 +12,6 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 
 Route::withoutMiddleware([
-    ShareErrorsFromSession::class,
-    StartSession::class,
     VerifyCsrfToken::class,
 ])
     ->group(function () {
@@ -33,3 +32,11 @@ Route::withoutMiddleware([
             ->name('prezet.show')
             ->where('slug', '.*'); // https://laravel.com/docs/11.x/routing#parameters-encoded-forward-slashes
     });
+
+Route::middleware([
+    StartSession::class,
+    ShareErrorsFromSession::class,
+    VerifyCsrfToken::class,
+])->group(function () {
+    Route::post('newsletter/subscribe', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
+});

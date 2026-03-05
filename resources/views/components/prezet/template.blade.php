@@ -67,19 +67,32 @@
                 <div class="flex flex-col items-center text-center space-y-12">
                     {{-- Compact Newsletter --}}
                     <div class="max-w-2xl w-full">
-                        <h3 class="text-2xl font-black text-zinc-900 dark:text-white mb-3 tracking-tight">Weekly Digest
-                        </h3>
+                        <h3 class="text-2xl font-black text-zinc-900 dark:text-white mb-3 tracking-tight">Weekly Digest</h3>
                         <p class="text-zinc-500 dark:text-zinc-400 font-medium mb-8">
                             Join developers getting high-quality Laravel content weekly.
                         </p>
-                        <form action="#" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-                            <input type="email" placeholder="Email address" required
-                                class="flex-grow px-5 py-3 rounded-xl bg-white dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700 text-sm focus:ring-2 focus:ring-zinc-900 dark:focus:ring-white transition-all outline-none font-medium shadow-sm" />
+
+                        @if (session('success'))
+                            <div class="mb-8 p-4 rounded-xl bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400 font-bold text-sm">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+
+                        <form action="{{ route('newsletter.subscribe') }}" method="POST" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+                            @csrf
+                            <div class="flex-grow relative">
+                                <input type="email" name="email" placeholder="Email address" required
+                                    class="w-full px-5 py-3 rounded-xl bg-white dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700 text-sm focus:ring-2 focus:ring-zinc-900 dark:focus:ring-white transition-all outline-none font-medium shadow-sm" />
+                                @error('email')
+                                    <span class="absolute -bottom-6 left-0 text-[10px] text-red-500 font-bold uppercase tracking-wider">{{ $message }}</span>
+                                @enderror
+                            </div>
                             <button type="submit"
                                 class="px-6 py-3 rounded-xl bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold text-sm shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all whitespace-nowrap">
                                 Subscribe
                             </button>
                         </form>
+
                     </div>
 
                     <div class="w-full h-px bg-zinc-200/50 dark:bg-zinc-800/50"></div>

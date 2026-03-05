@@ -1,6 +1,6 @@
 ---
 title: Markdown Powered Blogging
-date: 2024-05-08
+date: 2026-03-03
 category: Features
 excerpt: Prezet is a markdown powered blogging platform that is easy to use and customize.
 image: /prezet/img/ogimages/features-markdown.webp
