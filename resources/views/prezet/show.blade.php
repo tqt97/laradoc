@@ -193,4 +193,56 @@
                 @endif
         </x-prezet.alpine>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const article = document.querySelector('article');
+            if (!article) return;
+
+            const initCopyButtons = () => {
+                article.querySelectorAll('pre').forEach((pre) => {
+                    if (pre.dataset.copyInitialized) return;
+                    pre.dataset.copyInitialized = 'true';
+
+                    // Ensure pre is relative
+                    pre.style.position = 'relative';
+                    pre.classList.add('group/copy');
+
+                    const button = document.createElement('button');
+                    button.type = 'button';
+                    button.className =
+                        'absolute top-2 right-2 w-7 h-7 flex items-center justify-center rounded bg-zinc-800/30 text-zinc-500 opacity-0 group-hover/copy:opacity-100 transition-all hover:bg-zinc-800 hover:text-zinc-300 border border-zinc-700/20 cursor-pointer z-10';
+                    button.innerHTML = `
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                    `;
+
+                    button.onclick = async (e) => {
+                        e.preventDefault();
+                        const code = pre.querySelector('code')?.innerText || pre.innerText;
+                        try {
+                            await navigator.clipboard.writeText(code);
+                            const original = button.innerHTML;
+                            button.innerHTML = `
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-500"><polyline points="20 6 9 17 4 12"/></svg>
+                            `;
+                            setTimeout(() => button.innerHTML = original, 2000);
+                        } catch (err) {
+                            console.error('Copy failed', err);
+                        }
+                    };
+
+                    pre.appendChild(button);
+                });
+            };
+
+            initCopyButtons();
+
+            // Re-run if content changes (e.g. HTMX)
+            const observer = new MutationObserver(initCopyButtons);
+            observer.observe(article, {
+                childList: true,
+                subtree: true
+            });
+        });
+    </script>
 </x-prezet.template>
