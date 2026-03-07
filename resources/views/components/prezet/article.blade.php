@@ -22,9 +22,9 @@
             @endif
 
             @if ($article->category)
-                <div class="absolute top-4 left-4 z-10">
+                <div class="absolute top-4 left-4 z-20">
                     <a href="{{ route('prezet.index', ['category' => strtolower($article->category)]) }}"
-                        class="rounded-full bg-white/90 px-3 py-1 text-xs font-bold text-zinc-900 backdrop-blur-sm transition hover:bg-white dark:bg-black/50 dark:text-white dark:hover:bg-black/70">
+                        class="relative rounded-full bg-white/90 px-3 py-1 text-xs font-bold text-zinc-900 backdrop-blur-sm transition hover:bg-white dark:bg-black/50 dark:text-white dark:hover:bg-black/70">
                         {{ strtoupper($article->category) }}
                     </a>
                 </div>
@@ -34,15 +34,17 @@
 
     <div class="flex flex-1 flex-col p-6 space-y-4">
         @if ($hideImage && $article->category)
-            <div class="text-[10px] font-bold tracking-widest text-primary-600 dark:text-primary-400 uppercase">
-                {{ $article->category }}
+            <div class="relative z-20 text-[10px] font-bold tracking-widest text-primary-600 dark:text-primary-400 uppercase">
+                <a href="{{ route('prezet.index', ['category' => strtolower($article->category)]) }}" class="hover:underline">
+                    {{ $article->category }}
+                </a>
             </div>
         @endif
 
         <h2
             class="text-xl leading-tight font-bold tracking-tight text-zinc-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
             <a href="{{ route('prezet.show', $article->slug) }}">
-                <span class="absolute inset-0 z-0"></span>
+                <span class="absolute inset-0 z-10" aria-hidden="true"></span>
                 {{ $article->frontmatter->title }}
             </a>
         </h2>
@@ -52,7 +54,7 @@
         </p>
 
         <div class="mt-auto pt-4 flex flex-col gap-4">
-            <div class="relative z-10 flex items-center justify-between text-xs">
+            <div class="relative z-20 flex items-center justify-between text-xs">
                 <a href="{{ route('prezet.index', ['author' => strtolower($article->frontmatter->author)]) }}"
                     class="group/author flex items-center gap-2">
                     @if ($author['image'])
@@ -78,7 +80,7 @@
                     <div class="flex items-center gap-1.5">
                         <x-prezet.icon-calendar class="size-3.5" />
                         <time datetime="{{ $article->createdAt->toIso8601String() }}">
-                            {{ $article->createdAt->format('M j, Y') }}
+                            {{ $article->createdAt->format('d/m/Y') }}
                         </time>
                     </div>
                     @if (isset($article->readingTime))
@@ -88,14 +90,14 @@
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                     d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                             </svg>
-                            <span>{{ $article->readingTime }} min</span>
+                            <span>{{ $article->readingTime }} phút</span>
                         </div>
                     @endif
                 </div>
             </div>
 
             @if (isset($article->frontmatter->tags) && count($article->frontmatter->tags) > 0)
-                <div class="relative z-10 flex flex-wrap gap-1.5">
+                <div class="relative z-20 flex flex-wrap gap-1.5">
                     @foreach (array_slice($article->frontmatter->tags, 0, 3) as $tag)
                         <a href="{{ route('prezet.index', ['tag' => strtolower($tag)]) }}"
                             class="inline-flex items-center rounded-md bg-zinc-100 dark:bg-zinc-800/50 px-2 py-0.5 text-[10px] font-medium text-zinc-600 dark:text-zinc-400 transition-colors hover:bg-zinc-200 dark:hover:bg-zinc-700">

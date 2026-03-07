@@ -65,7 +65,7 @@
                                     <time datetime="{{ $document->createdAt->format('Y-m-d') }}"
                                         class="flex items-center gap-1">
                                         <x-prezet.icon-calendar class="size-3" />
-                                        {{ $document->createdAt->format('M d, Y') }}
+                                        {{ $document->createdAt->format('d/m/Y') }}
                                     </time>
                                     <span class="text-zinc-300 dark:text-zinc-700">&bull;</span>
                                     <span class="flex items-center gap-1">
@@ -74,7 +74,7 @@
                                             <path stroke-linecap="round" stroke-linejoin="round"
                                                 d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                                         </svg>
-                                        {{ $readingTime }} min read
+                                        {{ $readingTime }} phút đọc
                                     </span>
                                 </div>
                             </div>
@@ -100,8 +100,8 @@
                     <div class="flex-none overflow-y-auto lg:sticky lg:top-[6rem] lg:h-[calc(100vh-4.75rem)] ml-4">
                         <nav aria-labelledby="on-this-page-title">
                             <p id="on-this-page-title"
-                                class="font-display text-sm font-medium text-zinc-900 dark:text-zinc-100">
-                                On this page
+                                class="font-display text-sm font-medium text-zinc-900 dark:text-zinc-100 uppercase tracking-widest">
+                                Trong bài viết này
                             </p>
                             <ol role="list" class="mt-4 space-y-3 text-sm">
                                 @foreach ($headings as $h2)
@@ -187,7 +187,7 @@
                             <div class="mt-6">
                                 <a href="{{ route('prezet.index', ['author' => strtolower($document->frontmatter->author)]) }}"
                                     class="inline-flex items-center gap-1 text-sm font-semibold text-primary-600 transition-colors hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300">
-                                    View all posts by {{ $author['name'] }}
+                                    Xem thêm các bài viết của {{ $author['name'] }}
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="size-4">
                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -200,7 +200,7 @@
 
                     @if ($relatedPosts->isNotEmpty())
                         <div class="mt-16 mb-16 border-t border-zinc-200 pt-16 dark:border-zinc-700">
-                            <h3 class="mb-8 text-2xl font-bold text-zinc-900 dark:text-white">Related Articles</h3>
+                            <h3 class="mb-8 text-2xl font-bold text-zinc-900 dark:text-white">Bài viết liên quan</h3>
                             <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
                                 @foreach ($relatedPosts as $relatedPost)
                                     <x-prezet.article :article="$relatedPost->data" :author="$relatedPost->author" />

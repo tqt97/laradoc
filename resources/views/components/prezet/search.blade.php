@@ -188,7 +188,7 @@
                 clip-rule="evenodd" />
         </svg>
         <span class="hidden grow text-start opacity-60 group-hover:opacity-100 lg:block">
-            Search..
+            Tìm kiếm..
         </span>
         <span class="hidden flex-none text-xs font-semibold opacity-75 lg:block">
             <span x-text="modifierKey" class="opacity-75"></span>
@@ -233,7 +233,7 @@
                             x-on:keydown.page-up.prevent.stop="navigateResults('first')"
                             x-on:keydown.page-down.prevent.stop="navigateResults('last')" type="text"
                             class="w-full border-none bg-transparent py-3 text-sm placeholder:text-zinc-500 focus:ring-0 focus:outline-hidden dark:placeholder:text-zinc-400"
-                            placeholder="Search..." tabindex="0" role="combobox" aria-expanded="true"
+                            placeholder="Tìm kiếm..." tabindex="0" role="combobox" aria-expanded="true"
                             aria-autocomplete="list" />
                         <svg x-show="loading" class="inline-block size-6 animate-spin opacity-50"
                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -283,7 +283,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                         </svg>
-                        <p>No search results</p>
+                        <p>Không tìm thấy kết quả</p>
                     </div>
                 </div>
                 <!-- END No Results Feedback -->

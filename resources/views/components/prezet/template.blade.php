@@ -69,10 +69,10 @@
                 <div class="flex flex-col items-center text-center space-y-12">
                     {{-- Compact Newsletter --}}
                     <div class="max-w-2xl w-full">
-                        <h3 class="text-2xl font-black text-zinc-900 dark:text-white mb-3 tracking-tight">Weekly Digest
+                        <h3 class="text-2xl font-black text-zinc-900 dark:text-white mb-3 tracking-tight">Bản tin hàng tuần
                         </h3>
                         <p class="text-zinc-500 dark:text-zinc-400 font-medium mb-8">
-                            Join developers getting high-quality Laravel content weekly.
+                            Tham gia cùng các nhà phát triển nhận nội dung Laravel chất lượng hàng tuần.
                         </p>
 
                         @if (session('success'))
@@ -86,7 +86,7 @@
                             class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
                             @csrf
                             <div class="flex-grow relative">
-                                <input type="email" name="email" placeholder="Email address" required
+                                <input type="email" name="email" placeholder="Địa chỉ email" required
                                     class="w-full px-5 py-3 rounded-xl bg-white dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700 text-sm focus:ring-2 focus:ring-zinc-900 dark:focus:ring-white transition-all outline-none font-medium shadow-sm" />
                                 @error('email')
                                     <span
@@ -95,7 +95,7 @@
                             </div>
                             <button type="submit"
                                 class="px-6 py-3 rounded-xl bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold text-sm shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all whitespace-nowrap">
-                                Subscribe
+                                Đăng ký
                             </button>
                         </form>
 
@@ -114,7 +114,7 @@
 
                         <div class="flex items-center gap-8 text-sm font-bold">
                             <a href="{{ route('prezet.index') }}"
-                                class="text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white transition-colors">Articles</a>
+                                class="text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white transition-colors">Bài viết</a>
                             <a href="https://github.com/benbjurstrom/prezet" target="_blank"
                                 class="text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white transition-colors">GitHub</a>
                             <a href="#"

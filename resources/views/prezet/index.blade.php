@@ -13,8 +13,8 @@
 
 <x-prezet.template>
     @seo([
-        'title' => 'Prezet: Markdown Blogging for Laravel',
-        'description' => 'Transform your markdown files into SEO-friendly blogs, articles, and documentation!',
+        'title' => 'Prezet: Blog Markdown cho Laravel',
+        'description' => 'Biến các tệp markdown của bạn thành blog, bài viết và tài liệu thân thiện với SEO!',
         'url' => route('prezet.index'),
     ])
 
@@ -29,13 +29,13 @@
                         <h3
                             class="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400 dark:text-zinc-500 mb-8 flex items-center gap-3">
                             <span class="w-8 h-px bg-zinc-200 dark:bg-zinc-800"></span>
-                            Categories
+                            Danh mục
                         </h3>
                         <ul class="space-y-2">
                             <li>
                                 <a href="{{ route('prezet.index', array_filter(request()->except('category'))) }}#articles"
                                     class="group flex items-center justify-between py-2.5 px-4 rounded-xl transition-all {{ !$currentCategory ? 'bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white font-bold shadow-sm' : 'text-zinc-500 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 hover:text-zinc-900 dark:hover:text-zinc-200' }}">
-                                    <span class="text-sm">All Posts</span>
+                                    <span class="text-sm">Tất cả bài viết</span>
                                     <span
                                         class="text-[10px] font-bold py-1 px-2.5 rounded-lg bg-zinc-200/50 dark:bg-zinc-700/50 group-hover:bg-zinc-200 dark:group-hover:bg-zinc-700 transition-colors">
                                         {{ $allPostsCount }}
@@ -60,7 +60,7 @@
                         <h3
                             class="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400 dark:text-zinc-500 mb-8 flex items-center gap-3">
                             <span class="w-8 h-px bg-zinc-200 dark:bg-zinc-800"></span>
-                            Popular Tags
+                            Thẻ phổ biến
                         </h3>
                         <div class="flex flex-wrap gap-2.5">
                             @foreach ($allTags as $tag)
@@ -79,25 +79,24 @@
             <main class="col-span-1 lg:col-span-9">
                 <header class="mb-16">
                     <h1
-                        class="text-4xl font-bold tracking-tight text-zinc-900 dark:text-white sm:text-6xl mb-6 leading-[1.1]">
+                        class="text-2xl font-bold tracking-tight text-zinc-900 dark:text-white sm:text-4xl mb-6 leading-[1.1]">
                         @if ($currentCategory)
-                            <span class="text-zinc-400 dark:text-zinc-600 block text-2xl font-bold mb-2">Category</span>
+                            <span class="text-zinc-400 dark:text-zinc-600 block text-2xl font-bold mb-2">Danh mục</span>
                             {{ $currentCategory }}
                         @elseif ($currentTag)
-                            <span class="text-zinc-400 dark:text-zinc-600 block text-2xl font-bold mb-2">Tag</span>
+                            <span class="text-zinc-400 dark:text-zinc-600 block text-2xl font-bold mb-2">Thẻ</span>
                             #{{ $currentTag }}
                         @elseif ($currentAuthor)
-                            <span class="text-zinc-400 dark:text-zinc-600 block text-2xl font-bold mb-2">Author</span>
+                            <span class="text-zinc-400 dark:text-zinc-600 block text-2xl font-bold mb-2">Tác giả</span>
                             {{ $currentAuthor['name'] }}
                         @else
-                            Recent Posts
+                            Bài viết mới nhất
                         @endif
                     </h1>
 
                     @if (!$currentCategory && !$currentTag && !$currentAuthor)
                         <p class="text-lg text-zinc-500 dark:text-zinc-400 max-w-7xl leading-relaxed font-medium mb-8">
-                            A curated collection of stories, tutorials, and insights focused on modern Laravel
-                            development and Markdown blogging.
+                            Một bộ sưu tập các câu chuyện, hướng dẫn và thông tin chuyên sâu tập trung vào phát triển Laravel hiện đại và viết blog bằng Markdown.
                         </p>
                     @endif
 
@@ -105,7 +104,7 @@
                     @if ($currentTag || $currentCategory || $currentAuthor)
                         <div
                             class="flex flex-wrap items-center gap-4 border-t border-zinc-100 dark:border-zinc-800 pt-8 mt-8">
-                            <span class="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400">Filtering By</span>
+                            <span class="text-xs font-bold tracking-[0.2em] text-zinc-400">Đang lọc theo: </span>
                             @if ($currentTag)
                                 <span
                                     class="inline-flex items-center gap-2 rounded-xl bg-zinc-900 text-white px-4 py-2 text-xs font-bold dark:bg-white dark:text-zinc-900 shadow-lg">
@@ -143,7 +142,7 @@
                             @if ($currentAuthor)
                                 <span
                                     class="inline-flex items-center gap-2 rounded-xl bg-zinc-900 text-white px-4 py-2 text-xs font-bold dark:bg-white dark:text-zinc-900 shadow-lg">
-                                    @if ($currentAuthor['image'])
+                                    @if($currentAuthor['image'])
                                         <img src="{{ $currentAuthor['image'] }}" class="h-4 w-4 rounded-full" />
                                     @endif
                                     {{ strtoupper($currentAuthor['name']) }}
@@ -158,8 +157,8 @@
                             @endif
 
                             <a href="{{ route('prezet.index') }}#articles"
-                                class="text-xs font-bold uppercase tracking-widest text-zinc-400 hover:text-red-500 transition-colors">
-                                Reset
+                                class="text-xs font-bold tracking-widest text-zinc-400 hover:text-red-500 transition-colors">
+                                Thiết lập lại
                             </a>
                         </div>
                     @endif
@@ -170,7 +169,7 @@
                     @foreach ($postsByYear as $year => $posts)
                         <section>
                             <div class="flex items-center gap-8 mb-16">
-                                <h2 class="text-5xl font-bold text-zinc-900 dark:text-white tracking-tighter">
+                                <h2 class="text-4xl font-bold text-zinc-900 dark:text-white tracking-tighter">
                                     {{ $year }}
                                 </h2>
                                 <div class="h-px flex-grow bg-zinc-100 dark:bg-zinc-800"></div>
