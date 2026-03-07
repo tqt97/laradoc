@@ -17,5 +17,8 @@
         "tailwindcss": "^4.2.1",
         "vite": "^7.0.7",
         "vite-plugin-watch-and-run": "^1.7.5"
+    },
+    "dependencies": {
+        "puppeteer": "^24.38.0"
     }
 }

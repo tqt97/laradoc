@@ -3,7 +3,7 @@ title: Painless Testing in Laravel
 date: 2025-01-10
 category: Testing
 excerpt: An introduction to writing unit and feature tests for your Laravel applications.
-image: /prezet/img/ogimages/laravel-testing.webp
+image: /prezet/img/ogimages/blogs-testing-laravel-testing.webp
 author: bob
 tags: [phpunit, tdd]
 ---

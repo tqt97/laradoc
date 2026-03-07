@@ -3,7 +3,7 @@ title: Working with Images in Prezet
 date: 2024-05-06
 category: Features
 excerpt: Learn about Prezet's powerful image features including automatic optimization and interactive zoom capabilities.
-image: /prezet/img/ogimages/features-images.webp
+image: /prezet/img/ogimages/blogs-features-images.webp
 author: bob
 ---
 

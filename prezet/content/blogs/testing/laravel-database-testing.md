@@ -3,7 +3,7 @@ title: Database Testing in Laravel
 date: 2025-01-10
 category: Testing
 excerpt: Master database testing with model factories, transactions, and seeding strategies for reliable Laravel tests.
-image: /prezet/img/ogimages/laravel-database-testing.webp
+image: /prezet/img/ogimages/blogs-testing-laravel-database-testing.webp
 author: jane
 tags: [database, factories, phpunit]
 ---

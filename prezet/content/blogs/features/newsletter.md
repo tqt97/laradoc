@@ -4,11 +4,8 @@ excerpt: Engage your readers with weekly newsletters automatically generated fro
 author: jane
 category: features
 date: 2026-03-03
-image: /prezet/img/frontend-bundling-with-vite.webp
-tags:
-  - newsletter
-  - marketing
-  - engagement
+image: /prezet/img/ogimages/blogs-features-newsletter.webp
+tags: [newsletter, marketing, engagement]
 ---
 
 # Newsletter Subscription

@@ -3,7 +3,7 @@ title: Understanding Prezet's Configuration File
 excerpt: Learn how to install and customize the configuration file that powers Prezet's markdown blogging capabilities.
 date: 2024-06-27
 category: Getting Started
-image: /prezet/img/ogimages/configuration.webp
+image: /prezet/img/ogimages/blogs-configuration.webp
 ---
 
 The configuration file is published as part of the package's installation command, but you can manually publish or re-publish it at any time by running:

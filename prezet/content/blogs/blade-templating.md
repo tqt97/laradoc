@@ -2,7 +2,7 @@
 title: Introduction to Blade Templates
 date: 2022-11-01
 excerpt: Discover Laravel's simple yet powerful templating engine, Blade.
-image: /prezet/img/ogimages/laravel-blade.webp
+image: /prezet/img/ogimages/blogs-blade-templating.webp
 author: bob
 tags: [blade, views, frontend]
 ---

@@ -2,7 +2,7 @@
 title: Mastering Laravel Validation
 date: 2024-09-03
 excerpt: Ensure data integrity with Laravel's powerful validation features.
-image: /prezet/img/ogimages/laravel-validation.webp
+image: /prezet/img/ogimages/blogs-laravel-validation.webp
 author: jane
 tags: [validation, forms, security]
 ---

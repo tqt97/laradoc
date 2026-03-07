@@ -3,9 +3,9 @@ title: "Markdown Tutorial: Mastery Guide"
 date: 2026-03-07
 category: Features
 excerpt: A comprehensive guide to using all the Markdown features supported by Prezet, including standard syntax and advanced extensions.
-image: /prezet/img/ogimage.webp
+image: /prezet/img/ogimages/blogs-markdown-tutorial.webp
 author: prezet
-tags: ["markdown", "tutorial", "guide"]
+tags: [markdown, tutorial, guide]
 ---
 
 # Markdown Tutorial: Mastery Guide

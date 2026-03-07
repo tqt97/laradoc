@@ -3,7 +3,7 @@ title: Laravel's Built-in Fakes for Testing
 date: 2025-01-10
 category: Testing
 excerpt: Discover how to use Laravel's powerful fake implementations to test external services without side effects.
-image: /prezet/img/ogimages/laravel-fakes.webp
+image: /prezet/img/ogimages/blogs-testing-laravel-fakes.webp
 author: bob
 tags: [fakes, phpunit]
 ---
