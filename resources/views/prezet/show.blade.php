@@ -100,8 +100,8 @@
                     <div class="flex-none overflow-y-auto lg:sticky lg:top-[6rem] lg:h-[calc(100vh-4.75rem)] ml-4">
                         <nav aria-labelledby="on-this-page-title">
                             <p id="on-this-page-title"
-                                class="font-display text-sm font-medium text-zinc-900 dark:text-zinc-100 uppercase tracking-widest">
-                                Trong bài viết này
+                                class="font-display text-sm font-medium text-zinc-900 dark:text-zinc-100 tracking-widest">
+                                Nội dung chính
                             </p>
                             <ol role="list" class="mt-4 space-y-3 text-sm">
                                 @foreach ($headings as $h2)
@@ -203,7 +203,7 @@
                             <h3 class="mb-8 text-2xl font-bold text-zinc-900 dark:text-white">Bài viết liên quan</h3>
                             <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
                                 @foreach ($relatedPosts as $relatedPost)
-                                    <x-prezet.article :article="$relatedPost->data" :author="$relatedPost->author" />
+                                    <x-prezet.article :article="$relatedPost->data" :author="$relatedPost->author" :hide-image="true" />
                                 @endforeach
                             </div>
                         </div>

@@ -46,7 +46,7 @@
                     class="flex items-center gap-2 border-l border-zinc-200 pl-4 dark:border-zinc-800 sm:gap-4 sm:pl-6">
                     <button
                         onclick="const isDark = document.documentElement.classList.toggle('dark'); localStorage.setItem('theme', isDark ? 'dark' : 'light');"
-                        class="group p-2 rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors outline-none"
+                        class="group p-2 rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors outline-none hover:cursor-pointer"
                         aria-label="Toggle theme">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
                             stroke="currentColor"

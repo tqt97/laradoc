@@ -17,6 +17,12 @@ class NewsletterController extends Controller
             'email' => $request->email,
         ]);
 
-        return back()->with('success', 'Thanks for subscribing!');
+        if ($request->header('HX-Request')) {
+            session()->flash('success', true);
+
+            return view('components.prezet.newsletter');
+        }
+
+        return back()->with('success', true);
     }
 }

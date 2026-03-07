@@ -40,7 +40,7 @@
 </head>
 
 <body
-    class="font-['Be_Vietnam_Pro'] antialiased dark:bg-zinc-900 selection:bg-zinc-900 selection:text-white dark:selection:bg-white dark:selection:text-zinc-900"
+    class="font-['Be_Vietnam_Pro'] antialiased bg-white dark:bg-zinc-950 selection:bg-zinc-900 selection:text-white dark:selection:bg-white dark:selection:text-zinc-900"
     x-data="{
         scrolled: false,
         progress: 0,
@@ -57,68 +57,33 @@
     }" x-init="updateScroll();
     window.addEventListener('scroll', () => updateScroll())">
 
-    <div class="min-h-screen flex flex-col bg-white dark:bg-zinc-950 transition-colors duration-300">
+    <div class="min-h-screen flex flex-col transition-colors duration-300">
         <x-prezet.header />
 
         <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             {{ $slot }}
         </main>
 
-        <footer class="bg-zinc-50 dark:bg-zinc-900/30 border-t border-zinc-100 dark:border-zinc-800/50 mt-24">
+        <footer class="bg-zinc-900 dark:bg-black border-t border-zinc-800 mt-24">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-                <div class="flex flex-col items-center text-center space-y-12">
-                    {{-- Compact Newsletter --}}
-                    <div class="max-w-2xl w-full">
-                        <h3 class="text-2xl font-black text-zinc-900 dark:text-white mb-3 tracking-tight">Bản tin hàng tuần
-                        </h3>
-                        <p class="text-zinc-500 dark:text-zinc-400 font-medium mb-8">
-                            Tham gia cùng các nhà phát triển nhận nội dung Laravel chất lượng hàng tuần.
-                        </p>
+                <div class="flex flex-col items-center text-center space-y-16">
+                    {{-- Newsletter Section --}}
+                    <x-prezet.newsletter />
 
-                        @if (session('success'))
-                            <div
-                                class="mb-8 p-4 rounded-xl bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400 font-bold text-sm">
-                                {{ session('success') }}
-                            </div>
-                        @endif
-
-                        <form action="{{ route('newsletter.subscribe') }}" method="POST"
-                            class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-                            @csrf
-                            <div class="flex-grow relative">
-                                <input type="email" name="email" placeholder="Địa chỉ email" required
-                                    class="w-full px-5 py-3 rounded-xl bg-white dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700 text-sm focus:ring-2 focus:ring-zinc-900 dark:focus:ring-white transition-all outline-none font-medium shadow-sm" />
-                                @error('email')
-                                    <span
-                                        class="absolute -bottom-6 left-0 text-[10px] text-red-500 font-bold uppercase tracking-wider">{{ $message }}</span>
-                                @enderror
-                            </div>
-                            <button type="submit"
-                                class="px-6 py-3 rounded-xl bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold text-sm shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all whitespace-nowrap">
-                                Đăng ký
-                            </button>
-                        </form>
-
-                    </div>
-
-                    <div class="w-full h-px bg-zinc-200/50 dark:bg-zinc-800/50"></div>
+                    <div class="w-full h-px bg-zinc-800"></div>
 
                     {{-- Simple Footer Bottom --}}
                     <div class="flex flex-col md:flex-row justify-between items-center w-full gap-8">
                         <div class="flex items-center gap-6">
                             <x-prezet.logo />
-                            <p class="text-sm font-bold text-zinc-400 dark:text-zinc-500">
-                                &copy; {{ date('Y') }} Laradoc & Prezet.
+                            <p class="text-sm font-bold text-zinc-500">
+                                &copy; {{ date('Y') }} TuanTQ - Nơi chia sẻ và lưu trữ kiến thức.
                             </p>
                         </div>
 
                         <div class="flex items-center gap-8 text-sm font-bold">
                             <a href="{{ route('prezet.index') }}"
-                                class="text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white transition-colors">Bài viết</a>
-                            <a href="https://github.com/benbjurstrom/prezet" target="_blank"
-                                class="text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white transition-colors">GitHub</a>
-                            <a href="#"
-                                class="text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white transition-colors">Twitter</a>
+                                class="text-zinc-400 hover:text-white transition-colors">Bài viết</a>
                         </div>
                     </div>
                 </div>
@@ -131,7 +96,7 @@
         x-transition:enter-start="opacity-0 translate-y-8" x-transition:enter-end="opacity-100 translate-y-0"
         x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 translate-y-0"
         x-transition:leave-end="opacity-0 translate-y-8" @click="window.scrollTo({top: 0, behavior: 'smooth'})"
-        class="fixed bottom-8 right-8 z-40 w-12 h-12 rounded-full bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white shadow-2xl flex items-center justify-center group outline-none ring-1 ring-zinc-200 dark:ring-zinc-700">
+        class="fixed bottom-8 right-8 z-40 w-12 h-12 rounded-full bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white shadow-2xl flex items-center justify-center group outline-none ring-1 ring-zinc-200 dark:ring-zinc-700 hover:cursor-pointer">
         <svg class="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 100 100">
             <circle class="text-zinc-100 dark:text-zinc-700/50" stroke-width="6" stroke="currentColor"
                 fill="transparent" r="44" cx="50" cy="50" />

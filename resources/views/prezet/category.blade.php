@@ -12,28 +12,31 @@
         'image' => $document->frontmatter->image ? url($document->frontmatter->image) : null,
     ])
 
-    <div id="articles-content" class="container mx-auto px-4 py-12">
-        <div class="mb-12 text-center">
-            <h1 class="text-4xl font-extrabold tracking-tight text-zinc-900 sm:text-5xl dark:text-white">
-                {{ $document->frontmatter->title }}
-            </h1>
-            @if($document->frontmatter->excerpt)
-                <p class="mt-4 text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto leading-relaxed">
-                    {{ $document->frontmatter->excerpt }}
-                </p>
+    <div id="articles" class="py-12 lg:py-24 scroll-mt-24">
+        <div id="articles-content" class="container mx-auto px-4">
+            <div class="mb-12 text-center">
+                <h1 class="text-4xl font-extrabold tracking-tight text-zinc-900 sm:text-5xl dark:text-white">
+                    {{ $document->frontmatter->title }}
+                </h1>
+                @if ($document->frontmatter->excerpt)
+                    <p class="mt-4 text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto leading-relaxed">
+                        {{ $document->frontmatter->excerpt }}
+                    </p>
+                @endif
+            </div>
+
+            @if ($body)
+                <article
+                    class="prose prose-zinc dark:prose-invert max-w-none mb-16 pb-12 border-b border-zinc-200 dark:border-zinc-800">
+                    {!! $body !!}
+                </article>
             @endif
-        </div>
 
-        @if($body)
-            <article class="prose prose-zinc dark:prose-invert max-w-none mb-16 pb-12 border-b border-zinc-200 dark:border-zinc-800">
-                {!! $body !!}
-            </article>
-        @endif
-
-        <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            @foreach ($docs as $doc)
-                <x-prezet.article :article="$doc->data" :author="$doc->author" />
-            @endforeach
+            <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+                @foreach ($docs as $doc)
+                    <x-prezet.article :article="$doc->data" :author="$doc->author" />
+                @endforeach
+            </div>
         </div>
     </div>
 </x-prezet.template>

@@ -156,21 +156,21 @@ return [
     'authors' => [
         'bob' => [
             '@type' => 'Person',
-            'name' => 'Tác giả Bob',
+            'name' => 'Bob',
             'url' => 'https://prezet.com/authors/prezet',
             'image' => '/prezet/img/bob.webp',
             'bio' => 'Bob là một nhà phát triển Laravel chuyên về công cụ frontend và các phương pháp kiểm thử. Anh ấy thích khám phá Blade, Vite và đảm bảo tính ổn định của ứng dụng thông qua việc kiểm thử mạnh mẽ.',
         ],
         'jane' => [
             '@type' => 'Person',
-            'name' => 'Tác giả Jane',
+            'name' => 'Jane',
             'url' => 'https://prezet.com/authors/prezet',
             'image' => '/prezet/img/jane.webp',
             'bio' => 'Jane là một nhà phát triển backend chuyên về kiến trúc Laravel và tương tác cơ sở dữ liệu. Cô ấy thường xuyên viết về Eloquent, routing, queues và cấu trúc ứng dụng.',
         ],
         'prezet' => [
             '@type' => 'Person',
-            'name' => 'Tác giả Prezet',
+            'name' => 'Prezet',
             'url' => 'https://prezet.com',
             'image' => 'https://prezet.com/favicon.svg',
         ],
