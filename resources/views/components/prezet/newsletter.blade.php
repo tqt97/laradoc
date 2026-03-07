@@ -21,7 +21,7 @@
                 <input type="email" name="email" placeholder="Địa chỉ email của bạn" required
                     class="flex-grow bg-transparent border-none focus:ring-0 text-sm font-medium text-white placeholder:text-zinc-500 py-3 px-3" />
                 <button type="submit"
-                    class="bg-white text-zinc-900 font-bold text-xs uppercase tracking-widest px-6 py-3 rounded-xl transition-all hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50">
+                    class="bg-white text-zinc-900 font-bold text-xs uppercase tracking-widest px-6 py-3 rounded-xl transition-all hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 hover:cursor-pointer">
                     Đăng ký
                 </button>
             </div>

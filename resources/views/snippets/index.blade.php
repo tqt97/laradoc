@@ -23,7 +23,7 @@
                     <input type="text" name="q" value="{{ $search }}" placeholder="Tìm kiếm snippet..."
                         class="flex-grow bg-transparent border-none focus:ring-0 text-sm font-medium text-zinc-900 dark:text-white placeholder:text-zinc-400 py-3 px-3" />
                     <button type="submit"
-                        class="bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold text-xs uppercase tracking-widest px-6 py-3 rounded-xl transition-all hover:scale-[1.02] active:scale-[0.98]">
+                        class="bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold text-xs uppercase tracking-widest px-6 py-3 rounded-xl transition-all hover:shadow-sm hover:cursor-pointer">
                         Tìm kiếm
                     </button>
                 </div>

@@ -7,7 +7,7 @@
 <x-prezet.template>
     @seo($seo)
 
-    <x-prezet.subpage-header title="Ý tưởng nội dung"
+    <x-prezet.subpage-header title="Đề xuất chủ đề"
         subtitle="Bạn muốn chúng mình viết về chủ đề gì? Hãy để lại ý tưởng của bạn tại đây nhé.">
         <div class="mt-12 max-w-5xl mx-auto">
             <form action="{{ route('ideas.store') }}" method="POST"

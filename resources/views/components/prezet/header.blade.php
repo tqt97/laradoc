@@ -28,8 +28,13 @@
                         Snippets
                     </a>
                     <a href="{{ route('ideas.index') }}"
-                        class="text-sm font-semibold {{ request()->routeIs('ideas.index') ? 'text-zinc-900 dark:text-white' : 'text-zinc-600 dark:text-zinc-400' }} hover:text-zinc-900 transition-colors dark:hover:text-zinc-200">
-                        Ý tưởng
+                        class="relative ml-2 flex items-center gap-2 rounded-full px-4 py-1.5 text-sm font-bold transition-all hover:scale-105 active:scale-95 {{ request()->routeIs('ideas.index') ? 'bg-primary-100 text-primary-600 dark:bg-white dark:text-zinc-900' : 'bg-primary-50 text-primary-600 ring-1 ring-primary-100 dark:bg-primary-900/20 dark:text-primary-400 dark:ring-primary-900/50' }}">
+                        <span class="relative flex h-2 w-2">
+                            <span
+                                class="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary-400 opacity-75"></span>
+                            <span class="relative inline-flex h-2 w-2 rounded-full bg-primary-500"></span>
+                        </span>
+                        Gợi ý bài viết
                     </a>
                 </nav>
             </div>
@@ -49,7 +54,7 @@
                         }
                     }">
                         <button @click="toggle"
-                            class="group relative p-2 rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-all duration-300 outline-none overflow-hidden flex items-center justify-center size-10"
+                            class="group relative p-2 rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-all duration-300 outline-none overflow-hidden flex items-center justify-center size-10 hover:cursor-pointer"
                             aria-label="Chuyển chế độ sáng tối">
                             <!-- Sun Icon (shown in dark mode) -->
                             <div x-show="darkMode" x-transition:enter="transition duration-300"
