@@ -22,19 +22,10 @@
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                     </svg>
                     Thêm liên kết mới
-                </button>
-            </header>
+                    </button>
+                    </header>
 
-            @if (session('success'))
-                <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 3000)"
-                    x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100"
-                    x-transition:leave-end="opacity-0"
-                    class="mb-8 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-500 font-bold text-sm text-center">
-                    {{ session('success') }}
-                </div>
-            @endif
-
-            {{-- Links List --}}
+                    {{-- Links List --}}
             <div class="space-y-4">
                 @forelse($links as $link)
                     <div x-data="{ open: false, editing: false }" class="relative">

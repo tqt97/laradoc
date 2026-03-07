@@ -24,6 +24,7 @@ class ShowController
         if ($docData->contentType === 'category') {
             $docs = app(Document::class)::query()
                 ->where('content_type', 'article')
+                ->where('filepath', 'like', 'content/blogs%')
                 ->where('draft', false)
                 ->where('category', $doc->category)
                 ->orderBy('created_at', 'desc')->get();

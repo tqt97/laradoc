@@ -7,6 +7,7 @@ use App\Http\Controllers\Prezet\IndexController;
 use App\Http\Controllers\Prezet\OgimageController;
 use App\Http\Controllers\Prezet\SearchController;
 use App\Http\Controllers\Prezet\ShowController;
+use App\Http\Controllers\SnippetController;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Support\Facades\Route;
@@ -24,6 +25,14 @@ Route::middleware([
     Route::post('links', [LinkController::class, 'store'])->name('links.store');
     Route::put('links/{link}', [LinkController::class, 'update'])->name('links.update');
     Route::delete('links/{link}', [LinkController::class, 'destroy'])->name('links.destroy');
+
+    // Snippets feature
+    Route::get('snippets', [SnippetController::class, 'index'])->name('snippets.index');
+    Route::get('snippets/create', [SnippetController::class, 'create'])->name('snippets.create');
+    Route::post('snippets', [SnippetController::class, 'store'])->name('snippets.store');
+    Route::get('snippets/{slug}', [SnippetController::class, 'show'])->name('snippets.show');
+    Route::get('snippets/{slug}/edit', [SnippetController::class, 'edit'])->name('snippets.edit');
+    Route::put('snippets/{slug}', [SnippetController::class, 'update'])->name('snippets.update');
 });
 
 Route::withoutMiddleware([

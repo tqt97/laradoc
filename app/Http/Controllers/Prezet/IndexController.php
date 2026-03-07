@@ -20,6 +20,7 @@ class IndexController
 
         $query = app(Document::class)::query()
             ->where('content_type', 'article')
+            ->where('filepath', 'like', 'content/blogs%')
             ->where('draft', false);
 
         if ($category) {

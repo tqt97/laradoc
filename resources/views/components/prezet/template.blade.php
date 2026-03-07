@@ -54,16 +54,15 @@
                 sh = 'scrollHeight';
             const progress = (h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight) * 100;
             this.progress = isNaN(progress) ? 0 : Math.min(100, Math.max(0, progress));
-
+            
             const currentScrollY = window.scrollY;
-
-            // Show header if scrolling up, hide if scrolling down
+            
             if (currentScrollY > this.lastScrollY && currentScrollY > 100) {
                 this.showHeader = false;
             } else {
                 this.showHeader = true;
             }
-
+            
             this.lastScrollY = currentScrollY;
             this.scrolled = currentScrollY > 500;
         }
@@ -73,7 +72,7 @@
     <div class="min-h-screen flex flex-col transition-colors duration-300">
         <x-prezet.header />
 
-        <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mt-8">
             {{ $slot }}
         </main>
 
@@ -98,12 +97,59 @@
                             <a href="{{ route('prezet.index') }}"
                                 class="text-zinc-400 hover:text-white transition-colors">Bài viết</a>
                             <a href="{{ route('links.index') }}"
-                                class="text-zinc-400 hover:text-white transition-colors">Liên kết</a>
+                                class="text-zinc-400 hover:text-white transition-colors">Lưu trữ</a>
+                            <a href="{{ route('snippets.index') }}"
+                                class="text-zinc-400 hover:text-white transition-colors">Snippets</a>
                         </div>
                     </div>
                 </div>
             </div>
         </footer>
+    </div>
+
+    {{-- Toast Container - Moved to bottom and added hx-swap-oob --}}
+    <div id="toast-container" hx-swap-oob="true" class="fixed top-24 right-4 z-[110] flex flex-col gap-4 w-full max-w-sm pointer-events-none">
+        @if(session('success'))
+            <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 4000)"
+                x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 translate-x-8"
+                x-transition:enter-end="opacity-100 translate-x-0" x-transition:leave="transition ease-in duration-300"
+                x-transition:leave-start="opacity-100 translate-x-0" x-transition:leave-end="opacity-0 translate-x-8"
+                class="p-4 rounded-2xl bg-emerald-500 text-white font-bold text-sm shadow-2xl flex items-center gap-3 pointer-events-auto">
+                <div class="size-8 rounded-full bg-white/20 flex items-center justify-center shrink-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="size-4">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                    </svg>
+                </div>
+                <p>
+                    @if(is_string(session('success')))
+                        {{ session('success') }}
+                    @else
+                        Thao tác thành công!
+                    @endif
+                </p>
+            </div>
+        @endif
+
+        @if($errors->any())
+            <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 6000)"
+                x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 translate-x-8"
+                x-transition:enter-end="opacity-100 translate-x-0" x-transition:leave="transition ease-in duration-300"
+                x-transition:leave-start="opacity-100 translate-x-0" x-transition:leave-end="opacity-0 translate-x-8"
+                class="p-4 rounded-2xl bg-red-500 text-white font-bold text-sm shadow-2xl flex items-start gap-3 pointer-events-auto">
+                <div class="size-8 rounded-full bg-white/20 flex items-center justify-center shrink-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="size-4">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                    </svg>
+                </div>
+                <div class="flex-grow pt-1">
+                    <ul class="list-none p-0 m-0">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+        @endif
     </div>
 
     <!-- Back to Top Button -->
@@ -120,8 +166,7 @@
                 stroke-linecap="round" stroke="currentColor" fill="transparent" r="44" cx="50" cy="50" />
         </svg>
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3"
-            stroke="currentColor"
-            class="size-4 sm:size-5 relative z-10 group-hover:-translate-y-1 transition-transform">
+            stroke="currentColor" class="size-4 sm:size-5 relative z-10 group-hover:-translate-y-1 transition-transform">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18" />
         </svg>
     </button>
