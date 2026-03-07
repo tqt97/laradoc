@@ -1,5 +1,6 @@
 ## 🎉 Getting Started
 
+- [Markdown Tutorial](content/markdown-tutorial)
 - [Configuration](content/configuration)
 - [Sqlite Index](content/index)
 

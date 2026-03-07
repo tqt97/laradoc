@@ -48,8 +48,20 @@ return [
         'extensions' => [
             League\CommonMark\Extension\CommonMark\CommonMarkCoreExtension::class,
             League\CommonMark\Extension\HeadingPermalink\HeadingPermalinkExtension::class,
+            League\CommonMark\Extension\Table\TableExtension::class,
+            League\CommonMark\Extension\Highlight\HighlightExtension::class,
+            League\CommonMark\Extension\Autolink\AutolinkExtension::class,
+            League\CommonMark\Extension\Attributes\AttributesExtension::class,
+            League\CommonMark\Extension\Footnote\FootnoteExtension::class,
+            League\CommonMark\Extension\SmartPunct\SmartPunctExtension::class,
+            League\CommonMark\Extension\DisallowedRawHtml\DisallowedRawHtmlExtension::class,
+            League\CommonMark\Extension\TaskList\TaskListExtension::class,
+            League\CommonMark\Extension\Strikethrough\StrikethroughExtension::class,
             League\CommonMark\Extension\ExternalLink\ExternalLinkExtension::class,
             League\CommonMark\Extension\FrontMatter\FrontMatterExtension::class,
+            League\CommonMark\Extension\DescriptionList\DescriptionListExtension::class,
+            League\CommonMark\Extension\Mention\MentionExtension::class,
+            League\CommonMark\Extension\DefaultAttributes\DefaultAttributesExtension::class,
             Prezet\Prezet\Extensions\MarkdownBladeExtension::class,
             Prezet\Prezet\Extensions\MarkdownImageExtension::class,
             Phiki\CommonMark\PhikiExtension::class,
@@ -64,13 +76,20 @@ return [
                 'fragment_prefix' => 'content',
                 'insert' => 'before',
                 'min_heading_level' => 2,
-                'max_heading_level' => 3,
+                'max_heading_level' => 4,
                 'title' => 'Permalink',
                 'symbol' => '#',
                 'aria_hidden' => false,
             ],
+            'mentions' => [
+                'github_handle' => [
+                    'prefix' => '@',
+                    'pattern' => '[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}',
+                    'generator' => 'https://github.com/%s',
+                ],
+            ],
             'external_link' => [
-                'internal_hosts' => 'www.example.com', // Don't forget to set this!
+                'internal_hosts' => env('PREZET_EXTERNAL_LINK_HOSTS', env('APP_URL')), // Don't forget to set this!
                 'open_in_new_window' => true,
                 'html_class' => 'external-link',
                 'nofollow' => 'external',
@@ -78,10 +97,11 @@ return [
                 'noreferrer' => 'external',
             ],
             'phiki' => [
-                'theme' => \Phiki\Theme\Theme::NightOwl,
+                'theme' => \Phiki\Theme\Theme::Monokai,
                 'with_wrapper' => false,
                 'with_gutter' => false,
             ],
+            'default_language' => 'php',
         ],
     ],
 
