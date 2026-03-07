@@ -27,6 +27,10 @@
                         class="text-sm font-semibold {{ request()->routeIs('snippets.index') ? 'text-zinc-900 dark:text-white' : 'text-zinc-600 dark:text-zinc-400' }} hover:text-zinc-900 transition-colors dark:hover:text-zinc-200">
                         Snippets
                     </a>
+                    <a href="{{ route('ideas.index') }}"
+                        class="text-sm font-semibold {{ request()->routeIs('ideas.index') ? 'text-zinc-900 dark:text-white' : 'text-zinc-600 dark:text-zinc-400' }} hover:text-zinc-900 transition-colors dark:hover:text-zinc-200">
+                        Ý tưởng
+                    </a>
                 </nav>
             </div>
 

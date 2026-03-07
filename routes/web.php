@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\IdeaController;
 use App\Http\Controllers\LinkController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\Prezet\ArticleController;
@@ -34,6 +35,10 @@ Route::middleware([
     Route::get('snippets/{slug}', [SnippetController::class, 'show'])->name('snippets.show');
     Route::get('snippets/{slug}/edit', [SnippetController::class, 'edit'])->name('snippets.edit');
     Route::put('snippets/{slug}', [SnippetController::class, 'update'])->name('snippets.update');
+
+    // Ideas feature
+    Route::get('ideas', [IdeaController::class, 'index'])->name('ideas.index');
+    Route::post('ideas', [IdeaController::class, 'store'])->name('ideas.store');
 });
 
 Route::withoutMiddleware([
