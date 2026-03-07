@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Prezet;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 use Prezet\Prezet\Data\DocumentData;
 use Prezet\Prezet\Models\Document;
@@ -16,6 +17,9 @@ class ShowController
         $md = Prezet::getMarkdown($doc->filepath);
         $html = Prezet::parseMarkdown($md)->getContent();
         $docData = Prezet::getDocumentDataFromFile($doc->filepath);
+
+        // Check if post image exists
+        $docData->frontmatter->image = $this->checkImageExists($docData->frontmatter->image);
 
         if ($docData->contentType === 'category') {
             $docs = app(Document::class)::query()
@@ -31,7 +35,21 @@ class ShowController
                 $wordCount = str_word_count(strip_tags($html));
                 $docData->readingTime = max(1, ceil($wordCount / 200));
 
-                return $docData;
+                // Check image for each document in category
+                $docData->frontmatter->image = $this->checkImageExists($docData->frontmatter->image);
+
+                // Get and check author
+                $authorKey = $docData->frontmatter->author;
+                $authorData = config('prezet.authors.'.$authorKey, [
+                    'name' => 'Anonymous',
+                    'image' => null,
+                ]);
+                $authorData['image'] = $this->checkImageExists($authorData['image'] ?? null);
+
+                return (object) [
+                    'data' => $docData,
+                    'author' => $authorData,
+                ];
             });
 
             return view('prezet.category', [
@@ -49,6 +67,9 @@ class ShowController
             'image' => '',
             'bio' => '',
         ]);
+
+        // Check if author image exists
+        $author['image'] = $this->checkImageExists($author['image']);
 
         // Calculate reading time
         $wordCount = str_word_count(strip_tags($html));
@@ -69,7 +90,21 @@ class ShowController
                 $wordCount = str_word_count(strip_tags($html));
                 $docData->readingTime = max(1, ceil($wordCount / 200));
 
-                return $docData;
+                // Check image for related post
+                $docData->frontmatter->image = $this->checkImageExists($docData->frontmatter->image);
+
+                // Get and check author
+                $authorKey = $docData->frontmatter->author;
+                $authorData = config('prezet.authors.'.$authorKey, [
+                    'name' => 'Anonymous',
+                    'image' => null,
+                ]);
+                $authorData['image'] = $this->checkImageExists($authorData['image'] ?? null);
+
+                return (object) [
+                    'data' => $docData,
+                    'author' => $authorData,
+                ];
             });
 
         return view('prezet.show', [
@@ -81,5 +116,29 @@ class ShowController
             'readingTime' => $readingTime,
             'relatedPosts' => $relatedPosts,
         ]);
+    }
+
+    /**
+     * Check if an image exists on the prezet disk.
+     */
+    private function checkImageExists(?string $image): ?string
+    {
+        if (empty($image)) {
+            return null;
+        }
+
+        if (str_starts_with($image, 'http')) {
+            return $image;
+        }
+
+        // Remove the /prezet/img/ prefix if it exists
+        $imagePath = str_replace('/prezet/img/', '', $image);
+        $imagePath = 'images/'.ltrim($imagePath, '/');
+
+        if (! Storage::disk('prezet')->exists($imagePath)) {
+            return null;
+        }
+
+        return $image;
     }
 }

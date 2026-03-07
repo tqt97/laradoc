@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
     <url>
+        <loc>http://127.0.0.1:8000/markdown-tutorial</loc>
+        <lastmod>2026-03-07T01:05:15+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/php/isset-vs-in-array-trong-php</loc>
+        <lastmod>2026-03-06T00:20:26+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/features/markdown</loc>
+        <lastmod>2026-03-05T14:34:09+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/features/newsletter</loc>
+        <lastmod>2026-03-05T14:43:28+00:00</lastmod>
+
+            </url>
+    <url>
         <loc>http://127.0.0.1:8000/features/jsonld</loc>
         <lastmod>2026-03-01T12:33:13+00:00</lastmod>
 
@@ -53,11 +73,6 @@
     <url>
         <loc>http://127.0.0.1:8000/index</loc>
         <lastmod>2026-03-01T12:33:13+00:00</lastmod>
-
-            </url>
-    <url>
-        <loc>http://127.0.0.1:8000/features/markdown</loc>
-        <lastmod>2026-03-05T14:34:09+00:00</lastmod>
 
             </url>
     <url>
@@ -118,21 +133,6 @@
     <url>
         <loc>http://127.0.0.1:8000/laravel-events</loc>
         <lastmod>2026-03-01T12:50:52+00:00</lastmod>
-
-            </url>
-    <url>
-        <loc>http://127.0.0.1:8000/features/newsletter</loc>
-        <lastmod>2026-03-05T14:43:28+00:00</lastmod>
-
-            </url>
-    <url>
-        <loc>http://127.0.0.1:8000/php/isset-vs-in-array-trong-php</loc>
-        <lastmod>2026-03-06T00:20:26+00:00</lastmod>
-
-            </url>
-    <url>
-        <loc>http://127.0.0.1:8000/markdown-tutorial</loc>
-        <lastmod>2026-03-07T01:05:15+00:00</lastmod>
 
             </url>
 </urlset>

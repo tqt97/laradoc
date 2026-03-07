@@ -3,7 +3,7 @@
     /* @var array|null|string $currentTag */
     /* @var array|null|string $currentCategory */
     /* @var array|null $currentAuthor */
-    /* @var \Illuminate\Support\Collection<int,\Prezet\Prezet\Data\DocumentData> $articles */
+    /* @var \Illuminate\Support\Collection<int,object> $articles */
     /* @var \Illuminate\Support\Collection $postsByYear */
     /* @var \Illuminate\Support\Collection $allCategories */
     /* @var \Illuminate\Support\Collection $allTags */
@@ -95,7 +95,7 @@
                     </h1>
 
                     @if (!$currentCategory && !$currentTag && !$currentAuthor)
-                        <p class="text-lg text-zinc-500 dark:text-zinc-400 max-w-xl leading-relaxed font-medium mb-8">
+                        <p class="text-lg text-zinc-500 dark:text-zinc-400 max-w-7xl leading-relaxed font-medium mb-8">
                             A curated collection of stories, tutorials, and insights focused on modern Laravel
                             development and Markdown blogging.
                         </p>
@@ -143,7 +143,9 @@
                             @if ($currentAuthor)
                                 <span
                                     class="inline-flex items-center gap-2 rounded-xl bg-zinc-900 text-white px-4 py-2 text-xs font-bold dark:bg-white dark:text-zinc-900 shadow-lg">
-                                    <img src="{{ $currentAuthor['image'] }}" class="h-4 w-4 rounded-full" />
+                                    @if ($currentAuthor['image'])
+                                        <img src="{{ $currentAuthor['image'] }}" class="h-4 w-4 rounded-full" />
+                                    @endif
                                     {{ strtoupper($currentAuthor['name']) }}
                                     <a href="{{ route('prezet.index', array_filter(request()->except('author'))) }}#articles"
                                         class="ml-2 hover:opacity-70 transition-opacity">
@@ -176,7 +178,7 @@
 
                             <div class="grid grid-cols-1 gap-16">
                                 @foreach ($posts as $post)
-                                    <x-prezet.article :article="$post" :author="config('prezet.authors.' . $post->frontmatter->author)" />
+                                    <x-prezet.article :article="$post->data" :author="$post->author" :hide-image="true" />
                                 @endforeach
                             </div>
                         </section>
