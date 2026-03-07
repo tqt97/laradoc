@@ -1,51 +1,38 @@
+@php
+    /* @var \Illuminate\Support\Collection $snippets */
+    /* @var array $seo */
+    /* @var string $search */
+@endphp
+
 <x-prezet.template>
-    @seo([
-        'title' => 'Snippets - Nơi lưu trữ mã nguồn hữu ích',
-        'description' => 'Danh sách các đoạn mã nguồn (snippets) được lưu trữ để tái sử dụng.',
-        'url' => route('snippets.index'),
-    ])
+    @seo($seo)
+
+    <x-prezet.subpage-header title="Snippets"
+        subtitle="Thư viện các đoạn mã nguồn hữu ích, giúp bạn tiết kiệm thời gian và công sức.">
+        <div class="mt-10 flex justify-center">
+            <form action="{{ route('snippets.index') }}" method="GET" class="relative w-full max-w-md group">
+                <div
+                    class="relative flex items-center p-1 rounded-2xl bg-zinc-50/50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 shadow-sm focus-within:ring-2 focus-within:ring-primary-500 transition-all backdrop-blur-md">
+                    <div class="pl-4 text-zinc-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                            stroke="currentColor" class="size-5">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                        </svg>
+                    </div>
+                    <input type="text" name="q" value="{{ $search }}" placeholder="Tìm kiếm snippet..."
+                        class="flex-grow bg-transparent border-none focus:ring-0 text-sm font-medium text-zinc-900 dark:text-white placeholder:text-zinc-400 py-3 px-3" />
+                    <button type="submit"
+                        class="bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold text-xs uppercase tracking-widest px-6 py-3 rounded-xl transition-all hover:scale-[1.02] active:scale-[0.98]">
+                        Tìm kiếm
+                    </button>
+                </div>
+            </form>
+        </div>
+    </x-prezet.subpage-header>
 
     <div id="articles" class="py-12 lg:py-12">
         <div class="max-w-7xl mx-auto px-4">
-            <header class="mb-16 text-center">
-                <h1 class="text-7xl font-bold tracking-tight text-zinc-900 dark:text-white sm:text-6xl mb-6">
-                    Snippets
-                </h1>
-                <p class="text-lg text-zinc-500 dark:text-zinc-400 leading-relaxed max-w-7xl mx-auto mb-10">
-                    Thư viện các đoạn mã nguồn hữu ích, giúp bạn tiết kiệm thời gian và công sức.
-                </p>
-
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <form action="{{ route('snippets.index') }}" method="GET" class="relative w-full max-w-md group">
-                        <div
-                            class="relative flex items-center p-1 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm focus-within:ring-2 focus-within:ring-primary-500 transition-all">
-                            <div class="pl-4 text-zinc-400">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="2" stroke="currentColor" class="size-5">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-                                </svg>
-                            </div>
-                            <input type="text" name="q" value="{{ $search }}"
-                                placeholder="Tìm kiếm snippet..."
-                                class="flex-grow bg-transparent border-none focus:ring-0 text-sm font-medium text-zinc-900 dark:text-white placeholder:text-zinc-400 py-3 px-3" />
-                            <button type="submit"
-                                class="bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold text-xs uppercase tracking-widest px-6 py-3 rounded-xl transition-all hover:scale-[1.02] active:scale-[0.98]">
-                                Tìm
-                            </button>
-                        </div>
-                    </form>
-
-                    {{-- <a href="{{ route('snippets.create') }}"
-                        class="inline-flex items-center gap-2 px-6 py-4 rounded-2xl bg-primary-600 text-white font-bold text-sm shadow-xl hover:bg-primary-700 transition-all">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-4">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                        </svg>
-                        Tạo Snippet mới
-                    </a> --}}
-                </div>
-            </header>
-
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 @forelse($snippets as $snippet)
                     <article

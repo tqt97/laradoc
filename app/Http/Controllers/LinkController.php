@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Link;
+use App\Support\PrezetCache;
+use App\Support\PrezetHelper;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -15,7 +17,10 @@ class LinkController extends Controller
     {
         $links = Link::latest()->paginate(15);
 
-        return view('links.index', compact('links'));
+        return view('links.index', array_merge([
+            'links' => $links,
+            'seo' => PrezetHelper::getSeoData('Lưu trữ liên kết', 'Danh sách các liên kết hữu ích được lưu trữ.'),
+        ], PrezetHelper::getCommonData()));
     }
 
     public function store(Request $request): RedirectResponse
@@ -33,6 +38,8 @@ class LinkController extends Controller
             'og_image' => $metadata['og_image'],
         ]);
 
+        PrezetCache::invalidate();
+
         return back()->with('success', 'Đã lưu liên kết thành công!');
     }
 
@@ -45,12 +52,16 @@ class LinkController extends Controller
 
         $link->update($request->only('title', 'url'));
 
+        PrezetCache::invalidate();
+
         return back()->with('success', 'Đã cập nhật liên kết thành công!');
     }
 
     public function destroy(Link $link): RedirectResponse
     {
         $link->delete();
+
+        PrezetCache::invalidate();
 
         return back()->with('success', 'Đã xóa liên kết thành công!');
     }
@@ -82,7 +93,6 @@ class LinkController extends Controller
 
             $contentType = $response->header('Content-Type', '');
 
-            // CASE 1: URL là ảnh trực tiếp
             if (str_contains($contentType, 'image/')) {
                 return [
                     'title' => $title ?: basename(parse_url($url, PHP_URL_PATH)),
@@ -91,54 +101,37 @@ class LinkController extends Controller
             }
 
             $html = $response->body();
-
             libxml_use_internal_errors(true);
-
-            // FIX lỗi encoding UTF-8
             $dom = new \DOMDocument('1.0', 'UTF-8');
-
             $html = mb_convert_encoding($html, 'HTML-ENTITIES', 'UTF-8');
-
             $dom->loadHTML($html);
-
             $xpath = new \DOMXPath($dom);
 
-            // TITLE
             if (! $title) {
-
                 $node = $xpath->query('//meta[@property="og:title"]')->item(0);
-
                 if ($node instanceof \DOMElement) {
                     $title = $node->getAttribute('content');
                 }
-
                 if (! $title) {
                     $node = $xpath->query('//title')->item(0);
-
                     if ($node instanceof \DOMElement) {
                         $title = trim($node->textContent);
                     }
                 }
             }
 
-            // OG IMAGE
             $imageNode = $xpath->query('//meta[@property="og:image"]')->item(0);
-
             if (! $imageNode) {
                 $imageNode = $xpath->query('//meta[@name="twitter:image"]')->item(0);
             }
-
             if ($imageNode instanceof \DOMElement) {
                 $ogImage = $imageNode->getAttribute('content');
             }
 
-            // Resolve relative URL
             if ($ogImage && ! str_starts_with($ogImage, 'http')) {
                 $ogImage = $this->resolveAbsoluteUrl($url, $ogImage);
             }
-
         } catch (\Throwable $e) {
-
             Log::warning('Metadata extraction failed', [
                 'url' => $url,
                 'error' => $e->getMessage(),
@@ -157,16 +150,13 @@ class LinkController extends Controller
     private function resolveAbsoluteUrl(string $baseUrl, string $relativeUrl): string
     {
         $parsed = parse_url($baseUrl);
-
         $scheme = $parsed['scheme'] ?? 'https';
         $host = $parsed['host'] ?? '';
-
         $domain = $scheme.'://'.$host;
 
         if (str_starts_with($relativeUrl, '//')) {
             return $scheme.':'.$relativeUrl;
         }
-
         if (str_starts_with($relativeUrl, '/')) {
             return $domain.$relativeUrl;
         }

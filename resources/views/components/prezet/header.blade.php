@@ -1,9 +1,5 @@
 <header :class="showHeader ? 'translate-y-0' : '-translate-y-full'"
     class="sticky top-0 z-50 w-full border-b border-zinc-200/50 bg-white/80 backdrop-blur-md transition-transform duration-300 ease-in-out dark:border-zinc-800/50 dark:bg-zinc-950/80">
-    <div class="absolute top-0 left-0 w-full h-[2px] bg-transparent overflow-hidden pointer-events-none">
-        <div class="h-full bg-zinc-900 dark:bg-white transition-all duration-300 ease-out shadow-[0_0_10px_rgba(0,0,0,0.1)] dark:shadow-[0_0_10px_rgba(255,255,255,0.1)]"
-            :style="`width: ${progress}%`" x-show="progress > 0"></div>
-    </div>
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-20 items-center justify-between gap-8">
             {{-- Logo & Brand --}}
@@ -19,12 +15,16 @@
 
                 {{-- Desktop Navigation --}}
                 <nav class="hidden items-center gap-8 lg:flex">
+                    <a href="{{ route('prezet.articles') }}"
+                        class="text-sm font-semibold {{ request()->routeIs('prezet.articles') ? 'text-zinc-900 dark:text-white' : 'text-zinc-600 dark:text-zinc-400' }} hover:text-zinc-900 transition-colors dark:hover:text-zinc-200">
+                        Bài viết
+                    </a>
                     <a href="{{ route('links.index') }}"
-                       class="text-sm font-semibold text-zinc-600 hover:text-zinc-900 transition-colors dark:text-zinc-400 dark:hover:text-zinc-200">
+                        class="text-sm font-semibold {{ request()->routeIs('links.index') ? 'text-zinc-900 dark:text-white' : 'text-zinc-600 dark:text-zinc-400' }} hover:text-zinc-900 transition-colors dark:hover:text-zinc-200">
                         Lưu trữ
                     </a>
                     <a href="{{ route('snippets.index') }}"
-                       class="text-sm font-semibold text-zinc-600 hover:text-zinc-900 transition-colors dark:text-zinc-400 dark:hover:text-zinc-200">
+                        class="text-sm font-semibold {{ request()->routeIs('snippets.index') ? 'text-zinc-900 dark:text-white' : 'text-zinc-600 dark:text-zinc-400' }} hover:text-zinc-900 transition-colors dark:hover:text-zinc-200">
                         Snippets
                     </a>
                 </nav>

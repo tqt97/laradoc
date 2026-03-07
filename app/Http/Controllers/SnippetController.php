@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Support\PrezetCache;
+use App\Support\PrezetHelper;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
@@ -34,8 +36,6 @@ class SnippetController extends Controller
         $snippets = $docs->getCollection()->map(function ($doc) {
             $docData = app(DocumentData::class)::fromModel($doc);
 
-            // Manual extraction because Prezet DocumentData frontmatter is a specific object
-            // that might not hold custom keys if not defined in its schema
             $filePath = base_path('prezet/'.$doc->filepath);
             if (File::exists($filePath)) {
                 $content = File::get($filePath);
@@ -51,22 +51,25 @@ class SnippetController extends Controller
             return $docData;
         });
 
-        return view('snippets.index', [
+        return view('snippets.index', array_merge([
             'snippets' => $snippets,
             'paginator' => $docs,
             'search' => $search,
-        ]);
+            'seo' => PrezetHelper::getSeoData('Snippets', 'Thư viện các đoạn mã nguồn hữu ích, giúp bạn tiết kiệm thời gian và công sức.'),
+        ], PrezetHelper::getCommonData()));
     }
 
     public function create()
     {
-        return view('snippets.form', ['snippet' => null]);
+        return view('snippets.form', array_merge([
+            'snippet' => null,
+            'seo' => PrezetHelper::getSeoData('Tạo Snippet mới'),
+        ], PrezetHelper::getCommonData()));
     }
 
     public function store(Request $request)
     {
         $request->validate([
-            'url' => 'nullable', // placeholder since we don't use links here
             'title' => 'required|string|max:255',
             'language' => 'required|string|max:50',
             'description' => 'nullable|string',
@@ -88,6 +91,7 @@ class SnippetController extends Controller
         File::put($fullPath, $content);
 
         \Illuminate\Support\Facades\Artisan::call('prezet:index');
+        PrezetCache::invalidate();
 
         $finalSlug = Str::replaceLast('.md', '', $filename);
 
@@ -121,11 +125,12 @@ class SnippetController extends Controller
         $md = Prezet::getMarkdown($doc->filepath);
         $html = Prezet::parseMarkdown($md)->getContent();
 
-        return view('snippets.show', [
+        return view('snippets.show', array_merge([
             'snippet' => $docData,
             'body' => $html,
             'slug' => $slug,
-        ]);
+            'seo' => PrezetHelper::getSeoData($docData->frontmatter->title, $docData->frontmatter->excerpt),
+        ], PrezetHelper::getCommonData()));
     }
 
     public function edit($slug)
@@ -146,11 +151,12 @@ class SnippetController extends Controller
         $code = preg_replace('/^```[a-z]*\n/i', '', $rawBody);
         $code = preg_replace('/\n```$/', '', $code);
 
-        return view('snippets.form', [
+        return view('snippets.form', array_merge([
             'snippet' => $docData,
             'code' => $code,
             'slug' => $slug,
-        ]);
+            'seo' => PrezetHelper::getSeoData('Sửa Snippet: '.$docData->frontmatter->title),
+        ], PrezetHelper::getCommonData()));
     }
 
     public function update(Request $request, $slug)
@@ -174,10 +180,9 @@ class SnippetController extends Controller
 
         File::put($fullPath, $content);
 
-        // Update index
         \Illuminate\Support\Facades\Artisan::call('prezet:index');
+        PrezetCache::invalidate();
 
-        // Force a fresh redirect to the show page
         return redirect()->to('/snippets/'.$slug)
             ->with('success', 'Đã cập nhật snippet thành công!');
     }
@@ -185,7 +190,6 @@ class SnippetController extends Controller
     private function formatMarkdown(Request $request): string
     {
         $date = now()->format('Y-m-d');
-        // Clean special characters but don't add double quotes to sync with blogs
         $title = str_replace('"', '', $request->title);
         $description = str_replace('"', '', $request->description ?? '');
         $lang = $request->language;

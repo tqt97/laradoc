@@ -1,35 +1,72 @@
 <div
-    class="relative flex flex-col items-center justify-center text-center py-16 md:py-24 overflow-hidden border-b border-zinc-100 dark:border-zinc-800/50">
-    {{-- Subtle Background Element --}}
-    <div
-        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-zinc-50 via-transparent to-transparent dark:from-zinc-900/50 z-0">
+    class="relative flex flex-col items-center justify-center text-center py-16 md:py-24 overflow-hidden border-b border-zinc-100 dark:border-zinc-800/50 bg-white dark:bg-zinc-950">
+
+    {{-- Modern Background Elements --}}
+    <div class="absolute inset-0 z-0">
+        <div
+            class="absolute top-0 left-1/4 w-96 h-96 bg-primary-500/10 dark:bg-primary-500/5 rounded-full blur-[128px] animate-pulse">
+        </div>
+        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-500/10 dark:bg-indigo-500/5 rounded-full blur-[128px] animate-pulse"
+            style="animation-delay: 2s"></div>
+        <div
+            class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] dark:opacity-[0.05] brightness-100 contrast-150">
+        </div>
     </div>
 
     <div class="relative z-10 max-w-7xl px-4">
-        <h1 class="text-6xl md:text-8xl font-bold tracking-tight text-zinc-900 dark:text-white leading-[1.05] mb-6">
-            Insights for the <span class="text-zinc-400 dark:text-zinc-600">modern developer.</span>
+        {{-- Glassy Badge --}}
+        <div
+            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900/5 dark:bg-white/5 border border-zinc-900/10 dark:border-white/10 backdrop-blur-md mb-8">
+            <span class="relative flex h-2 w-2">
+                <span
+                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-primary-500"></span>
+            </span>
+            <span class="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-600 dark:text-zinc-400">Blog cá
+                nhân & Portfolio</span>
+        </div>
+
+        <h1 class="text-5xl md:text-6xl font-black tracking-tight text-zinc-900 dark:text-white leading-[1.1] mb-8">
+            Ghi chép & Chia sẻ<br />
+            <span
+                class="text-transparent bg-clip-text bg-gradient-to-br from-zinc-400 to-zinc-600 dark:from-zinc-500 dark:to-zinc-800">Kiến
+                thức lập trình.</span>
         </h1>
 
-        <a href="" class="group inline-flex flex-col items-center">
-            <p
-                class="text-2xl md:text-3xl text-zinc-500 dark:text-zinc-400 leading-tight font-medium mb-12 max-w-2xl mx-auto transition-all duration-500 group-hover:text-zinc-900 dark:group-hover:text-white">
-                Where <span class="text-zinc-900 dark:text-white font-bold italic">Markdown</span> meets
-                <span
-                    class="bg-gradient-to-r from-zinc-900 via-zinc-500 to-zinc-900 dark:from-white dark:via-zinc-500 dark:to-white bg-clip-text text-transparent bg-[length:200%_auto] animate-shimmer font-bold">Laravel
-                    Architecture.</span>
-                <span class="block text-sm uppercase tracking-[0.4em] mt-4 opacity-50 font-bold">Click to
-                    explore</span>
-            </p>
-
-            {{-- Scroll Down Mouse Animation --}}
-            <div class="flex flex-col items-center justify-center">
-                <div
-                    class="w-7 h-11 rounded-full border-2 border-zinc-300 dark:border-zinc-700 p-1 flex justify-center">
-                    <div class="w-1.5 h-2 bg-zinc-400 dark:bg-zinc-500 rounded-full animate-mouse-scroll"></div>
-                </div>
-                <span
-                    class="block mt-3 text-[10px] font-bold uppercase tracking-[0.3em] text-zinc-400 dark:text-zinc-500 group-hover:text-zinc-900 dark:group-hover:text-white transition-colors">Scroll</span>
+        <div class="relative inline-block group">
+            <div
+                class="absolute -inset-4 rounded-[2rem] bg-zinc-900/5 dark:bg-white/5 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500">
             </div>
-        </a>
+
+            <a href="#latest-posts" class="relative flex flex-col items-center">
+                <p
+                    class="text-lg md:text-xl text-zinc-500 dark:text-zinc-400 leading-relaxed font-medium mb-12 max-w-xl mx-auto">
+                    Nơi <span class="text-zinc-900 dark:text-white font-bold italic">Kinh nghiệm</span> thực chiến hội
+                    tụ cùng
+                    <span class="relative inline-block">
+                        <span class="relative z-10 font-bold text-zinc-900 dark:text-white">Tư duy hệ thống.</span>
+                        <span
+                            class="absolute bottom-1 left-0 w-full h-2 bg-primary-500/10 dark:bg-primary-500/20 -z-10"></span>
+                    </span>
+                </p>
+
+                {{-- Enhanced Mouse Scroll --}}
+                <div class="flex flex-col items-center gap-4">
+                    <div
+                        class="w-6 h-10 rounded-full border-2 border-zinc-200 dark:border-zinc-800 p-1 flex justify-center backdrop-blur-sm">
+                        <div class="w-1 h-2 bg-zinc-400 dark:bg-zinc-500 rounded-full animate-bounce"></div>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <span
+                            class="text-[10px] font-semibold uppercase1 tracking-[0.2em] text-zinc-400 dark:text-zinc-600 group-hover:text-primary-500 transition-colors duration-300">Khám
+                            phá bài viết</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
+                            stroke="currentColor" class="size-3 text-zinc-300 dark:text-zinc-700 mt-1 animate-pulse">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                        </svg>
+                    </div>
+                </div>
+            </a>
+        </div>
     </div>
 </div>

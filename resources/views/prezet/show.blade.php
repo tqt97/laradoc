@@ -106,11 +106,11 @@
                                         d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0ZM3.75 12h.007v.008H3.75V12Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm-3.75 5.25h.007v.008H3.75v-.008Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
                                 </svg>
                                 <p id="on-this-page-title"
-                                    class="font-bold text-xs uppercase tracking-[0.2em] text-zinc-900 dark:text-zinc-100">
+                                    class="font-semibold text-xs tracking-[0.2em] text-zinc-900 dark:text-zinc-100">
                                     Mục lục
                                 </p>
                             </div>
-                            <ol role="list" class="space-y-4 text-sm border-l border-zinc-100 dark:border-zinc-800">
+                            <ol role="list" class="space-y-2 text-xs border-l border-zinc-100 dark:border-zinc-800">
                                 @foreach ($headings as $h2)
                                     <li class="relative">
                                         <div x-show="activeHeading === '{{ $h2['id'] }}'"
@@ -129,7 +129,7 @@
                                         </a>
 
                                         @if ($h2['children'])
-                                            <ol role="list" class="mt-2 space-y-2">
+                                            <ol role="list" class="mt-2">
                                                 @foreach ($h2['children'] as $h3)
                                                     <li class="relative">
                                                         <div x-show="activeHeading === '{{ $h3['id'] }}'"
@@ -227,7 +227,8 @@
                             <h3 class="mb-8 text-2xl font-bold text-zinc-900 dark:text-white">Bài viết liên quan</h3>
                             <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
                                 @foreach ($relatedPosts as $relatedPost)
-                                    <x-prezet.article :article="$relatedPost->data" :author="$relatedPost->author" :hide-image="true" />
+                                    <x-prezet.article :article="$relatedPost->data" :author="$relatedPost->author" :readingTime="$relatedPost->readingTime"
+                                        :hide-image="true" />
                                 @endforeach
                             </div>
                         </div>

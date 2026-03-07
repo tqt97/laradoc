@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Prezet\ArticleController;
 use App\Http\Controllers\Prezet\ImageController;
 use App\Http\Controllers\Prezet\IndexController;
 use App\Http\Controllers\Prezet\OgimageController;
@@ -28,6 +29,9 @@ Route::withoutMiddleware([
 
         Route::get('/', IndexController::class)
             ->name('prezet.index');
+
+        Route::get('/articles', ArticleController::class)
+            ->name('prezet.articles');
 
         Route::get('{slug}', ShowController::class)
             ->name('prezet.show')

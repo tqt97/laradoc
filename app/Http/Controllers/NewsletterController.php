@@ -17,12 +17,6 @@ class NewsletterController extends Controller
             'email' => $request->email,
         ]);
 
-        if ($request->header('HX-Request')) {
-            session()->flash('success', 'Đã đăng ký bản tin thành công!');
-
-            return view('components.prezet.newsletter');
-        }
-
         return back()->with('success', 'Đã đăng ký bản tin thành công!');
     }
 }

@@ -14,7 +14,6 @@
     <x-prezet.meta />
 
     <!-- Scripts -->
-    <script src="https://unpkg.com/htmx.org@2.0.1"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.3/src/lite-yt-embed.min.js"></script>
     <script defer src="https://unpkg.com/@benbjurstrom/alpinejs-zoomable@0.4.0/dist/cdn.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/focus@3.14.1/dist/cdn.min.js"></script>
@@ -54,15 +53,15 @@
                 sh = 'scrollHeight';
             const progress = (h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight) * 100;
             this.progress = isNaN(progress) ? 0 : Math.min(100, Math.max(0, progress));
-            
+
             const currentScrollY = window.scrollY;
-            
+
             if (currentScrollY > this.lastScrollY && currentScrollY > 100) {
                 this.showHeader = false;
             } else {
                 this.showHeader = true;
             }
-            
+
             this.lastScrollY = currentScrollY;
             this.scrolled = currentScrollY > 500;
         }
@@ -70,9 +69,13 @@
     window.addEventListener('scroll', () => updateScroll())">
 
     <div class="min-h-screen flex flex-col transition-colors duration-300">
+        <div class="fixed top-0 left-0 w-full h-[3px] bg-transparent overflow-hidden pointer-events-none z-[60]">
+            <div class="h-full bg-zinc-900 dark:bg-white transition-all duration-300 ease-out shadow-[0_0_10px_rgba(0,0,0,0.1)] dark:shadow-[0_0_10px_rgba(255,255,255,0.1)]"
+                :style="`width: ${progress}%`" x-show="progress > 0"></div>
+        </div>
         <x-prezet.header />
 
-        <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mt-8">
+        <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             {{ $slot }}
         </main>
 
@@ -107,21 +110,23 @@
         </footer>
     </div>
 
-    {{-- Toast Container - Moved to bottom and added hx-swap-oob --}}
-    <div id="toast-container" hx-swap-oob="true" class="fixed top-24 right-4 z-[110] flex flex-col gap-4 w-full max-w-sm pointer-events-none">
-        @if(session('success'))
+    {{-- Toast Container --}}
+    <div id="toast-container"
+        class="fixed top-24 right-4 z-[110] flex flex-col gap-4 w-full max-w-sm pointer-events-none">
+        @if (session('success'))
             <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 4000)"
                 x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 translate-x-8"
                 x-transition:enter-end="opacity-100 translate-x-0" x-transition:leave="transition ease-in duration-300"
                 x-transition:leave-start="opacity-100 translate-x-0" x-transition:leave-end="opacity-0 translate-x-8"
                 class="p-4 rounded-2xl bg-emerald-500 text-white font-bold text-sm shadow-2xl flex items-center gap-3 pointer-events-auto">
                 <div class="size-8 rounded-full bg-white/20 flex items-center justify-center shrink-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="size-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3"
+                        stroke="currentColor" class="size-4">
                         <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                     </svg>
                 </div>
                 <p>
-                    @if(is_string(session('success')))
+                    @if (is_string(session('success')))
                         {{ session('success') }}
                     @else
                         Thao tác thành công!
@@ -130,14 +135,15 @@
             </div>
         @endif
 
-        @if($errors->any())
+        @if ($errors->any())
             <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 6000)"
                 x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 translate-x-8"
                 x-transition:enter-end="opacity-100 translate-x-0" x-transition:leave="transition ease-in duration-300"
                 x-transition:leave-start="opacity-100 translate-x-0" x-transition:leave-end="opacity-0 translate-x-8"
                 class="p-4 rounded-2xl bg-red-500 text-white font-bold text-sm shadow-2xl flex items-start gap-3 pointer-events-auto">
                 <div class="size-8 rounded-full bg-white/20 flex items-center justify-center shrink-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="size-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3"
+                        stroke="currentColor" class="size-4">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
                     </svg>
                 </div>
@@ -166,7 +172,8 @@
                 stroke-linecap="round" stroke="currentColor" fill="transparent" r="44" cx="50" cy="50" />
         </svg>
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3"
-            stroke="currentColor" class="size-4 sm:size-5 relative z-10 group-hover:-translate-y-1 transition-transform">
+            stroke="currentColor"
+            class="size-4 sm:size-5 relative z-10 group-hover:-translate-y-1 transition-transform">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18" />
         </svg>
     </button>

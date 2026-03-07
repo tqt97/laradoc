@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Support\PrezetCache;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
@@ -110,6 +111,7 @@ EOT;
         if ($this->confirm('Update the Prezet index?', true)) {
             $this->info('Updating index...');
             $this->call('prezet:index');
+            PrezetCache::invalidate();
         }
 
         return 0;
