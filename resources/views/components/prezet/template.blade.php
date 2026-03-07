@@ -97,6 +97,8 @@
                         <div class="flex items-center gap-8 text-sm font-bold">
                             <a href="{{ route('prezet.index') }}"
                                 class="text-zinc-400 hover:text-white transition-colors">Bài viết</a>
+                            <a href="{{ route('links.index') }}"
+                                class="text-zinc-400 hover:text-white transition-colors">Liên kết</a>
                         </div>
                     </div>
                 </div>

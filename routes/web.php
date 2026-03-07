@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LinkController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\Prezet\ImageController;
 use App\Http\Controllers\Prezet\IndexController;
@@ -10,6 +11,20 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Support\Facades\Route;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+
+Route::middleware([
+    StartSession::class,
+    ShareErrorsFromSession::class,
+    VerifyCsrfToken::class,
+])->group(function () {
+    Route::post('newsletter/subscribe', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
+
+    // Links feature
+    Route::get('links', [LinkController::class, 'index'])->name('links.index');
+    Route::post('links', [LinkController::class, 'store'])->name('links.store');
+    Route::put('links/{link}', [LinkController::class, 'update'])->name('links.update');
+    Route::delete('links/{link}', [LinkController::class, 'destroy'])->name('links.destroy');
+});
 
 Route::withoutMiddleware([
     VerifyCsrfToken::class,
@@ -32,11 +47,3 @@ Route::withoutMiddleware([
             ->name('prezet.show')
             ->where('slug', '.*'); // https://laravel.com/docs/11.x/routing#parameters-encoded-forward-slashes
     });
-
-Route::middleware([
-    StartSession::class,
-    ShareErrorsFromSession::class,
-    VerifyCsrfToken::class,
-])->group(function () {
-    Route::post('newsletter/subscribe', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
-});

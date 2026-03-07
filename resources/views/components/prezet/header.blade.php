@@ -16,6 +16,14 @@
                         {{ config('app.name', 'PREZET') }}
                     </span>
                 </a>
+
+                {{-- Desktop Navigation --}}
+                <nav class="hidden items-center gap-8 lg:flex">
+                    <a href="{{ route('links.index') }}"
+                        class="text-sm font-semibold text-zinc-600 hover:text-zinc-900 transition-colors dark:text-zinc-400 dark:hover:text-zinc-200">
+                        Liên kết
+                    </a>
+                </nav>
             </div>
 
             {{-- Actions --}}
