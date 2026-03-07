@@ -84,7 +84,7 @@
 
                 {{-- Hero Image --}}
                 @if ($document->frontmatter->image)
-                    <div class="-mx-8 sm:mx-0 col-span-12 lg:my-4">
+                    <div class="-mx-8 sm:mx-0 col-span-12 lg:my-4 mx-auto">
                         <img src="{{ url($document->frontmatter->image) }}" alt="{{ $document->frontmatter->title }}"
                             width="1120" height="595" loading="lazy" decoding="async"
                             class="h-auto max-h-[500px] w-full sm:rounded-2xl bg-zinc-50 object-cover dark:bg-zinc-800" />
