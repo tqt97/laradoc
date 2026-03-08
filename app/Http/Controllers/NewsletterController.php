@@ -2,20 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreNewsletterRequest;
 use App\Models\Subscriber;
-use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 
 class NewsletterController extends Controller
 {
-    public function subscribe(Request $request)
+    public function subscribe(StoreNewsletterRequest $request): RedirectResponse
     {
-        $request->validate([
-            'email' => 'required|email|unique:subscribers,email',
-        ]);
-
-        Subscriber::create([
-            'email' => $request->email,
-        ]);
+        Subscriber::create($request->validated());
 
         return back()->with('success', 'Đã đăng ký bản tin thành công!');
     }

@@ -3,86 +3,63 @@
 namespace App\Http\Controllers\Prezet;
 
 use App\Http\Controllers\Controller;
+use App\Models\PrezetDocument;
+use App\Services\ArticleService;
 use App\Support\PrezetHelper;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
-use Prezet\Prezet\Data\DocumentData;
-use Prezet\Prezet\Models\Document;
 use Prezet\Prezet\Prezet;
 
 class ShowController extends Controller
 {
+    public function __construct(
+        protected ArticleService $articleService
+    ) {}
+
+    /**
+     * Handle the request for a specific article.
+     */
     public function __invoke(Request $request, string $slug): View
     {
-        $doc = Prezet::getDocumentModelFromSlug($slug);
+        $doc = PrezetDocument::where('slug', $slug)->first();
+
+        if (! $doc) {
+            abort(404);
+        }
+
         $md = Prezet::getMarkdown($doc->filepath);
         $html = Prezet::parseMarkdown($md)->getContent();
         $docData = Prezet::getDocumentDataFromFile($doc->filepath);
-
-        // Check if post image exists using Helper
         $docData->frontmatter->image = PrezetHelper::checkImageExists($docData->frontmatter->image);
 
-        if ($docData->contentType === 'category') {
-            $docs = app(Document::class)::query()
-                ->where('content_type', 'article')
-                ->where('filepath', 'like', 'content/blogs%')
-                ->where('draft', false)
-                ->where('category', $doc->category)
-                ->orderBy('created_at', 'desc')->get();
-
-            $docsData = $docs->map(function (Document $doc) {
-                $docData = app(DocumentData::class)::fromModel($doc);
-
-                // Calculate reading time
-                $md = Prezet::getMarkdown($doc->filepath);
-                $readingTime = PrezetHelper::calculateReadingTime(Prezet::parseMarkdown($md)->getContent());
-
-                // Check image
-                $docData->frontmatter->image = PrezetHelper::checkImageExists($docData->frontmatter->image);
-
-                return (object) [
-                    'data' => $docData,
-                    'readingTime' => $readingTime,
-                ];
-            });
+        // If it's a category page (handled by Prezet as a document sometimes)
+        if ($docData->frontmatter->contentType === 'category') {
+            $docs = PrezetDocument::active()
+                ->whereRaw('LOWER(category) = ?', [strtolower($doc->category)])
+                ->orderBy('created_at', 'desc')
+                ->get()
+                ->map(fn ($d) => $this->articleService->mapToArticleData($d));
 
             return view('prezet.category', array_merge([
                 'document' => $docData,
                 'body' => $html,
-                'docs' => $docsData,
+                'docs' => $docs,
                 'seo' => PrezetHelper::getSeoData('Danh mục: '.$doc->category),
             ], PrezetHelper::getCommonData()));
         }
 
         $linkedData = json_encode(Prezet::getLinkedData($docData), JSON_UNESCAPED_SLASHES);
         $headings = Prezet::getHeadings($html);
-
-        // Calculate reading time
         $readingTime = PrezetHelper::calculateReadingTime($html);
 
         // Fetch related posts
-        $relatedPosts = app(Document::class)::query()
-            ->where('content_type', 'article')
-            ->where('draft', false)
+        $relatedPosts = PrezetDocument::active()
+            ->blogs()
             ->where('category', $doc->category)
             ->where('slug', '!=', $slug)
             ->limit(4)
             ->get()
-            ->map(function (Document $doc) {
-                $docData = app(DocumentData::class)::fromModel($doc);
-
-                // Calculate reading time for related posts
-                $md = Prezet::getMarkdown($doc->filepath);
-                $readingTime = PrezetHelper::calculateReadingTime(Prezet::parseMarkdown($md)->getContent());
-
-                // Check image
-                $docData->frontmatter->image = PrezetHelper::checkImageExists($docData->frontmatter->image);
-
-                return (object) [
-                    'data' => $docData,
-                    'readingTime' => $readingTime,
-                ];
-            });
+            ->map(fn ($d) => $this->articleService->mapToArticleData($d));
 
         return view('prezet.show', array_merge([
             'document' => $docData,
@@ -91,12 +68,11 @@ class ShowController extends Controller
             'body' => $html,
             'readingTime' => $readingTime,
             'relatedPosts' => $relatedPosts,
-            'seo' => [
-                'title' => $docData->frontmatter->title,
-                'description' => $docData->frontmatter->excerpt,
-                'url' => route('prezet.show', $docData->slug),
-                'image' => $docData->frontmatter->image ? url($docData->frontmatter->image) : null,
-            ],
+            'seo' => PrezetHelper::getSeoData(
+                $docData->frontmatter->title,
+                $docData->frontmatter->excerpt,
+                route('prezet.show', $docData->slug)
+            ),
         ], PrezetHelper::getCommonData()));
     }
 }

@@ -42,8 +42,7 @@ class MakePost extends Command
         $category = $this->choice('Select a category', $categories, 0);
 
         // 3. Get Author
-        $authors = array_keys(config('prezet.authors', ['jane' => []]));
-        $author = $this->choice('Select an author', $authors, array_search('jane', $authors) ?: 0);
+        $author = 'tuantq';
 
         // 4. Get Parent Folder (Select or Create New)
         $baseDirectory = base_path('prezet/content');

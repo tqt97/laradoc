@@ -120,7 +120,11 @@ return [
     'image' => [
 
         'widths' => [
-            480, 640, 768, 960, 1536,
+            480,
+            640,
+            768,
+            960,
+            1536,
         ],
 
         'sizes' => '92vw, (max-width: 1024px) 92vw, 768px',
@@ -229,30 +233,6 @@ return [
     |
     */
 
-    // https://schema.org/author
-    'authors' => [
-        'bob' => [
-            '@type' => 'Person',
-            'name' => 'Bob',
-            'url' => 'https://prezet.com/authors/prezet',
-            'image' => '/prezet/img/bob.webp',
-            'bio' => 'Bob là một nhà phát triển Laravel chuyên về công cụ frontend và các phương pháp kiểm thử. Anh ấy thích khám phá Blade, Vite và đảm bảo tính ổn định của ứng dụng thông qua việc kiểm thử mạnh mẽ.',
-        ],
-        'jane' => [
-            '@type' => 'Person',
-            'name' => 'Jane',
-            'url' => 'https://prezet.com/authors/prezet',
-            'image' => '/prezet/img/jane.webp',
-            'bio' => 'Jane là một nhà phát triển backend chuyên về kiến trúc Laravel và tương tác cơ sở dữ liệu. Cô ấy thường xuyên viết về Eloquent, routing, queues và cấu trúc ứng dụng.',
-        ],
-        'prezet' => [
-            '@type' => 'Person',
-            'name' => 'Prezet',
-            'url' => 'https://prezet.com',
-            'image' => 'https://prezet.com/favicon.svg',
-        ],
-    ],
-
     // https://schema.org/publisher
     'publisher' => [
         '@type' => 'Organization',
@@ -300,5 +280,15 @@ return [
                 'icon' => '<path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" />',
             ],
         ],
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | SEO Configuration
+    |--------------------------------------------------------------------------
+    */
+    'seo' => [
+        'default_description' => 'Chia sẻ kiến thức lập trình, kỹ thuật xây dựng hệ thống và những bài học trong quá trình phát triển ứng dụng web',
+        'default_title_suffix' => 'Chia sẻ kiến thức, kinh nghiệm phát triển ứng dụng web',
     ],
 ];
