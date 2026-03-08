@@ -38,18 +38,17 @@ class IdeaController extends Controller
         ], PrezetHelper::getCommonData()));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $request->validate([
+            'user_name' => 'nullable|string|max:255',
             'name' => 'required|string|max:255',
-            'category' => 'nullable|string|max:255',
-            'reference' => 'nullable|url|max:255',
+            'category' => 'nullable|string',
+            'reference' => 'nullable|string',
         ]);
 
         Idea::create([
+            'user_name' => $request->user_name,
             'name' => $request->name,
             'category' => $request->category,
             'reference' => $request->reference,

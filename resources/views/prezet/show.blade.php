@@ -24,7 +24,7 @@
         <div id="articles-content">
             <x-prezet.alpine class="grid grid-cols-12 gap-8">
                 <div class="col-span-12">
-                    <x-prezet.article-header :document="$document" :author="$author" :readingTime="$readingTime" />
+                    <x-prezet.article-header :document="$document" :readingTime="$readingTime" />
                 </div>
 
                 {{-- Right Sidebar --}}
@@ -60,14 +60,14 @@
                         @endif
                     </div>
 
-                    <x-prezet.author-box :author="$author" :document="$document" />
+                    {{-- <x-prezet.author-box :author="$author" :document="$document" /> --}}
 
                     @if ($relatedPosts->isNotEmpty())
                         <div class="mt-16 mb-16 border-t border-zinc-200 pt-16 dark:border-zinc-700">
                             <h3 class="mb-8 text-2xl font-bold text-zinc-900 dark:text-white">Bài viết liên quan</h3>
                             <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
                                 @foreach ($relatedPosts as $relatedPost)
-                                    <x-prezet.article :article="$relatedPost->data" :author="$relatedPost->author" :readingTime="$relatedPost->readingTime"
+                                    <x-prezet.article :article="$relatedPost->data" :readingTime="$relatedPost->readingTime"
                                         :hide-image="true" />
                                 @endforeach
                             </div>

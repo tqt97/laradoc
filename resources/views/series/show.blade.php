@@ -23,7 +23,7 @@
 
     <div class="py-12 lg:py-24">
         {{-- Article Header --}}
-        <x-prezet.article-header :document="$document" :author="$author" :readingTime="$readingTime" class="mb-10" />
+        <x-prezet.article-header :document="$document" :readingTime="$readingTime" class="mb-10" />
 
         <x-prezet.alpine class="grid grid-cols-12 gap-12">
 
@@ -96,9 +96,9 @@
                 </article>
 
                 {{-- Author Box --}}
-                <div class="mt-16 pt-16 border-t border-zinc-100 dark:border-zinc-800">
+                {{-- <div class="mt-16 pt-16 border-t border-zinc-100 dark:border-zinc-800">
                     <x-prezet.author-box :author="$author" :document="$document" />
-                </div>
+                </div> --}}
             </main>
 
             {{-- Right Sidebar: Table of Contents --}}

@@ -7,7 +7,7 @@
     </x-prezet.subpage-header>
 
     <div class="py-12 lg:py-16">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
             @foreach ($series as $item)
                 <div
                     class="group relative flex flex-col bg-white dark:bg-zinc-900 rounded-3xl p-8 transition-all duration-300 hover:shadow-md ring-1 ring-zinc-200 dark:ring-zinc-800">

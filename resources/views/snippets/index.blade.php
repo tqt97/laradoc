@@ -53,8 +53,8 @@
 
                         <div
                             class="mt-auto pt-6 border-t border-zinc-50 dark:border-zinc-800 flex items-center justify-between">
-                            <div class="flex items-center gap-2 text-xs font-bold text-zinc-400">
-                                <x-prezet.icon-calendar class="size-3.5" />
+                            <div class="flex items-center gap-2 text-xs font-bold text-zinc-400 leading-none">
+                                <x-prezet.icon-calendar class="size-3.5 mb-0.5" />
                                 <span>{{ $snippet->createdAt->format('d/m/Y') }}</span>
                             </div>
                             <div

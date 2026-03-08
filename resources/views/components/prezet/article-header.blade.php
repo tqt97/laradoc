@@ -16,7 +16,7 @@
 
     <div class="flex flex-wrap items-center gap-4 dark:border-zinc-800">
         <div class="flex items-center gap-3">
-            @if ($author['image'])
+            {{-- @if ($author['image'])
                 <a href="{{ route('prezet.articles', ['author' => strtolower($document->frontmatter->author)]) }}"
                     class="shrink-0">
                     <img src="{{ $author['image'] }}" alt="{{ $author['name'] }}"
@@ -31,13 +31,13 @@
                             d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
                     </svg>
                 </div>
-            @endif
+            @endif --}}
 
             <div class="flex flex-col">
-                <a href="{{ route('prezet.articles', ['author' => strtolower($document->frontmatter->author)]) }}"
+                {{-- <a href="{{ route('prezet.articles', ['author' => strtolower($document->frontmatter->author)]) }}"
                     class="text-sm font-semibold text-zinc-900 hover:text-primary-600 dark:text-zinc-100 dark:hover:text-primary-400">
                     {{ $author['name'] }}
-                </a>
+                </a> --}}
                 <div class="flex items-center gap-2 text-xs text-zinc-500 dark:text-zinc-400">
                     <time datetime="{{ $document->createdAt->format('Y-m-d') }}" class="flex items-center gap-1">
                         <x-prezet.icon-calendar class="size-3" />

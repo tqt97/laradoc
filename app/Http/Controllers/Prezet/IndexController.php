@@ -38,17 +38,9 @@ class IndexController extends Controller
 
                 // Check post image using Helper
                 $docData->frontmatter->image = PrezetHelper::checkImageExists($docData->frontmatter->image);
-                // Get and check author
-                $authorKey = $docData->frontmatter->author;
-                $authorData = config('prezet.authors.'.$authorKey, [
-                    'name' => 'Anonymous',
-                    'image' => null,
-                ]);
-                $authorData['image'] = PrezetHelper::checkImageExists($authorData['image'] ?? null);
 
                 return (object) [
                     'data' => $docData,
-                    'author' => $authorData,
                     'readingTime' => $readingTime,
                 ];
             });

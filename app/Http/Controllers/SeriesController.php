@@ -90,14 +90,6 @@ class SeriesController extends Controller
         $linkedData = json_encode(Prezet::getLinkedData($docData), JSON_UNESCAPED_SLASHES);
         $headings = Prezet::getHeadings($html);
 
-        $authorKey = $docData->frontmatter->author;
-        $author = config('prezet.authors.'.$authorKey, [
-            'name' => 'Anonymous',
-            'image' => '',
-            'bio' => '',
-        ]);
-        $author['image'] = PrezetHelper::checkImageExists($author['image']);
-
         $readingTime = PrezetHelper::calculateReadingTime($html);
 
         // Get all posts in this series for the sidebar
@@ -150,7 +142,6 @@ class SeriesController extends Controller
             'linkedData' => $linkedData,
             'headings' => $headings,
             'body' => $html,
-            'author' => $author,
             'readingTime' => $readingTime,
             'seriesPosts' => $seriesPosts,
             'currentSeriesSlug' => $seriesSlug,

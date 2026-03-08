@@ -10,8 +10,8 @@
 
     <x-prezet.subpage-header :title="$snippet->frontmatter->title" :subtitle="$snippet->frontmatter->excerpt">
         <div class="mt-8 flex justify-center items-center gap-4">
-            <div class="flex items-center gap-2 text-xs font-bold text-zinc-400">
-                <x-prezet.icon-calendar class="size-4" />
+            <div class="flex items-center gap-2 text-xs font-bold text-zinc-400 leading-none">
+                <x-prezet.icon-calendar class="size-4 mb-0.5" />
                 <span>{{ $snippet->createdAt->format('d/m/Y') }}</span>
             </div>
             <span class="w-1.5 h-1.5 rounded-full bg-zinc-200 dark:bg-zinc-800"></span>

@@ -40,17 +40,8 @@ class ShowController extends Controller
                 // Check image
                 $docData->frontmatter->image = PrezetHelper::checkImageExists($docData->frontmatter->image);
 
-                // Get and check author
-                $authorKey = $docData->frontmatter->author;
-                $authorData = config('prezet.authors.'.$authorKey, [
-                    'name' => 'Anonymous',
-                    'image' => null,
-                ]);
-                $authorData['image'] = PrezetHelper::checkImageExists($authorData['image'] ?? null);
-
                 return (object) [
                     'data' => $docData,
-                    'author' => $authorData,
                     'readingTime' => $readingTime,
                 ];
             });
@@ -65,15 +56,6 @@ class ShowController extends Controller
 
         $linkedData = json_encode(Prezet::getLinkedData($docData), JSON_UNESCAPED_SLASHES);
         $headings = Prezet::getHeadings($html);
-        $authorKey = $docData->frontmatter->author;
-        $author = config('prezet.authors.'.$authorKey, [
-            'name' => 'Anonymous',
-            'image' => '',
-            'bio' => '',
-        ]);
-
-        // Check if author image exists using Helper
-        $author['image'] = PrezetHelper::checkImageExists($author['image']);
 
         // Calculate reading time
         $readingTime = PrezetHelper::calculateReadingTime($html);
@@ -96,17 +78,8 @@ class ShowController extends Controller
                 // Check image
                 $docData->frontmatter->image = PrezetHelper::checkImageExists($docData->frontmatter->image);
 
-                // Get and check author
-                $authorKey = $docData->frontmatter->author;
-                $authorData = config('prezet.authors.'.$authorKey, [
-                    'name' => 'Anonymous',
-                    'image' => null,
-                ]);
-                $authorData['image'] = PrezetHelper::checkImageExists($authorData['image'] ?? null);
-
                 return (object) [
                     'data' => $docData,
-                    'author' => $authorData,
                     'readingTime' => $readingTime,
                 ];
             });
@@ -116,7 +89,6 @@ class ShowController extends Controller
             'linkedData' => $linkedData,
             'headings' => $headings,
             'body' => $html,
-            'author' => $author,
             'readingTime' => $readingTime,
             'relatedPosts' => $relatedPosts,
             'seo' => [

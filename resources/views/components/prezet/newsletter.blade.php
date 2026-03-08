@@ -1,7 +1,7 @@
-<div id="newsletter-section" class="max-w-2xl w-full mx-auto">
+<div id="newsletter-section" class="max-w-3xl w-full mx-auto">
     <div id="newsletter-form-container">
         <div class="text-center space-y-4 mb-8">
-            <h3 class="text-2xl font-black text-white tracking-tight uppercase">Bản tin hàng tuần</h3>
+            <h3 class="text-3xl font-bold text-white">Bản tin hàng tuần</h3>
             <p class="text-zinc-400 font-medium">
                 Đăng ký để nhận thông tin về những bài viết mới nhất tuần qua
             </p>
@@ -10,7 +10,7 @@
         <form action="{{ route('newsletter.subscribe') }}" method="POST" class="relative max-w-md mx-auto group">
             @csrf
             <div
-                class="relative flex items-center p-1 rounded-3xl bg-zinc-800/50 border border-zinc-700/50 shadow-sm focus-within:ring-2 focus-within:ring-white/10 focus-within:border-zinc-500 transition-all">
+                class="relative flex items-center p-1 rounded-4xl bg-zinc-800/50 border border-zinc-700/50 shadow-sm focus-within:ring-2 focus-within:ring-white/10 focus-within:border-zinc-500 transition-all">
                 <div class="pl-4 text-zinc-500">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-5">

@@ -25,16 +25,16 @@
                 <div class="space-y-16">
                     @foreach ($postsByYear as $year => $posts)
                         <section>
-                            <div class="flex items-center gap-8 mb-8 mt-0">
+                            <div class="flex items-center gap-8 mb-6 mt-0">
                                 <h2 class="text-2xl font-bold text-zinc-900 dark:text-white tracking-tighter">
                                     {{ $year }}
                                 </h2>
                                 <div class="h-px flex-grow bg-zinc-100 dark:bg-zinc-800"></div>
                             </div>
 
-                            <div class="grid grid-cols-1 gap-16">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12">
                                 @foreach ($posts as $post)
-                                    <x-prezet.article :article="$post->data" :author="$post->author" :readingTime="$post->readingTime"
+                                    <x-prezet.article :article="$post->data" :readingTime="$post->readingTime"
                                         :hide-image="true" />
                                 @endforeach
                             </div>

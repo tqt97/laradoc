@@ -28,7 +28,7 @@
 
         <h1
             class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-zinc-900 dark:text-white leading-[1.1] mb-10">
-            Ghi chép & Chia sẻ
+            Lưu trữ & Chia sẻ
             <br />
             <span
                 class="text-transparent bg-clip-text bg-linear-to-r from-zinc-800 via-primary-400 to-primary-500 dark:from-primary-400 dark:via-primary-400 dark:to-primary-300 animate-gradient-x">
@@ -110,7 +110,7 @@
             </a>
         </div>
 
-        <a href="#latest-posts" class="group relative inline-flex flex-col items-center">
+        <a href="#series" class="group relative inline-flex flex-col items-center">
             {{-- Enhanced Mouse Scroll --}}
             <div class="flex flex-col items-center gap-4">
                 <div
