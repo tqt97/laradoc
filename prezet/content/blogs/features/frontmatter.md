@@ -18,7 +18,6 @@ category: Features
 excerpt: "Prezet uses typed front matter for robust content management."
 image: "/prezet/img/ogimages/example.png"
 draft: false
-author: 'jane_doe'
 tags: [markdown, content]
 ---
 ```

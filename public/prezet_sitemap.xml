@@ -2,187 +2,187 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
     <url>
         <loc>http://127.0.0.1:8000/series/javascript-basics/index</loc>
-        <lastmod>2026-03-08T04:31:13+07:00</lastmod>
+        <lastmod>2026-03-08T11:48:37+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/javascript-basics/installing</loc>
-        <lastmod>2026-03-08T04:31:22+07:00</lastmod>
+        <lastmod>2026-03-08T11:48:37+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/javascript-basics/queue</loc>
-        <lastmod>2026-03-08T04:32:00+07:00</lastmod>
+        <lastmod>2026-03-08T11:48:37+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/javascript-basics/run</loc>
-        <lastmod>2026-03-08T04:31:56+07:00</lastmod>
+        <lastmod>2026-03-08T11:48:37+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/laravel-basics/index</loc>
-        <lastmod>2026-03-08T01:01:32+07:00</lastmod>
+        <lastmod>2026-03-08T11:48:37+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/laravel-basics/installing</loc>
-        <lastmod>2026-03-08T01:01:36+07:00</lastmod>
+        <lastmod>2026-03-08T11:48:37+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/laravel-basics/queue</loc>
-        <lastmod>2026-03-08T01:32:48+07:00</lastmod>
+        <lastmod>2026-03-08T11:48:37+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/laravel-basics/run</loc>
-        <lastmod>2026-03-08T01:32:46+07:00</lastmod>
+        <lastmod>2026-03-08T11:48:37+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/markdown-tutorial</loc>
-        <lastmod>2026-03-08T00:59:38+07:00</lastmod>
+        <lastmod>2026-03-08T11:48:37+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/snippets/example-test</loc>
-        <lastmod>2026-03-08T01:01:29+07:00</lastmod>
+        <lastmod>2026-03-08T11:48:37+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/snippets/hello-world</loc>
-        <lastmod>2026-03-08T04:27:59+07:00</lastmod>
+        <lastmod>2026-03-08T11:48:37+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/php/isset-vs-in-array-trong-php</loc>
-        <lastmod>2026-03-08T00:59:43+07:00</lastmod>
+        <lastmod>2026-03-08T11:48:37+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/features/markdown</loc>
-        <lastmod>2026-03-08T00:59:49+07:00</lastmod>
+        <lastmod>2026-03-08T11:48:37+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/features/newsletter</loc>
-        <lastmod>2026-03-08T00:59:53+07:00</lastmod>
+        <lastmod>2026-03-08T11:48:37+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/features/jsonld</loc>
-        <lastmod>2026-03-08T00:59:58+07:00</lastmod>
+        <lastmod>2026-03-08T11:48:37+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/testing</loc>
-        <lastmod>2026-03-08T01:00:01+07:00</lastmod>
+        <lastmod>2026-03-08T11:48:37+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/testing/laravel-database-testing</loc>
-        <lastmod>2026-03-08T01:00:05+07:00</lastmod>
+        <lastmod>2026-03-08T11:48:37+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/testing/laravel-fakes</loc>
-        <lastmod>2026-03-08T01:00:08+07:00</lastmod>
+        <lastmod>2026-03-08T11:48:37+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/testing/laravel-mocking</loc>
-        <lastmod>2026-03-08T01:00:11+07:00</lastmod>
+        <lastmod>2026-03-08T11:48:37+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/testing/laravel-testing</loc>
-        <lastmod>2026-03-08T01:00:15+07:00</lastmod>
+        <lastmod>2026-03-08T11:48:37+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/laravel-vite</loc>
-        <lastmod>2026-03-08T01:00:18+07:00</lastmod>
+        <lastmod>2026-03-08T11:48:37+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/laravel-validation</loc>
-        <lastmod>2026-03-08T01:00:21+07:00</lastmod>
+        <lastmod>2026-03-08T11:48:37+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/features/sitemap</loc>
-        <lastmod>2026-03-08T01:00:25+07:00</lastmod>
+        <lastmod>2026-03-08T11:48:37+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/configuration</loc>
-        <lastmod>2026-03-08T01:00:30+07:00</lastmod>
+        <lastmod>2026-03-08T11:48:37+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/index</loc>
-        <lastmod>2026-03-08T01:00:33+07:00</lastmod>
+        <lastmod>2026-03-08T11:48:37+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/features/blade</loc>
-        <lastmod>2026-03-08T01:00:37+07:00</lastmod>
+        <lastmod>2026-03-08T11:48:37+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/features/ogimage</loc>
-        <lastmod>2026-03-08T01:00:41+07:00</lastmod>
+        <lastmod>2026-03-08T11:48:37+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/features/frontmatter</loc>
-        <lastmod>2026-03-08T01:00:45+07:00</lastmod>
+        <lastmod>2026-03-08T11:48:37+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/features/images</loc>
-        <lastmod>2026-03-08T01:00:52+07:00</lastmod>
+        <lastmod>2026-03-08T11:48:37+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/features/seo</loc>
-        <lastmod>2026-03-08T01:00:55+07:00</lastmod>
+        <lastmod>2026-03-08T11:48:37+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/laravel-queues</loc>
-        <lastmod>2026-03-08T01:01:00+07:00</lastmod>
+        <lastmod>2026-03-08T11:48:37+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/laravel-routing</loc>
-        <lastmod>2026-03-08T01:01:04+07:00</lastmod>
+        <lastmod>2026-03-08T11:48:37+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/laravel-artisan</loc>
-        <lastmod>2026-03-08T01:01:10+07:00</lastmod>
+        <lastmod>2026-03-08T11:48:37+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/laravel-middleware</loc>
-        <lastmod>2026-03-08T01:01:13+07:00</lastmod>
+        <lastmod>2026-03-08T11:48:37+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/eloquent-basics</loc>
-        <lastmod>2026-03-08T01:01:17+07:00</lastmod>
+        <lastmod>2026-03-08T11:48:37+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/blade-templating</loc>
-        <lastmod>2026-03-08T01:01:22+07:00</lastmod>
+        <lastmod>2026-03-08T11:48:37+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/laravel-events</loc>
-        <lastmod>2026-03-08T01:01:25+07:00</lastmod>
+        <lastmod>2026-03-08T11:48:37+07:00</lastmod>
 
             </url>
 </urlset>

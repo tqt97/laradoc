@@ -1,7 +1,6 @@
 ---
 title: Newsletter Subscription
 excerpt: Engage your readers with weekly newsletters automatically generated from your latest articles.
-author: jane
 category: features
 date: 2026-03-03
 image: /prezet/img/ogimages/blogs-features-newsletter.webp

@@ -3,7 +3,6 @@ title: Complete Guide to Testing in Laravel
 date: 2025-01-10
 category: Testing
 excerpt: Master Laravel testing with our comprehensive guide covering unit tests, feature tests, mocking, fakes, and database testing strategies.
-author: bob
 image: /prezet/img/ogimages/blogs-testing-index.webp
 slug: testing
 contentType: category

@@ -4,7 +4,6 @@ date: 2025-01-10
 category: Testing
 excerpt: Learn how to effectively use mocks and fakes in Laravel testing to isolate dependencies and create reliable tests.
 image: /prezet/img/ogimages/blogs-testing-laravel-mocking.webp
-author: jane
 tags: [mocking, phpunit]
 ---
 

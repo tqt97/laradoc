@@ -1,7 +1,6 @@
 ---
 title: Start queue
 excerpt: Start queue.
-author: tuantq
 category: Laravel
 date: 2026-03-08
 order: 4

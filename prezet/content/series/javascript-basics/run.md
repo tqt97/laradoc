@@ -1,7 +1,6 @@
 ---
 title: Start js
 excerpt: Start js.
-author: tuantq
 category: js
 date: 2026-03-08
 order: 3

@@ -3,7 +3,6 @@ title: Decoupling Code with Laravel Events
 date: 2022-07-19
 excerpt: Learn how to use Laravel's event system for a simple observer implementation.
 image: /prezet/img/ogimages/blogs-laravel-events.webp
-author: bob
 tags: [events, listeners, decoupling]
 ---
 

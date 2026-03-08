@@ -88,7 +88,6 @@ Then, in your markdown:
 ```yaml
 ---
 title: My Awesome Blog Post
-author: jane_doe
 date: 2024-06-30
 image: /blog-images/featured.webp
 excerpt: This is a summary of my awesome blog post.

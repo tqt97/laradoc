@@ -1,7 +1,6 @@
 ---
 title: Installing javascript
 excerpt: Step by step guide to install javascript.
-author: tuantq
 category: javascript
 date: 2026-03-08
 order: 2

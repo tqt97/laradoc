@@ -3,7 +3,6 @@ title: Frontend Bundling with Vite
 date: 2024-11-22
 excerpt: Learn how Laravel integrates with Vite for modern frontend development.
 image: /prezet/img/ogimages/blogs-laravel-vite.webp
-author: bob
 tags: [vite, frontend, assets, javascript]
 ---
 

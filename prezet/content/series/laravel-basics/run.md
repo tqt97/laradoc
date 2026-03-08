@@ -1,7 +1,6 @@
 ---
 title: Start Laravel
 excerpt: Start Laravel.
-author: tuantq
 category: Laravel
 date: 2026-03-08
 order: 3

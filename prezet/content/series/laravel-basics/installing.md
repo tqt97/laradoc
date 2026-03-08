@@ -1,7 +1,6 @@
 ---
 title: Installing Laravel
 excerpt: Step by step guide to install Laravel.
-author: tuantq
 category: Laravel
 date: 2026-03-08
 order: 2
