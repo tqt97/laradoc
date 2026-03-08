@@ -2,17 +2,19 @@
     @seo($seo)
 
     <x-prezet.subpage-header title="Chuỗi bài viết"
-        subtitle="Tổng hợp các bài viết theo lộ trình, giúp bạn nắm vững kiến thức một cách bài bản và hệ thống." />
+        subtitle="Tổng hợp các bài viết theo lộ trình, giúp bạn nắm vững kiến thức một cách bài bản và hệ thống.">
+        <x-prezet.index-search :action="route('prezet.series.index')" :value="$search ?? ''" placeholder="Tìm kiếm chuỗi bài viết..." />
+    </x-prezet.subpage-header>
 
-    <div class="py-12 lg:py-24">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div class="py-12 lg:py-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             @foreach ($series as $item)
                 <div
-                    class="group relative flex flex-col bg-white dark:bg-zinc-900 rounded-3xl p-8 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 ring-1 ring-zinc-200 dark:ring-zinc-800">
+                    class="group relative flex flex-col bg-white dark:bg-zinc-900 rounded-3xl p-8 transition-all duration-300 hover:shadow-md ring-1 ring-zinc-200 dark:ring-zinc-800">
                     <div class="flex-grow">
                         <div class="flex items-center gap-4 mb-6">
                             <span
-                                class="inline-flex items-center justify-center size-12 rounded-2xl bg-primary-50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400 font-bold text-lg ring-1 ring-primary-100 dark:ring-primary-900/50 group-hover:scale-110 transition-transform duration-300">
+                                class="inline-flex items-center justify-center size-12 rounded-3xl bg-primary-50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400 font-bold text-lg ring-1 ring-primary-100 dark:ring-primary-900/50 group-hover:scale-110 transition-transform duration-300">
                                 {{ $item->postCount }}
                             </span>
                             <span class="text-xs font-bold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
@@ -59,7 +61,7 @@
             <div
                 class="text-center py-24 bg-zinc-50 dark:bg-zinc-900/50 rounded-3xl border-2 border-dashed border-zinc-200 dark:border-zinc-800">
                 <div class="mb-6 flex justify-center">
-                    <div class="size-16 rounded-2xl bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center">
+                    <div class="size-16 rounded-3xl bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="size-8 text-zinc-400">
                             <path stroke-linecap="round" stroke-linejoin="round"

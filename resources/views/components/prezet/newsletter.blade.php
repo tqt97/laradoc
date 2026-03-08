@@ -10,7 +10,7 @@
         <form action="{{ route('newsletter.subscribe') }}" method="POST" class="relative max-w-md mx-auto group">
             @csrf
             <div
-                class="relative flex items-center p-1 rounded-2xl bg-zinc-800/50 border border-zinc-700/50 shadow-sm focus-within:ring-2 focus-within:ring-white/10 focus-within:border-zinc-500 transition-all">
+                class="relative flex items-center p-1 rounded-3xl bg-zinc-800/50 border border-zinc-700/50 shadow-sm focus-within:ring-2 focus-within:ring-white/10 focus-within:border-zinc-500 transition-all">
                 <div class="pl-4 text-zinc-500">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-5">
@@ -21,7 +21,7 @@
                 <input type="email" name="email" placeholder="Địa chỉ email của bạn" required
                     class="flex-grow bg-transparent border-none focus:ring-0 text-sm font-medium text-white placeholder:text-zinc-500 py-3 px-3" />
                 <button type="submit"
-                    class="bg-white text-zinc-900 font-bold text-xs uppercase tracking-widest px-6 py-3 rounded-xl transition-all hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 hover:cursor-pointer">
+                    class=" bg-primary-600 text-zinc-100 font-bold text-xs uppercase tracking-widest px-6 py-3 rounded-3xl transition-all disabled:opacity-50 hover:cursor-pointer hover:bg-primary-700 hover:text-white">
                     Đăng ký
                 </button>
             </div>

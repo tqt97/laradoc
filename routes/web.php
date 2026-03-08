@@ -9,6 +9,7 @@ use App\Http\Controllers\Prezet\IndexController;
 use App\Http\Controllers\Prezet\OgimageController;
 use App\Http\Controllers\Prezet\SearchController;
 use App\Http\Controllers\Prezet\ShowController;
+use App\Http\Controllers\SeriesController;
 use App\Http\Controllers\SnippetController;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Session\Middleware\StartSession;
@@ -61,10 +62,10 @@ Route::withoutMiddleware([
         Route::get('/articles', ArticleController::class)
             ->name('prezet.articles');
 
-        Route::get('/series', [\App\Http\Controllers\Prezet\SeriesController::class, 'index'])
+        Route::get('/series', [SeriesController::class, 'index'])
             ->name('prezet.series.index');
 
-        Route::get('/series/{slug}', [\App\Http\Controllers\Prezet\SeriesController::class, 'show'])
+        Route::get('/series/{slug}', [SeriesController::class, 'show'])
             ->name('prezet.series.show')
             ->where('slug', '.*');
 

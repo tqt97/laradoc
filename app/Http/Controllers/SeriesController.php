@@ -1,13 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Prezet;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Support\PrezetCache;
 use App\Support\PrezetHelper;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
 use Prezet\Prezet\Data\DocumentData;
@@ -21,16 +19,24 @@ class SeriesController extends Controller
      */
     public function index(Request $request): View
     {
+        $q = $request->query('q');
         $version = PrezetCache::version();
-        $cacheKey = "prezet_v{$version}_series_index";
+        $cacheKey = "prezet_v{$version}_series_index_".md5($q ?? '');
 
-        $data = Cache::remember($cacheKey, 86400, function () {
+        $data = Cache::remember($cacheKey, 86400, function () use ($q) {
             // A series is a sub-folder in content/series
-            // We can group documents by their parent folder
-            $docs = app(Document::class)::query()
+            $query = app(Document::class)::query()
                 ->where('filepath', 'like', 'content/series/%')
-                ->where('draft', false)
-                ->get();
+                ->where('draft', false);
+
+            if ($q) {
+                $query->where(function ($query) use ($q) {
+                    $query->where('frontmatter->title', 'like', "%{$q}%")
+                        ->orWhere('content', 'like', "%{$q}%");
+                });
+            }
+
+            $docs = $query->get();
 
             $series = $docs->groupBy(function (Document $doc) {
                 // Get the folder name after content/series/
@@ -57,10 +63,11 @@ class SeriesController extends Controller
             return [
                 'series' => $series,
                 'seo' => PrezetHelper::getSeoData('Chuỗi bài viết'),
+                'search' => $q,
             ];
         });
 
-        return view('prezet.series.index', array_merge($data, PrezetHelper::getCommonData()));
+        return view('series.index', array_merge($data, PrezetHelper::getCommonData()));
     }
 
     /**
@@ -138,7 +145,7 @@ class SeriesController extends Controller
             })
             ->values(); // Reset keys so $index in @foreach is 0, 1, 2... in order
 
-        return view('prezet.series.show', array_merge([
+        return view('series.show', array_merge([
             'document' => $docData,
             'linkedData' => $linkedData,
             'headings' => $headings,

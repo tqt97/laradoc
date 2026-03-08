@@ -73,8 +73,8 @@
     window.addEventListener('scroll', () => updateScroll())">
 
     <div class="min-h-screen flex flex-col transition-colors duration-300">
-        <div class="fixed top-0 left-0 w-full h-[3px] bg-transparent overflow-hidden pointer-events-none z-[60]">
-            <div class="h-full bg-zinc-900 dark:bg-white transition-all duration-300 ease-out shadow-[0_0_10px_rgba(0,0,0,0.1)] dark:shadow-[0_0_10px_rgba(255,255,255,0.1)]"
+        <div class="fixed top-0 left-0 w-full h-[2.5px] bg-transparent overflow-hidden pointer-events-none z-[60]">
+            <div class="h-full bg-primary-400 dark:bg-primary-400 transition-all duration-300 ease-out shadow-[0_0_10px_rgba(0,0,0,0.1)] dark:shadow-[0_0_10px_rgba(255,255,255,0.1)]"
                 :style="`width: ${progress}%`" x-show="progress > 0"></div>
         </div>
         <x-prezet.header />
@@ -96,19 +96,19 @@
                         <div class="flex items-center gap-6">
                             <x-prezet.logo />
                             <p class="text-sm font-bold text-zinc-500">
-                                &copy; {{ date('Y') }} TuanTQ - Nơi chia sẻ và lưu trữ kiến thức.
+                                &copy; {{ date('Y') }} <a class="text-primary-500 hover:text-primary-600 hover:underline" href="/">TuanTQ</a> - Chia sẻ và lưu trữ kiến thức.
                             </p>
                         </div>
 
                         <div class="flex items-center gap-8 text-sm font-bold">
                             <a href="{{ route('prezet.index') }}"
-                                class="text-zinc-400 hover:text-white transition-colors">Bài viết</a>
+                                class="text-zinc-400 hover:text-primary-500 transition-colors">Bài viết</a>
                             <a href="{{ route('prezet.series.index') }}"
-                                class="text-zinc-400 hover:text-white transition-colors">Chuỗi bài viết</a>
+                                class="text-zinc-400 hover:text-primary-500 transition-colors">Chuỗi bài viết</a>
                             <a href="{{ route('links.index') }}"
-                                class="text-zinc-400 hover:text-white transition-colors">Lưu trữ</a>
+                                class="text-zinc-400 hover:text-primary-500 transition-colors">Lưu trữ</a>
                             <a href="{{ route('snippets.index') }}"
-                                class="text-zinc-400 hover:text-white transition-colors">Snippets</a>
+                                class="text-zinc-400 hover:text-primary-500 transition-colors">Snippets</a>
                         </div>
                     </div>
                 </div>
@@ -124,7 +124,7 @@
                 x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 translate-x-8"
                 x-transition:enter-end="opacity-100 translate-x-0" x-transition:leave="transition ease-in duration-300"
                 x-transition:leave-start="opacity-100 translate-x-0" x-transition:leave-end="opacity-0 translate-x-8"
-                class="p-4 rounded-2xl bg-emerald-500 text-white font-bold text-sm shadow-2xl flex items-center gap-3 pointer-events-auto">
+                class="p-4 rounded-3xl bg-emerald-400 text-white font-bold text-sm shadow-2xl flex items-center gap-3 pointer-events-auto">
                 <div class="size-8 rounded-full bg-white/20 flex items-center justify-center shrink-0">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3"
                         stroke="currentColor" class="size-4">
@@ -146,7 +146,7 @@
                 x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 translate-x-8"
                 x-transition:enter-end="opacity-100 translate-x-0" x-transition:leave="transition ease-in duration-300"
                 x-transition:leave-start="opacity-100 translate-x-0" x-transition:leave-end="opacity-0 translate-x-8"
-                class="p-4 rounded-2xl bg-red-500 text-white font-bold text-sm shadow-2xl flex items-start gap-3 pointer-events-auto">
+                class="p-4 rounded-3xl bg-red-500 text-white font-bold text-sm shadow-2xl flex items-start gap-3 pointer-events-auto">
                 <div class="size-8 rounded-full bg-white/20 flex items-center justify-center shrink-0">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3"
                         stroke="currentColor" class="size-4">
@@ -169,18 +169,18 @@
         x-transition:enter-start="opacity-0 translate-y-8" x-transition:enter-end="opacity-100 translate-y-0"
         x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 translate-y-0"
         x-transition:leave-end="opacity-0 translate-y-8" @click="window.scrollTo({top: 0, behavior: 'smooth'})"
-        class="fixed bottom-6 right-6 z-40 size-10 sm:size-12 rounded-full bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white shadow-2xl flex items-center justify-center group outline-none ring-1 ring-zinc-200 dark:ring-zinc-700">
+        class="fixed bottom-6 right-6 z-40 size-10 sm:size-12 rounded-full bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white shadow-2xl flex items-center justify-center group outline-none ring-1 ring-zinc-200 dark:ring-zinc-700 hover:cursor-pointer">
         <svg class="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 100 100">
             <circle class="text-zinc-100 dark:text-zinc-700/50" stroke-width="6" stroke="currentColor"
                 fill="transparent" r="44" cx="50" cy="50" />
-            <circle class="text-zinc-900 dark:text-zinc-400 transition-all duration-100" stroke-width="6"
+            <circle class="text-primary-500 dark:text-primary-400 transition-all duration-100" stroke-width="6"
                 :stroke-dasharray="2 * Math.PI * 44" :stroke-dashoffset="2 * Math.PI * 44 * (1 - progress / 100)"
                 stroke-linecap="round" stroke="currentColor" fill="transparent" r="44" cx="50"
                 cy="50" />
         </svg>
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3"
             stroke="currentColor"
-            class="size-4 sm:size-5 relative z-10 group-hover:-translate-y-1 transition-transform">
+            class="size-4 sm:size-5 relative z-10 group-hover:-translate-y-1 transition-transform text-primary-500">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18" />
         </svg>
     </button>

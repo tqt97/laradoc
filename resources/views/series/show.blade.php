@@ -37,7 +37,7 @@
                             Chuỗi bài viết
                         </h3>
                         <div
-                            class="bg-zinc-50 dark:bg-zinc-900/50 rounded-2xl p-4 ring-1 ring-zinc-200/50 dark:ring-zinc-800/50">
+                            class="bg-zinc-50 dark:bg-zinc-900/50 rounded-3xl p-4 ring-1 ring-zinc-200/50 dark:ring-zinc-800/50">
                             <h4 class="text-sm font-bold text-zinc-900 dark:text-white mb-1">
                                 {{ Str::headline($currentSeriesSlug) }}
                             </h4>
@@ -53,7 +53,7 @@
                                 $isActive = $post->slug === $document->slug;
                             @endphp
                             <a href="{{ route('prezet.series.show', $post->series_slug) }}"
-                                class="group flex items-start gap-3 py-3 px-4 rounded-xl transition-all duration-200 {{ $isActive ? 'bg-primary-50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400 ring-1 ring-primary-100 dark:ring-primary-900/50' : 'text-zinc-500 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 hover:text-zinc-900 dark:hover:text-zinc-200' }}">
+                                class="group flex items-start gap-3 py-3 px-4 rounded-3xl transition-all duration-200 {{ $isActive ? 'bg-primary-50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400 ring-1 ring-primary-100 dark:ring-primary-900/50' : 'text-zinc-500 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 hover:text-zinc-900 dark:hover:text-zinc-200' }}">
                                 <div class="mt-1 flex-shrink-0 flex items-center justify-center">
                                     @if ($isActive)
                                         <div class="size-2 rounded-full bg-primary-500 animate-pulse"></div>
@@ -72,7 +72,7 @@
 
                     <div class="mt-12 pt-8 border-t border-zinc-100 dark:border-zinc-800">
                         <a href="{{ route('prezet.series.index') }}"
-                            class="flex items-center gap-2 text-xs font-bold text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors uppercase tracking-widest">
+                            class="flex items-center gap-2 text-xs font-semibold text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                 stroke-width="2.5" stroke="currentColor" class="size-3">
                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -90,8 +90,8 @@
                     class="prose prose-zinc dark:prose-invert max-w-none
                     prose-headings:font-bold prose-headings:tracking-tight
                     prose-a:text-primary-600 dark:prose-a:text-primary-400 prose-a:no-underline hover:prose-a:underline
-                    prose-pre:rounded-2xl prose-pre:bg-zinc-900 prose-pre:ring-1 prose-pre:ring-white/10
-                    prose-img:rounded-2xl">
+                    prose-pre:rounded-3xl prose-pre:bg-zinc-900 prose-pre:ring-1 prose-pre:ring-white/10
+                    prose-img:rounded-3xl">
                     {!! $body !!}
                 </article>
 

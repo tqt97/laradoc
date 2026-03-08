@@ -62,7 +62,7 @@
         <div class="mt-6">
             <img src="{{ url($document->frontmatter->image) }}" alt="{{ $document->frontmatter->title }}"
                 width="1120" height="595" loading="lazy" decoding="async"
-                class="h-auto max-h-[500px] w-full rounded-2xl bg-zinc-50 object-cover dark:bg-zinc-800 ring-1 ring-zinc-200 dark:ring-zinc-800" />
+                class="h-auto max-h-[500px] w-full rounded-3xl bg-zinc-50 object-cover dark:bg-zinc-800 ring-1 ring-zinc-200 dark:ring-zinc-800" />
         </div>
     @endif
 </div>

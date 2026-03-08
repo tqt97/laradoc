@@ -15,28 +15,74 @@
                 @csrf
                 <div class="space-y-6">
                     <div>
-                        <label for="name" class="block text-sm text-left font-bold text-zinc-700 dark:text-zinc-300 mb-2">Ý
-                            tưởng của bạn *</label>
+                        <label for="name"
+                            class="block text-sm text-left font-bold text-zinc-700 dark:text-zinc-300 mb-2">Ý
+                            tưởng của bạn <span class="text-red-500">*</span></label>
                         <input type="text" name="name" id="name" required
                             placeholder="Ví dụ: Hướng dẫn sử dụng React Query với Laravel"
-                            class="w-full rounded-2xl bg-zinc-50 dark:bg-zinc-800 border-none focus:ring-2 focus:ring-primary-500 text-sm py-4 px-5 dark:text-white dark:placeholder:text-zinc-500" />
+                            class="w-full rounded-3xl bg-zinc-50 dark:bg-zinc-800 border-none focus:ring-2 focus:ring-primary-500 text-sm py-3 px-4 dark:text-white dark:placeholder:text-zinc-500" />
                         @error('name')
                             <p class="mt-1 text-xs text-red-500">{{ $message }}</p>
                         @enderror
                     </div>
 
-                    <div>
+                    <div x-data="{
+                        open: false,
+                        searchTerm: '',
+                        setCategory(val) {
+                            $refs.categoryInput.value = val;
+                            this.searchTerm = val;
+                            this.open = false;
+                        },
+                        get filteredCategories() {
+                            if (this.searchTerm === '') return @js($categories);
+                            return @js($categories).filter(c => c.toLowerCase().includes(this.searchTerm.toLowerCase()));
+                        }
+                    }" class="relative">
                         <label for="category"
                             class="block text-sm font-bold text-zinc-700 dark:text-zinc-300 mb-2 text-left">Chủ đề/Danh
                             mục</label>
-                        <input type="text" name="category" id="category" list="category-list"
-                            placeholder="Ví dụ: Laravel, Frontend..."
-                            class="w-full rounded-2xl bg-zinc-50 dark:bg-zinc-800 border-none focus:ring-2 focus:ring-primary-500 text-sm py-4 px-5 dark:text-white dark:placeholder:text-zinc-500" />
-                        <datalist id="category-list" class="w-full">
-                            @foreach ($categories as $cat)
-                                <option class="w-full" value="{{ $cat }}">
-                            @endforeach
-                        </datalist>
+                        <div class="relative">
+                            <input type="text" name="category" id="category" x-ref="categoryInput"
+                                x-model="searchTerm" @focus="open = true" @click.away="open = false"
+                                placeholder="Ví dụ: Laravel, Frontend..." autocomplete="off"
+                                class="w-full rounded-3xl bg-zinc-50 dark:bg-zinc-800 border-none focus:ring-2 focus:ring-primary-500 text-sm py-3 px-4 dark:text-white dark:placeholder:text-zinc-500" />
+
+                            {{-- Custom Dropdown --}}
+                            <div x-show="open && filteredCategories.length > 0"
+                                x-transition:enter="transition ease-out duration-200"
+                                x-transition:enter-start="opacity-0 translate-y-1"
+                                x-transition:enter-end="opacity-100 translate-y-0"
+                                class="absolute z-50 mt-2 w-full bg-white dark:bg-zinc-900 rounded-3xl shadow-2xl ring-1 ring-zinc-200 dark:ring-zinc-800 overflow-hidden"
+                                x-cloak>
+                                <div
+                                    class="max-h-48 overflow-y-auto p-2 scrollbar-thin scrollbar-thumb-zinc-200 dark:scrollbar-thumb-zinc-800">
+                                    <template x-for="cat in filteredCategories" :key="cat">
+                                        <button type="button" @click="setCategory(cat)"
+                                            class="w-full text-left px-4 py-3 rounded-3xl hover:bg-zinc-50 dark:hover:bg-zinc-800 text-sm font-medium text-zinc-700 dark:text-zinc-300 transition-colors">
+                                            <span x-text="cat"></span>
+                                        </button>
+                                    </template>
+                                </div>
+                            </div>
+                        </div>
+
+                        @if ($categories->isNotEmpty())
+                            <div class="mt-4">
+                                <p
+                                    class="text-[11px] font-bold uppercase1 tracking-widest1 text-zinc-500 mb-2 text-left ml-1">
+                                    Gợi ý nhanh</p>
+                                <div class="flex flex-wrap gap-2">
+                                    @foreach ($categories as $category)
+                                        <button type="button" @click="setCategory('{{ $category }}')"
+                                            class="px-3 py-1.5 rounded-3xl bg-zinc-100 dark:bg-zinc-800 text-[10px] font-semibold text-zinc-600 dark:text-zinc-400 hover:bg-primary-500 hover:text-white transition-all hover:cursor-pointer">
+                                            {{ $category }}
+                                        </button>
+                                    @endforeach
+                                </div>
+                            </div>
+                        @endif
+
                         @error('category')
                             <p class="mt-1 text-xs text-red-500">{{ $message }}</p>
                         @enderror
@@ -44,11 +90,11 @@
 
                     <div>
                         <label for="reference"
-                            class="block text-sm font-bold text-zinc-700 dark:text-zinc-300 mb-2 text-left">Nguồn tham khảo
+                            class="block text-sm font-bold text-zinc-700 dark:text-zinc-300 mb-2 text-left">Nguồn tham
+                            khảo
                             (URL)</label>
-                        <input type="url" name="reference" id="reference"
-                            placeholder="https://example.com/topic"
-                            class="w-full rounded-2xl bg-zinc-50 dark:bg-zinc-800 border-none focus:ring-2 focus:ring-primary-500 text-sm py-4 px-5 dark:text-white dark:placeholder:text-zinc-500" />
+                        <input type="url" name="reference" id="reference" placeholder="https://example.com/topic"
+                            class="w-full rounded-3xl bg-zinc-50 dark:bg-zinc-800 border-none focus:ring-2 focus:ring-primary-500 text-sm py-3 px-4 dark:text-white dark:placeholder:text-zinc-500" />
                         @error('reference')
                             <p class="mt-1 text-xs text-red-500">{{ $message }}</p>
                         @enderror
@@ -56,7 +102,7 @@
 
                     <div class="pt-4 flex justify-center">
                         <button type="submit"
-                            class="bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold py-4 px-12 rounded-2xl hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg shadow-zinc-900/10 dark:shadow-none hover:cursor-pointer hover:bg-primary-600">
+                            class="bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold py-4 px-12 rounded-3xl hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg shadow-zinc-900/10 dark:shadow-none hover:cursor-pointer hover:bg-primary-600">
                             Gửi ý tưởng
                         </button>
                     </div>
@@ -74,7 +120,7 @@
                 <div class="h-px flex-grow bg-zinc-100 dark:bg-zinc-800"></div>
             </div>
 
-            <div class="grid grid-cols-1 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 @forelse($ideas as $idea)
                     <div
                         class="bg-zinc-50/50 dark:bg-zinc-900/50 rounded-3xl p-8 border border-zinc-100 dark:border-zinc-800 group hover:bg-white dark:hover:bg-zinc-900 transition-all duration-300">
@@ -83,12 +129,12 @@
                                 <div class="flex items-center gap-3 mb-3">
                                     @if ($idea->category)
                                         <span
-                                            class="px-2.5 py-1 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-[10px] font-black uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
+                                            class="px-2.5 py-1 rounded-3xl bg-zinc-100 dark:bg-zinc-800 text-[10px] font-black uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
                                             {{ $idea->category }}
                                         </span>
                                     @endif
                                     <span @class([
-                                        'px-2.5 py-1 rounded-lg text-[10px] font-black uppercase tracking-widest',
+                                        'px-2.5 py-1 rounded-3xl text-[10px] font-black uppercase tracking-widest',
                                         'bg-primary-50 text-primary-600 dark:bg-primary-900/30 dark:text-primary-400' =>
                                             $idea->status === 'submitted',
                                         'bg-emerald-50 text-emerald-600 dark:bg-emerald-900/30 dark:text-emerald-400' =>

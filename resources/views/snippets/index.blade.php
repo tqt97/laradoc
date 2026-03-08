@@ -9,26 +9,7 @@
 
     <x-prezet.subpage-header title="Snippets"
         subtitle="Thư viện các đoạn mã nguồn hữu ích, giúp bạn tiết kiệm thời gian và công sức.">
-        <div class="mt-10 flex justify-center">
-            <form action="{{ route('snippets.index') }}" method="GET" class="relative w-full max-w-md group">
-                <div
-                    class="relative flex items-center p-1 rounded-2xl bg-zinc-50/50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 shadow-sm focus-within:ring-2 focus-within:ring-primary-500 transition-all backdrop-blur-md">
-                    <div class="pl-4 text-zinc-400">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                            stroke="currentColor" class="size-5">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-                        </svg>
-                    </div>
-                    <input type="text" name="q" value="{{ $search }}" placeholder="Tìm kiếm snippet..."
-                        class="flex-grow bg-transparent border-none focus:ring-0 text-sm font-medium text-zinc-900 dark:text-white placeholder:text-zinc-400 py-3 px-3" />
-                    <button type="submit"
-                        class="bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold text-xs uppercase tracking-widest px-6 py-3 rounded-xl transition-all hover:shadow-sm hover:cursor-pointer">
-                        Tìm kiếm
-                    </button>
-                </div>
-            </form>
-        </div>
+        <x-prezet.index-search :action="route('snippets.index')" :value="$search" placeholder="Tìm kiếm snippet..." />
     </x-prezet.subpage-header>
 
     <div id="articles" class="py-12 lg:py-12">
@@ -45,7 +26,7 @@
                         @endphp
                         <div class="flex items-start justify-between mb-4">
                             <div
-                                class="p-2.5 rounded-xl bg-zinc-50 dark:bg-zinc-800 text-zinc-400 group-hover:text-primary-500 transition-colors">
+                                class="p-2.5 rounded-3xl bg-zinc-50 dark:bg-zinc-800 text-zinc-400 group-hover:text-primary-500 transition-colors">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                     stroke-width="2" stroke="currentColor" class="size-6">
                                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -53,7 +34,7 @@
                                 </svg>
                             </div>
                             <span
-                                class="px-3 py-1 rounded-lg {{ $langConfig['bg'] }} {{ $langConfig['text'] }} border {{ $langConfig['border'] }} text-[10px] font-black uppercase tracking-widest transition-colors">
+                                class="px-3 py-1 rounded-3xl {{ $langConfig['bg'] }} {{ $langConfig['text'] }} border {{ $langConfig['border'] }} text-[10px] font-black uppercase tracking-widest transition-colors">
                                 {{ $langConfig['label'] }}
                             </span>
                         </div>

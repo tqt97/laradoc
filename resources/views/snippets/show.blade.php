@@ -22,7 +22,7 @@
                 );
             @endphp
             <span
-                class="px-3 py-1 rounded-lg {{ $langConfig['bg'] }} {{ $langConfig['text'] }} border {{ $langConfig['border'] }} text-[10px] font-black uppercase tracking-widest">
+                class="px-3 py-1 rounded-3xl {{ $langConfig['bg'] }} {{ $langConfig['text'] }} border {{ $langConfig['border'] }} text-[10px] font-black uppercase tracking-widest">
                 {{ $langConfig['label'] }}
             </span>
         </div>
@@ -41,7 +41,7 @@
                 </a>
 
                 {{-- <a href="{{ route('snippets.edit', $slug) }}"
-                    class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 font-bold text-xs hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-all">
+                    class="inline-flex items-center gap-2 px-4 py-2 rounded-3xl bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 font-bold text-xs hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-all">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
                         stroke="currentColor" class="size-4">
                         <path stroke-linecap="round" stroke-linejoin="round"

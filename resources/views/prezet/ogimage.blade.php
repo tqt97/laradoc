@@ -73,7 +73,7 @@
             {{-- Top Section: Category --}}
             <div>
                 @if($fm->category)
-                    <span class="inline-flex items-center rounded-xl bg-primary-600/20 px-4 py-2 text-xl font-black uppercase tracking-[0.2em] text-primary-500 ring-1 ring-inset ring-primary-500/30">
+                    <span class="inline-flex items-center rounded-3xl bg-primary-600/20 px-4 py-2 text-xl font-black uppercase tracking-[0.2em] text-primary-500 ring-1 ring-inset ring-primary-500/30">
                         {{ $fm->category }}
                     </span>
                 @endif
@@ -95,7 +95,7 @@
             {{-- Bottom Section: Branding --}}
             <div class="flex items-center justify-between">
                 <div class="flex items-center gap-4">
-                    <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-slate-800/50 p-2 ring-1 ring-white/10">
+                    <div class="flex h-12 w-12 items-center justify-center rounded-3xl bg-slate-800/50 p-2 ring-1 ring-white/10">
                         <x-prezet.logo />
                     </div>
                     <span class="text-3xl font-bold tracking-tight text-white">

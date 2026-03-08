@@ -27,14 +27,14 @@
                             <input type="text" name="title"
                                 value="{{ old('title', $snippet?->frontmatter->title) }}" required
                                 placeholder="Ví dụ: Laravel Eloquent scope"
-                                class="w-full px-4 py-3 rounded-2xl bg-white dark:bg-zinc-950 border-zinc-200 dark:border-zinc-800 text-sm focus:ring-2 focus:ring-primary-500 transition-all outline-none dark:text-white" />
+                                class="w-full px-4 py-3 rounded-3xl bg-white dark:bg-zinc-950 border-zinc-200 dark:border-zinc-800 text-sm focus:ring-2 focus:ring-primary-500 transition-all outline-none dark:text-white" />
                         </div>
 
                         <div class="space-y-2">
                             <label class="text-xs font-bold uppercase tracking-widest text-zinc-500 ml-1">Ngôn
                                 ngữ</label>
                             <select name="language" required
-                                class="w-full px-4 py-3 rounded-2xl bg-white dark:bg-zinc-950 border-zinc-200 dark:border-zinc-800 text-sm focus:ring-2 focus:ring-primary-500 transition-all outline-none dark:text-white">
+                                class="w-full px-4 py-3 rounded-3xl bg-white dark:bg-zinc-950 border-zinc-200 dark:border-zinc-800 text-sm focus:ring-2 focus:ring-primary-500 transition-all outline-none dark:text-white">
                                 @foreach (config('prezet.snippet_languages') as $key => $lang)
                                     <option value="{{ $key }}" @selected(old('language', $snippet?->language) == $key)>
                                         {{ $lang['label'] }}
@@ -49,13 +49,13 @@
                         <input type="text" name="description"
                             value="{{ old('description', $snippet?->frontmatter->excerpt) }}"
                             placeholder="Mô tả tóm tắt về chức năng của snippet"
-                            class="w-full px-4 py-3 rounded-2xl bg-white dark:bg-zinc-950 border-zinc-200 dark:border-zinc-800 text-sm focus:ring-2 focus:ring-primary-500 transition-all outline-none dark:text-white" />
+                            class="w-full px-4 py-3 rounded-3xl bg-white dark:bg-zinc-950 border-zinc-200 dark:border-zinc-800 text-sm focus:ring-2 focus:ring-primary-500 transition-all outline-none dark:text-white" />
                     </div>
 
                     <div class="space-y-2">
                         <label class="text-xs font-bold uppercase tracking-widest text-zinc-500 ml-1">Mã nguồn</label>
                         <textarea name="code" rows="12" required placeholder="Dán mã nguồn của bạn vào đây..."
-                            class="w-full px-4 py-3 rounded-2xl bg-white dark:bg-zinc-950 border-zinc-200 dark:border-zinc-800 text-sm font-mono focus:ring-2 focus:ring-primary-500 transition-all outline-none dark:text-white">{{ old('code', $code ?? '') }}</textarea>
+                            class="w-full px-4 py-3 rounded-3xl bg-white dark:bg-zinc-950 border-zinc-200 dark:border-zinc-800 text-sm font-mono focus:ring-2 focus:ring-primary-500 transition-all outline-none dark:text-white">{{ old('code', $code ?? '') }}</textarea>
                     </div>
 
                     <div class="flex items-center justify-between pt-4 border-t border-zinc-100 dark:border-zinc-800">
@@ -65,7 +65,7 @@
                         </a>
 
                         <button type="submit"
-                            class="px-8 py-3 rounded-2xl bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold text-sm shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all">
+                            class="px-8 py-3 rounded-3xl bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold text-sm shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all">
                             {{ $snippet ? 'Cập nhật Snippet' : 'Lưu Snippet' }}
                         </button>
                     </div>

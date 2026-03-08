@@ -41,7 +41,7 @@
                 {{-- Main Content --}}
                 <div class="col-span-12 lg:col-span-9">
                     <article
-                        class="prose-pre:rounded-xl prose-headings:font-display prose prose-zinc prose-a:border-b prose-a:border-dashed prose-a:border-black/30 prose-a:font-semibold prose-a:no-underline prose-a:hover:border-solid prose-img:rounded-sm dark:prose-invert max-w-none">
+                        class="prose-pre:rounded-3xl prose-headings:font-display prose prose-zinc prose-a:border-b prose-a:border-dashed prose-a:border-black/30 prose-a:font-semibold prose-a:no-underline prose-a:hover:border-solid prose-img:rounded-3xl dark:prose-invert max-w-none">
                         {!! $body !!}
                     </article>
 
@@ -51,7 +51,7 @@
                             <div class="flex flex-wrap items-center gap-2">
                                 @foreach ($document->frontmatter->tags as $tag)
                                     <a href="{{ route('prezet.index', ['tag' => strtolower($tag)]) }}"
-                                        class="inline-flex items-center rounded-md bg-zinc-100 dark:bg-zinc-800/50 px-2.5 py-1 text-xs font-medium text-zinc-600 transition-colors hover:bg-zinc-200 dark:bg-zinc-400 dark:hover:bg-zinc-700">
+                                        class="inline-flex items-center rounded-3xl bg-zinc-100 dark:bg-zinc-800/50 px-2.5 py-1 text-xs font-medium text-zinc-600 transition-colors hover:bg-zinc-200 dark:bg-zinc-400 dark:hover:bg-zinc-700">
                                         <x-prezet.icon-tag class="mr-1.5 h-3 w-3" />
                                         {{ $tag }}
                                     </a>

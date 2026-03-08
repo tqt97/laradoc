@@ -160,4 +160,29 @@
         <lastmod>2026-03-08T01:01:25+07:00</lastmod>
 
             </url>
+    <url>
+        <loc>http://127.0.0.1:8000/snippets/hello-world</loc>
+        <lastmod>2026-03-08T04:27:59+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/javascript-basics/index</loc>
+        <lastmod>2026-03-08T04:31:13+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/javascript-basics/installing</loc>
+        <lastmod>2026-03-08T04:31:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/javascript-basics/queue</loc>
+        <lastmod>2026-03-08T04:32:00+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/javascript-basics/run</loc>
+        <lastmod>2026-03-08T04:31:56+07:00</lastmod>
+
+            </url>
 </urlset>

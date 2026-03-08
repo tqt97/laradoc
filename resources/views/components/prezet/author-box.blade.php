@@ -1,7 +1,7 @@
 @props(['author', 'document'])
 
 <div id="author"
-    {{ $attributes->merge(['class' => 'flex flex-col items-start gap-x-8 gap-y-6 rounded-2xl bg-zinc-50 p-8 ring-1 ring-zinc-900/5 md:flex-row dark:bg-zinc-800/50 dark:ring-white/10']) }}>
+    {{ $attributes->merge(['class' => 'flex flex-col items-start gap-x-8 gap-y-6 rounded-3xl bg-zinc-50 p-8 ring-1 ring-zinc-900/5 md:flex-row dark:bg-zinc-800/50 dark:ring-white/10']) }}>
     @if ($author['image'])
         <img src="{{ $author['image'] }}" alt="{{ $author['name'] }}" width="100" height="100" loading="lazy"
             decoding="async"

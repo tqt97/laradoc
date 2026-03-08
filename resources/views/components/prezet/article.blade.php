@@ -1,7 +1,7 @@
 @props(['article', 'author', 'readingTime' => null, 'hideImage' => false])
 
 <article
-    class="relative group flex flex-col rounded-2xl bg-zinc-50/50 text-zinc-900 ring-1 ring-zinc-500/10 transition-all hover:bg-zinc-50 hover:ring-zinc-500/20 dark:border-zinc-800 dark:bg-zinc-800/50 dark:text-zinc-100 dark:ring-zinc-700 dark:hover:bg-zinc-800 dark:hover:ring-zinc-600 overflow-hidden">
+    class="relative group flex flex-col rounded-3xl bg-zinc-50/50 text-zinc-900 ring-1 ring-zinc-500/10 transition-all hover:bg-zinc-50 hover:ring-zinc-500/20 dark:border-zinc-800 dark:bg-zinc-800/50 dark:text-zinc-100 dark:ring-zinc-700 dark:hover:bg-zinc-800 dark:hover:ring-zinc-600 overflow-hidden">
 
     @if (!$hideImage)
         {{-- Article Image --}}
@@ -101,7 +101,7 @@
                 <div class="relative z-20 flex flex-wrap gap-1.5">
                     @foreach (array_slice($article->frontmatter->tags, 0, 3) as $tag)
                         <a href="{{ route('prezet.articles', ['tag' => strtolower($tag)]) }}"
-                            class="inline-flex items-center rounded-md bg-zinc-100 dark:bg-zinc-800/50 px-2 py-0.5 text-[10px] font-medium text-zinc-600 dark:text-zinc-400 transition-colors hover:bg-zinc-200 dark:hover:bg-zinc-700">
+                            class="inline-flex items-center rounded-3xl bg-zinc-100 dark:bg-zinc-800/50 px-2 py-0.5 text-[10px] font-medium text-zinc-600 dark:text-zinc-400 transition-colors hover:bg-zinc-200 dark:hover:bg-zinc-700">
                             <x-prezet.icon-tag class="mr-1 size-2.5" />
                             {{ $tag }}
                         </a>

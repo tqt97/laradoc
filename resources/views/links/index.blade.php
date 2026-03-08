@@ -7,11 +7,11 @@
     @seo($seo)
 
     <div x-data="{ createModal: false, deleteModal: false, deleteUrl: '' }">
-        <x-prezet.subpage-header title="Lưu trữ liên kết"
+        <x-prezet.subpage-header title="Liên kết đã lưu"
             subtitle="Nơi lưu trữ và chia sẻ những liên kết hữu ích, tài liệu và công cụ thú vị.">
             <div class="mt-10">
                 <button @click="createModal = true"
-                    class="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold text-sm shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all group hover:cursor-pointer hover:bg-primary-600">
+                    class="inline-flex items-center gap-2 px-6 py-3 rounded-3xl bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold text-sm shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all group hover:cursor-pointer hover:bg-primary-600">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
                         stroke="currentColor" class="size-4 group-hover:rotate-90 transition-transform duration-300">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
@@ -22,38 +22,38 @@
         </x-prezet.subpage-header>
 
         <div id="articles" class="py-12 lg:py-12">
-            <div class="max-w-7xl mx-auto px-4">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {{-- Links List --}}
-                <div class="space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     @forelse($links as $link)
-                        <div x-data="{ open: false, editing: false }" class="relative">
+                        <div x-data="{ open: false, editing: false }" class="relative w-full min-w-0">
                             <!-- View Mode -->
-                            <div x-show="!editing" class="group relative flex items-center gap-2">
+                            <div x-show="!editing" class="group relative flex items-center gap-2 w-full">
                                 <a href="{{ $link->url }}" target="_blank" @mouseenter="open = true"
                                     @mouseleave="open = false"
-                                    class="flex-grow flex items-center justify-between p-5 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:border-primary-500/50 hover:shadow-xl hover:shadow-primary-500/5 transition-all duration-300">
-                                    <div class="flex items-center gap-4">
+                                    class="flex-grow flex items-center justify-between p-4 sm:p-5 rounded-3xl bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:border-primary-500/50 hover:shadow-xl hover:shadow-primary-500/5 transition-all duration-300 min-w-0">
+                                    <div class="flex items-center gap-3 sm:gap-4 min-w-0">
                                         <div
-                                            class="size-10 rounded-xl bg-zinc-50 dark:bg-zinc-800 flex items-center justify-center text-zinc-400 group-hover:text-primary-500 transition-colors">
+                                            class="size-10 rounded-3xl bg-zinc-50 dark:bg-zinc-800 flex items-center justify-center text-zinc-400 group-hover:text-primary-500 transition-colors shrink-0">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                                 stroke-width="2" stroke="currentColor" class="size-5">
                                                 <path stroke-linecap="round" stroke-linejoin="round"
                                                     d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" />
                                             </svg>
                                         </div>
-                                        <div class="flex flex-col">
+                                        <div class="flex flex-col min-w-0 overflow-hidden">
                                             <span
-                                                class="text-base font-bold text-zinc-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors line-clamp-1">
+                                                class="text-sm sm:text-base font-bold text-zinc-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors truncate">
                                                 {{ $link->title }}
                                             </span>
-                                            <span class="text-xs text-zinc-400 dark:text-zinc-500 line-clamp-1">
+                                            <span class="text-[10px] sm:text-xs text-zinc-400 dark:text-zinc-500 truncate">
                                                 {{ parse_url($link->url, PHP_URL_HOST) }}
                                             </span>
                                         </div>
                                     </div>
-                                    <div class="text-zinc-300 dark:text-zinc-700">
+                                    <div class="text-zinc-300 dark:text-zinc-700 shrink-0 ml-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                            stroke-width="2" stroke="currentColor" class="size-5">
+                                            stroke-width="2" stroke="currentColor" class="size-4 sm:size-5">
                                             <path stroke-linecap="round" stroke-linejoin="round"
                                                 d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
                                         </svg>
@@ -63,7 +63,7 @@
                                 {{-- Action Buttons --}}
                                 <div class="flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
                                     <button @click="editing = true"
-                                        class="p-2 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-500 hover:text-primary-500 transition-colors hover:cursor-pointer"
+                                        class="p-2 rounded-3xl bg-zinc-100 dark:bg-zinc-800 text-zinc-500 hover:text-primary-500 transition-colors hover:cursor-pointer"
                                         title="Sửa">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                             stroke-width="2" stroke="currentColor" class="size-4">
@@ -73,7 +73,7 @@
                                     </button>
                                     <button type="button"
                                         @click="deleteUrl = '{{ route('links.destroy', $link) }}'; deleteModal = true"
-                                        class="p-2 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-500 hover:text-red-500 transition-colors hover:cursor-pointer"
+                                        class="p-2 rounded-3xl bg-zinc-100 dark:bg-zinc-800 text-zinc-500 hover:text-red-500 transition-colors hover:cursor-pointer"
                                         title="Xóa">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                             stroke-width="2" stroke="currentColor" class="size-4">
@@ -91,9 +91,9 @@
                                         x-transition:leave="transition ease-in duration-150"
                                         x-transition:leave-start="opacity-100 translate-y-0 scale-100"
                                         x-transition:leave-end="opacity-0 translate-y-4 scale-95"
-                                        class="absolute left-1/2 -translate-x-1/2 bottom-full mb-4 z-50 w-80 p-2 bg-white dark:bg-zinc-800 rounded-2xl shadow-2xl ring-1 ring-zinc-200 dark:ring-zinc-700 pointer-events-none">
+                                        class="absolute left-1/2 -translate-x-1/2 bottom-full mb-4 z-[70] w-80 p-2 bg-white dark:bg-zinc-800 rounded-3xl shadow-2xl ring-1 ring-zinc-200 dark:ring-zinc-700 pointer-events-none">
                                         <img src="{{ $link->og_image }}"
-                                            class="w-full h-auto aspect-video object-cover rounded-xl shadow-sm"
+                                            class="w-full h-auto aspect-video object-cover rounded-3xl shadow-sm"
                                             alt="Preview" onerror="this.parentElement.style.display='none'">
                                     </div>
                                 @endif
@@ -101,7 +101,7 @@
 
                             <!-- Edit Mode -->
                             <div x-show="editing" x-cloak
-                                class="p-5 rounded-2xl bg-zinc-50 dark:bg-zinc-800/50 border border-primary-500/30">
+                                class="p-5 rounded-3xl bg-zinc-50 dark:bg-zinc-800/50 border border-primary-500/30">
                                 <form action="{{ route('links.update', $link) }}" method="POST" class="space-y-4">
                                     @csrf
                                     @method('PUT')
@@ -111,22 +111,22 @@
                                                 class="text-[10px] font-bold uppercase tracking-wider text-zinc-500">Tiêu
                                                 đề</label>
                                             <input type="text" name="title" value="{{ $link->title }}" required
-                                                class="w-full px-3 py-2 rounded-lg bg-white dark:bg-zinc-900 border-zinc-200 dark:border-zinc-700 text-sm focus:ring-2 focus:ring-primary-500 outline-none dark:text-white" />
+                                                class="w-full px-3 py-2 rounded-3xl bg-white dark:bg-zinc-900 border-zinc-200 dark:border-zinc-700 text-sm focus:ring-2 focus:ring-primary-500 outline-none dark:text-white" />
                                         </div>
                                         <div class="space-y-1">
                                             <label
                                                 class="text-[10px] font-bold uppercase tracking-wider text-zinc-500">URL</label>
                                             <input type="url" name="url" value="{{ $link->url }}" required
-                                                class="w-full px-3 py-2 rounded-lg bg-white dark:bg-zinc-900 border-zinc-200 dark:border-zinc-700 text-sm focus:ring-2 focus:ring-primary-500 outline-none dark:text-white" />
+                                                class="w-full px-3 py-2 rounded-3xl bg-white dark:bg-zinc-900 border-zinc-200 dark:border-zinc-700 text-sm focus:ring-2 focus:ring-primary-500 outline-none dark:text-white" />
                                         </div>
                                     </div>
                                     <div class="flex justify-end gap-2">
                                         <button type="button" @click="editing = false"
-                                            class="px-4 py-2 rounded-lg text-xs font-bold text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors hover:cursor-pointer">
+                                            class="px-4 py-2 rounded-3xl text-xs font-bold text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors hover:cursor-pointer">
                                             Hủy
                                         </button>
                                         <button type="submit"
-                                            class="px-4 py-2 rounded-lg bg-primary-600 text-white text-xs font-bold shadow-md hover:bg-primary-700 transition-colors hover:cursor-pointer">
+                                            class="px-4 py-2 rounded-3xl bg-primary-600 text-white text-xs font-bold shadow-md hover:bg-primary-700 transition-colors hover:cursor-pointer">
                                             Cập nhật
                                         </button>
                                     </div>
@@ -185,7 +185,7 @@
                                         Thêm liên kết mới
                                     </h3>
                                     <button @click="createModal = false"
-                                        class="text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 transition-colors">
+                                        class="text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 transition-colors hover:cursor-pointer hover:bg-zinc-50 rounded-3xl p-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                             stroke-width="2" stroke="currentColor" class="size-6">
                                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -201,10 +201,10 @@
                                             <label for="modal_url"
                                                 class="text-sm font-bold text-zinc-700 dark:text-zinc-300 ml-1">Đường
                                                 dẫn
-                                                (URL) *</label>
+                                                (URL) <span class="text-red-500">*</span></label>
                                             <input type="url" name="url" id="modal_url" required
                                                 placeholder="https://example.com"
-                                                class="w-full px-4 py-3 rounded-2xl bg-zinc-50 dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700 text-sm focus:ring-2 focus:ring-primary-500 transition-all outline-none dark:text-white" />
+                                                class="mt-1 w-full px-4 py-3 rounded-3xl bg-zinc-50 dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700 text-sm focus:ring-2 focus:ring-primary-500 transition-all outline-none dark:text-white" autofocus/>
                                         </div>
                                         <div class="space-y-2">
                                             <label for="modal_title"
@@ -212,17 +212,17 @@
                                                 (Tùy chọn)</label>
                                             <input type="text" name="title" id="modal_title"
                                                 placeholder="Nhập tiêu đề hoặc để trống"
-                                                class="w-full px-4 py-3 rounded-2xl bg-zinc-50 dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700 text-sm focus:ring-2 focus:ring-primary-500 transition-all outline-none dark:text-white" />
+                                                class="mt-1 w-full px-4 py-3 rounded-3xl bg-zinc-50 dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700 text-sm focus:ring-2 focus:ring-primary-500 transition-all outline-none dark:text-white" />
                                         </div>
                                     </div>
 
                                     <div class="pt-4 flex gap-3">
                                         <button type="button" @click="createModal = false"
-                                            class="flex-1 px-6 py-3 rounded-2xl border border-zinc-200 dark:border-zinc-700 text-zinc-600 dark:text-zinc-400 font-bold text-sm hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-all hover:cursor-pointer">
+                                            class="flex-1 px-6 py-3 rounded-3xl border border-zinc-200 dark:border-zinc-700 text-zinc-600 dark:text-zinc-400 font-bold text-sm hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all hover:cursor-pointer">
                                             Hủy bỏ
                                         </button>
                                         <button type="submit"
-                                            class="flex-1 px-6 py-3 rounded-2xl bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold text-sm shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all hover:cursor-pointer">
+                                            class="flex-1 px-6 py-3 rounded-3xl bg-primary-500 dark:bg-white text-white dark:text-zinc-900 font-bold text-sm shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all hover:cursor-pointer hover:bg-primary-600">
                                             Lưu liên kết
                                         </button>
                                     </div>
@@ -263,7 +263,7 @@
                             <div class="px-8 pt-8 pb-8">
                                 <div class="sm:flex sm:items-start">
                                     <div
-                                        class="mx-auto flex-shrink-0 flex items-center justify-center h-14 w-14 rounded-2xl bg-red-100 dark:bg-red-500/10 sm:mx-0">
+                                        class="mx-auto flex-shrink-0 flex items-center justify-center h-14 w-14 rounded-3xl bg-red-100 dark:bg-red-500/10 sm:mx-0">
                                         <svg class="h-8 w-8 text-red-600 dark:text-red-500"
                                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                             stroke="currentColor">
@@ -288,14 +288,14 @@
 
                                 <div class="mt-10 flex flex-col-reverse sm:flex-row sm:justify-end gap-3">
                                     <button type="button" @click="deleteModal = false"
-                                        class="w-full sm:w-auto px-6 py-3 rounded-2xl border border-zinc-200 dark:border-zinc-700 text-zinc-600 dark:text-zinc-400 font-bold text-sm hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-all hover:cursor-pointer">
+                                        class="w-full sm:w-auto px-6 py-3 rounded-3xl border border-zinc-200 dark:border-zinc-700 text-zinc-600 dark:text-zinc-400 font-bold text-sm hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-all hover:cursor-pointer">
                                         Hủy bỏ
                                     </button>
                                     <form :action="deleteUrl" method="POST" class="inline">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit"
-                                            class="w-full sm:w-auto px-10 py-3 rounded-2xl bg-red-600 text-white font-bold text-sm shadow-xl hover:bg-red-700 hover:scale-[1.02] active:scale-[0.98] transition-all hover:cursor-pointer">
+                                            class="w-full sm:w-auto px-10 py-3 rounded-3xl bg-red-600 text-white font-bold text-sm shadow-xl hover:bg-red-700 hover:scale-[1.02] active:scale-[0.98] transition-all hover:cursor-pointer">
                                             Xóa liên kết
                                         </button>
                                     </form>
