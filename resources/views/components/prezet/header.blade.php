@@ -24,7 +24,7 @@
                     </x-prezet.nav-link>
 
                     <x-prezet.nav-link :href="route('links.index')" :active="request()->routeIs('links.index')">
-                        Lưu trữ
+                        Liên kết
                     </x-prezet.nav-link>
 
                     <x-prezet.nav-link :href="route('snippets.index')" :active="request()->routeIs('snippets.index')">
@@ -101,36 +101,36 @@
 </header>
 
 {{-- Mobile Menu Overlay --}}
-<div x-show="showSidebar" 
-    x-transition:enter="transition ease-out duration-300" 
+<div x-show="showSidebar"
+    x-transition:enter="transition ease-out duration-300"
     x-transition:enter-start="opacity-0"
-    x-transition:enter-end="opacity-100" 
+    x-transition:enter-end="opacity-100"
     x-transition:leave="transition ease-in duration-200"
-    x-transition:leave-start="opacity-100" 
+    x-transition:leave-start="opacity-100"
     x-transition:leave-end="opacity-0"
-    class="fixed inset-0 z-[9998] bg-zinc-900/60 backdrop-blur-md lg:hidden" 
-    @click="showSidebar = false" 
+    class="fixed inset-0 z-[9998] bg-zinc-900/60 backdrop-blur-md lg:hidden"
+    @click="showSidebar = false"
     x-cloak>
 </div>
 
 {{-- Mobile Menu Panel --}}
-<div x-show="showSidebar" 
+<div x-show="showSidebar"
     x-transition:enter="transition ease-out duration-500"
-    x-transition:enter-start="translate-x-full" 
+    x-transition:enter-start="translate-x-full"
     x-transition:enter-end="translate-x-0"
-    x-transition:leave="transition ease-in duration-300" 
+    x-transition:leave="transition ease-in duration-300"
     x-transition:leave-start="translate-x-0"
     x-transition:leave-end="translate-x-full"
-    class="fixed inset-y-0 right-0 z-[9999] w-full max-w-sm bg-white dark:bg-zinc-950 shadow-[0_0_50px_rgba(0,0,0,0.3)] lg:hidden flex flex-col h-full border-l border-zinc-100 dark:border-zinc-800" 
+    class="fixed inset-y-0 right-0 z-[9999] w-full max-w-sm bg-white dark:bg-zinc-950 shadow-[0_0_50px_rgba(0,0,0,0.3)] lg:hidden flex flex-col h-full border-l border-zinc-100 dark:border-zinc-800"
     x-cloak>
-    
+
     {{-- Mobile Menu Header --}}
     <div class="flex items-center justify-between px-6 h-24 border-b border-zinc-100 dark:border-zinc-800 bg-white/50 dark:bg-zinc-950/50 backdrop-blur-md sticky top-0 z-10">
         <a href="{{ route('prezet.index') }}" class="flex items-center gap-3" @click="showSidebar = false">
             <x-prezet.logo class="size-8" />
             <span class="text-xl font-black tracking-tight text-zinc-900 dark:text-white">{{ config('app.name', 'PREZET') }}</span>
         </a>
-        <button @click="showSidebar = false" 
+        <button @click="showSidebar = false"
             class="p-2 rounded-3xl bg-zinc-50 dark:bg-zinc-900 text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white transition-all active:scale-95">
             <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -144,7 +144,7 @@
             {{-- Primary Links --}}
             <div class="space-y-2">
                 <p class="px-4 text-[10px] font-black uppercase tracking-[0.3em] text-zinc-400 dark:text-zinc-600 mb-4">Điều hướng</p>
-                
+
                 <a href="{{ route('prezet.articles') }}" @click="showSidebar = false"
                     class="flex items-center gap-4 px-4 py-4 rounded-3xl text-lg font-bold transition-all {{ request()->routeIs('prezet.articles') ? 'text-primary-600 dark:text-primary-400' : 'text-zinc-600 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-900' }}">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-5">
@@ -166,7 +166,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-5">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" />
                     </svg>
-                    Lưu trữ
+                    Liên kết
                 </a>
 
                 <a href="{{ route('snippets.index') }}" @click="showSidebar = false"

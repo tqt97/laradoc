@@ -14,7 +14,7 @@
             <input type="text" name="q" value="{{ $value }}" placeholder="{{ $placeholder }}"
                 class="grow bg-transparent border-none focus:ring-0 text-xs sm:text-sm font-medium text-zinc-900 dark:text-white placeholder:text-zinc-400 py-2 px-2 sm:px-3 min-w-0" />
             <button type="submit"
-                class="bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold text-[10px] sm:text-xs tracking-widest px-4 sm:px-4 py-2.5 rounded-full transition-all hover:shadow-sm hover:cursor-pointer whitespace-nowrap shrink-0 hover:bg-primary-600">
+                class="bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold text-[10px] sm:text-xs tracking-widest px-4 sm:px-4 py-2.5 rounded-full transition-all hover:shadow-sm hover:cursor-pointer whitespace-nowrap shrink-0 hover:bg-primary-600 dark:hover:bg-primary-500 dark:hover:text-white">
                 Tìm kiếm
             </button>
         </div>

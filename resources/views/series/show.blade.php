@@ -32,16 +32,16 @@
                 <div class="sticky top-24">
                     <div class="mb-10">
                         <h3
-                            class="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400 dark:text-zinc-500 mb-6 flex items-center gap-3">
+                            class="text-xs font-bold uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400 mb-6 flex items-center gap-3">
                             <span class="w-8 h-px bg-zinc-200 dark:bg-zinc-800"></span>
                             Chuỗi bài viết
                         </h3>
                         <div
-                            class="bg-zinc-50 dark:bg-zinc-900/50 rounded-3xl p-4 ring-1 ring-zinc-200/50 dark:ring-zinc-800/50">
+                            class="bg-zinc-50 dark:bg-zinc-900/50 rounded-2xl px-4 py-3 ring-1 ring-zinc-200/50 dark:ring-zinc-800/50">
                             <h4 class="text-sm font-bold text-zinc-900 dark:text-white mb-1">
                                 {{ Str::headline($currentSeriesSlug) }}
                             </h4>
-                            <p class="text-[10px] font-bold text-zinc-400 dark:text-zinc-500 uppercase tracking-widest">
+                            <p class="text-[10px] font-semibold text-zinc-400 dark:text-zinc-500 tracking-widest">
                                 {{ $seriesPosts->count() }} Bài viết trong chuỗi
                             </p>
                         </div>
@@ -63,7 +63,7 @@
                                         </span>
                                     @endif
                                 </div>
-                                <span class="text-sm font-semibold leading-tight">
+                                <span class="text-xs font-semibold leading-tight">
                                     {{ $post->frontmatter->title }}
                                 </span>
                             </a>

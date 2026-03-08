@@ -11,7 +11,7 @@
             subtitle="Nơi lưu trữ và chia sẻ những liên kết hữu ích, tài liệu và công cụ thú vị.">
             <div class="mt-10">
                 <button @click="createModal = true"
-                    class="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold text-sm shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all group hover:cursor-pointer hover:bg-primary-600">
+                    class="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold text-sm shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all group hover:cursor-pointer hover:bg-primary-600 dark:hover:bg-primary-500 dark:hover:text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
                         stroke="currentColor" class="size-4 group-hover:rotate-90 transition-transform duration-300">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
@@ -46,7 +46,8 @@
                                                 class="text-sm sm:text-base font-bold text-zinc-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors truncate">
                                                 {{ $link->title }}
                                             </span>
-                                            <span class="text-[10px] sm:text-xs text-zinc-400 dark:text-zinc-500 truncate">
+                                            <span
+                                                class="text-[10px] sm:text-xs text-zinc-400 dark:text-zinc-500 truncate">
                                                 {{ parse_url($link->url, PHP_URL_HOST) }}
                                             </span>
                                         </div>
@@ -185,7 +186,7 @@
                                         Thêm liên kết mới
                                     </h3>
                                     <button @click="createModal = false"
-                                        class="text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 transition-colors hover:cursor-pointer hover:bg-zinc-100 rounded-md p-2">
+                                        class="text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 transition-colors hover:cursor-pointer hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-md p-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                             stroke-width="2" stroke="currentColor" class="size-6">
                                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -204,7 +205,8 @@
                                                 (URL) <span class="text-red-500">*</span></label>
                                             <input type="url" name="url" id="modal_url" required
                                                 placeholder="https://example.com"
-                                                class="mt-1 w-full px-4 py-3 rounded-2xl bg-zinc-50 dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700 text-sm focus:ring-2 focus:ring-primary-500 transition-all outline-none dark:text-white" autofocus/>
+                                                class="mt-1 w-full px-4 py-3 rounded-2xl bg-zinc-50 dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700 text-sm focus:ring-2 focus:ring-primary-500 transition-all outline-none dark:text-white"
+                                                autofocus />
                                         </div>
                                         <div class="space-y-2">
                                             <label for="modal_title"
@@ -222,7 +224,7 @@
                                             Hủy bỏ
                                         </button>
                                         <button type="submit"
-                                            class="flex-1 px-6 py-3 rounded-2xl bg-primary-500 dark:bg-white text-white dark:text-zinc-900 font-bold text-sm shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all hover:cursor-pointer hover:bg-primary-600">
+                                            class="flex-1 px-6 py-3 rounded-2xl bg-primary-500 dark:bg-white text-white dark:text-zinc-900 font-bold text-sm shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all hover:cursor-pointer hover:bg-primary-600 dark:hover:bg-primary-500 dark:hover:text-white">
                                             Lưu liên kết
                                         </button>
                                     </div>

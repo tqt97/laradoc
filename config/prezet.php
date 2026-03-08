@@ -261,4 +261,44 @@ return [
         'logo' => 'https://prezet.com/favicon.svg',
         'image' => 'https://prezet.com/ogimage.png',
     ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Hero Section Configuration
+    |--------------------------------------------------------------------------
+    |
+    | Configure the headline, description, and feature grid shown in the hero
+    | section of the home page.
+    |
+    */
+    'hero' => [
+        'headline' => 'Lưu trữ & Chia sẻ kiến thức.',
+        'description' => 'Nơi ghi chép sẻ chia và đúc kết kinh nghiệm thực chiến trên hành trình công nghệ.',
+        'features' => [
+            [
+                'label' => 'Bài viết',
+                'sub' => 'Kinh nghiệm thực chiến',
+                'route' => 'prezet.articles',
+                'icon' => '<path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />',
+            ],
+            [
+                'label' => 'Chuỗi bài viết',
+                'sub' => 'Bài viết theo chủ đề',
+                'route' => 'prezet.series.index',
+                'icon' => '<path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.108 0 0 1 11.186 0Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M9 7.5h6M9 10.5h6" />',
+            ],
+            [
+                'label' => 'Lưu trữ',
+                'sub' => 'Liên kết hữu ích',
+                'route' => 'links.index',
+                'icon' => '<path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" />',
+            ],
+            [
+                'label' => 'Snippets',
+                'sub' => 'Mã nguồn tái sử dụng',
+                'route' => 'snippets.index',
+                'icon' => '<path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" />',
+            ],
+        ],
+    ],
 ];

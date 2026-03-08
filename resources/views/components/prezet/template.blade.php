@@ -79,6 +79,10 @@
         </div>
         <x-prezet.header />
 
+        @isset($fullWidthTop)
+            {{ $fullWidthTop }}
+        @endisset
+
         <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             {{ $slot }}
         </main>
@@ -96,7 +100,9 @@
                         <div class="flex items-center gap-6">
                             <x-prezet.logo />
                             <p class="text-sm font-bold text-zinc-400">
-                                &copy; {{ date('Y') }} <a class="text-primary-800 hover:text-primary-600 hover:underline" href="/">TuanTQ</a> - Chia sẻ và lưu trữ kiến thức.
+                                &copy; {{ date('Y') }} <a
+                                    class="text-primary-800 hover:text-primary-600 hover:underline"
+                                    href="/">TuanTQ</a> - Chia sẻ và lưu trữ kiến thức.
                             </p>
                         </div>
 
@@ -106,7 +112,7 @@
                             <a href="{{ route('prezet.series.index') }}"
                                 class="text-zinc-400 hover:text-primary-500 transition-colors">Chuỗi bài viết</a>
                             <a href="{{ route('links.index') }}"
-                                class="text-zinc-400 hover:text-primary-500 transition-colors">Lưu trữ</a>
+                                class="text-zinc-400 hover:text-primary-500 transition-colors">Liên kết</a>
                             <a href="{{ route('snippets.index') }}"
                                 class="text-zinc-400 hover:text-primary-500 transition-colors">Snippets</a>
                         </div>
