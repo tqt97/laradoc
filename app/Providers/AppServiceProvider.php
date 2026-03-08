@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use App\Data\CustomFrontmatterData;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
+use Prezet\Prezet\Data\FrontmatterData;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -12,7 +14,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->bind(FrontmatterData::class, CustomFrontmatterData::class);
     }
 
     /**

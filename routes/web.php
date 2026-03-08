@@ -61,6 +61,13 @@ Route::withoutMiddleware([
         Route::get('/articles', ArticleController::class)
             ->name('prezet.articles');
 
+        Route::get('/series', [\App\Http\Controllers\Prezet\SeriesController::class, 'index'])
+            ->name('prezet.series.index');
+
+        Route::get('/series/{slug}', [\App\Http\Controllers\Prezet\SeriesController::class, 'show'])
+            ->name('prezet.series.show')
+            ->where('slug', '.*');
+
         Route::get('{slug}', ShowController::class)
             ->name('prezet.show')
             ->where('slug', '.*'); // https://laravel.com/docs/11.x/routing#parameters-encoded-forward-slashes

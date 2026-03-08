@@ -103,6 +103,8 @@
                         <div class="flex items-center gap-8 text-sm font-bold">
                             <a href="{{ route('prezet.index') }}"
                                 class="text-zinc-400 hover:text-white transition-colors">Bài viết</a>
+                            <a href="{{ route('prezet.series.index') }}"
+                                class="text-zinc-400 hover:text-white transition-colors">Chuỗi bài viết</a>
                             <a href="{{ route('links.index') }}"
                                 class="text-zinc-400 hover:text-white transition-colors">Lưu trữ</a>
                             <a href="{{ route('snippets.index') }}"
@@ -173,7 +175,8 @@
                 fill="transparent" r="44" cx="50" cy="50" />
             <circle class="text-zinc-900 dark:text-zinc-400 transition-all duration-100" stroke-width="6"
                 :stroke-dasharray="2 * Math.PI * 44" :stroke-dashoffset="2 * Math.PI * 44 * (1 - progress / 100)"
-                stroke-linecap="round" stroke="currentColor" fill="transparent" r="44" cx="50" cy="50" />
+                stroke-linecap="round" stroke="currentColor" fill="transparent" r="44" cx="50"
+                cy="50" />
         </svg>
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3"
             stroke="currentColor"

@@ -19,6 +19,10 @@
                         class="text-sm font-semibold {{ request()->routeIs('prezet.articles') ? 'text-zinc-900 dark:text-white' : 'text-zinc-600 dark:text-zinc-400' }} hover:text-zinc-900 transition-colors dark:hover:text-zinc-200">
                         Bài viết
                     </a>
+                    <a href="{{ route('prezet.series.index') }}"
+                        class="text-sm font-semibold {{ request()->is('series*') ? 'text-zinc-900 dark:text-white' : 'text-zinc-600 dark:text-zinc-400' }} hover:text-zinc-900 transition-colors dark:hover:text-zinc-200">
+                        Chuỗi bài viết
+                    </a>
                     <a href="{{ route('links.index') }}"
                         class="text-sm font-semibold {{ request()->routeIs('links.index') ? 'text-zinc-900 dark:text-white' : 'text-zinc-600 dark:text-zinc-400' }} hover:text-zinc-900 transition-colors dark:hover:text-zinc-200">
                         Lưu trữ
@@ -92,6 +96,83 @@
                         </svg>
                     </button>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    {{-- Mobile Menu Overlay --}}
+    <div x-show="showSidebar" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0"
+        x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-150"
+        x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
+        class="fixed inset-0 z-[60] bg-zinc-900/50 backdrop-blur-sm lg:hidden" x-on:click="showSidebar = false" x-cloak>
+    </div>
+
+    {{-- Mobile Menu Panel --}}
+    <div x-show="showSidebar" x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="translate-x-full" x-transition:enter-end="translate-x-0"
+        x-transition:leave="transition ease-in duration-200" x-transition:leave-start="translate-x-0"
+        x-transition:leave-end="translate-x-full"
+        class="fixed inset-y-0 right-0 z-[70] w-full max-w-xs bg-white shadow-2xl dark:bg-zinc-950 lg:hidden" x-cloak>
+        <div class="flex h-full flex-col">
+            <div class="flex items-center justify-between px-6 h-20 border-b border-zinc-100 dark:border-zinc-800">
+                <a href="{{ route('prezet.index') }}" class="flex items-center gap-3" @click="showSidebar = false">
+                    <x-prezet.logo />
+                    <span
+                        class="text-lg font-bold text-zinc-900 dark:text-white">{{ config('app.name', 'PREZET') }}</span>
+                </a>
+                <button @click="showSidebar = false"
+                    class="p-2 text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+
+            <nav class="flex-grow overflow-y-auto py-8 px-6">
+                <ul class="space-y-6">
+                    <li>
+                        <a href="{{ route('prezet.articles') }}" @click="showSidebar = false"
+                            class="flex items-center gap-4 text-base font-bold {{ request()->routeIs('prezet.articles') ? 'text-primary-600 dark:text-primary-400' : 'text-zinc-600 dark:text-zinc-400' }}">
+                            Bài viết
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('prezet.series.index') }}" @click="showSidebar = false"
+                            class="flex items-center gap-4 text-base font-bold {{ request()->is('series*') ? 'text-primary-600 dark:text-primary-400' : 'text-zinc-600 dark:text-zinc-400' }}">
+                            Chuỗi bài viết
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('links.index') }}" @click="showSidebar = false"
+                            class="flex items-center gap-4 text-base font-bold {{ request()->routeIs('links.index') ? 'text-primary-600 dark:text-primary-400' : 'text-zinc-600 dark:text-zinc-400' }}">
+                            Lưu trữ
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('snippets.index') }}" @click="showSidebar = false"
+                            class="flex items-center gap-4 text-base font-bold {{ request()->routeIs('snippets.index') ? 'text-primary-600 dark:text-primary-400' : 'text-zinc-600 dark:text-zinc-400' }}">
+                            Snippets
+                        </a>
+                    </li>
+                    <li class="pt-6 border-t border-zinc-100 dark:border-zinc-800">
+                        <a href="{{ route('ideas.index') }}" @click="showSidebar = false"
+                            class="flex items-center justify-between rounded-2xl bg-primary-50 px-6 py-4 text-sm font-bold text-primary-600 ring-1 ring-primary-100 dark:bg-primary-900/20 dark:text-primary-400 dark:ring-primary-900/50">
+                            Gợi ý bài viết
+                            <span class="relative flex h-2 w-2">
+                                <span
+                                    class="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary-400 opacity-75"></span>
+                                <span class="relative inline-flex h-2 w-2 rounded-full bg-primary-500"></span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="p-6 border-t border-zinc-100 dark:border-zinc-800">
+                <p
+                    class="text-[10px] font-bold uppercase tracking-widest text-zinc-400 dark:text-zinc-600 text-center">
+                    Powered by Prezet
+                </p>
             </div>
         </div>
     </div>
