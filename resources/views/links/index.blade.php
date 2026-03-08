@@ -224,7 +224,7 @@
                                             Hủy bỏ
                                         </button>
                                         <button type="submit"
-                                            class="flex-1 px-6 py-3 rounded-2xl bg-primary-500 dark:bg-white text-white dark:text-zinc-900 font-bold text-sm shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all hover:cursor-pointer hover:bg-primary-600 dark:hover:bg-primary-500 dark:hover:text-white">
+                                            class="flex-1 px-6 py-3 rounded-2xl bg-primary-500 dark:bg-white text-white dark:text-zinc-900 font-bold text-sm shadow-xl transition-all hover:cursor-pointer hover:bg-primary-600 dark:hover:bg-primary-500 dark:hover:text-white">
                                             Lưu liên kết
                                         </button>
                                     </div>

@@ -8,12 +8,7 @@
 @endphp
 
 <x-prezet.template>
-    @seo([
-        'title' => $document->frontmatter->title,
-        'description' => $document->frontmatter->excerpt,
-        'url' => route('prezet.series.show', ['slug' => str_replace('series/', '', $document->slug)]),
-        'image' => $document->frontmatter->image ? url($document->frontmatter->image) : null,
-    ])
+    @seo($seo)
 
     @push('jsonld')
         <script type="application/ld+json">
@@ -37,7 +32,7 @@
                             Chuỗi bài viết
                         </h3>
                         <div
-                            class="bg-zinc-50 dark:bg-zinc-900/50 rounded-2xl px-4 py-3 ring-1 ring-zinc-200/50 dark:ring-zinc-800/50">
+                            class="bg-zinc-50/50 border border-primary-50/50 dark:bg-zinc-900/50 rounded-2xl px-4 py-3 ring-1 ring-zinc-200/50 dark:ring-zinc-800/50">
                             <h4 class="text-sm font-bold text-zinc-900 dark:text-white mb-1">
                                 {{ Str::headline($currentSeriesSlug) }}
                             </h4>
@@ -53,17 +48,17 @@
                                 $isActive = $post->slug === $document->slug;
                             @endphp
                             <a href="{{ route('prezet.series.show', $post->series_slug) }}"
-                                class="group flex items-start gap-3 py-3 px-4 rounded-3xl transition-all duration-200 {{ $isActive ? 'bg-primary-50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400 ring-1 ring-primary-100 dark:ring-primary-900/50' : 'text-zinc-500 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 hover:text-zinc-900 dark:hover:text-zinc-200' }}">
-                                <div class="mt-1 flex-shrink-0 flex items-center justify-center">
+                                class="group flex items-center gap-3 py-3 px-4 rounded-3xl transition-all duration-200 {{ $isActive ? 'bg-primary-50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400 ring-1 ring-primary-100 dark:ring-primary-900/50' : 'text-zinc-500 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 hover:text-zinc-900 dark:hover:text-zinc-200' }}">
+                                <div class="flex-shrink-0 flex items-center justify-center">
                                     @if ($isActive)
                                         <div class="size-2 rounded-full bg-primary-500 animate-pulse"></div>
                                     @else
-                                        <span class="text-[10px] font-bold opacity-30 group-hover:opacity-100">
-                                            {{ sprintf('%02d', $index + 1) }}
+                                        <span class="text-[10px] font-bold opacity-30 group-hover:opacity-100 group-hover:text-primary-500 leading-none">
+                                            {{ sprintf('%02d', $index + 1) }}.
                                         </span>
                                     @endif
                                 </div>
-                                <span class="text-xs font-semibold leading-tight">
+                                <span class="text-sm font-semibold leading-tight group-hover:text-primary-500">
                                     {{ $post->frontmatter->title }}
                                 </span>
                             </a>
@@ -94,11 +89,6 @@
                     prose-img:rounded-3xl">
                     {!! $body !!}
                 </article>
-
-                {{-- Author Box --}}
-                {{-- <div class="mt-16 pt-16 border-t border-zinc-100 dark:border-zinc-800">
-                    <x-prezet.author-box :author="$author" :document="$document" />
-                </div> --}}
             </main>
 
             {{-- Right Sidebar: Table of Contents --}}

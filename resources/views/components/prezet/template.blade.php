@@ -5,12 +5,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;900&display=swap"
-        rel="stylesheet">
-
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="alternate icon" type="image/png" href="/favicon.ico">
@@ -18,15 +12,10 @@
     <x-prezet.meta />
 
     <!-- Scripts -->
-    <script defer src="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.3/src/lite-yt-embed.min.js"></script>
-    <script defer src="https://unpkg.com/@benbjurstrom/alpinejs-zoomable@0.4.0/dist/cdn.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/focus@3.14.1/dist/cdn.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
-    @vite(['resources/css/prezet.css'])
+    @vite(['resources/css/prezet.css', 'resources/js/app.js'])
     @stack('jsonld')
 
     <script>
-        ;
         (function() {
             const stored = localStorage.getItem('theme')
             const prefersDark = window.matchMedia(
@@ -43,7 +32,7 @@
 </head>
 
 <body
-    class="font-['Be_Vietnam_Pro'] antialiased bg-white dark:bg-zinc-950 selection:bg-zinc-900 selection:text-white dark:selection:bg-white dark:selection:text-zinc-900"
+    class="font-sans antialiased bg-white dark:bg-zinc-950 selection:bg-zinc-900 selection:text-white dark:selection:bg-white dark:selection:text-zinc-900"
     x-data="{
         scrolled: false,
         progress: 0,
@@ -127,12 +116,15 @@
         class="fixed top-24 right-4 z-[110] flex flex-col gap-4 w-full max-w-sm pointer-events-none">
         @if (session('success'))
             <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 4000)"
-                x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 translate-x-8"
-                x-transition:enter-end="opacity-100 translate-x-0" x-transition:leave="transition ease-in duration-300"
-                x-transition:leave-start="opacity-100 translate-x-0" x-transition:leave-end="opacity-0 translate-x-8"
-                class="p-4 rounded-3xl bg-emerald-400 text-white font-bold text-sm shadow-2xl flex items-center gap-3 pointer-events-auto">
-                <div class="size-8 rounded-full bg-white/20 flex items-center justify-center shrink-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3"
+                x-transition:enter="transition ease-out duration-500"
+                x-transition:enter-start="opacity-0 translate-y-4 scale-95"
+                x-transition:enter-end="opacity-100 translate-y-0 scale-100"
+                x-transition:leave="transition ease-in duration-300"
+                x-transition:leave-start="opacity-100 scale-100"
+                x-transition:leave-end="opacity-0 scale-95"
+                class="p-4 rounded-2xl bg-green-200/60 dark:bg-zinc-900/90 backdrop-blur-md border border-emerald-100 dark:border-emerald-500/20 text-emerald-900 dark:text-emerald-100 font-medium text-sm shadow-xl flex items-center gap-3 pointer-events-auto">
+                <div class="size-8 rounded-full bg-emerald-100 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
                         stroke="currentColor" class="size-4">
                         <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                     </svg>
@@ -149,12 +141,15 @@
 
         @if ($errors->any())
             <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 6000)"
-                x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 translate-x-8"
-                x-transition:enter-end="opacity-100 translate-x-0" x-transition:leave="transition ease-in duration-300"
-                x-transition:leave-start="opacity-100 translate-x-0" x-transition:leave-end="opacity-0 translate-x-8"
-                class="p-4 rounded-3xl bg-red-500 text-white font-bold text-sm shadow-2xl flex items-start gap-3 pointer-events-auto">
-                <div class="size-8 rounded-full bg-white/20 flex items-center justify-center shrink-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3"
+                x-transition:enter="transition ease-out duration-500"
+                x-transition:enter-start="opacity-0 translate-y-4 scale-95"
+                x-transition:enter-end="opacity-100 translate-y-0 scale-100"
+                x-transition:leave="transition ease-in duration-300"
+                x-transition:leave-start="opacity-100 scale-100"
+                x-transition:leave-end="opacity-0 scale-95"
+                class="p-4 rounded-2xl bg-white/90 dark:bg-zinc-900/90 backdrop-blur-md border border-red-100 dark:border-red-500/20 text-red-900 dark:text-red-100 font-medium text-sm shadow-xl flex items-start gap-3 pointer-events-auto">
+                <div class="size-8 rounded-full bg-red-100 dark:bg-red-500/20 text-red-600 dark:text-red-400 flex items-center justify-center shrink-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
                         stroke="currentColor" class="size-4">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
                     </svg>

@@ -1,5 +1,5 @@
 <header :class="showHeader ? 'translate-y-0' : '-translate-y-full'"
-    class="sticky top-0 z-50 w-full border-b border-zinc-200/50 bg-white/80 backdrop-blur-md transition-transform duration-300 ease-in-out dark:border-zinc-800/50 dark:bg-zinc-950/80">
+    class="sticky top-0 z-50 w-full border-b border-zinc-200/50 bg-linear-to-r from-white via-primary-50/20 to-white backdrop-blur-md transition-transform duration-300 ease-in-out dark:border-zinc-800/50 dark:from-zinc-950 dark:via-zinc-900/80 dark:to-zinc-950">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-20 items-center justify-between gap-8">
             {{-- Logo & Brand --}}
@@ -8,7 +8,7 @@
                     <div class="transition-transform duration-300 group-hover:scale-110">
                         <x-prezet.logo />
                     </div>
-                    <span class="text-2xl font-bold tracking-tight text-zinc-900 dark:text-white">
+                    <span class="text-xl font-bold tracking-tight text-zinc-900 dark:text-white">
                         {{ config('app.name', 'PREZET') }}
                     </span>
                 </a>

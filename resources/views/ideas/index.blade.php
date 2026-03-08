@@ -7,7 +7,7 @@
 <x-prezet.template>
     @seo($seo)
 
-    <x-prezet.subpage-header title="Đề xuất chủ đề"
+    <x-prezet.subpage-header title="Đề xuất ý tưởng"
         subtitle="Bạn muốn chúng mình viết về chủ đề gì? Hãy để lại ý tưởng của bạn tại đây nhé.">
         <div class="mt-12 max-w-5xl mx-auto">
             <form action="{{ route('ideas.store') }}" method="POST"
@@ -134,10 +134,10 @@
     <div class="py-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center gap-8 mb-16">
-                <h2 class="text-3xl font-black text-zinc-900 dark:text-white tracking-tighter uppercase">
+                <h2 class="text-3xl font-bold text-zinc-900 dark:text-white">
                     Danh sách ý tưởng
                 </h2>
-                <div class="h-px flex-grow bg-zinc-100 dark:bg-zinc-800"></div>
+                <div class="h-px grow bg-zinc-100 dark:bg-zinc-800"></div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -149,7 +149,7 @@
                             {{-- Header: Title & Status --}}
                             <div class="flex items-start justify-between gap-4">
                                 <h3
-                                    class="text-2xl font-bold text-zinc-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors leading-tight">
+                                    class="text-xl font-bold text-zinc-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors leading-tight">
                                     {{ $idea->name }}
                                 </h3>
                                 <span @class([
@@ -168,7 +168,7 @@
                                 <div class="flex flex-wrap gap-2">
                                     @foreach (explode(',', $idea->category) as $cat)
                                         <span
-                                            class="px-2.5 py-1 rounded-xl bg-white dark:bg-zinc-800 text-[10px] font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400 ring-1 ring-zinc-200 dark:ring-zinc-700">
+                                            class="px-2.5 py-1 rounded-xl bg-white dark:bg-zinc-800 text-[10px] font-bold text-zinc-500 dark:text-zinc-400 ring-1 ring-zinc-200 dark:ring-zinc-700">
                                             {{ trim($cat) }}
                                         </span>
                                     @endforeach
@@ -188,7 +188,7 @@
                                         </svg>
                                     </div>
                                     <div class="flex flex-col">
-                                        <span class="text-[9px] font-black uppercase tracking-widest text-zinc-400">Đề
+                                        <span class="text-[11px] font-bold text-zinc-400">Đề
                                             xuất bởi</span>
                                         <span class="text-xs font-bold text-zinc-700 dark:text-zinc-300">
                                             {{ $idea->user_name ?: 'Ẩn danh' }}
@@ -196,7 +196,7 @@
                                     </div>
                                 </div>
                                 <div class="flex flex-col text-right">
-                                    <span class="text-[9px] font-black uppercase tracking-widest text-zinc-400">Ngày
+                                    <span class="text-[11px] font-bold text-zinc-400">Ngày
                                         gửi</span>
                                     <span class="text-xs font-bold text-zinc-500 dark:text-zinc-400">
                                         {{ $idea->created_at->format('d/m/Y') }}
@@ -207,7 +207,7 @@
                             {{-- References --}}
                             @if ($idea->reference)
                                 <div class="space-y-3">
-                                    <p class="text-[10px] font-black uppercase tracking-widest text-zinc-400">Nguồn tham
+                                    <p class="text-[10px] font-bold text-zinc-400">Nguồn tham
                                         khảo</p>
                                     <div class="flex flex-wrap gap-2">
                                         @foreach (explode(',', $idea->reference) as $ref)

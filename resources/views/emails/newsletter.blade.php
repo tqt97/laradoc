@@ -134,7 +134,7 @@
                         <h2><a href="{{ route('prezet.show', $article->slug) }}">{{ $article->frontmatter->title }}</a></h2>
                         <p class="article-excerpt">{{ $article->frontmatter->excerpt }}</p>
                         <a href="{{ route('prezet.show', $article->slug) }}" class="button">Read Full Article</a>
-                        <span class="meta">By {{ $article->frontmatter->author }} • {{ $article->createdAt->format('M j, Y') }}</span>
+                        <span class="meta">{{ $article->createdAt->format('d/m/Y') }}</span>
                     </div>
                 @endforeach
             </div>

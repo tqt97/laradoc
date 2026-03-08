@@ -7,12 +7,7 @@
 @endphp
 
 <x-prezet.template>
-    @seo([
-        'title' => $document->frontmatter->title,
-        'description' => $document->frontmatter->excerpt,
-        'url' => route('prezet.show', ['slug' => $document->slug]),
-        'image' => $document->frontmatter->image ? url($document->frontmatter->image) : null,
-    ])
+    @seo($seo)
 
     @push('jsonld')
         <script type="application/ld+json">
@@ -59,8 +54,6 @@
                             </div>
                         @endif
                     </div>
-
-                    {{-- <x-prezet.author-box :author="$author" :document="$document" /> --}}
 
                     @if ($relatedPosts->isNotEmpty())
                         <div class="mt-16 mb-16 border-t border-zinc-200 pt-16 dark:border-zinc-700">
