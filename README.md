@@ -49,6 +49,8 @@ excerpt: "Mô tả ngắn gọn về nội dung bài viết"
 image: /prezet/img/ogimages/blogs-slug.webp
 tags: [laravel, php, tutorial]
 ---
+
+// Code của bạn ở đây
 ```
 
 #### Metadata cho Chuỗi bài viết (Series)
@@ -64,6 +66,8 @@ date: YYYY-MM-DD
 order: 1
 image: /prezet/img/ogimages/series-slug-index.webp
 ---
+
+// Code của bạn ở đây
 ```
 
 #### Quản lý Snippets
@@ -79,9 +83,7 @@ category: snippets
 language: php # Hoặc javascript, bash, v.v.
 ---
 
-```php
 // Code của bạn ở đây
-```
 
 ```
 
