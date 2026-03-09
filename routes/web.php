@@ -41,6 +41,7 @@ Route::middleware([
     Route::get('ideas', [IdeaController::class, 'index'])->name('ideas.index');
     Route::post('ideas', [IdeaController::class, 'store'])->name('ideas.store');
     Route::get('ideas/list', [IdeaController::class, 'list'])->name('ideas.list');
+    Route::post('ideas/{idea}/vote', [IdeaController::class, 'toggleVote'])->name('ideas.toggle-vote')->middleware('throttle:30,1');
 });
 
 Route::withoutMiddleware([

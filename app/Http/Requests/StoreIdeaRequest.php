@@ -15,7 +15,8 @@ class StoreIdeaRequest extends FormRequest
     {
         return [
             'user_name' => 'nullable|string|max:255',
-            'name' => 'required|string|max:255',
+            'email' => 'nullable|email|max:255',
+            'name' => 'required|string|max:1000',
             'category' => 'nullable|string',
             'reference' => 'nullable|string',
         ];
