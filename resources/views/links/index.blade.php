@@ -10,14 +10,13 @@
         <x-prezet.subpage-header title="Liên kết đã lưu"
             subtitle="Nơi lưu trữ và chia sẻ những liên kết hữu ích, tài liệu và công cụ thú vị.">
             <div class="mt-10">
-                <button @click="createModal = true"
-                    class="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold text-sm shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all group hover:cursor-pointer hover:bg-primary-600 dark:hover:bg-primary-500 dark:hover:text-white">
+                <x-form.button @click="createModal = true" class="!px-6">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
-                        stroke="currentColor" class="size-4 group-hover:rotate-90 transition-transform duration-300">
+                        stroke="currentColor" class="size-4 transition-transform duration-300">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                     </svg>
                     Thêm liên kết mới
-                </button>
+                </x-form.button>
             </div>
         </x-prezet.subpage-header>
 
@@ -101,37 +100,34 @@
                             </div>
 
                             <!-- Edit Mode -->
-                            <div x-show="editing" x-cloak
-                                class="p-5 rounded-2xl bg-zinc-50 dark:bg-zinc-800/50 border border-primary-500/30">
-                                <form action="{{ route('links.update', $link) }}" method="POST" class="space-y-4">
-                                    @csrf
-                                    @method('PUT')
-                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                        <div class="space-y-1">
-                                            <label
-                                                class="text-[10px] font-bold uppercase tracking-wider text-zinc-500">Tiêu
-                                                đề</label>
-                                            <input type="text" name="title" value="{{ $link->title }}" required
-                                                class="w-full px-3 py-2 rounded-lg bg-white dark:bg-zinc-900 border-zinc-200 dark:border-zinc-700 text-sm focus:ring-2 focus:ring-primary-500 outline-none dark:text-white" />
+                            <div x-show="editing" x-cloak>
+                                <x-form.card>
+                                    <form action="{{ route('links.update', $link) }}" method="POST" class="space-y-6">
+                                        @csrf
+                                        @method('PUT')
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                            <div>
+                                                <x-form.label value="Tiêu đề" />
+                                                <x-form.input type="text" name="title" value="{{ $link->title }}" required />
+                                            </div>
+                                            <div>
+                                                <x-form.label value="URL" />
+                                                <x-form.input type="url" name="url" value="{{ $link->url }}" required />
+                                            </div>
                                         </div>
-                                        <div class="space-y-1">
-                                            <label
-                                                class="text-[10px] font-bold uppercase tracking-wider text-zinc-500">URL</label>
-                                            <input type="url" name="url" value="{{ $link->url }}" required
-                                                class="w-full px-3 py-2 rounded-lg bg-white dark:bg-zinc-900 border-zinc-200 dark:border-zinc-700 text-sm focus:ring-2 focus:ring-primary-500 outline-none dark:text-white" />
+                                        <div class="flex justify-end gap-4">
+                                            <x-form.button type="button" variant="secondary" @click="editing = false" >
+                                                Hủy
+                                            </x-form.button>
+                                            <x-form.button>
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-4 transition-transform duration-300">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+                                                </svg>
+                                                Cập nhật
+                                            </x-form.button>
                                         </div>
-                                    </div>
-                                    <div class="flex justify-end gap-2">
-                                        <button type="button" @click="editing = false"
-                                            class="px-4 py-2 rounded-lg text-xs font-bold text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors hover:cursor-pointer">
-                                            Hủy
-                                        </button>
-                                        <button type="submit"
-                                            class="px-4 py-2 rounded-lg bg-primary-600 text-white text-xs font-bold shadow-md hover:bg-primary-700 transition-colors hover:cursor-pointer">
-                                            Cập nhật
-                                        </button>
-                                    </div>
-                                </form>
+                                    </form>
+                                </x-form.card>
                             </div>
                         </div>
                     @empty
@@ -178,15 +174,15 @@
                             x-transition:leave="ease-in duration-200"
                             x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
                             x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" @click.stop
-                            class="relative inline-block align-middle bg-white dark:bg-zinc-900 rounded-3xl text-left overflow-hidden shadow-2xl transform transition-all sm:my-8 sm:max-w-lg sm:w-full border border-zinc-200 dark:border-zinc-800">
+                            class="relative inline-block align-middle bg-white dark:bg-zinc-900 rounded-3xl text-left overflow-hidden shadow-2xl transform transition-all sm:my-8 sm:max-w-lg sm:w-full ring-1 ring-zinc-900/5 dark:ring-white/10">
 
-                            <div class="px-8 pt-8 pb-6">
+                            <div class="px-8 pt-8 pb-10">
                                 <div class="flex items-center justify-between mb-8">
                                     <h3 class="text-2xl font-bold text-zinc-900 dark:text-white" id="modal-title">
                                         Thêm liên kết mới
                                     </h3>
                                     <button @click="createModal = false"
-                                        class="text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 transition-colors hover:cursor-pointer hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-md p-2">
+                                        class="text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 transition-colors hover:cursor-pointer hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-full p-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                             stroke-width="2" stroke="currentColor" class="size-6">
                                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -197,36 +193,30 @@
 
                                 <form action="{{ route('links.store') }}" method="POST" class="space-y-6">
                                     @csrf
-                                    <div class="space-y-4">
-                                        <div class="space-y-2">
-                                            <label for="modal_url"
-                                                class="text-sm font-bold text-zinc-700 dark:text-zinc-300 ml-1">Đường
-                                                dẫn
-                                                (URL) <span class="text-red-500">*</span></label>
-                                            <input type="url" name="url" id="modal_url" required
+                                    <div class="space-y-6">
+                                        <div>
+                                            <x-form.label for="modal_url" value="Đường dẫn (URL)" required="true" />
+                                            <x-form.input type="url" name="url" id="modal_url" required
                                                 placeholder="https://example.com"
-                                                class="mt-1 w-full px-4 py-3 rounded-2xl bg-zinc-50 dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700 text-sm focus:ring-2 focus:ring-primary-500 transition-all outline-none dark:text-white"
-                                                autofocus />
+                                                autofocus :error="$errors->first('url')" />
                                         </div>
-                                        <div class="space-y-2">
-                                            <label for="modal_title"
-                                                class="text-sm font-bold text-zinc-700 dark:text-zinc-300 ml-1">Tiêu đề
-                                                (Tùy chọn)</label>
-                                            <input type="text" name="title" id="modal_title"
-                                                placeholder="Nhập tiêu đề hoặc để trống"
-                                                class="mt-1 w-full px-4 py-3 rounded-2xl bg-zinc-50 dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700 text-sm focus:ring-2 focus:ring-primary-500 transition-all outline-none dark:text-white" />
+                                        <div>
+                                            <x-form.label for="modal_title" value="Tiêu đề (Tùy chọn)" />
+                                            <x-form.input type="text" name="title" id="modal_title"
+                                                placeholder="Nhập tiêu đề hoặc để trống" :error="$errors->first('title')" />
                                         </div>
                                     </div>
 
-                                    <div class="pt-4 flex gap-3">
-                                        <button type="button" @click="createModal = false"
-                                            class="flex-1 px-6 py-3 rounded-2xl border border-zinc-200 dark:border-zinc-700 text-zinc-600 dark:text-zinc-400 font-bold text-sm hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all hover:cursor-pointer">
+                                    <div class="pt-4 flex gap-4">
+                                        <x-form.button type="button" variant="secondary" @click="createModal = false" class="flex-1 !px-6">
                                             Hủy bỏ
-                                        </button>
-                                        <button type="submit"
-                                            class="flex-1 px-6 py-3 rounded-2xl bg-primary-500 dark:bg-white text-white dark:text-zinc-900 font-bold text-sm shadow-xl transition-all hover:cursor-pointer hover:bg-primary-600 dark:hover:bg-primary-500 dark:hover:text-white">
+                                        </x-form.button>
+                                        <x-form.button class="flex-1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-4 transition-transform duration-300">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                                            </svg>
                                             Lưu liên kết
-                                        </button>
+                                        </x-form.button>
                                     </div>
                                 </form>
                             </div>
@@ -289,17 +279,15 @@
                                 </div>
 
                                 <div class="mt-10 flex flex-col-reverse sm:flex-row sm:justify-end gap-3">
-                                    <button type="button" @click="deleteModal = false"
-                                        class="w-full sm:w-auto px-6 py-3 rounded-2xl border border-zinc-200 dark:border-zinc-700 text-zinc-600 dark:text-zinc-400 font-bold text-sm hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-all hover:cursor-pointer">
+                                    <x-form.button type="button" variant="secondary" @click="deleteModal = false" class="w-full sm:w-auto !px-6 !py-3">
                                         Hủy bỏ
-                                    </button>
+                                    </x-form.button>
                                     <form :action="deleteUrl" method="POST" class="inline">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit"
-                                            class="w-full sm:w-auto px-10 py-3 rounded-2xl bg-red-600 text-white font-bold text-sm shadow-xl hover:bg-red-700 hover:scale-[1.02] active:scale-[0.98] transition-all hover:cursor-pointer">
+                                        <x-form.button variant="danger" type="submit" class="w-full sm:w-auto !px-10">
                                             Xóa liên kết
-                                        </button>
+                                        </x-form.button>
                                     </form>
                                 </div>
                             </div>

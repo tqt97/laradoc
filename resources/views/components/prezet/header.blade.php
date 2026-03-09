@@ -32,7 +32,7 @@
                     </x-prezet.nav-link>
 
                     <a href="{{ route('ideas.index') }}"
-                        class="relative ml-2 flex items-center gap-2 rounded-full px-4 py-1.5 text-sm font-bold transition-all hover:bg-primary-100 hover:text-primary-600 {{ request()->routeIs('ideas.index') ? 'bg-primary-100 text-primary-600 dark:bg-white dark:text-zinc-900' : 'bg-primary-50 text-primary-600 ring-1 ring-primary-100 dark:bg-primary-900/20 dark:text-primary-400 dark:ring-primary-900/50' }}">
+                        class="relative ml-2 flex items-center gap-2 rounded-full px-4 py-1.5 text-sm font-bold transition-all hover:bg-primary-100 hover:text-primary-600 {{ request()->routeIs('ideas.index') ? 'bg-primary-100 text-primary-600 dark:text-zinc-900' : 'bg-primary-50/80 text-primary-600 ring-1 ring-primary-100 dark:bg-primary-500/40 dark:text-primary-400 dark:ring-primary-900/50' }}">
                         <span class="relative flex h-3 w-3">
                             <span
                                 class="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary-400 opacity-75"></span>

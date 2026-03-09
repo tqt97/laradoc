@@ -1,7 +1,7 @@
 @props(['title', 'subtitle' => null])
 
 <div
-    class="relative py-10 md:py-12 overflow-hidden border-b border-zinc-100 dark:border-zinc-800/50 bg-white dark:bg-zinc-950">
+    class="relative py-10 md:py-12 overflow-hidden dark:border-zinc-800/50 bg-white dark:bg-zinc-950">
     {{-- Background Elements --}}
     <div class="absolute inset-0 z-0">
         <div class="absolute top-0 left-1/4 w-64 h-64 bg-primary-500/5 rounded-full blur-[96px]"></div>

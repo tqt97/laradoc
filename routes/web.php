@@ -40,6 +40,7 @@ Route::middleware([
     // Ideas feature
     Route::get('ideas', [IdeaController::class, 'index'])->name('ideas.index');
     Route::post('ideas', [IdeaController::class, 'store'])->name('ideas.store');
+    Route::get('ideas/list', [IdeaController::class, 'list'])->name('ideas.list');
 });
 
 Route::withoutMiddleware([

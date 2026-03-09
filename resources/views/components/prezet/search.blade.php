@@ -180,7 +180,7 @@
     x-on:keydown.meta.k.prevent.document="openCommandPalette()">
     <!-- Toggle Button -->
     <button x-ref="elToggleButton" x-on:click="openCommandPalette()" type="button"
-        class="group inline-flex items-center justify-center gap-2 rounded-3xl border-zinc-200 bg-white p-1.5 text-sm/6 font-medium text-zinc-800 hover:border-zinc-300 hover:text-zinc-900 hover:shadow-xs focus:ring-zinc-300/25 active:border-zinc-200 active:shadow-none lg:min-w-64 lg:border lg:px-3 dark:border-zinc-700 dark:bg-transparent dark:text-zinc-300 dark:hover:border-zinc-600 dark:hover:text-zinc-200 dark:focus:ring-zinc-600/50 dark:active:border-zinc-700 hover:cursor-pointer">
+        class="group inline-flex items-center justify-center gap-2 rounded-3xl border-zinc-200 bg-white p-1.5 text-sm/6 font-medium text-zinc-800 hover:border-zinc-300 hover:text-zinc-900 hover:shadow-xs focus:ring-zinc-300/25 active:border-zinc-200 active:shadow-none lg:min-w-48 lg:border lg:px-3 dark:border-zinc-700 dark:bg-transparent dark:text-zinc-300 dark:hover:border-zinc-600 dark:hover:text-zinc-200 dark:focus:ring-zinc-600/50 dark:active:border-zinc-700 hover:cursor-pointer">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" data-slot="icon"
             class="hi-mini hi-magnifying-glass inline-block size-6 opacity-60 group-hover:text-zinc-600 group-hover:opacity-100 lg:size-5 dark:group-hover:text-zinc-400">
             <path fill-rule="evenodd"
@@ -212,11 +212,11 @@
                 x-transition:leave="transition duration-150 ease-in"
                 x-transition:leave-start="translate-y-0 opacity-100" x-transition:leave-end="translate-y-32 opacity-0"
                 x-on:click.outside="closeCommandPalette()"
-                class="mx-auto flex w-full max-w-lg flex-col rounded-3xl shadow-xl will-change-auto dark:text-zinc-100 dark:shadow-black/25"
+                class="mx-auto flex w-full max-w-lg flex-col rounded-3xl shadow-2xl ring-1 ring-zinc-200 dark:ring-zinc-800 will-change-auto dark:text-zinc-100"
                 role="document">
                 <!-- Search Input -->
-                <div class="relative rounded-t-3xl bg-white px-2 pt-2 dark:bg-zinc-800">
-                    <div class="flex w-full items-center rounded-3xl bg-zinc-100 px-3 dark:bg-zinc-700/75">
+                <div class="relative rounded-t-3xl bg-white p-4 dark:bg-zinc-800">
+                    <div class="flex w-full items-center rounded-3xl bg-zinc-100 px-3 ring-2 ring-transparent focus-within:ring-primary-500/50 transition-all dark:bg-zinc-700">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" data-slot="icon"
                             stroke-width="1.5" class="hi-mini hi-magnifying-glass inline-block size-6 opacity-50">
                             <path fill-rule="evenodd"
@@ -250,14 +250,14 @@
                 <!-- Listbox -->
                 <ul x-show="filterResults.length > 0" x-ref="elListbox"
                     x-on:mousemove.throttle="enableMouseInteraction()" x-on:mouseleave="setHighlighted(null)"
-                    class="max-h-96 overflow-auto rounded-b-3xl bg-white p-2 dark:bg-zinc-800 divide-y divide-zinc-100" role="listbox">
+                    class="max-h-96 overflow-auto rounded-b-3xl bg-white p-2 dark:bg-zinc-800 divide-y divide-zinc-100 dark:divide-zinc-50/5" role="listbox">
                     <template x-for="option in filterResults" :key="option.id">
                         <li x-on:click="onOptionSelected()" x-on:mouseenter="setHighlighted(option.id, 'mouse')"
                             x-bind:class="{
-                                'text-white bg-primary-600 dark:text-white dark:bg-zinc-600': isHighlighted(
+                                'text-primary-600 bg-zinc-50 dark:text-primary-500 dark:bg-zinc-900': isHighlighted(
                                     option.id,
                                 ),
-                                'text-zinc-600 dark:text-zinc-300': !isHighlighted(option.id),
+                                'text-zinc-700 dark:text-zinc-300': !isHighlighted(option.id),
                             }"
                             x-bind:data-selected="isHighlighted(option.id)" x-bind:data-id="option.id"
                             x-bind:data-label="option.text" x-bind:aria-selected="isHighlighted(option.id)"

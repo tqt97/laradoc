@@ -12,65 +12,63 @@
 
     <div class="py-12 lg:py-24">
         <div class="max-w-4xl mx-auto px-4">
-            <div
-                class="p-8 rounded-3xl bg-zinc-50 dark:bg-zinc-900/50 ring-1 ring-zinc-200 dark:ring-zinc-800 shadow-sm">
+            <x-form.card>
                 <form action="{{ $snippet ? route('snippets.update', $slug) : route('snippets.store') }}" method="POST"
-                    class="space-y-8">
+                    class="space-y-6">
                     @csrf
                     @if ($snippet)
                         @method('PUT')
                     @endif
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div class="space-y-2">
-                            <label class="text-xs font-bold uppercase tracking-widest text-zinc-500 ml-1">Tiêu đề</label>
-                            <input type="text" name="title"
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <x-form.label value="Tiêu đề" />
+                            <x-form.input type="text" name="title"
                                 value="{{ old('title', $snippet?->frontmatter->title) }}" required
-                                placeholder="Ví dụ: Laravel Eloquent scope"
-                                class="w-full px-4 py-3 rounded-3xl bg-white dark:bg-zinc-950 border-zinc-200 dark:border-zinc-800 text-sm focus:ring-2 focus:ring-primary-500 transition-all outline-none dark:text-white" />
+                                placeholder="Ví dụ: Laravel Eloquent scope" :error="$errors->first('title')" />
                         </div>
 
-                        <div class="space-y-2">
-                            <label class="text-xs font-bold uppercase tracking-widest text-zinc-500 ml-1">Ngôn
-                                ngữ</label>
-                            <select name="language" required
-                                class="w-full px-4 py-3 rounded-3xl bg-white dark:bg-zinc-950 border-zinc-200 dark:border-zinc-800 text-sm focus:ring-2 focus:ring-primary-500 transition-all outline-none dark:text-white">
+                        <div>
+                            <x-form.label value="Ngôn ngữ" />
+                            <x-form.select name="language" required :error="$errors->first('language')">
                                 @foreach (config('prezet.snippet_languages') as $key => $lang)
                                     <option value="{{ $key }}" @selected(old('language', $snippet?->language) == $key)>
                                         {{ $lang['label'] }}
                                     </option>
                                 @endforeach
-                            </select>
+                            </x-form.select>
                         </div>
                     </div>
 
-                    <div class="space-y-2">
-                        <label class="text-xs font-bold uppercase tracking-widest text-zinc-500 ml-1">Mô tả ngắn</label>
-                        <input type="text" name="description"
+                    <div>
+                        <x-form.label value="Mô tả ngắn" />
+                        <x-form.input type="text" name="description"
                             value="{{ old('description', $snippet?->frontmatter->excerpt) }}"
-                            placeholder="Mô tả tóm tắt về chức năng của snippet"
-                            class="w-full px-4 py-3 rounded-3xl bg-white dark:bg-zinc-950 border-zinc-200 dark:border-zinc-800 text-sm focus:ring-2 focus:ring-primary-500 transition-all outline-none dark:text-white" />
+                            placeholder="Mô tả tóm tắt về chức năng của snippet" :error="$errors->first('description')" />
                     </div>
 
-                    <div class="space-y-2">
-                        <label class="text-xs font-bold uppercase tracking-widest text-zinc-500 ml-1">Mã nguồn</label>
-                        <textarea name="code" rows="12" required placeholder="Dán mã nguồn của bạn vào đây..."
-                            class="w-full px-4 py-3 rounded-3xl bg-white dark:bg-zinc-950 border-zinc-200 dark:border-zinc-800 text-sm font-mono focus:ring-2 focus:ring-primary-500 transition-all outline-none dark:text-white">{{ old('code', $code ?? '') }}</textarea>
+                    <div>
+                        <x-form.label value="Mã nguồn" />
+                        <x-form.textarea name="code" rows="12" required placeholder="Dán mã nguồn của bạn vào đây..."
+                            class="font-mono" :error="$errors->first('code')">{{ old('code', $code ?? '') }}</x-form.textarea>
                     </div>
 
-                    <div class="flex items-center justify-between pt-4 border-t border-zinc-100 dark:border-zinc-800">
-                        <a href="{{ $snippet ? route('snippets.show', $slug) : route('snippets.index') }}"
-                            class="text-sm font-bold text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors">
+                    <div class="flex items-center justify-between pt-6 border-t border-zinc-100 dark:border-zinc-800/50">
+                        <x-form.button type="button" variant="secondary" onclick="window.location='{{ $snippet ? route('snippets.show', $slug) : route('snippets.index') }}'" class="!px-8 !py-2">
                             Hủy bỏ
-                        </a>
+                        </x-form.button>
 
-                        <button type="submit"
-                            class="px-8 py-3 rounded-3xl bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold text-sm shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all">
+                        <x-form.button>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
+                                stroke="currentColor" class="size-4 transition-transform duration-300">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
+                            </svg>
                             {{ $snippet ? 'Cập nhật Snippet' : 'Lưu Snippet' }}
-                        </button>
+                        </x-form.button>
                     </div>
                 </form>
-            </div>
+            </x-form.card>
         </div>
     </div>
 </x-prezet.template>

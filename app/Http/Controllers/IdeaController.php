@@ -6,7 +6,7 @@ use App\Http\Requests\StoreIdeaRequest;
 use App\Services\IdeaService;
 use App\Support\PrezetHelper;
 use Illuminate\Contracts\View\View;
-use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\JsonResponse;
 
 class IdeaController extends Controller
 {
@@ -29,10 +29,22 @@ class IdeaController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreIdeaRequest $request): RedirectResponse
+    public function store(StoreIdeaRequest $request): JsonResponse
     {
         $this->ideaService->createIdea($request->validated());
 
-        return back()->with('success', 'Cảm ơn bạn đã đóng góp ý tưởng!');
+        return response()->json([
+            'message' => 'Cảm ơn bạn đã đóng góp ý tưởng!',
+        ]);
+    }
+
+    /**
+     * Get the partial list of ideas for AJAX updates.
+     */
+    public function list(): View
+    {
+        return view('ideas.partials.list', [
+            'ideas' => $this->ideaService->getPaginatedIdeas(),
+        ]);
     }
 }
