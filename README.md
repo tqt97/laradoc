@@ -88,15 +88,18 @@ language: php # Hoặc javascript, bash, v.v.
 ```
 
 ### 2. Nội dung dựa trên Database (Links, Ideas)
+
 Quản lý trực tiếp thông qua giao diện người dùng (UI).
 
-*   **Links**: Thêm tại `/links`. Dùng để lưu trữ nhanh các liên kết tài liệu.
-*   **Ideas**: Đề xuất tại `/ideas`. Nơi cộng đồng gợi ý các chủ đề bài viết mới.
+* **Links**: Thêm tại `/links`. Dùng để lưu trữ nhanh các liên kết tài liệu.
+* **Ideas**: Đề xuất tại `/ideas`. Nơi cộng đồng gợi ý các chủ đề bài viết mới.
 
 ### 3. Tạo ảnh xem trước (OG Image)
+
 Để bài viết có ảnh đại diện (Open Graph) chuyên nghiệp khi chia sẻ lên mạng xã hội, bạn nên tạo ảnh OG tương ứng.
 
-*   **Tạo tự động**: Sử dụng lệnh Artisan để chụp ảnh màn hình từ URL của bài viết:
+* **Tạo tự động**: Sử dụng lệnh Artisan để chụp ảnh màn hình từ URL của bài viết:
+
     ```bash
     # Tạo cho một bài viết cụ thể
     php artisan prezet:ogimage [slug]
@@ -104,33 +107,54 @@ Quản lý trực tiếp thông qua giao diện người dùng (UI).
     # Tạo cho tất cả các bài viết chưa có ảnh
     php artisan prezet:ogimage --all
     ```
-*   **Vị trí lưu trữ**: Các ảnh được tạo sẽ được lưu tại thư mục: `prezet/images/ogimages/`.
-*   **Quy tắc đặt tên**: Tên tệp ảnh nên trùng với slug của nội dung để dễ quản lý.
-*   **Khai báo trong Frontmatter**: Sau khi tạo ảnh, hãy cập nhật đường dẫn vào metadata:
+
+* **Vị trí lưu trữ**: Các ảnh được tạo sẽ được lưu tại thư mục: `prezet/images/ogimages/`.
+* **Quy tắc đặt tên**: Tên tệp ảnh nên trùng với slug của nội dung để dễ quản lý.
+* **Khai báo trong Frontmatter**: Sau khi tạo ảnh, hãy cập nhật đường dẫn vào metadata:
+
     ```yaml
     image: /prezet/img/ogimages/your-slug.webp
     ```
+
+### 4. Đồng bộ ý tưởng và Thông báo (Idea Sync & Notifications)
+
+Khi bạn viết bài dựa trên ý tưởng từ cộng đồng, hệ thống có thể tự động gửi email thông báo cho người đề xuất.
+
+* **Liên kết ý tưởng**: Khi tạo bài viết mới bằng lệnh `php artisan prezet:make`, hãy chọn "Yes" khi được hỏi về việc liên kết với ý tưởng hiện có.
+* **Cập nhật trạng thái và Gửi mail**: Sau khi hoàn thành nội dung bài viết, hãy chạy lệnh sau để đồng bộ trạng thái ý tưởng sang "Đã đăng" và tự động gửi email thông báo (queued):
+
+    ```bash
+    # Cách 1: Chạy lệnh tổng hợp (Khuyên dùng - bao gồm prezet:index)
+    composer prezet-index
+
+    # Cách 2: Chỉ chạy lệnh đồng bộ ý tưởng
+    php artisan idea:sync-published
+    ```
+
+* **Lưu ý**: Đảm bảo Queue Worker đang chạy (`php artisan queue:work`) để email được gửi đi thành công.
 
 ---
 
 ## 🤝 Hướng dẫn đóng góp (Contributing)
 
 ### Quy trình đóng góp
+
 1. **Fork** dự án về tài khoản của bạn.
 2. Tạo một **Branch** mới (`git checkout -b feature/amazing-content`).
 3. **Commit** thay đổi và **Push** lên Branch của bạn.
 4. Mở một **Pull Request (PR)** hướng về nhánh `master` của repository gốc.
 
 ### Quy trình phê duyệt
+
 - Vui lòng chờ đợi chủ sở hữu repository ([tqt97](https://github.com/tqt97)) kiểm tra và đánh giá.
-- PR sẽ được merge sau khi đạt yêu cầu về nội dung và kỹ thuật.
+* PR sẽ được merge sau khi đạt yêu cầu về nội dung và kỹ thuật.
 
 ## 📬 Liên hệ
 
-*   **Tác giả**: [tqt97](https://github.com/tqt97)
-*   **Repository**: [tqt97/laradoc](https://github.com/tqt97/laradoc)
-*   **Email**: [kutuanonline199@gmail.com](mailto:kutuanonline199@gmail.com)
-*   **Website**: [tuantq.online](https://tuantq.online)
+* **Tác giả**: [tqt97](https://github.com/tqt97)
+* **Repository**: [tqt97/laradoc](https://github.com/tqt97/laradoc)
+* **Email**: [kutuanonline199@gmail.com](mailto:kutuanonline199@gmail.com)
+* **Website**: [tuantq.online](https://tuantq.online)
 
 ---
 *Cảm ơn bạn đã tham gia xây dựng cộng đồng Laradoc!*
