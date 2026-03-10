@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Idea;
 use App\Support\PrezetCache;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
@@ -37,7 +38,24 @@ class MakePost extends Command
             return 1;
         }
 
-        // 2. Get Category
+        // 2. Link to Idea?
+        $ideaId = null;
+        $pendingIdeas = Idea::where('status', 'submitted')->latest()->get();
+
+        if ($pendingIdeas->isNotEmpty()) {
+            if ($this->confirm('Does this post relate to an existing idea?', false)) {
+                $options = $pendingIdeas->mapWithKeys(function ($idea) {
+                    $label = sprintf('[ID: %d] %s (by %s)', $idea->id, Str::limit($idea->name, 50), $idea->user_name ?: 'Anonymous');
+
+                    return [$idea->id => $label];
+                })->toArray();
+
+                $selectedIdeaLabel = $this->choice('Select the related idea', array_values($options));
+                $ideaId = array_search($selectedIdeaLabel, $options);
+            }
+        }
+
+        // 3. Get Category
         $categories = ['General', 'Tutorials', 'News', 'Features', 'Configuration', 'Testing'];
         $category = $this->choice('Select a category', $categories, 0);
 
@@ -81,13 +99,15 @@ class MakePost extends Command
             return 1;
         }
 
+        $ideaLine = $ideaId ? "\nidea_id: {$ideaId}" : '';
+
         $frontmatter = <<<EOT
 ---
 title: {$title}
 excerpt: Enter a brief description of the post here.
 date: {$date}
 author: {$author}
-category: {$category}
+category: {$category}{$ideaLine}
 image: /prezet/img/ogimages/{$slug}.png
 tags:
   - general

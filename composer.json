@@ -40,6 +40,10 @@
         }
     },
     "scripts": {
+        "prezet-index": [
+            "@php artisan prezet:index",
+            "@php artisan idea:sync-published"
+        ],
         "setup": [
             "composer install",
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",

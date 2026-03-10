@@ -3,6 +3,7 @@
 namespace App\Mail;
 
 use App\Models\Idea;
+use App\Models\PrezetDocument;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -10,7 +11,7 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class IdeaSubmitted extends Mailable implements ShouldQueue
+class IdeaPublished extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
@@ -18,7 +19,8 @@ class IdeaSubmitted extends Mailable implements ShouldQueue
      * Create a new message instance.
      */
     public function __construct(
-        public Idea $idea
+        public Idea $idea,
+        public PrezetDocument $document
     ) {}
 
     /**
@@ -27,7 +29,7 @@ class IdeaSubmitted extends Mailable implements ShouldQueue
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: '🎯 Một chiếc ý tưởng "triệu đô" vừa hạ cánh! Cảm ơn bạn nhé 🚀',
+            subject: '✨ Bùm chíu! Ý tưởng của bạn vừa "lên sóng" rồi đó, xem ngay thôi! 🎊',
         );
     }
 
@@ -37,7 +39,7 @@ class IdeaSubmitted extends Mailable implements ShouldQueue
     public function content(): Content
     {
         return new Content(
-            markdown: 'emails.ideas.submitted',
+            markdown: 'emails.ideas.published',
         );
     }
 

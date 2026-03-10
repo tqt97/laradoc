@@ -16,6 +16,7 @@ class Idea extends Model
         'name',
         'category',
         'status',
+        'post_slug',
         'reference',
         'votes_count',
     ];
