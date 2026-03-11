@@ -6,22 +6,22 @@
         "build": "vite build",
         "dev": "vite"
     },
+    "dependencies": {
+        "alpinejs": "^3.4.2",
+        "axios": "^1.11.0",
+        "lite-youtube-embed": "^0.3.4",
+        "puppeteer": "^24.38.0"
+    },
     "devDependencies": {
         "@alpinejs/focus": "^3.15.8",
         "@benbjurstrom/alpinejs-zoomable": "^0.5.0",
         "@tailwindcss/forms": "^0.5.11",
         "@tailwindcss/typography": "^0.5.19",
         "@tailwindcss/vite": "^4.2.1",
-        "alpinejs": "^3.15.8",
-        "axios": "^1.11.0",
         "concurrently": "^9.0.1",
         "laravel-vite-plugin": "^2.0.0",
-        "lite-youtube-embed": "^0.3.4",
         "tailwindcss": "^4.2.1",
         "vite": "^7.0.7",
         "vite-plugin-watch-and-run": "^1.7.5"
-    },
-    "dependencies": {
-        "puppeteer": "^24.38.0"
     }
 }

@@ -84,6 +84,40 @@
                         </button>
                     </div>
 
+                    @auth
+                        <div class="hidden lg:flex items-center gap-4">
+                            <div x-data="{ open: false }" class="relative">
+                                <button @click="open = !open" @click.away="open = false"
+                                    class="flex items-center gap-2 px-3 py-1.5 rounded-3xl hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors outline-none">
+                                    <span class="text-sm font-medium text-zinc-700 dark:text-zinc-300">{{ Auth::user()->name }}</span>
+                                    <svg class="size-4 text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </button>
+                                <div x-show="open" x-cloak
+                                    x-transition:enter="transition ease-out duration-100"
+                                    x-transition:enter-start="opacity-0 scale-95"
+                                    x-transition:enter-end="opacity-100 scale-100"
+                                    class="absolute right-0 mt-2 w-48 rounded-2xl bg-white dark:bg-zinc-950 shadow-xl border border-zinc-200 dark:border-zinc-800 py-2 z-50">
+                                    <a href="{{ route('dashboard') }}" class="block px-4 py-2 text-sm text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-900">Dashboard</a>
+                                    <a href="{{ route('profile.edit') }}" class="block px-4 py-2 text-sm text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-900">Profile</a>
+                                    <hr class="my-1 border-zinc-200 dark:border-zinc-800">
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+                                        <button type="submit" class="w-full text-left block px-4 py-2 text-sm text-red-600 hover:bg-zinc-100 dark:hover:bg-zinc-900">Log Out</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    @else
+                        <div class="hidden lg:flex items-center gap-2">
+                            <a href="{{ route('login') }}" class="px-4 py-2 text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">Log in</a>
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}" class="px-5 py-2 text-sm font-bold bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 rounded-3xl hover:bg-zinc-800 dark:hover:bg-zinc-100 transition-all">Register</a>
+                            @endif
+                        </div>
+                    @endauth
+
                     <button aria-label="Menu"
                         class="group p-2 rounded-3xl hover:bg-zinc-100 dark:hover:bg-zinc-900 lg:hidden transition-colors"
                         @click="showSidebar = !showSidebar">

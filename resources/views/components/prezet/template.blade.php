@@ -11,8 +11,11 @@
 
     <x-prezet.meta />
 
+    <!-- Fonts Preload -->
+    <link rel="preload" href="/build/assets/be-vietnam-pro-v12-latin_vietnamese-regular-CnRXpc0c.woff2" as="font" type="font/woff2" crossorigin>
+
     <!-- Scripts -->
-    @vite(['resources/css/prezet.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     @stack('jsonld')
 
     <script>

@@ -20,7 +20,7 @@
         rel="stylesheet">
 
     <!-- Scripts -->
-    @vite(['resources/css/prezet.css'])
+    @vite(['resources/css/app.css'])
 
     <style>
         body {
