@@ -3,7 +3,7 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-20 items-center justify-between gap-4">
             {{-- Left: Logo & Navigation --}}
-            <div class="flex items-center gap-8 xl:gap-12 flex-none">
+            <div class="flex items-center gap-6 xl:gap-8 flex-none">
                 <a aria-label="Home" href="{{ route('prezet.index') }}" class="flex items-center gap-2.5 group">
                     <div class="transition-all duration-500 group-hover:scale-110 group-hover:rotate-3">
                         <x-prezet.logo class="size-12" />
