@@ -13,7 +13,7 @@ Laradoc là một nền tảng quản lý kiến thức (Knowledge Base) và blo
 Dự án được xây dựng với các công nghệ hiện đại nhằm đảm bảo hiệu năng và khả năng mở rộng:
 
 * **Backend**: [Laravel 12+](https://laravel.com) - PHP Framework mạnh mẽ.
-* **Auth**: [Laravel Breeze](https://laravel.com/docs/breeze) - Hệ thống xác thực tối giản, hiện đại.
+* **Auth**: [Laravel Breeze](https://laravel.com/docs/11.x/starter-kits) - Hệ thống xác thực tối giản, hiện đại.
 * **Engine**: [Prezet](https://prezet.com) - Thư viện quản lý nội dung Markdown cho Laravel.
 * **Frontend**: [Tailwind CSS](https://tailwindcss.com) & [Blade](https://laravel.com/docs/blade) - Giao diện tùy biến, linh hoạt.
 * **Markdown**: Hỗ trợ đầy đủ CommonMark, GitHub Flavored Markdown, và tích hợp Code Highlighting.
