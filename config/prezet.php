@@ -236,10 +236,10 @@ return [
     // https://schema.org/publisher
     'publisher' => [
         '@type' => 'Organization',
-        'name' => 'Prezet',
-        'url' => 'https://prezet.com',
-        'logo' => 'https://prezet.com/favicon.svg',
-        'image' => 'https://prezet.com/ogimage.png',
+        'name' => 'TuanTQ',
+        'url' => env('APP_URL', 'http://localhost'),
+        'logo' => env('APP_URL', 'http://localhost').'/favicon.svg',
+        'image' => env('APP_URL', 'http://localhost').'/images/og/ogimage.png',
     ],
 
     /*
@@ -288,7 +288,16 @@ return [
     |--------------------------------------------------------------------------
     */
     'seo' => [
-        'default_description' => 'Chia sẻ kiến thức lập trình, kỹ thuật xây dựng hệ thống và những bài học trong quá trình phát triển ứng dụng web',
-        'default_title_suffix' => 'Chia sẻ kiến thức, kinh nghiệm phát triển ứng dụng web',
+        'author' => 'TuanTQ',
+        'site_name' => 'tuantq.online',
+        'twitter_handle' => '@tuantq',
+        'default_description' => 'tuantq.online - Chuyên trang chia sẻ kiến thức lập trình web, kiến trúc hệ thống và kinh nghiệm thực chiến. Nơi đúc kết kỹ thuật phát triển phần mềm hiện đại.',
+        'default_title_suffix' => 'Blog Lập trình Web & Kỹ thuật Hệ thống',
+        'default_image' => env('APP_URL', 'http://localhost').'/images/og/ogimage.png',
+        'default_image_svg' => env('APP_URL', 'http://localhost').'/images/og/ogimage.svg',
+        'articles_image' => env('APP_URL', 'http://localhost').'/images/og/og-articles.png',
+        'series_image' => env('APP_URL', 'http://localhost').'/images/og/og-series.png',
+        'snippets_image' => env('APP_URL', 'http://localhost').'/images/og/og-snippets.png',
+        'links_image' => env('APP_URL', 'http://localhost').'/images/og/og-links.png',
     ],
 ];

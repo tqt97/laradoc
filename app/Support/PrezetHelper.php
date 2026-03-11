@@ -61,15 +61,19 @@ class PrezetHelper
     /**
      * Generate base SEO data for sub pages.
      */
-    public static function getSeoData(string $title, ?string $description = null, ?string $url = null): array
+    public static function getSeoData(string $title, ?string $description = null, ?string $url = null, ?string $image = null, array $extra = []): array
     {
         $defaultDescription = config('prezet.seo.default_description');
         $defaultText = config('prezet.seo.default_title_suffix');
+        $defaultImage = config('prezet.seo.default_image');
 
         return [
             'title' => $title.' | '.$defaultText,
             'description' => $description ?? $defaultDescription,
             'url' => $url ?? request()->fullUrl(),
+            'image' => $image ?? $defaultImage,
+            'author' => config('prezet.seo.author'),
+            'metadata' => json_encode($extra), // Store as JSON string to avoid TypeErrors
         ];
     }
 

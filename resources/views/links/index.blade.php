@@ -23,128 +23,129 @@
         <div id="articles" class="py-12 lg:py-12">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {{-- Links List --}}
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    @forelse($links as $link)
-                        <div x-data="{ open: false, editing: false }" class="relative w-full min-w-0">
-                            <!-- View Mode -->
-                            <div x-show="!editing" class="group relative flex items-center gap-2 w-full">
-                                <a href="{{ $link->url }}" target="_blank" @mouseenter="open = true"
-                                    @mouseleave="open = false"
-                                    class="flex-grow flex items-center justify-between p-4 sm:p-5 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:border-primary-500/50 hover:shadow-xl hover:shadow-primary-500/5 transition-all duration-300 min-w-0">
-                                    <div class="flex items-center gap-3 sm:gap-4 min-w-0">
-                                        <div
-                                            class="size-10 rounded-xl bg-zinc-50 dark:bg-zinc-800 flex items-center justify-center text-zinc-400 group-hover:text-primary-500 transition-colors shrink-0">
+                @if($links->isNotEmpty())
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        @foreach($links as $link)
+                            <div x-data="{ open: false, editing: false }" class="relative w-full min-w-0">
+                                <!-- View Mode -->
+                                <div x-show="!editing" class="group relative flex items-center gap-2 w-full">
+                                    <a href="{{ $link->url }}" target="_blank" @mouseenter="open = true"
+                                        @mouseleave="open = false"
+                                        class="flex-grow flex items-center justify-between p-4 sm:p-5 rounded-2xl bg-white dark:bg-zinc-950 border border-zinc-100 dark:border-zinc-800 hover:border-primary-500/50 hover:shadow-xl hover:shadow-primary-500/5 transition-all duration-300 min-w-0">
+                                        <div class="flex items-center gap-3 sm:gap-4 min-w-0">
+                                            <div
+                                                class="size-10 rounded-xl bg-zinc-50 dark:bg-zinc-900 flex items-center justify-center text-zinc-400 group-hover:text-primary-500 transition-colors shrink-0">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                    stroke-width="2" stroke="currentColor" class="size-5">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" />
+                                                </svg>
+                                            </div>
+                                            <div class="flex flex-col min-w-0 overflow-hidden">
+                                                <span
+                                                    class="text-sm sm:text-base font-bold text-zinc-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors truncate">
+                                                    {{ $link->title }}
+                                                </span>
+                                                <span
+                                                    class="text-[10px] sm:text-xs text-zinc-400 dark:text-zinc-500 truncate">
+                                                    {{ parse_url($link->url, PHP_URL_HOST) }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="text-zinc-300 dark:text-zinc-700 shrink-0 ml-2">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                stroke-width="2" stroke="currentColor" class="size-5">
+                                                stroke-width="2" stroke="currentColor" class="size-4 sm:size-5">
                                                 <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" />
+                                                    d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
                                             </svg>
                                         </div>
-                                        <div class="flex flex-col min-w-0 overflow-hidden">
-                                            <span
-                                                class="text-sm sm:text-base font-bold text-zinc-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors truncate">
-                                                {{ $link->title }}
-                                            </span>
-                                            <span
-                                                class="text-[10px] sm:text-xs text-zinc-400 dark:text-zinc-500 truncate">
-                                                {{ parse_url($link->url, PHP_URL_HOST) }}
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="text-zinc-300 dark:text-zinc-700 shrink-0 ml-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                            stroke-width="2" stroke="currentColor" class="size-4 sm:size-5">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
-                                        </svg>
-                                    </div>
-                                </a>
+                                    </a>
 
-                                {{-- Action Buttons --}}
-                                <div class="flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                                    <button @click="editing = true"
-                                        class="p-2 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-500 hover:text-primary-500 transition-colors hover:cursor-pointer"
-                                        title="Sửa">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                            stroke-width="2" stroke="currentColor" class="size-4">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
-                                        </svg>
-                                    </button>
-                                    <button type="button"
-                                        @click="deleteUrl = '{{ route('links.destroy', $link) }}'; deleteModal = true"
-                                        class="p-2 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-500 hover:text-red-500 transition-colors hover:cursor-pointer"
-                                        title="Xóa">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                            stroke-width="2" stroke="currentColor" class="size-4">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                d="m14.74 9-.34 12m-4.74 0-.34-12m4.74 0h1.174m-4.74 0H9.26m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.108 0 0 0-7.5 0" />
-                                        </svg>
-                                    </button>
+                                    {{-- Action Buttons --}}
+                                    <div class="flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                        <button @click="editing = true"
+                                            class="p-2 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-500 hover:text-primary-500 transition-colors hover:cursor-pointer"
+                                            title="Sửa">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                stroke-width="2" stroke="currentColor" class="size-4">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+                                            </svg>
+                                        </button>
+                                        <button type="button"
+                                            @click="deleteUrl = '{{ route('links.destroy', $link) }}'; deleteModal = true"
+                                            class="p-2 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-500 hover:text-red-500 transition-colors hover:cursor-pointer"
+                                            title="Xóa">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                stroke-width="2" stroke="currentColor" class="size-4">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="m14.74 9-.34 12m-4.74 0-.34-12m4.74 0h1.174m-4.74 0H9.26m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.108 0 0 0-7.5 0" />
+                                            </svg>
+                                        </button>
+                                    </div>
+
+                                    {{-- Preview Image --}}
+                                    @if ($link->og_image)
+                                        <div x-show="open" x-transition:enter="transition ease-out duration-200"
+                                            x-transition:enter-start="opacity-0 translate-y-4 scale-95"
+                                            x-transition:enter-end="opacity-100 translate-y-0 scale-100"
+                                            x-transition:leave="transition ease-in duration-150"
+                                            x-transition:leave-start="opacity-100 translate-y-0 scale-100"
+                                            x-transition:leave-end="opacity-0 translate-y-4 scale-95"
+                                            class="absolute left-1/2 -translate-x-1/2 bottom-full mb-4 z-[70] w-80 p-2 bg-white dark:bg-zinc-800 rounded-2xl shadow-2xl ring-1 ring-zinc-200 dark:ring-zinc-700 pointer-events-none">
+                                            <img src="{{ $link->og_image }}"
+                                                class="w-full h-auto aspect-video object-cover rounded-xl shadow-sm"
+                                                alt="Preview" onerror="this.parentElement.style.display='none'">
+                                        </div>
+                                    @endif
                                 </div>
 
-                                {{-- Preview Image --}}
-                                @if ($link->og_image)
-                                    <div x-show="open" x-transition:enter="transition ease-out duration-200"
-                                        x-transition:enter-start="opacity-0 translate-y-4 scale-95"
-                                        x-transition:enter-end="opacity-100 translate-y-0 scale-100"
-                                        x-transition:leave="transition ease-in duration-150"
-                                        x-transition:leave-start="opacity-100 translate-y-0 scale-100"
-                                        x-transition:leave-end="opacity-0 translate-y-4 scale-95"
-                                        class="absolute left-1/2 -translate-x-1/2 bottom-full mb-4 z-[70] w-80 p-2 bg-white dark:bg-zinc-800 rounded-2xl shadow-2xl ring-1 ring-zinc-200 dark:ring-zinc-700 pointer-events-none">
-                                        <img src="{{ $link->og_image }}"
-                                            class="w-full h-auto aspect-video object-cover rounded-xl shadow-sm"
-                                            alt="Preview" onerror="this.parentElement.style.display='none'">
-                                    </div>
-                                @endif
-                            </div>
-
-                            <!-- Edit Mode -->
-                            <div x-show="editing" x-cloak>
-                                <x-form.card>
-                                    <form action="{{ route('links.update', $link) }}" method="POST" class="space-y-6">
-                                        @csrf
-                                        @method('PUT')
-                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                            <div>
-                                                <x-form.label value="Tiêu đề" />
-                                                <x-form.input type="text" name="title" value="{{ $link->title }}" required />
+                                <!-- Edit Mode -->
+                                <div x-show="editing" x-cloak>
+                                    <x-form.card>
+                                        <form action="{{ route('links.update', $link) }}" method="POST" class="space-y-6">
+                                            @csrf
+                                            @method('PUT')
+                                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                                <div>
+                                                    <x-form.label value="Tiêu đề" />
+                                                    <x-form.input type="text" name="title" value="{{ $link->title }}" required />
+                                                </div>
+                                                <div>
+                                                    <x-form.label value="URL" />
+                                                    <x-form.input type="url" name="url" value="{{ $link->url }}" required />
+                                                </div>
                                             </div>
-                                            <div>
-                                                <x-form.label value="URL" />
-                                                <x-form.input type="url" name="url" value="{{ $link->url }}" required />
+                                            <div class="flex justify-end gap-4">
+                                                <x-form.button type="button" variant="secondary" @click="editing = false" >
+                                                    Hủy
+                                                </x-form.button>
+                                                <x-form.button>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-4 transition-transform duration-300">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+                                                    </svg>
+                                                    Cập nhật
+                                                </x-form.button>
                                             </div>
-                                        </div>
-                                        <div class="flex justify-end gap-4">
-                                            <x-form.button type="button" variant="secondary" @click="editing = false" >
-                                                Hủy
-                                            </x-form.button>
-                                            <x-form.button>
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-4 transition-transform duration-300">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
-                                                </svg>
-                                                Cập nhật
-                                            </x-form.button>
-                                        </div>
-                                    </form>
-                                </x-form.card>
+                                        </form>
+                                    </x-form.card>
+                                </div>
                             </div>
+                        @endforeach
+                    </div>
+                @else
+                    <div class="py-20 text-center">
+                        <div
+                            class="size-16 bg-zinc-50 dark:bg-zinc-900/50 rounded-full flex items-center justify-center mx-auto mb-4 text-zinc-300 dark:text-zinc-700 border border-zinc-100 dark:border-zinc-800">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke-width="1.5" stroke="currentColor" class="size-8">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" />
+                            </svg>
                         </div>
-                    @empty
-                        <div class="py-20 text-center">
-                            <div
-                                class="size-16 bg-zinc-50 dark:bg-zinc-900 rounded-full flex items-center justify-center mx-auto mb-4 text-zinc-300 dark:text-zinc-700">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="1.5" stroke="currentColor" class="size-8">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" />
-                                </svg>
-                            </div>
-                            <p class="text-zinc-500 dark:text-zinc-400 font-medium">Chưa có liên kết nào được lưu trữ.
-                            </p>
-                        </div>
-                    @endforelse
-                </div>
+                        <p class="text-zinc-500 dark:text-zinc-400 font-medium">Chưa có liên kết nào được lưu trữ.</p>
+                    </div>
+                @endif
 
                 {{-- Pagination --}}
                 @if ($links->hasPages())

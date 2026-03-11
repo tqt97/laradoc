@@ -20,10 +20,10 @@ class LinkController extends Controller
      */
     public function index(): View
     {
-        return view('links.index', [
+        return view('links.index', array_merge([
             'links' => $this->linkService->getPaginatedLinks(),
-            'seo' => PrezetHelper::getSeoData('Danh sách các liên kết hữu ích được lưu trữ.'),
-        ]);
+            'seo' => PrezetHelper::getSeoData('Tài nguyên Lập trình & Liên kết Hữu ích', 'Tổng hợp các công cụ, thư viện và tài nguyên học tập lập trình web tốt nhất được tuantq.online tuyển chọn.', null, config('prezet.seo.links_image')),
+        ], PrezetHelper::getCommonData()));
     }
 
     /**

@@ -60,17 +60,17 @@ class ArticleController extends Controller
             $allPostsCount = PrezetDocument::active()->blogs()->count();
 
             // UI Titles
-            $headerTitle = 'Tất cả bài viết';
-            $headerSubtitle = 'Khám phá kho tàng kiến thức và kinh nghiệm thực chiến về phát triển ứng dụng web hiện đại.';
-            $seoTitle = 'Tất cả bài viết';
+            $headerTitle = 'Kiến thức Lập trình';
+            $headerSubtitle = 'Tổng hợp các bài viết kỹ thuật, hướng dẫn lập trình và kinh nghiệm thực chiến từ tuantq.online.';
+            $seoTitle = 'Tất cả bài viết kỹ thuật';
 
             if ($category) {
                 $headerTitle = new HtmlString('<span class="text-zinc-400 dark:text-zinc-600 block text-lg font-bold uppercase tracking-[0.2em] mb-2">Danh mục</span>'.ucfirst($category));
-                $headerSubtitle = null;
+                $headerSubtitle = 'Khám phá bài viết thuộc danh mục '.ucfirst($category).' tại tuantq.online.';
                 $seoTitle = 'Danh mục: '.ucfirst($category);
             } elseif ($tag) {
                 $headerTitle = new HtmlString('<span class="text-zinc-400 dark:text-zinc-600 block text-lg font-bold uppercase tracking-[0.2em] mb-2">Thẻ</span>'.ucfirst($tag));
-                $headerSubtitle = null;
+                $headerSubtitle = 'Các bài viết về '.ucfirst($tag).' trên tuantq.online.';
                 $seoTitle = 'Thẻ: '.ucfirst($tag);
             }
 
@@ -82,7 +82,7 @@ class ArticleController extends Controller
                 'allPostsCount' => $allPostsCount,
                 'headerTitle' => $headerTitle,
                 'headerSubtitle' => $headerSubtitle,
-                'seo' => PrezetHelper::getSeoData($seoTitle),
+                'seo' => PrezetHelper::getSeoData($seoTitle, $headerSubtitle, null, config('prezet.seo.articles_image')),
                 'postsByYear' => $paginator->getCollection()->groupBy(fn ($post) => $post->data->createdAt->format('Y'))->sortKeysDesc(),
             ];
         });

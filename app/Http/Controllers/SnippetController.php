@@ -25,7 +25,7 @@ class SnippetController extends Controller
             'snippets' => $data['snippets'],
             'paginator' => $data['paginator'],
             'search' => $search,
-            'seo' => PrezetHelper::getSeoData('Snippets', 'Thư viện các đoạn mã nguồn hữu ích, giúp bạn tiết kiệm thời gian và công sức.'),
+            'seo' => PrezetHelper::getSeoData('Code Snippets & Thủ thuật Lập trình', 'Thư viện các đoạn mã nguồn hữu ích, thủ thuật code và giải pháp kỹ thuật giúp tối ưu hóa quá trình phát triển web.', null, config('prezet.seo.snippets_image')),
         ], PrezetHelper::getCommonData()));
     }
 
@@ -60,7 +60,19 @@ class SnippetController extends Controller
             'snippet' => $snippet,
             'body' => $html,
             'slug' => $slug,
-            'seo' => PrezetHelper::getSeoData($snippet->frontmatter->title, $snippet->frontmatter->excerpt),
+            'seo' => PrezetHelper::getSeoData(
+                $snippet->frontmatter->title,
+                $snippet->frontmatter->excerpt,
+                null,
+                $snippet->frontmatter->image ? url($snippet->frontmatter->image) : null,
+                [
+                    'type' => 'article',
+                    'published_time' => $snippet->createdAt?->toIso8601String(),
+                    'section' => 'Snippets',
+                    'tags' => $snippet->frontmatter->tags ?? [],
+                    'author' => config('prezet.seo.author'),
+                ]
+            ),
         ], PrezetHelper::getCommonData()));
     }
 

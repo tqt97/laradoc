@@ -21,11 +21,11 @@ class IdeaController extends Controller
      */
     public function index(Request $request): View
     {
-        return view('ideas.index', [
+        return view('ideas.index', array_merge([
             'ideas' => $this->ideaService->getPaginatedIdeas($request),
             'categories' => $this->ideaService->getUniqueCategories(),
-            'seo' => PrezetHelper::getSeoData('Đề xuất ý tưởng'),
-        ]);
+            'seo' => PrezetHelper::getSeoData('Gợi ý Bài viết & Ý tưởng Phát triển', 'Hãy gửi các yêu cầu về chủ đề bài viết hoặc ý tưởng kỹ thuật mà bạn muốn tuantq.online chia sẻ.'),
+        ], PrezetHelper::getCommonData()));
     }
 
     /**

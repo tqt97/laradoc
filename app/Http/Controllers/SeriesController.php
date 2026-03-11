@@ -25,7 +25,7 @@ class SeriesController extends Controller
         return view('series.index', array_merge([
             'series' => $series,
             'search' => $search,
-            'seo' => PrezetHelper::getSeoData('Chuỗi bài viết'),
+            'seo' => PrezetHelper::getSeoData('Series Lập trình Chuyên sâu', 'Khám phá các chuỗi bài viết hướng dẫn lập trình web chuyên sâu, từ cơ bản đến nâng cao tại tuantq.online.', null, config('prezet.seo.series_image')),
         ], PrezetHelper::getCommonData()));
     }
 
@@ -63,7 +63,16 @@ class SeriesController extends Controller
             'seo' => PrezetHelper::getSeoData(
                 $docData->frontmatter->title,
                 $docData->frontmatter->excerpt,
-                route('prezet.series.show', str_replace('series/', '', $docData->slug))
+                route('prezet.series.show', str_replace('series/', '', $docData->slug)),
+                $docData->frontmatter->image ? url($docData->frontmatter->image) : null,
+                [
+                    'type' => 'article',
+                    'published_time' => $doc->created_at?->toIso8601String(),
+                    'modified_time' => $doc->updated_at?->toIso8601String(),
+                    'section' => $docData->category,
+                    'tags' => $docData->frontmatter->tags ?? [],
+                    'author' => config('prezet.seo.author'),
+                ]
             ),
         ], PrezetHelper::getCommonData()));
     }

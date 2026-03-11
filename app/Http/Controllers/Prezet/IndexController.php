@@ -30,8 +30,8 @@ class IndexController extends Controller
                 'articles' => $this->articleService->getLatestArticles(6),
                 'series' => $this->seriesService->getAllSeries()->take(4),
                 'seo' => [
-                    'title' => 'TuanTQ | Chia sẻ kiến thức, kinh nghiệm phát triển ứng dụng web',
-                    'description' => config('prezet.seo.default_description'),
+                    'title' => 'tuantq.online | Blog Chia sẻ Kiến thức & Kinh nghiệm Lập trình Web',
+                    'description' => 'Chào mừng bạn đến với tuantq.online - Blog chuyên sâu về phát triển ứng dụng web, kiến trúc hệ thống, code snippets và những ghi chép kỹ thuật giá trị.',
                     'url' => route('prezet.index'),
                 ],
             ];

@@ -29,7 +29,8 @@
             margin: 0;
             padding: 0;
             overflow: hidden;
-            background-color: #0F172A; /* Dark Blue from spec */
+            background-color: #0F172A;
+            /* Dark Blue from spec */
         }
 
         .og-container {
@@ -38,9 +39,10 @@
             position: relative;
             display: flex;
             flex-direction: column;
-            padding: 100px; /* 100px margin as per safe area spec */
+            padding: 100px;
+            /* 100px margin as per safe area spec */
             box-sizing: border-box;
-            background-image: 
+            background-image:
                 radial-gradient(circle at 0% 0%, rgba(234, 88, 12, 0.15) 0%, transparent 50%),
                 radial-gradient(circle at 100% 100%, rgba(234, 88, 12, 0.1) 0%, transparent 50%);
         }
@@ -68,12 +70,13 @@
 <body class="font-['Be_Vietnam_Pro'] antialiased">
     <div class="og-container">
         <div class="og-grid"></div>
-        
+
         <div class="og-content">
             {{-- Top Section: Category --}}
             <div>
-                @if($fm->category)
-                    <span class="inline-flex items-center rounded-3xl bg-primary-600/20 px-4 py-2 text-xl font-black uppercase tracking-[0.2em] text-primary-500 ring-1 ring-inset ring-primary-500/30">
+                @if ($fm->category)
+                    <span
+                        class="inline-flex items-center rounded-3xl bg-primary-600/20 px-4 py-2 text-xl font-black uppercase tracking-[0.2em] text-primary-500 ring-1 ring-inset ring-primary-500/30">
                         {{ $fm->category }}
                     </span>
                 @endif
@@ -84,8 +87,8 @@
                 <h1 class="text-7xl font-black leading-[1.1] tracking-tight text-white line-clamp-2">
                     {{ $fm->title }}
                 </h1>
-                
-                @if($fm->excerpt)
+
+                @if ($fm->excerpt)
                     <p class="text-3xl font-medium leading-relaxed text-slate-400 line-clamp-2 max-w-[900px]">
                         {{ $fm->excerpt }}
                     </p>
@@ -95,7 +98,8 @@
             {{-- Bottom Section: Branding --}}
             <div class="flex items-center justify-between">
                 <div class="flex items-center gap-4">
-                    <div class="flex h-12 w-12 items-center justify-center rounded-3xl bg-slate-800/50 p-2 ring-1 ring-white/10">
+                    <div
+                        class="flex h-12 w-12 items-center justify-center rounded-3xl bg-slate-800/50 p-2 ring-1 ring-white/10">
                         <x-prezet.logo />
                     </div>
                     <span class="text-3xl font-bold tracking-tight text-white">

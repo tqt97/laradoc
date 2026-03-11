@@ -180,7 +180,7 @@
     x-on:keydown.meta.k.prevent.document="openCommandPalette()">
     <!-- Toggle Button -->
     <button x-ref="elToggleButton" x-on:click="openCommandPalette()" type="button"
-        class="group inline-flex items-center justify-center gap-2 rounded-3xl border-zinc-200 bg-white p-1.5 text-sm/6 font-medium text-zinc-800 hover:border-zinc-300 hover:text-zinc-900 hover:shadow-xs focus:ring-zinc-300/25 active:border-zinc-200 active:shadow-none lg:min-w-48 lg:border lg:px-3 dark:border-zinc-700 dark:bg-transparent dark:text-zinc-300 dark:hover:border-zinc-600 dark:hover:text-zinc-200 dark:focus:ring-zinc-600/50 dark:active:border-zinc-700 hover:cursor-pointer">
+        class="group inline-flex items-center justify-center gap-2 rounded-3xl border-zinc-200 bg-white p-1.5 text-sm/6 font-medium text-zinc-800 hover:border-zinc-300 hover:text-zinc-900 hover:shadow-xs focus:ring-zinc-300/25 active:border-zinc-200 active:shadow-none lg:min-w-56 lg:border lg:px-3 dark:border-zinc-700 dark:bg-transparent dark:text-zinc-300 dark:hover:border-zinc-600 dark:hover:text-zinc-200 dark:focus:ring-zinc-600/50 dark:active:border-zinc-700 hover:cursor-pointer">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" data-slot="icon"
             class="hi-mini hi-magnifying-glass inline-block size-6 opacity-60 group-hover:text-zinc-600 group-hover:opacity-100 lg:size-5 dark:group-hover:text-zinc-400">
             <path fill-rule="evenodd"

@@ -71,7 +71,16 @@ class ShowController extends Controller
             'seo' => PrezetHelper::getSeoData(
                 $docData->frontmatter->title,
                 $docData->frontmatter->excerpt,
-                route('prezet.show', $docData->slug)
+                route('prezet.show', $docData->slug),
+                $docData->frontmatter->image ? url($docData->frontmatter->image) : null,
+                [
+                    'type' => 'article',
+                    'published_time' => $doc->created_at?->toIso8601String(),
+                    'modified_time' => $doc->updated_at?->toIso8601String(),
+                    'section' => $docData->category,
+                    'tags' => $docData->frontmatter->tags ?? [],
+                    'author' => config('prezet.seo.author'),
+                ]
             ),
         ], PrezetHelper::getCommonData()));
     }
