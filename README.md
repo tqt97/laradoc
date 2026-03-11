@@ -13,6 +13,7 @@ Laradoc là một nền tảng quản lý kiến thức (Knowledge Base) và blo
 Dự án được xây dựng với các công nghệ hiện đại nhằm đảm bảo hiệu năng và khả năng mở rộng:
 
 * **Backend**: [Laravel 12+](https://laravel.com) - PHP Framework mạnh mẽ.
+* **Auth**: [Laravel Breeze](https://laravel.com/docs/breeze) - Hệ thống xác thực tối giản, hiện đại.
 * **Engine**: [Prezet](https://prezet.com) - Thư viện quản lý nội dung Markdown cho Laravel.
 * **Frontend**: [Tailwind CSS](https://tailwindcss.com) & [Blade](https://laravel.com/docs/blade) - Giao diện tùy biến, linh hoạt.
 * **Markdown**: Hỗ trợ đầy đủ CommonMark, GitHub Flavored Markdown, và tích hợp Code Highlighting.
@@ -30,6 +31,15 @@ Dự án được xây dựng với các công nghệ hiện đại nhằm đả
 | <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/link.svg" width="22" height="22"> **Lưu trữ liên kết**  | Tổng hợp và phân loại các tài liệu, công cụ hữu ích từ internet.             |
 | <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/lightbulb.svg" width="22" height="22"> **Ý tưởng**      | Đóng góp và quản lý các ý tưởng bài viết mới từ cộng đồng.                   |
 | <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/code.svg" width="22" height="22"> **Snippets**          | Kho lưu trữ các đoạn mã nguồn ngắn, có thể tái sử dụng nhanh chóng.          |
+
+## 🔐 Xác thực & Quản lý tài khoản (Laravel Breeze)
+
+Dự án tích hợp **Laravel Breeze** để cung cấp hệ thống xác thực an toàn, tối giản và hiệu quả:
+
+*   **Xác thực**: Hỗ trợ đầy đủ các tính năng Đăng ký, Đăng nhập, Quên mật khẩu và Xác nhận mật khẩu.
+*   **Quản lý Profile**: Người dùng có thể cập nhật thông tin cá nhân (tên, email) và đổi mật khẩu trực tiếp qua giao diện UI.
+*   **Bảo mật**: Tích hợp sẵn CSRF protection, xác thực email và các biện pháp bảo mật tiêu chuẩn của Laravel.
+*   **Frontend**: Sử dụng Blade templates kết hợp với **AlpineJS** và **Tailwind CSS**, đảm bảo giao diện đồng nhất với toàn bộ dự án.
 
 ## 📝 Hướng dẫn quản lý nội dung
 
