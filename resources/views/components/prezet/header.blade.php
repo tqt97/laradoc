@@ -36,6 +36,12 @@
                             class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-500 transition-all duration-300 {{ request()->routeIs('snippets.index') ? 'w-full' : 'group-hover/nav:w-full' }}"></span>
                     </x-prezet.nav-link>
 
+                    {{-- <x-prezet.nav-link :href="route('gallery.index')" :active="request()->routeIs('gallery.index')" class="relative py-1 group/nav">
+                        Thư viện
+                        <span
+                            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-500 transition-all duration-300 {{ request()->routeIs('gallery.index') ? 'w-full' : 'group-hover/nav:w-full' }}"></span>
+                    </x-prezet.nav-link> --}}
+
                     <a href="{{ route('ideas.index') }}"
                         class="relative flex items-center gap-2 px-3 py-1 text-[10px] font-black uppercase tracking-widest rounded-full bg-primary-50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400 border border-primary-100 dark:border-primary-900/50 hover:bg-primary-100 dark:hover:bg-primary-900/30 transition-all active:scale-95">
                         <span class="relative flex h-1.5 w-1.5">
@@ -319,6 +325,16 @@
                     </svg>
                     Snippets
                 </a>
+
+                {{-- <a href="{{ route('gallery.index') }}" @click="showSidebar = false"
+                    class="flex items-center gap-4 px-4 py-4 rounded-3xl text-lg font-bold transition-all {{ request()->routeIs('gallery.index') ? 'bg-primary-50 text-primary-600 dark:bg-primary-900/20 dark:text-primary-400' : 'text-zinc-600 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-900' }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor" class="size-5">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                    </svg>
+                    Thư viện
+                </a> --}}
             </div>
 
             {{-- Special Section --}}

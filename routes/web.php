@@ -49,6 +49,9 @@ Route::post('ideas', [IdeaController::class, 'store'])->name('ideas.store');
 Route::get('ideas/list', [IdeaController::class, 'list'])->name('ideas.list');
 Route::post('ideas/{idea}/vote', [IdeaController::class, 'toggleVote'])->name('ideas.toggle-vote')->middleware('throttle:30,1');
 
+// Image Gallery
+Route::get('gallery', [App\Http\Controllers\ImageGalleryController::class, 'index'])->name('gallery.index');
+
 // Prezet search route
 Route::get('search', SearchController::class)->name('prezet.search');
 
