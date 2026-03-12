@@ -51,6 +51,7 @@ Route::post('ideas/{idea}/vote', [IdeaController::class, 'toggleVote'])->name('i
 
 // Image Gallery
 Route::get('gallery', [App\Http\Controllers\ImageGalleryController::class, 'index'])->name('gallery.index');
+Route::get('portfolio', [App\Http\Controllers\PortfolioController::class, 'index'])->name('portfolio.index');
 
 // Prezet search route
 Route::get('search', SearchController::class)->name('prezet.search');
