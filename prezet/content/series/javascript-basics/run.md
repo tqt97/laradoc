@@ -4,7 +4,7 @@ excerpt: Start js.
 category: js
 date: 2026-03-08
 order: 3
-image: /prezet/img/ogimages/series-laravel-basics-installing.webp
+image: /prezet/img/ogimages/series-javascript-basics-run.webp
 ---
 
 # Installing Laravel 3

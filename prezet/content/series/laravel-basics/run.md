@@ -4,7 +4,7 @@ excerpt: Start Laravel.
 category: Laravel
 date: 2026-03-08
 order: 3
-image: /prezet/img/ogimages/series-laravel-basics-installing.webp
+image: /prezet/img/ogimages/series-laravel-basics-run.webp
 ---
 
 # Installing Laravel 3

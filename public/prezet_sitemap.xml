@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
     <url>
         <loc>http://127.0.0.1:8000/series/javascript-basics/index</loc>
-        <lastmod>2026-03-09T00:09:53+07:00</lastmod>
+        <lastmod>2026-03-12T09:39:02+07:00</lastmod>
 
             </url>
     <url>
@@ -12,12 +12,12 @@
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/javascript-basics/queue</loc>
-        <lastmod>2026-03-09T00:09:53+07:00</lastmod>
+        <lastmod>2026-03-12T09:39:10+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/javascript-basics/run</loc>
-        <lastmod>2026-03-09T00:09:53+07:00</lastmod>
+        <lastmod>2026-03-12T09:39:15+07:00</lastmod>
 
             </url>
     <url>
@@ -32,12 +32,12 @@
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/laravel-basics/queue</loc>
-        <lastmod>2026-03-09T00:09:53+07:00</lastmod>
+        <lastmod>2026-03-12T09:39:25+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/laravel-basics/run</loc>
-        <lastmod>2026-03-09T00:09:53+07:00</lastmod>
+        <lastmod>2026-03-12T09:39:28+07:00</lastmod>
 
             </url>
     <url>
@@ -52,7 +52,7 @@
             </url>
     <url>
         <loc>http://127.0.0.1:8000/snippets/hello-world</loc>
-        <lastmod>2026-03-09T00:09:53+07:00</lastmod>
+        <lastmod>2026-03-12T09:39:43+07:00</lastmod>
 
             </url>
     <url>
