@@ -18,13 +18,13 @@
 
                 <div class="flex items-center gap-8 text-sm font-bold device-x">
                     <a href="{{ route('prezet.index') }}"
-                        class="text-zinc-400 hover:text-primary-500 transition-colors">Bài viết</a>
+                        class="text-zinc-400 hover:text-primary-500 transition-colors hover:cursor-pointer">Bài viết</a>
                     <a href="{{ route('prezet.series.index') }}"
-                        class="text-zinc-400 hover:text-primary-500 transition-colors">Chuỗi bài viết</a>
+                        class="text-zinc-400 hover:text-primary-500 transition-colors hover:cursor-pointer">Chuỗi bài viết</a>
                     <a href="{{ route('links.index') }}"
-                        class="text-zinc-400 hover:text-primary-500 transition-colors">Liên kết</a>
+                        class="text-zinc-400 hover:text-primary-500 transition-colors hover:cursor-pointer">Liên kết</a>
                     <a href="{{ route('snippets.index') }}"
-                        class="text-zinc-400 hover:text-primary-500 transition-colors">Snippets</a>
+                        class="text-zinc-400 hover:text-primary-500 transition-colors hover:cursor-pointer">Snippets</a>
                 </div>
             </div>
         </div>

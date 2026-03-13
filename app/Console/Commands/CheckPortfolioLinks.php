@@ -5,7 +5,6 @@ namespace App\Console\Commands;
 use App\Http\Controllers\PortfolioController;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Http;
-use ReflectionClass;
 
 class CheckPortfolioLinks extends Command
 {
@@ -30,7 +29,7 @@ class CheckPortfolioLinks extends Command
     {
         $this->info('Checking portfolio image links...');
 
-        $controller = new PortfolioController();
+        $controller = new PortfolioController;
         $collections = $controller->getCollectionsData();
 
         $brokenLinks = [];
@@ -38,26 +37,26 @@ class CheckPortfolioLinks extends Command
 
         foreach ($collections as $category => $data) {
             $this->comment("Checking category: {$category}");
-            
+
             // Check featured image
             $featuredUrl = $data['featured'];
             $totalImages++;
-            if (!$this->checkLink($featuredUrl)) {
+            if (! $this->checkLink($featuredUrl)) {
                 $brokenLinks[] = [
                     'category' => $category,
                     'title' => 'Featured Image',
-                    'url' => $featuredUrl
+                    'url' => $featuredUrl,
                 ];
             }
 
             // Check individual images
             foreach ($data['images'] as $index => $img) {
                 $totalImages++;
-                if (!$this->checkLink($img['url'])) {
+                if (! $this->checkLink($img['url'])) {
                     $brokenLinks[] = [
                         'category' => $category,
                         'title' => $img['title'] ?? "Image {$index}",
-                        'url' => $img['url']
+                        'url' => $img['url'],
                     ];
                 }
             }
@@ -66,7 +65,7 @@ class CheckPortfolioLinks extends Command
         if (empty($brokenLinks)) {
             $this->info("Success! All {$totalImages} links are valid.");
         } else {
-            $this->error("Found " . count($brokenLinks) . " broken links out of {$totalImages}:");
+            $this->error('Found '.count($brokenLinks)." broken links out of {$totalImages}:");
             foreach ($brokenLinks as $broken) {
                 $this->warn("- [{$broken['category']}] {$broken['title']}: {$broken['url']}");
             }
@@ -82,6 +81,7 @@ class CheckPortfolioLinks extends Command
     {
         try {
             $response = Http::timeout(10)->head($url);
+
             return $response->successful();
         } catch (\Exception $e) {
             return false;
