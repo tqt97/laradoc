@@ -93,6 +93,32 @@ Route::get('/series/{slug}', [SeriesController::class, 'show'])
     ->name('prezet.series.show')
     ->where('slug', '.*');
 
+// Feature specific routes
+Route::middleware(['auth', 'feature:dashboard_analytics'])->group(function () {
+    Route::get('/dashboard/analytics', function () {
+        // This route is only accessible if 'dashboard_analytics' feature is enabled for the user's role.
+        return response()->json(['message' => 'Welcome to the analytics dashboard!']);
+    })->name('analytics'); // Note: Changed route name to 'analytics' to match navigation example
+});
+
+Route::middleware(['auth', 'feature:library'])->group(function () {
+    Route::get('/library', function () {
+        return response()->json(['message' => 'Welcome to the library!']);
+    })->name('library.index');
+});
+
+Route::middleware(['auth', 'feature:portfolio'])->group(function () {
+    Route::get('/portfolio/management', function () {
+        return response()->json(['message' => 'Welcome to the portfolio management!']);
+    })->name('portfolio.management');
+});
+
+Route::middleware(['auth', 'feature:public_feature'])->group(function () {
+    Route::get('/public-feature', function () {
+        return response()->json(['message' => 'This is a public feature!']);
+    })->name('public_feature.index');
+});
+
 Route::get('{slug}', ShowController::class)
     ->name('prezet.show')
     ->where('slug', '.*'); // https://laravel.com/docs/11.x/routing#parameters-encoded-forward-slashes

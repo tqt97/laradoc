@@ -21,6 +21,12 @@
                         {{ __('Roles & Permissions') }}
                     </x-nav-link>
                     @endrole
+                    
+                    @feature('dashboard_analytics')
+                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('analytics')">
+                        {{ __('Analytics') }}
+                    </x-nav-link>
+                    @endfeature
                 </div>
             </div>
 
@@ -82,6 +88,12 @@
                 {{ __('Roles & Permissions') }}
             </x-responsive-nav-link>
             @endrole
+
+            @feature('dashboard_analytics')
+            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('analytics')">
+                {{ __('Analytics') }}
+            </x-responsive-nav-link>
+            @endfeature
         </div>
 
         <!-- Responsive Settings Options -->
