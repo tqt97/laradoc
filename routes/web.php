@@ -3,6 +3,7 @@
 use App\Http\Controllers\IdeaController;
 use App\Http\Controllers\LinkController;
 use App\Http\Controllers\NewsletterController;
+use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\Prezet\ArticleController;
 use App\Http\Controllers\Prezet\ImageController;
 use App\Http\Controllers\Prezet\IndexController;
@@ -10,9 +11,22 @@ use App\Http\Controllers\Prezet\OgimageController;
 use App\Http\Controllers\Prezet\SearchController;
 use App\Http\Controllers\Prezet\ShowController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SeriesController;
 use App\Http\Controllers\SnippetController;
 use Illuminate\Support\Facades\Route;
+
+// Roles and Permissions management
+Route::middleware(['auth', 'role:super-admin'])->group(function () {
+    Route::get('roles', [RoleController::class, 'index'])->name('roles.index');
+    Route::post('roles', [RoleController::class, 'store'])->name('roles.store');
+    Route::put('roles/{role}', [RoleController::class, 'update'])->name('roles.update');
+    Route::delete('roles/{role}', [RoleController::class, 'destroy'])->name('roles.destroy');
+    Route::post('roles/users/{user}', [RoleController::class, 'assignUserRole'])->name('roles.assign');
+
+    Route::post('permissions', [PermissionController::class, 'store'])->name('permissions.store');
+    Route::delete('permissions/{permission}', [PermissionController::class, 'destroy'])->name('permissions.destroy');
+});
 
 // Breeze Auth Routes (must be before Prezet wildcard)
 require __DIR__.'/auth.php';
@@ -48,6 +62,8 @@ Route::get('ideas', [IdeaController::class, 'index'])->name('ideas.index');
 Route::post('ideas', [IdeaController::class, 'store'])->name('ideas.store');
 Route::get('ideas/list', [IdeaController::class, 'list'])->name('ideas.list');
 Route::post('ideas/{idea}/vote', [IdeaController::class, 'toggleVote'])->name('ideas.toggle-vote')->middleware('throttle:30,1');
+Route::put('ideas/{idea}', [IdeaController::class, 'update'])->name('ideas.update')->middleware('auth');
+Route::delete('ideas/{idea}', [IdeaController::class, 'destroy'])->name('ideas.destroy')->middleware('auth');
 
 // Image Gallery
 Route::get('gallery', [App\Http\Controllers\ImageGalleryController::class, 'index'])->name('gallery.index');

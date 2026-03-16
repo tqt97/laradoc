@@ -324,6 +324,50 @@
         openDetail(idea) {
             this.selectedIdea = idea;
             this.showModal = true;
+        },
+        async updateIdeaStatus(id, status) {
+            try {
+                const response = await fetch(`/ideas/${id}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({ status })
+                });
+                const data = await response.json();
+                if (response.ok) {
+                    window.showToast(data.message, 'success');
+                    this.fetchIdeas();
+                } else {
+                    window.showToast(data.message, 'error');
+                }
+            } catch (error) {
+                window.showToast('Có lỗi xảy ra', 'error');
+            }
+        },
+        async deleteIdea(id) {
+            if (!confirm('Bạn có chắc chắn muốn xóa ý tưởng này?')) return;
+            try {
+                const response = await fetch(`/ideas/${id}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                        'Accept': 'application/json'
+                    }
+                });
+                const data = await response.json();
+                if (response.ok) {
+                    window.showToast(data.message, 'success');
+                    this.fetchIdeas();
+                } else {
+                    window.showToast(data.message, 'error');
+                }
+            } catch (error) {
+                window.showToast('Có lỗi xảy ra', 'error');
+            }
         }
     }" @idea-created.window="fetchIdeas()"
         @click="handlePagination($event)">

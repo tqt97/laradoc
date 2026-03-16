@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Data\CustomFrontmatterData;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 use Prezet\Prezet\Data\FrontmatterData;
 
@@ -23,5 +24,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Paginator::useTailwind();
+
+        Gate::after(function ($user, $ability) {
+            return $user->hasRole('super-admin');
+        });
     }
 }

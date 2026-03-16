@@ -31,6 +31,8 @@ class SnippetController extends Controller
 
     public function create(): View
     {
+        $this->authorize('manage-snippets');
+
         return view('snippets.form', array_merge([
             'snippet' => null,
             'seo' => PrezetHelper::getSeoData('Tạo Snippet mới'),
@@ -39,6 +41,8 @@ class SnippetController extends Controller
 
     public function store(StoreSnippetRequest $request): RedirectResponse
     {
+        $this->authorize('manage-snippets');
+
         $finalSlug = $this->snippetService->createSnippet($request->validated());
 
         if ($request->has('continue')) {
@@ -78,6 +82,8 @@ class SnippetController extends Controller
 
     public function edit($slug): View
     {
+        $this->authorize('manage-snippets');
+
         $snippet = $this->snippetService->getSnippetBySlug($slug);
         $code = $this->snippetService->getRawCode($snippet->filepath);
 
@@ -91,6 +97,8 @@ class SnippetController extends Controller
 
     public function update(StoreSnippetRequest $request, $slug): RedirectResponse
     {
+        $this->authorize('manage-snippets');
+
         $this->snippetService->updateSnippet($slug, $request->validated());
 
         return redirect()->to('/snippets/'.$slug)

@@ -9,6 +9,7 @@
     <div x-data="{ createModal: false, deleteModal: false, deleteUrl: '' }">
         <x-prezet.subpage-header title="Liên kết đã lưu"
             subtitle="Nơi lưu trữ và chia sẻ những liên kết hữu ích, tài liệu và công cụ thú vị.">
+            @can('manage-links')
             <div class="mt-10">
                 <x-form.button @click="createModal = true" class="!px-6">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
@@ -18,6 +19,7 @@
                     Thêm liên kết mới
                 </x-form.button>
             </div>
+            @endcan
         </x-prezet.subpage-header>
 
         <div id="articles" class="py-12 lg:py-12">
@@ -62,6 +64,7 @@
                                     </a>
 
                                     {{-- Action Buttons --}}
+                                    @can('manage-links')
                                     <div class="flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
                                         <button @click="editing = true"
                                             class="p-2 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-500 hover:text-primary-500 transition-colors hover:cursor-pointer"
@@ -83,6 +86,7 @@
                                             </svg>
                                         </button>
                                     </div>
+                                    @endcan
 
                                     {{-- Preview Image --}}
                                     @if ($link->og_image)

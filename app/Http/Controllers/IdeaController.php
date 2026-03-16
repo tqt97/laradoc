@@ -63,4 +63,38 @@ class IdeaController extends Controller
             'ideas' => $this->ideaService->getPaginatedIdeas($request),
         ]);
     }
+
+    /**
+     * Update an idea (for admin).
+     */
+    public function update(Request $request, Idea $idea): JsonResponse
+    {
+        $this->authorize('manage-ideas');
+
+        $request->validate([
+            'status' => 'required|in:submitted,published',
+            'post_slug' => 'nullable|string',
+        ]);
+
+        $idea->update($request->only('status', 'post_slug'));
+
+        return response()->json([
+            'message' => 'Cập nhật ý tưởng thành công!',
+            'idea' => $idea,
+        ]);
+    }
+
+    /**
+     * Remove an idea (for admin).
+     */
+    public function destroy(Idea $idea): JsonResponse
+    {
+        $this->authorize('manage-ideas');
+
+        $idea->delete();
+
+        return response()->json([
+            'message' => 'Xóa ý tưởng thành công!',
+        ]);
+    }
 }
