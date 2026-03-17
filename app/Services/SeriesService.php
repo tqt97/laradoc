@@ -44,7 +44,7 @@ class SeriesService
 
                 return (object) [
                     'slug' => $seriesSlug,
-                    'title' => $docData->frontmatter->title ?? \Illuminate\Support\Str::headline($seriesSlug),
+                    'title' => $docData->frontmatter->title ?? Str::headline($seriesSlug),
                     'data' => $docData,
                     'postCount' => $groupDocs->count(),
                     'latestUpdate' => $groupDocs->max('updated_at'),

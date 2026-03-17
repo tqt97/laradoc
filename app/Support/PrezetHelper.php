@@ -2,6 +2,7 @@
 
 namespace App\Support;
 
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
@@ -17,7 +18,7 @@ class PrezetHelper
         $version = PrezetCache::version();
         $cacheKey = "prezet_common_data_v{$version}";
 
-        return \Illuminate\Support\Facades\Cache::remember($cacheKey, 86400, function () {
+        return Cache::remember($cacheKey, 86400, function () {
             return [
                 'nav' => Prezet::getSummary(),
             ];

@@ -7,6 +7,7 @@ use App\Support\PrezetCache;
 use App\Support\PrezetHelper;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Cache;
 use Prezet\Prezet\Data\DocumentData;
 use Prezet\Prezet\Prezet;
 
@@ -58,7 +59,7 @@ class ArticleService
         $version = PrezetCache::version();
         $cacheKey = "reading_time_{$version}_".md5($doc->filepath);
 
-        $readingTime = \Illuminate\Support\Facades\Cache::remember($cacheKey, 86400, function () use ($doc) {
+        $readingTime = Cache::remember($cacheKey, 86400, function () use ($doc) {
             $md = Prezet::getMarkdown($doc->filepath);
 
             return PrezetHelper::calculateReadingTime(Prezet::parseMarkdown($md)->getContent());

@@ -1,9 +1,11 @@
 <?php
 
 use App\Http\Controllers\IdeaController;
+use App\Http\Controllers\ImageGalleryController;
 use App\Http\Controllers\LinkController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\Prezet\ArticleController;
 use App\Http\Controllers\Prezet\ImageController;
 use App\Http\Controllers\Prezet\IndexController;
@@ -66,8 +68,8 @@ Route::put('ideas/{idea}', [IdeaController::class, 'update'])->name('ideas.updat
 Route::delete('ideas/{idea}', [IdeaController::class, 'destroy'])->name('ideas.destroy')->middleware('auth');
 
 // Image Gallery
-Route::get('gallery', [App\Http\Controllers\ImageGalleryController::class, 'index'])->name('gallery.index');
-Route::get('portfolio', [App\Http\Controllers\PortfolioController::class, 'index'])->name('portfolio.index');
+Route::get('gallery', [ImageGalleryController::class, 'index'])->name('gallery.index');
+Route::get('portfolio', [PortfolioController::class, 'index'])->name('portfolio.index');
 
 // Prezet search route
 Route::get('search', SearchController::class)->name('prezet.search');

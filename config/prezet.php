@@ -1,5 +1,26 @@
 <?php
 
+use League\CommonMark\Extension\Attributes\AttributesExtension;
+use League\CommonMark\Extension\Autolink\AutolinkExtension;
+use League\CommonMark\Extension\CommonMark\CommonMarkCoreExtension;
+use League\CommonMark\Extension\DefaultAttributes\DefaultAttributesExtension;
+use League\CommonMark\Extension\DescriptionList\DescriptionListExtension;
+use League\CommonMark\Extension\DisallowedRawHtml\DisallowedRawHtmlExtension;
+use League\CommonMark\Extension\ExternalLink\ExternalLinkExtension;
+use League\CommonMark\Extension\Footnote\FootnoteExtension;
+use League\CommonMark\Extension\FrontMatter\FrontMatterExtension;
+use League\CommonMark\Extension\HeadingPermalink\HeadingPermalinkExtension;
+use League\CommonMark\Extension\Highlight\HighlightExtension;
+use League\CommonMark\Extension\Mention\MentionExtension;
+use League\CommonMark\Extension\SmartPunct\SmartPunctExtension;
+use League\CommonMark\Extension\Strikethrough\StrikethroughExtension;
+use League\CommonMark\Extension\Table\TableExtension;
+use League\CommonMark\Extension\TaskList\TaskListExtension;
+use Phiki\CommonMark\PhikiExtension;
+use Phiki\Theme\Theme;
+use Prezet\Prezet\Extensions\MarkdownBladeExtension;
+use Prezet\Prezet\Extensions\MarkdownImageExtension;
+
 return [
     /*
     |--------------------------------------------------------------------------
@@ -46,25 +67,25 @@ return [
     'commonmark' => [
 
         'extensions' => [
-            League\CommonMark\Extension\CommonMark\CommonMarkCoreExtension::class,
-            League\CommonMark\Extension\HeadingPermalink\HeadingPermalinkExtension::class,
-            League\CommonMark\Extension\Table\TableExtension::class,
-            League\CommonMark\Extension\Highlight\HighlightExtension::class,
-            League\CommonMark\Extension\Autolink\AutolinkExtension::class,
-            League\CommonMark\Extension\Attributes\AttributesExtension::class,
-            League\CommonMark\Extension\Footnote\FootnoteExtension::class,
-            League\CommonMark\Extension\SmartPunct\SmartPunctExtension::class,
-            League\CommonMark\Extension\DisallowedRawHtml\DisallowedRawHtmlExtension::class,
-            League\CommonMark\Extension\TaskList\TaskListExtension::class,
-            League\CommonMark\Extension\Strikethrough\StrikethroughExtension::class,
-            League\CommonMark\Extension\ExternalLink\ExternalLinkExtension::class,
-            League\CommonMark\Extension\FrontMatter\FrontMatterExtension::class,
-            League\CommonMark\Extension\DescriptionList\DescriptionListExtension::class,
-            League\CommonMark\Extension\Mention\MentionExtension::class,
-            League\CommonMark\Extension\DefaultAttributes\DefaultAttributesExtension::class,
-            Prezet\Prezet\Extensions\MarkdownBladeExtension::class,
-            Prezet\Prezet\Extensions\MarkdownImageExtension::class,
-            Phiki\CommonMark\PhikiExtension::class,
+            CommonMarkCoreExtension::class,
+            HeadingPermalinkExtension::class,
+            TableExtension::class,
+            HighlightExtension::class,
+            AutolinkExtension::class,
+            AttributesExtension::class,
+            FootnoteExtension::class,
+            SmartPunctExtension::class,
+            DisallowedRawHtmlExtension::class,
+            TaskListExtension::class,
+            StrikethroughExtension::class,
+            ExternalLinkExtension::class,
+            FrontMatterExtension::class,
+            DescriptionListExtension::class,
+            MentionExtension::class,
+            DefaultAttributesExtension::class,
+            MarkdownBladeExtension::class,
+            MarkdownImageExtension::class,
+            PhikiExtension::class,
         ],
 
         'config' => [
@@ -97,7 +118,7 @@ return [
                 'noreferrer' => 'external',
             ],
             'phiki' => [
-                'theme' => \Phiki\Theme\Theme::Monokai,
+                'theme' => Theme::Monokai,
                 'with_wrapper' => false,
                 'with_gutter' => false,
             ],
