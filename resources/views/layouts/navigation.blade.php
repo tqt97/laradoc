@@ -87,6 +87,9 @@
             <x-responsive-nav-link :href="route('roles.index')" :active="request()->routeIs('roles.index')">
                 {{ __('Roles & Permissions') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('admin.features.index')" :active="request()->routeIs('admin.features.*')">
+                {{ __('Features') }}
+            </x-responsive-nav-link>
             @endrole
 
             @feature('dashboard_analytics')

@@ -12,51 +12,30 @@
 
                 {{-- Desktop Navigation --}}
                 <nav class="hidden items-center gap-6 xl:gap-4 lg:flex">
-                    <x-prezet.nav-link :href="route('prezet.articles')" :active="request()->routeIs('prezet.articles')" class="relative py-1 group/nav">
-                        Bài viết
-                        <span
-                            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-500 transition-all duration-300 {{ request()->routeIs('prezet.articles') ? 'w-full' : 'group-hover/nav:w-full' }}"></span>
-                    </x-prezet.nav-link>
-
-                    <x-prezet.nav-link :href="route('prezet.series.index')" :active="request()->is('series*')" class="relative py-1 group/nav">
-                        Chuỗi bài viết
-                        <span
-                            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-500 transition-all duration-300 {{ request()->is('series*') ? 'w-full' : 'group-hover/nav:w-full' }}"></span>
-                    </x-prezet.nav-link>
-
-                    <x-prezet.nav-link :href="route('links.index')" :active="request()->routeIs('links.index')" class="relative py-1 group/nav">
-                        Liên kết
-                        <span
-                            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-500 transition-all duration-300 {{ request()->routeIs('links.index') ? 'w-full' : 'group-hover/nav:w-full' }}"></span>
-                    </x-prezet.nav-link>
-
-                    <x-prezet.nav-link :href="route('snippets.index')" :active="request()->routeIs('snippets.index')" class="relative py-1 group/nav">
-                        Snippets
-                        <span
-                            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-500 transition-all duration-300 {{ request()->routeIs('snippets.index') ? 'w-full' : 'group-hover/nav:w-full' }}"></span>
-                    </x-prezet.nav-link>
-
-                    <x-prezet.nav-link :href="route('gallery.index')" :active="request()->routeIs('gallery.index')" class="relative py-1 group/nav">
-                        Thư viện
-                        <span
-                            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-500 transition-all duration-300 {{ request()->routeIs('gallery.index') ? 'w-full' : 'group-hover/nav:w-full' }}"></span>
-                    </x-prezet.nav-link>
-
-                    <x-prezet.nav-link :href="route('portfolio.index')" :active="request()->routeIs('portfolio.index')" class="relative py-1 group/nav">
-                        <span class="text-pink-600 dark:text-pink-400">Portfolio</span>
-                        <span
-                            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-pink-500 transition-all duration-300 {{ request()->routeIs('portfolio.index') ? 'w-full' : 'group-hover/nav:w-full' }}"></span>
-                    </x-prezet.nav-link>
-
-                    <a href="{{ route('ideas.index') }}"
-                        class="relative flex items-center gap-2 px-3 py-1 text-[10px] font-black uppercase tracking-widest rounded-full bg-primary-50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400 border border-primary-100 dark:border-primary-900/50 hover:bg-primary-100 dark:hover:bg-primary-900/30 transition-all active:scale-95">
-                        <span class="relative flex h-1.5 w-1.5">
-                            <span
-                                class="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary-400 opacity-75"></span>
-                            <span class="relative inline-flex h-1.5 w-1.5 rounded-full bg-primary-500"></span>
-                        </span>
-                        Gợi ý
-                    </a>
+                    @foreach ($navigationItems as $navItem)
+                        @if ($navItem['isSpecial'])
+                            {{-- Special rendering for 'ideas' with ping --}}
+                            <a href="{{ $navItem['href'] }}"
+                                class="relative flex items-center gap-2 px-3 py-1 text-[10px] font-black uppercase tracking-widest rounded-full {{ $navItem['isActive'] ? 'bg-primary-100 dark:bg-primary-900/30' : 'bg-primary-50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400 border border-primary-100 dark:border-primary-900/50 hover:bg-primary-100 dark:hover:bg-primary-900/30' }} transition-all active:scale-95">
+                                <span class="relative flex h-1.5 w-1.5">
+                                    <span
+                                        class="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary-400 opacity-75"></span>
+                                    <span class="relative inline-flex h-1.5 w-1.5 rounded-full bg-primary-500"></span>
+                                </span>
+                                {{ $navItem['text'] }}
+                            </a>
+                        @else
+                            {{-- Standard navigation link --}}
+                            <x-prezet.nav-link :href="$navItem['href']" :active="$navItem['isActive']"
+                                class="relative py-1 group/nav flex items-center gap-1.5 {{ $navItem['specialClasses'] }}">
+                                @if ($navItem['icon'])
+                                    <x-dynamic-component :component="$navItem['icon']" class="size-5" />
+                                @endif
+                                {{ $navItem['text'] }}
+                                <span class="{{ $navItem['spanClasses'] }}"></span>
+                            </x-prezet.nav-link>
+                        @endif
+                    @endforeach
                 </nav>
             </div>
 
@@ -128,8 +107,8 @@
                             </div>
                             <a href="{{ route('dashboard') }}"
                                 class="flex items-center gap-3 px-4 py-3 text-sm font-bold text-zinc-700 dark:text-zinc-300 hover:bg-primary-50/80 dark:hover:bg-zinc-900 rounded-2xl transition-all">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                                    stroke="currentColor" class="size-4 opacity-50">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="2" stroke="currentColor" class="size-4 opacity-50">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25a2.25 2.25 0 0 1-2.25-2.25v-2.25Z" />
                                 </svg>
@@ -137,14 +116,31 @@
                             </a>
                             <a href="{{ route('profile.edit') }}"
                                 class="flex items-center gap-3 px-4 py-3 text-sm font-bold text-zinc-700 dark:text-zinc-300 hover:bg-primary-50/80 dark:hover:bg-zinc-900 rounded-2xl transition-all">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                                    stroke="currentColor" class="size-4 opacity-50">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="2" stroke="currentColor" class="size-4 opacity-50">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
                                 </svg>
                                 Hồ sơ
                             </a>
                             <hr class="my-2 border-zinc-100 dark:border-zinc-900">
+                            {{-- Roles and Features links --}}
+                            @role('super-admin')
+                                <a href="{{ route('roles.index') }}"
+                                   class="flex items-center gap-3 px-4 py-3 text-sm font-bold text-zinc-700 dark:text-zinc-300 hover:bg-primary-50/80 dark:hover:bg-zinc-900 rounded-2xl transition-all">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-4 opacity-50">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m4.5 0L12 10.5m0 0L9 13.5m3-3L12 7.5" />
+                                    </svg>
+                                    Roles & Permissions
+                                </a>
+                                <a href="{{ route('admin.features.index') }}"
+                                   class="flex items-center gap-3 px-4 py-3 text-sm font-bold text-zinc-700 dark:text-zinc-300 hover:bg-primary-50/80 dark:hover:bg-zinc-900 rounded-2xl transition-all">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-4 opacity-50">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 21l1.5-4.5 4.5-4.5m0 0L21 3m-3.75 3.75-3 3m-3-3V4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                    </svg>
+                                    Features
+                                </a>
+                            @endrole
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
                                 <button type="submit"
@@ -163,9 +159,8 @@
                     <div class="hidden lg:flex items-center ml-2">
                         <a href="{{ route('login') }}"
                             class="group relative flex items-center gap-2 px-5 py-2.5 text-[11px] font-black uppercase tracking-widest rounded-2xl bg-primary-500 text-white shadow-lg shadow-primary-500/20 hover:bg-primary-600 hover:shadow-primary-500/40 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke-width="3" stroke="currentColor"
-                                class="size-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3"
+                                stroke="currentColor" class="size-4">
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                     d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75" />
                             </svg>
@@ -178,15 +173,13 @@
                     class="group relative size-10 rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-900 lg:hidden transition-all flex items-center justify-center border "
                     @click="showSidebar = !showSidebar">
                     <svg class="h-6 w-6 text-zinc-500 group-hover:text-zinc-900 dark:text-zinc-400 dark:group-hover:text-zinc-100 transition-colors"
-                        fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round">
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
                         <line x1="4" x2="20" y1="12" y2="12" x-show="!showSidebar">
                         </line>
-                        <line x1="4" x2="20" y1="6" y2="6"
-                            :class="showSidebar ? 'rotate-45 translate-y-2' : ''"
+                        <line x1="4" x2="20" y1="6" y2="6" :class="showSidebar ? 'rotate-45 translate-y-2' : ''"
                             class="origin-center transition-transform duration-300"></line>
-                        <line x1="4" x2="20" y1="18" y2="18"
-                            :class="showSidebar ? '-rotate-45 -translate-y-2' : ''"
+                        <line x1="4" x2="20" y1="18" y2="18" :class="showSidebar ? '-rotate-45 -translate-y-2' : ''"
                             class="origin-center transition-transform duration-300"></line>
                     </svg>
                 </button>
@@ -232,8 +225,7 @@
             {{-- Authentication --}}
             <div class="space-y-4">
                 @auth
-                    <div
-                        class="p-5 rounded-3xl bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-100 dark:border-zinc-800">
+                    <div class="p-5 rounded-3xl bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-100 dark:border-zinc-800">
                         <div class="flex items-center gap-4 mb-5">
                             <div
                                 class="size-12 rounded-2xl bg-primary-500 flex items-center justify-center text-white text-xl font-black shadow-lg shadow-primary-500/20">
@@ -262,8 +254,8 @@
                     <div class="grid grid-cols-2 gap-3">
                         <a href="{{ route('login') }}"
                             class="group flex items-center justify-center gap-2.5 h-14 rounded-2xl bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white border border-zinc-200 dark:border-zinc-800 shadow-[0_3px_0_0_rgba(229,231,235,1)] dark:shadow-[0_3px_0_0_rgba(24,24,27,1)] active:translate-y-[1.5px] active:shadow-[0_1.5px_0_0_rgba(229,231,235,1)] dark:active:shadow-[0_1.5px_0_0_rgba(24,24,27,1)] transition-all">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke-width="2.5" stroke="currentColor"
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
+                                stroke="currentColor"
                                 class="size-5 text-zinc-500 group-hover:text-zinc-900 dark:group-hover:text-white transition-colors">
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                     d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75" />
@@ -273,9 +265,8 @@
                         @if (Route::has('register'))
                             <a href="{{ route('register') }}"
                                 class="group flex items-center justify-center gap-2.5 h-14 rounded-2xl bg-primary-500 text-white shadow-[0_3px_0_0_rgba(194,65,12,1)] active:translate-y-[1.5px] active:shadow-[0_1.5px_0_0_rgba(194,65,12,1)] transition-all">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="2.5" stroke="currentColor"
-                                    class="size-5 group-hover:scale-110 transition-transform">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
+                                    stroke="currentColor" class="size-5 group-hover:scale-110 transition-transform">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z" />
                                 </svg>
@@ -286,87 +277,39 @@
                 @endauth
             </div>
 
-            {{-- Primary Links --}}
+            {{-- Primary Links (Mobile Menu) --}}
             <div class="space-y-2">
-                <p
-                    class="px-4 text-[10px] font-black uppercase tracking-[0.3em] text-zinc-400 dark:text-zinc-600 mb-4">
+                <p class="px-4 text-[10px] font-black uppercase tracking-[0.3em] text-zinc-400 dark:text-zinc-600 mb-4">
                     Điều hướng</p>
 
-                <a href="{{ route('prezet.articles') }}" @click="showSidebar = false"
-                    class="flex items-center gap-4 px-4 py-4 rounded-3xl text-lg font-bold transition-all {{ request()->routeIs('prezet.articles') ? 'text-primary-600 dark:text-primary-400' : 'text-zinc-600 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-900' }}">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                        stroke="currentColor" class="size-5">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25v14.25" />
-                    </svg>
-                    Bài viết
-                </a>
-
-                <a href="{{ route('prezet.series.index') }}" @click="showSidebar = false"
-                    class="flex items-center gap-4 px-4 py-4 rounded-3xl text-lg font-bold transition-all {{ request()->is('series*') ? 'text-primary-600 dark:text-primary-400' : 'text-zinc-600 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-900' }}">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                        stroke="currentColor" class="size-5">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25v14.25" />
-                    </svg>
-                    Chuỗi bài viết
-                </a>
-
-                <a href="{{ route('links.index') }}" @click="showSidebar = false"
-                    class="flex items-center gap-4 px-4 py-4 rounded-3xl text-lg font-bold transition-all {{ request()->routeIs('links.index') ? 'text-primary-600 dark:text-primary-400' : 'text-zinc-600 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-900' }}">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                        stroke="currentColor" class="size-5">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" />
-                    </svg>
-                    Liên kết
-                </a>
-
-                <a href="{{ route('snippets.index') }}" @click="showSidebar = false"
-                    class="flex items-center gap-4 px-4 py-4 rounded-3xl text-lg font-bold transition-all {{ request()->routeIs('snippets.index') ? 'bg-primary-50 text-primary-600 dark:bg-primary-900/20 dark:text-primary-400' : 'text-zinc-600 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-900' }}">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                        stroke="currentColor" class="size-5">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" />
-                    </svg>
-                    Snippets
-                </a>
-
-                <a href="{{ route('gallery.index') }}" @click="showSidebar = false"
-                    class="flex items-center gap-4 px-4 py-4 rounded-3xl text-lg font-bold transition-all {{ request()->routeIs('gallery.index') ? 'bg-primary-50 text-primary-600 dark:bg-primary-900/20 dark:text-primary-400' : 'text-zinc-600 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-900' }}">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                        stroke="currentColor" class="size-5">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
-                    </svg>
-                    Thư viện
-                </a>
-
-                <a href="{{ route('portfolio.index') }}" @click="showSidebar = false"
-                    class="flex items-center gap-4 px-4 py-4 rounded-3xl text-lg font-bold transition-all {{ request()->routeIs('portfolio.index') ? 'bg-pink-50 text-pink-600 dark:bg-pink-900/20 dark:text-pink-400' : 'text-zinc-600 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-900' }}">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                        stroke="currentColor" class="size-5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" />
-                    </svg>
-                    Portfolio
-                </a>
-            </div>
-
-            {{-- Special Section --}}
-            <div class="pt-6 border-t border-zinc-100 dark:border-zinc-800">
-                <a href="{{ route('ideas.index') }}" @click="showSidebar = false"
-                    class="group relative flex items-center justify-between rounded-3xl bg-primary-500 px-6 py-5 text-white shadow-[0_5px_0_0_rgba(194,65,12,1)] active:translate-y-[2px] active:shadow-[0_3px_0_0_rgba(194,65,12,1)] transition-all">
-                    <div class="flex flex-col">
-                        <span class="text-[10px] font-black uppercase tracking-[0.2em] opacity-80 mb-1">Cộng
-                            đồng</span>
-                        <span class="text-base font-bold">Gợi ý bài viết</span>
-                    </div>
-                    <div class="relative flex h-3 w-3">
-                        <span
-                            class="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-40"></span>
-                        <span class="relative inline-flex h-3 w-3 rounded-full bg-white"></span>
-                    </div>
-                </a>
+                @foreach ($navigationItems as $navItem)
+                    @if ($navItem['isSpecial'])
+                        <div class="pt-6 border-t border-zinc-100 dark:border-zinc-800">
+                            <a href="{{ $navItem['href'] }}" @click="showSidebar = false"
+                                class="group relative flex items-center justify-between rounded-3xl bg-primary-500 px-6 py-5 text-white shadow-[0_5px_0_0_rgba(194,65,12,1)] active:translate-y-[2px] active:shadow-[0_3px_0_0_rgba(194,65,12,1)] transition-all">
+                                <div class="flex flex-col">
+                                    <span
+                                        class="text-[10px] font-black uppercase tracking-[0.2em] opacity-80 mb-1">Cộng
+                                        đồng</span>
+                                    <span class="text-base font-bold">{{ $navItem['text'] }}</span>
+                                </div>
+                                <div class="relative flex h-3 w-3">
+                                    <span
+                                        class="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-40"></span>
+                                    <span class="relative inline-flex h-3 w-3 rounded-full bg-white"></span>
+                                </div>
+                            </a>
+                        </div>
+                    @else
+                        <a href="{{ $navItem['href'] }}" @click="showSidebar = false"
+                            class="flex items-center gap-4 px-4 py-4 rounded-3xl text-lg font-bold transition-all {{ $navItem['isActive'] ? 'text-primary-600 dark:text-primary-400' : ($navItem['specialClasses'] ?: 'text-zinc-600 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-900') }}">
+                            @if ($navItem['icon'])
+                                <x-dynamic-component :component="$navItem['icon']" class="size-6" />
+                            @endif
+                            {{ $navItem['text'] }}
+                        </a>
+                    @endif
+                @endforeach
             </div>
         </div>
     </nav>

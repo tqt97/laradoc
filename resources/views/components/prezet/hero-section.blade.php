@@ -92,8 +92,7 @@
                 <div class="w-1 h-2 bg-zinc-400 dark:bg-zinc-500 rounded-full animate-bounce"></div>
             </div>
             <span
-                class="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-400 dark:text-zinc-600 group-hover:text-primary-500 transition-colors duration-300">Di
-                chuyển đén bài viết </span>
+                class="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-400 dark:text-zinc-600 group-hover:text-primary-500 transition-colors duration-300">Khám phá bài viết </span>
         </a>
     </div>
 </div>

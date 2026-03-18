@@ -44,7 +44,7 @@ class RolesAndPermissionsSeeder extends Seeder
         }
 
         // Create Super Admin user
-        $superAdminConfig = $config['super_admin'];
+        $superAdminConfig = $config['super-admin'];
         $user = User::where('email', $superAdminConfig['email'])->first();
 
         if (! $user) {

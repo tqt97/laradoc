@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\FeatureController as AdminFeatureController;
 use App\Http\Controllers\IdeaController;
 use App\Http\Controllers\ImageGalleryController;
 use App\Http\Controllers\LinkController;
@@ -28,6 +29,8 @@ Route::middleware(['auth', 'role:super-admin'])->group(function () {
 
     Route::post('permissions', [PermissionController::class, 'store'])->name('permissions.store');
     Route::delete('permissions/{permission}', [PermissionController::class, 'destroy'])->name('permissions.destroy');
+
+    Route::resource('features', AdminFeatureController::class, ['as' => 'admin']);
 });
 
 // Breeze Auth Routes (must be before Prezet wildcard)
@@ -46,30 +49,51 @@ Route::middleware('auth')->group(function () {
 Route::post('newsletter/subscribe', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
 
 // Links feature
-Route::get('links', [LinkController::class, 'index'])->name('links.index');
-Route::post('links', [LinkController::class, 'store'])->name('links.store');
-Route::put('links/{link}', [LinkController::class, 'update'])->name('links.update');
-Route::delete('links/{link}', [LinkController::class, 'destroy'])->name('links.destroy');
+Route::middleware('feature:links')->group(function () {
+    Route::get('links', [LinkController::class, 'index'])->name('links.index');
+    Route::post('links', [LinkController::class, 'store'])->name('links.store');
+    Route::put('links/{link}', [LinkController::class, 'update'])->name('links.update');
+    Route::delete('links/{link}', [LinkController::class, 'destroy'])->name('links.destroy');
+});
 
 // Snippets feature
-Route::get('snippets', [SnippetController::class, 'index'])->name('snippets.index');
-Route::get('snippets/create', [SnippetController::class, 'create'])->name('snippets.create');
-Route::post('snippets', [SnippetController::class, 'store'])->name('snippets.store');
-Route::get('snippets/{slug}', [SnippetController::class, 'show'])->name('snippets.show');
-Route::get('snippets/{slug}/edit', [SnippetController::class, 'edit'])->name('snippets.edit');
-Route::put('snippets/{slug}', [SnippetController::class, 'update'])->name('snippets.update');
+Route::middleware('feature:snippets')->group(function () {
+    Route::get('snippets', [SnippetController::class, 'index'])->name('snippets.index');
+    Route::get('snippets/create', [SnippetController::class, 'create'])->name('snippets.create');
+    Route::post('snippets', [SnippetController::class, 'store'])->name('snippets.store');
+    Route::get('snippets/{slug}', [SnippetController::class, 'show'])->name('snippets.show');
+    Route::get('snippets/{slug}/edit', [SnippetController::class, 'edit'])->name('snippets.edit');
+    Route::put('snippets/{slug}', [SnippetController::class, 'update'])->name('snippets.update');
+});
 
 // Ideas feature
-Route::get('ideas', [IdeaController::class, 'index'])->name('ideas.index');
-Route::post('ideas', [IdeaController::class, 'store'])->name('ideas.store');
-Route::get('ideas/list', [IdeaController::class, 'list'])->name('ideas.list');
-Route::post('ideas/{idea}/vote', [IdeaController::class, 'toggleVote'])->name('ideas.toggle-vote')->middleware('throttle:30,1');
-Route::put('ideas/{idea}', [IdeaController::class, 'update'])->name('ideas.update')->middleware('auth');
-Route::delete('ideas/{idea}', [IdeaController::class, 'destroy'])->name('ideas.destroy')->middleware('auth');
+Route::middleware('feature:ideas')->group(function () {
+    Route::get('ideas', [IdeaController::class, 'index'])->name('ideas.index');
+    Route::post('ideas', [IdeaController::class, 'store'])->name('ideas.store');
+    Route::get('ideas/list', [IdeaController::class, 'list'])->name('ideas.list');
+    Route::post('ideas/{idea}/vote', [IdeaController::class, 'toggleVote'])->name('ideas.toggle-vote')->middleware('throttle:30,1');
+    Route::put('ideas/{idea}', [IdeaController::class, 'update'])->name('ideas.update')->middleware('auth');
+    Route::delete('ideas/{idea}', [IdeaController::class, 'destroy'])->name('ideas.destroy')->middleware('auth');
+});
 
 // Image Gallery
-Route::get('gallery', [ImageGalleryController::class, 'index'])->name('gallery.index');
-Route::get('portfolio', [PortfolioController::class, 'index'])->name('portfolio.index');
+Route::get('gallery', [ImageGalleryController::class, 'index'])->name('gallery.index')->middleware('feature:gallery');
+
+// Portfolio
+Route::get('portfolio', [PortfolioController::class, 'index'])->name('portfolio.index')->middleware('feature:portfolio');
+
+// Articles
+Route::get('/articles', ArticleController::class)->name('prezet.articles')->middleware('feature:articles');
+
+// Series
+Route::middleware('feature:series')->group(function () {
+    Route::get('/series', [SeriesController::class, 'index'])
+        ->name('prezet.series.index');
+
+    Route::get('/series/{slug}', [SeriesController::class, 'show'])
+        ->name('prezet.series.show')
+        ->where('slug', '.*');
+});
 
 // Prezet search route
 Route::get('search', SearchController::class)->name('prezet.search');
@@ -82,45 +106,8 @@ Route::get('/prezet/ogimage/{slug}', OgimageController::class)
     ->name('prezet.ogimage')
     ->where('slug', '.*');
 
-Route::get('/', IndexController::class)
-    ->name('prezet.index');
-
-Route::get('/articles', ArticleController::class)
-    ->name('prezet.articles');
-
-Route::get('/series', [SeriesController::class, 'index'])
-    ->name('prezet.series.index');
-
-Route::get('/series/{slug}', [SeriesController::class, 'show'])
-    ->name('prezet.series.show')
-    ->where('slug', '.*');
-
-// Feature specific routes
-Route::middleware(['auth', 'feature:dashboard_analytics'])->group(function () {
-    Route::get('/dashboard/analytics', function () {
-        // This route is only accessible if 'dashboard_analytics' feature is enabled for the user's role.
-        return response()->json(['message' => 'Welcome to the analytics dashboard!']);
-    })->name('analytics'); // Note: Changed route name to 'analytics' to match navigation example
-});
-
-Route::middleware(['auth', 'feature:library'])->group(function () {
-    Route::get('/library', function () {
-        return response()->json(['message' => 'Welcome to the library!']);
-    })->name('library.index');
-});
-
-Route::middleware(['auth', 'feature:portfolio'])->group(function () {
-    Route::get('/portfolio/management', function () {
-        return response()->json(['message' => 'Welcome to the portfolio management!']);
-    })->name('portfolio.management');
-});
-
-Route::middleware(['auth', 'feature:public_feature'])->group(function () {
-    Route::get('/public-feature', function () {
-        return response()->json(['message' => 'This is a public feature!']);
-    })->name('public_feature.index');
-});
+Route::get('/', IndexController::class)->name('prezet.index');
 
 Route::get('{slug}', ShowController::class)
     ->name('prezet.show')
-    ->where('slug', '.*'); // https://laravel.com/docs/11.x/routing#parameters-encoded-forward-slashes
+    ->where('slug', '.*');

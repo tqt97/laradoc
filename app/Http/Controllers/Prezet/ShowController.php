@@ -19,8 +19,12 @@ class ShowController extends Controller
     /**
      * Handle the request for a specific article.
      */
-    public function __invoke(Request $request, string $slug): View
+    public function __invoke(Request $request, string $slug = ''): View
     {
+        if (empty($slug)) {
+            abort(404);
+        }
+
         $doc = PrezetDocument::where('slug', $slug)->first();
 
         if (! $doc) {

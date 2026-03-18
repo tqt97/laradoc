@@ -28,7 +28,7 @@ return [
             ],
         ],
     ],
-    'super_admin' => [
+    'super-admin' => [
         'name' => 'Super Admin',
         'email' => 'admin@gmail.com',
         'password' => '12341234',
