@@ -7,9 +7,7 @@ order: 3
 image: /prezet/img/ogimages/series-refactoring-long-method.webp
 ---
 
-## **Mô tả**
-
-Trong quá trình code, có những method ban đầu rất nhỏ gọn, nhưng theo thời gian bị “nhồi nhét” thêm logic mà không được tách ra. Kết quả là một method dài lê thê, khó đọc, khó maintain và cực kỳ dễ bug. Đây chính là code smell **Long Method** – một trong những mùi code phổ biến nhất.
+> Trong quá trình code, có những method ban đầu rất nhỏ gọn, nhưng theo thời gian bị “nhồi nhét” thêm logic mà không được tách ra. Kết quả là một method dài lê thê, khó đọc, khó maintain và cực kỳ dễ bug. Đây chính là code smell **Long Method** – một trong những mùi code phổ biến nhất.
 
 ## **Long Method là gì?**
 

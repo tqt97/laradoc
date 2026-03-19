@@ -1,5 +1,5 @@
 ---
-title: Các Case Refactor Long Method và Cách Xử Lý Hiệu Quả
+title: Refactor Long Method và Cách Xử Lý Hiệu Quả
 excerpt: Trong quá trình phát triển phần mềm, Long Method (hàm quá dài) là một trong những “code smell” phổ biến nhất. Khi một method trở nên quá dài, nó không chỉ khó đọc mà còn rất khó bảo trì, test và mở rộng.
 category: Refactoring
 date: 2026-03-08
@@ -9,7 +9,7 @@ image: /prezet/img/ogimages/series-refactoring-refactor-long-method.webp
 
 ## Mô tả
 
-Trong quá trình phát triển phần mềm, **Long Method (hàm quá dài)** là một trong những “code smell” phổ biến nhất. Khi một method trở nên quá dài, nó không chỉ khó đọc mà còn rất khó bảo trì, test và mở rộng.
+Trong quá trình phát triển phần mềm, **Long Method (hàm quá dài)** là một trong những “**code smell**” phổ biến nhất. Khi một method trở nên quá dài, nó không chỉ khó đọc mà còn rất khó bảo trì, test và mở rộng.
 
 Bài này sẽ đi sâu vào **các tình huống thực tế (case)** khi gặp Long Method và cách xử lý chúng bằng các kỹ thuật refactoring kinh điển như:
 
@@ -19,9 +19,9 @@ Bài này sẽ đi sâu vào **các tình huống thực tế (case)** khi gặp
 * Replace Method with Method Object
 * Decompose Conditional
 
-Mục tiêu là giúp bạn **biến code dài, rối → thành code rõ ràng, có cấu trúc, dễ maintain**.
+🎯 Mục tiêu là giúp bạn **biến code dài, rối → thành code rõ ràng, có cấu trúc, dễ maintain**.
 
-## 1. Extract Method (Tách Method)
+## Extract Method (Tách Method)
 
 **🚨 Problem**
 
@@ -58,7 +58,7 @@ function printDetails($outstanding) {
 * Mỗi method chỉ nên làm **1 việc**
 * Tên method giúp code **tự mô tả (self-documenting)**
 
-## 2. Giảm biến tạm và parameter trước khi Extract
+## Giảm biến tạm và parameter trước khi Extract
 
 **🚨 Problem**
 
@@ -132,7 +132,7 @@ $plan->withinRange($range);
 
 👉 Tránh “bóc tách object” → giữ nguyên object để truyền
 
-## 3. Replace Method with Method Object
+## Replace Method with Method Object
 
 **🚨 Problem**
 
@@ -178,7 +178,7 @@ class PriceCalculator {
 * Dễ chia nhỏ method hơn
 * Áp dụng rất nhiều trong **Service Layer / Clean Architecture**
 
-## 4. Xử lý Conditionals và Loops
+## Xử lý Conditionals và Loops
 
 **🚨 Problem**
 

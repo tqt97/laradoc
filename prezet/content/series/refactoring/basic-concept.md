@@ -7,14 +7,11 @@ order: 2
 image: /prezet/img/ogimages/series-refactoring-basic-concept.webp
 ---
 
-## Code Smells – Nhận Diện & Làm Sạch Code Ngay Từ Đầu
-
-> **Mô tả:**
 > Một bài tổng quan giúp bạn hiểu rõ Code Smells là gì, vì sao chúng nguy hiểm, và cách nhận diện những dấu hiệu phổ biến trong code để refactor kịp thời.
 
 ## Code Smells
 
-**Code smells (mùi code)** là những dấu hiệu cảnh báo rằng code của bạn đang có vấn đề về thiết kế hoặc cấu trúc — và cần được refactor (tái cấu trúc).
+**Code smells** là những dấu hiệu cảnh báo rằng code của bạn đang có vấn đề về thiết kế hoặc cấu trúc — và cần được refactor (tái cấu trúc).
 
 Khi xử lý sớm các code smells, bạn sẽ giữ được codebase gọn gàng, dễ mở rộng và dễ bảo trì hơn. Ngược lại, nếu bỏ qua, chúng sẽ tích tụ và khiến dự án trở nên khó kiểm soát.
 
