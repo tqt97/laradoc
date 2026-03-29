@@ -34,7 +34,7 @@ class AuthenticatedSessionController extends Controller
         if ($user) {
             $freshUser = $user->fresh(); // Fetch fresh user with relationships
             if ($freshUser->hasRole('super-admin')) {
-                $freshUser->forgetCachedRoles(); // Clear Spatie's role cache for the user
+                $freshUser->forgetCachedPermissions(); // Clear Spatie's role cache for the user
                 Log::info("Super admin logged in, roles cache cleared: {$freshUser->email}");
             }
             // Re-authenticate with the fresh user model
