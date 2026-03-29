@@ -5,6 +5,8 @@
         {{-- If an og:title tag is provided directly, it's included in the @foreach below --}}
         <meta property="og:title" content="@seo('title')" />
     @endunless
+@else
+    <title>{{ config('prezet.seo.title') }}</title>
 @endif
 
 @if (seo('description'))
@@ -19,6 +21,8 @@
 
 @if (seo('keywords'))
     <meta name="keywords" content="@seo('keywords')" />
+@else
+    <meta name="keywords" content="{{ config('prezet.seo.keywords') }}" />
 @endif
 
 @if (seo('type'))
@@ -38,14 +42,14 @@
 @php
     $ogImage = seo('image') ?? config('prezet.seo.default_image');
     $isSvg = str_ends_with($ogImage, '.svg');
-    
+
     // Retrieve and decode metadata from the JSON string stored in the Seo service
     $metadataString = seo('metadata');
     $metadata = [];
     if ($metadataString && is_string($metadataString)) {
         $metadata = json_decode($metadataString, true) ?? [];
     }
-    
+
     $type = $metadata['type'] ?? (seo('type') ?: 'website');
     $author = $metadata['author'] ?? config('prezet.seo.author');
 @endphp
@@ -59,6 +63,9 @@
 @if (seo('url'))
     <meta property="og:url" content="@seo('url')" />
     <link rel="canonical" href="@seo('url')" />
+@else
+    <meta property="og:url" content="{{ url()->current() }}" />
+    <link rel="canonical" href="{{ url()->current() }}" />
 @endif
 
 {{-- Article Metadata --}}
