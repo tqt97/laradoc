@@ -27,6 +27,19 @@ return [
                 'view-dashboard',
             ],
         ],
+        'pro-user' => [
+            'permissions' => [
+                // 'view-dashboard',
+                'access-pro-content',
+            ],
+        ],
+        'premium-user' => [
+            'permissions' => [
+                // 'view-dashboard',
+                'access-pro-content',
+                'access-premium-content',
+            ],
+        ],
     ],
     'super-admin' => [
         'name' => 'Super Admin',
