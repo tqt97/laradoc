@@ -78,7 +78,7 @@
                 <a href="#"
                     class="flex items-center justify-center gap-2 border border-orange-300 rounded-lg py-2.5
         hover:bg-gray-50 hover:border-orange-400 hover:text-orange-500 transition text-sm font-medium dark:text-gray-300 dark:bg-gray-800">
-                    <x-icons.githud />
+                    <x-icons.github />
                     GitHub
                 </a>
             </div>

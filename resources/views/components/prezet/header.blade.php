@@ -82,10 +82,23 @@
                 @auth
                     <div class="hidden lg:block relative" x-data="{ open: false }">
                         <button @click="open = !open" @click.away="open = false"
-                            class="flex items-center gap-2 py-1.5 px-2 pr-3 rounded-3xl bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700 transition-all active:scale-95 outline-none group hover:cursor-pointer">
+                            class="flex items-center gap-2 py-1 px-2 pr-3 rounded-3xl bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700 transition-all active:scale-95 outline-none group hover:cursor-pointer">
+                            @php
+                                $user = auth()->user();
+                            @endphp
+
                             <div
-                                class="size-6 rounded-xl bg-primary-600 flex items-center justify-center text-white text-xs font-semibold shadow-lg shadow-primary-500/20 group-hover:scale-105 transition-transform">
-                                {{ substr(Auth::user()->name, 0, 1) }}
+                                class="size-8 rounded-full flex items-center justify-center overflow-hidden text-sm font-semibold transition-transform group-hover:scale-105
+                        {{ $user->avatar ? 'bg-white border border-gray-200 shadow-sm' : 'bg-primary-600 text-white shadow-lg shadow-primary-500/20' }}">
+
+                                @if($user->avatar)
+                                    <img src="{{ $user->avatar }}" alt="{{ $user->name }}" class="w-full h-full object-cover" />
+                                @else
+                                    <span>
+                                        {{ strtoupper(substr($user->name, 0, 1)) }}
+                                    </span>
+                                @endif
+
                             </div>
                             <span
                                 class="text-sm font-bold text-zinc-700 dark:text-zinc-300 group-hover:text-zinc-900 dark:group-hover:text-white truncate max-w-[100px]">{{ Auth::user()->name }}</span>
@@ -107,8 +120,8 @@
                             </div>
                             <a href="{{ route('dashboard') }}"
                                 class="flex items-center gap-3 px-4 py-3 text-sm font-bold text-zinc-700 dark:text-zinc-300 hover:bg-primary-50/80 dark:hover:bg-zinc-900 rounded-2xl transition-all">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="2" stroke="currentColor" class="size-4 opacity-50">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                    stroke="currentColor" class="size-4 opacity-50">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25a2.25 2.25 0 0 1-2.25-2.25v-2.25Z" />
                                 </svg>
@@ -116,8 +129,8 @@
                             </a>
                             <a href="{{ route('profile.edit') }}"
                                 class="flex items-center gap-3 px-4 py-3 text-sm font-bold text-zinc-700 dark:text-zinc-300 hover:bg-primary-50/80 dark:hover:bg-zinc-900 rounded-2xl transition-all">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="2" stroke="currentColor" class="size-4 opacity-50">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                    stroke="currentColor" class="size-4 opacity-50">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
                                 </svg>
@@ -126,27 +139,31 @@
                             <hr class="my-2 border-zinc-100 dark:border-zinc-900">
                             {{-- Roles and Features links --}}
                             @role('super-admin')
-                                <a href="{{ route('roles.index') }}"
-                                   class="flex items-center gap-3 px-4 py-3 text-sm font-bold text-zinc-700 dark:text-zinc-300 hover:bg-primary-50/80 dark:hover:bg-zinc-900 rounded-2xl transition-all">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-4 opacity-50">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m4.5 0L12 10.5m0 0L9 13.5m3-3L12 7.5" />
-                                    </svg>
-                                    Roles & Permissions
-                                </a>
-                                <a href="{{ route('admin.features.index') }}"
-                                   class="flex items-center gap-3 px-4 py-3 text-sm font-bold text-zinc-700 dark:text-zinc-300 hover:bg-primary-50/80 dark:hover:bg-zinc-900 rounded-2xl transition-all">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-4 opacity-50">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 21l1.5-4.5 4.5-4.5m0 0L21 3m-3.75 3.75-3 3m-3-3V4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                                    </svg>
-                                    Features
-                                </a>
+                            <a href="{{ route('roles.index') }}"
+                                class="flex items-center gap-3 px-4 py-3 text-sm font-bold text-zinc-700 dark:text-zinc-300 hover:bg-primary-50/80 dark:hover:bg-zinc-900 rounded-2xl transition-all">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                    stroke="currentColor" class="size-4 opacity-50">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m4.5 0L12 10.5m0 0L9 13.5m3-3L12 7.5" />
+                                </svg>
+                                Roles & Permissions
+                            </a>
+                            <a href="{{ route('admin.features.index') }}"
+                                class="flex items-center gap-3 px-4 py-3 text-sm font-bold text-zinc-700 dark:text-zinc-300 hover:bg-primary-50/80 dark:hover:bg-zinc-900 rounded-2xl transition-all">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                    stroke="currentColor" class="size-4 opacity-50">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M10.5 21l1.5-4.5 4.5-4.5m0 0L21 3m-3.75 3.75-3 3m-3-3V4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                </svg>
+                                Features
+                            </a>
                             @endrole
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
                                 <button type="submit"
                                     class="w-full flex items-center gap-3 px-4 py-3 text-sm font-bold text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-2xl transition-all hover:cursor-pointer">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                        stroke-width="2" stroke="currentColor" class="size-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                        stroke="currentColor" class="size-4">
                                         <path stroke-linecap="round" stroke-linejoin="round"
                                             d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15m3 0 3-3m0 0-3-3m3 3H9" />
                                     </svg>
@@ -288,8 +305,7 @@
                             <a href="{{ $navItem['href'] }}" @click="showSidebar = false"
                                 class="group relative flex items-center justify-between rounded-3xl bg-primary-500 px-6 py-5 text-white shadow-[0_5px_0_0_rgba(194,65,12,1)] active:translate-y-[2px] active:shadow-[0_3px_0_0_rgba(194,65,12,1)] transition-all">
                                 <div class="flex flex-col">
-                                    <span
-                                        class="text-[10px] font-black uppercase tracking-[0.2em] opacity-80 mb-1">Cộng
+                                    <span class="text-[10px] font-black uppercase tracking-[0.2em] opacity-80 mb-1">Cộng
                                         đồng</span>
                                     <span class="text-base font-bold">{{ $navItem['text'] }}</span>
                                 </div>

@@ -66,7 +66,7 @@
             <div class="grid grid-cols-2 gap-3">
 
                 <!-- Google -->
-                <a href="#"
+                <a href="{{ route('social.login', 'google') }}"
                     class="flex items-center justify-center gap-2 border border-orange-300 rounded-lg py-2.5
                     hover:bg-gray-50 hover:border-orange-400 hover:text-orange-500 transition text-sm font-medium dark:text-gray-300 dark:bg-gray-800">
                     <x-icons.google />
@@ -74,9 +74,9 @@
                 </a>
 
                 <!-- GitHub -->
-                <a href="#"
+                <a href="{{ route('social.login', 'github') }}"
                     class="flex items-center justify-center gap-2 border border-orange-300 rounded-lg py-2.5 hover:bg-gray-50 hover:border-orange-400 hover:text-orange-500 transition text-sm font-medium dark:text-gray-300 dark:bg-gray-800">
-                    <x-icons.githud />
+                    <x-icons.github />
                     GitHub
                 </a>
             </div>
