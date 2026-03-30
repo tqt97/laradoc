@@ -8,7 +8,7 @@
     @endisset
 
     <div class="py-10">
-        
+
         {{ $slot }}
     </div>
 </x-prezet.template>
