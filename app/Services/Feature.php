@@ -11,6 +11,17 @@ class Feature
     protected const CACHE_KEY = 'app_features_all';
 
     /**
+     * Check if a feature is enabled globally for all users.
+     */
+    public function isGlobalEnabled(string $feature): bool
+    {
+        $features = $this->getAllFeatures();
+        $config = $features[$feature] ?? null;
+
+        return $config && ($config['enabled'] ?? false);
+    }
+
+    /**
      * Check if a feature is enabled for the current user.
      */
     public function isEnabled(string $feature): bool

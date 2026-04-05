@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\FeatureController as AdminFeatureController;
+use App\Http\Controllers\FileController;
 use App\Http\Controllers\IdeaController;
 use App\Http\Controllers\ImageGalleryController;
 use App\Http\Controllers\LinkController;
@@ -81,6 +82,19 @@ Route::get('gallery', [ImageGalleryController::class, 'index'])->name('gallery.i
 
 // Portfolio
 Route::get('portfolio', [PortfolioController::class, 'index'])->name('portfolio.index')->middleware('feature:portfolio');
+
+// Files feature
+Route::middleware('feature:files')->group(function () {
+    Route::get('/upload', [FileController::class, 'index'])->name('files.index');
+    Route::post('/upload', [FileController::class, 'upload'])->name('files.upload');
+    Route::post('/upload-chunk', [FileController::class, 'uploadChunk'])->name('files.upload-chunk');
+    Route::post('/upload-complete', [FileController::class, 'completeUpload'])->name('files.upload-complete');
+    Route::get('/files/{file}', [FileController::class, 'show'])->name('files.show');
+    Route::post('/files/{file}/share', [FileController::class, 'share'])->name('files.share');
+});
+Route::get('/s/{token}', [FileController::class, 'shared'])
+    ->middleware('feature.enabled:files')
+    ->name('files.shared');
 
 // Articles
 Route::get('/articles', ArticleController::class)->name('prezet.articles')->middleware('feature:articles');
