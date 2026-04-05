@@ -4,12 +4,18 @@ namespace App\Services;
 
 use App\Models\File;
 use Illuminate\Support\Facades\Storage;
-use League\CommonMark\CommonMarkConverter;
+use Spatie\LaravelMarkdown\MarkdownRenderer;
 
 class FilePreviewService
 {
     public function render(File $file): string
     {
+        $extension = pathinfo($file->name, PATHINFO_EXTENSION);
+
+        if (in_array(strtolower($extension), ['md', 'markdown'])) {
+            return $this->md($file);
+        }
+
         return match ($file->mime_type) {
             'text/plain' => $this->txt($file),
             'text/markdown', 'text/x-markdown' => $this->md($file),
@@ -22,17 +28,20 @@ class FilePreviewService
     {
         $content = Storage::disk($file->disk)->get($file->path);
 
-        return '<pre class="p-6 bg-zinc-50 dark:bg-zinc-900/50 rounded-2xl overflow-auto text-sm border border-zinc-100 dark:border-zinc-800">'.e($content).'</pre>';
+        return '<div class="w-full h-full p-8"><pre class="h-full p-6 bg-zinc-50 dark:bg-zinc-900/50 rounded-2xl overflow-auto text-sm border border-zinc-100 dark:border-zinc-800 whitespace-pre-wrap">'.e($content).'</pre></div>';
     }
 
     private function md(File $file): string
     {
         $content = Storage::disk($file->disk)->get($file->path);
 
-        $converter = new CommonMarkConverter;
-        $html = (string) $converter->convert($content);
+        $html = app(MarkdownRenderer::class)->toHtml($content);
 
-        return "<div class='prose prose-zinc dark:prose-invert max-w-none'>".$html.'</div>';
+        return "<div class='max-w-6xl mx-auto py-16 px-6 lg:px-12'>
+                    <div class='prose prose-zinc dark:prose-invert max-w-none prose-lg'>
+                        $html
+                    </div>
+                </div>";
     }
 
     private function pdf(File $file): string
@@ -40,6 +49,6 @@ class FilePreviewService
         // Use relative URL to avoid APP_URL issues
         $url = '/storage/'.$file->path;
 
-        return "<iframe src='{$url}' class='w-full h-[800px] border-0 rounded-2xl bg-zinc-100 dark:bg-zinc-900 shadow-inner' allowfullscreen></iframe>";
+        return "<iframe src='{$url}' class='w-full h-full border-0' allowfullscreen></iframe>";
     }
 }

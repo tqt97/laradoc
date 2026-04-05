@@ -89,8 +89,15 @@ Route::middleware('feature:files')->group(function () {
     Route::post('/upload', [FileController::class, 'upload'])->name('files.upload');
     Route::post('/upload-chunk', [FileController::class, 'uploadChunk'])->name('files.upload-chunk');
     Route::post('/upload-complete', [FileController::class, 'completeUpload'])->name('files.upload-complete');
+    Route::post('/upload-create-virtual', [FileController::class, 'createVirtual'])->name('files.create-virtual');
     Route::get('/files/{file}', [FileController::class, 'show'])->name('files.show');
     Route::post('/files/{file}/share', [FileController::class, 'share'])->name('files.share');
+
+    Route::middleware(['auth', 'role:admin|super-admin'])->group(function () {
+        Route::get('/upload/review', [FileController::class, 'review'])->name('files.review');
+        Route::post('/files/{file}/approve', [FileController::class, 'approve'])->name('files.approve');
+        Route::post('/files/{file}/reject', [FileController::class, 'reject'])->name('files.reject');
+    });
 });
 Route::get('/s/{token}', [FileController::class, 'shared'])
     ->middleware('feature.enabled:files')

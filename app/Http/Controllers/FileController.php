@@ -2,51 +2,59 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\FileModerationStatus;
+use App\Enums\FileUploadStatus;
+use App\Http\Requests\CompleteUploadRequest;
+use App\Http\Requests\CreateVirtualFileRequest;
+use App\Http\Requests\ShareFileRequest;
 use App\Jobs\ProcessFileUpload;
 use App\Models\File;
 use App\Services\FilePreviewService;
+use App\Services\FileService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 
 class FileController extends Controller
 {
     public function __construct(
-        protected FilePreviewService $previewService
+        protected FilePreviewService $previewService,
+        protected FileService $fileService
     ) {}
 
-    public function index()
+    /**
+     * Display the library index.
+     */
+    public function index(Request $request)
     {
-        $files = File::latest()->get();
+        $files = $this->fileService->getLibraryItems($request);
 
         return view('files.index', compact('files'));
     }
 
-    public function upload(Request $request)
+    /**
+     * Display the review list for admins.
+     */
+    public function review()
     {
-        // Keep as fallback for small files if needed, but we'll use chunked for all.
-        $request->validate([
-            'file' => 'required|file|mimes:txt,md,pdf|max:30720',
-        ]);
+        $files = $this->fileService->getPendingItems();
 
-        $file = $request->file('file');
-        $path = Storage::disk('public')->putFile('uploads', $file);
-
-        $record = File::create([
-            'name' => $file->getClientOriginalName(),
-            'path' => $path,
-            'mime_type' => $file->getMimeType(),
-            'size' => $file->getSize(),
-            'disk' => 'public',
-            'share_token' => (string) Str::uuid(),
-        ]);
-
-        $this->logAction('upload', $record);
-
-        return response()->json(['success' => true]);
+        return view('files.review', compact('files'));
     }
 
+    /**
+     * Create a virtual placeholder for a new file.
+     */
+    public function createVirtual(CreateVirtualFileRequest $request)
+    {
+        $file = $this->fileService->createVirtualItem($request->validated());
+
+        return response()->json(['file' => $file]);
+    }
+
+    /**
+     * Upload a chunk of a file.
+     */
     public function uploadChunk(Request $request)
     {
         $request->validate([
@@ -55,40 +63,35 @@ class FileController extends Controller
             'temp_id' => 'required|string',
         ]);
 
-        $file = $request->file('file');
-        $tempId = $request->temp_id;
-        $index = $request->chunk_index;
-
-        $path = Storage::disk('local')->putFileAs(
-            "chunks/{$tempId}",
-            $file,
-            $index
+        $this->fileService->storeChunk(
+            $request->file('file'),
+            $request->temp_id,
+            $request->chunk_index
         );
 
         return response()->json(['success' => true]);
     }
 
-    public function completeUpload(Request $request)
+    /**
+     * Complete the upload and dispatch merging job.
+     */
+    public function completeUpload(CompleteUploadRequest $request)
     {
-        $request->validate([
-            'temp_id' => 'required|string',
-            'file_name' => 'required|string',
-            'total_chunks' => 'required|integer',
-            'mime_type' => 'required|string',
-            'total_size' => 'required|integer',
-        ]);
+        $file = File::findOrFail($request->file_id);
+        $file->update(['status_upload' => FileUploadStatus::PROCESSING]);
 
         ProcessFileUpload::dispatch(
-            $request->file_name,
+            $file,
             $request->temp_id,
-            $request->total_chunks,
-            $request->mime_type,
-            $request->total_size
+            $request->total_chunks
         );
 
-        return response()->json(['success' => true]);
+        return response()->json(['success' => true, 'file' => $file]);
     }
 
+    /**
+     * Show a specific book/file preview.
+     */
     public function show(File $file)
     {
         $this->authorizeAccess($file);
@@ -100,23 +103,48 @@ class FileController extends Controller
         return view('files.show', compact('file', 'content'));
     }
 
-    public function share(File $file, Request $request)
+    /**
+     * Approve a pending file.
+     */
+    public function approve(File $file)
     {
-        $file->update([
-            'is_public' => $request->boolean('is_public'),
-            'password' => $request->password ?: null,
-        ]);
+        $file->update(['status_moderation' => FileModerationStatus::APPROVED]);
+
+        return back()->with('success', 'Đã phê duyệt tài liệu.');
+    }
+
+    /**
+     * Reject a pending file.
+     */
+    public function reject(File $file)
+    {
+        $file->update(['status_moderation' => FileModerationStatus::REJECTED]);
+
+        return back()->with('success', 'Đã từ chối tài liệu.');
+    }
+
+    /**
+     * Update share settings.
+     */
+    public function share(File $file, ShareFileRequest $request)
+    {
+        $result = $this->fileService->updateShareSettings($file, $request->validated());
 
         $this->logAction('share_update', $file);
 
-        return response()->json([
-            'share_url' => route('files.shared', $file->share_token),
-        ]);
+        return response()->json($result);
     }
 
+    /**
+     * View shared content.
+     */
     public function shared($token, Request $request)
     {
         $file = File::where('share_token', $token)->firstOrFail();
+
+        if (! $file->isApproved()) {
+            abort(403, 'Tài liệu này đang chờ phê duyệt.');
+        }
 
         if (! $file->is_public) {
             abort(403);
@@ -137,7 +165,14 @@ class FileController extends Controller
 
     private function authorizeAccess(File $file)
     {
-        // extend with policy later
+        if (Auth::check() && Auth::user()->hasAnyRole(['admin', 'super-admin'])) {
+            return true;
+        }
+
+        if (! $file->isApproved() && $file->user_id !== Auth::id()) {
+            abort(403, 'Tài liệu này chưa được phê duyệt.');
+        }
+
         return true;
     }
 

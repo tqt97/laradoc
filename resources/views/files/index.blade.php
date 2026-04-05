@@ -9,84 +9,97 @@
 
         // Upload state
         isUploading: false,
-        uploadProgress: 0,
-        selectedFileName: '',
+        filesToUpload: [], // { name, size, type, progress, status, id }
+        uploaderName: '{{ Auth::user()?->name ?? '' }}',
 
         handleFileSelect(event) {
-            const file = event.target.files[0];
-            if (file) {
-                this.selectedFileName = file.name;
-            }
+            const files = Array.from(event.target.files);
+            this.filesToUpload = files.map(f => ({
+                file: f,
+                name: f.name,
+                size: f.size,
+                type: f.type || 'application/octet-stream',
+                progress: 0,
+                status: 'pending',
+                id: null
+            }));
         },
 
-        async uploadFile() {
-            const fileInput = document.getElementById('file-upload');
-            if (!fileInput.files.length) return;
-
-            const file = fileInput.files[0];
-            const chunkSize = 1024 * 1024; // 1MB chunks
-            const totalChunks = Math.ceil(file.size / chunkSize);
-            const tempId = 'temp_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
-
+        async uploadFiles() {
+            if (this.filesToUpload.length === 0) return;
             this.isUploading = true;
-            this.uploadProgress = 0;
-            this.selectedFileName = file.name;
 
-            for (let i = 0; i < totalChunks; i++) {
-                const start = i * chunkSize;
-                const end = Math.min(file.size, start + chunkSize);
-                const chunk = file.slice(start, end);
-
-                const formData = new FormData();
-                formData.append('file', chunk);
-                formData.append('chunk_index', i);
-                formData.append('temp_id', tempId);
-                formData.append('_token', '{{ csrf_token() }}');
+            for (let i = 0; i < this.filesToUpload.length; i++) {
+                const item = this.filesToUpload[i];
+                item.status = 'creating';
 
                 try {
-                    await new Promise((resolve, reject) => {
-                        const xhr = new XMLHttpRequest();
-                        xhr.open('POST', '{{ route('files.upload-chunk') }}', true);
-                        xhr.onload = () => xhr.status === 200 ? resolve() : reject();
-                        xhr.onerror = reject;
-                        xhr.send(formData);
+                    const createResponse = await fetch('{{ route('files.create-virtual') }}', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                        },
+                        body: JSON.stringify({
+                            name: item.name,
+                            size: item.size,
+                            mime_type: item.type,
+                            uploader_name: this.uploaderName
+                        })
                     });
-                    this.uploadProgress = Math.round(((i + 1) / totalChunks) * 100);
+                    const createData = await createResponse.json();
+                    item.id = createData.file.id;
+                    item.status = 'uploading';
+
+                    const chunkSize = 1024 * 1024; // 1MB chunks
+                    const totalChunks = Math.ceil(item.size / chunkSize);
+                    const tempId = 'temp_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+
+                    for (let j = 0; j < totalChunks; j++) {
+                        const start = j * chunkSize;
+                        const end = Math.min(item.size, start + chunkSize);
+                        const chunk = item.file.slice(start, end);
+
+                        const formData = new FormData();
+                        formData.append('file', chunk);
+                        formData.append('chunk_index', j);
+                        formData.append('temp_id', tempId);
+                        formData.append('_token', '{{ csrf_token() }}');
+
+                        await new Promise((resolve, reject) => {
+                            const xhr = new XMLHttpRequest();
+                            xhr.open('POST', '{{ route('files.upload-chunk') }}', true);
+                            xhr.onload = () => xhr.status === 200 ? resolve() : reject();
+                            xhr.onerror = reject;
+                            xhr.send(formData);
+                        });
+                        item.progress = Math.round(((j + 1) / totalChunks) * 100);
+                    }
+
+                    await fetch('{{ route('files.upload-complete') }}', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                        },
+                        body: JSON.stringify({
+                            file_id: item.id,
+                            temp_id: tempId,
+                            total_chunks: totalChunks
+                        })
+                    });
+
+                    item.status = 'completed';
+                    item.progress = 100;
+
                 } catch (error) {
-                    window.showToast('Lỗi khi tải lên phần ' + (i + 1), 'error');
-                    this.isUploading = false;
-                    return;
+                    item.status = 'error';
                 }
             }
 
-            // All chunks uploaded, complete the process
-            try {
-                const response = await fetch('{{ route('files.upload-complete') }}', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                    },
-                    body: JSON.stringify({
-                        temp_id: tempId,
-                        file_name: file.name,
-                        total_chunks: totalChunks,
-                        mime_type: file.type || 'application/octet-stream',
-                        total_size: file.size
-                    })
-                });
-
-                if (response.ok) {
-                    this.uploadProgress = 100;
-                    window.showToast('Tải lên hoàn tất! Đang xử lý...', 'success');
-                    setTimeout(() => window.location.reload(), 1500);
-                } else {
-                    throw new Error();
-                }
-            } catch (error) {
-                window.showToast('Lỗi khi hoàn tất tải lên.', 'error');
-                this.isUploading = false;
-            }
+            this.isUploading = false;
+            this.uploadModal = false;
+            window.location.reload();
         },
 
         openShare(file) {
@@ -99,7 +112,7 @@
 
         async saveShare() {
             try {
-                const response = await fetch(`/files/${this.selectedFile.id}/share`, {
+                const response = await fetch(`/files/${this.selectedFile.slug}/share`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -112,20 +125,11 @@
                 });
                 const data = await response.json();
                 this.shareUrl = data.share_url;
-
-                // Auto copy to clipboard
                 await navigator.clipboard.writeText(this.shareUrl);
-
-                // Update local state
                 this.selectedFile.is_public = this.sharePublic;
-
-                // Close modal and show reload or just feedback
                 this.shareModal = false;
-                
                 window.showToast('Đã lưu và sao chép liên kết!', 'success');
-                setTimeout(() => window.location.reload(), 1000);
             } catch (error) {
-                console.error('Error sharing file:', error);
                 window.showToast('Lỗi khi lưu cài đặt.', 'error');
             }
         },
@@ -135,87 +139,142 @@
             window.showToast('Đã sao chép liên kết!', 'success');
         }
     }">
-        <x-prezet.subpage-header title="Quản lý tệp tin"
-            subtitle="Tải lên, xem trước và chia sẻ các tệp văn bản, Markdown hoặc PDF một cách an toàn.">
-            <div class="mt-10">
-                <x-form.button @click="uploadModal = true" class="!px-6">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
-                        stroke="currentColor" class="size-4">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                    </svg>
-                    Tải lên tệp mới
-                </x-form.button>
+        <x-prezet.subpage-header title="Thư viện Tài liệu"
+            subtitle="Khám phá, đọc và chia sẻ kiến thức từ cộng đồng.">
+            <div class="mt-10 flex flex-col md:flex-row gap-4 items-center">
+                <form action="{{ route('files.index') }}" method="GET" class="relative w-full md:w-96 group">
+                    <input type="text" name="search" value="{{ request('search') }}"
+                        placeholder="Tìm kiếm sách, tác giả..."
+                        class="w-full bg-white dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 rounded-2xl py-3 pl-12 pr-4 focus:ring-primary-500 focus:border-primary-500 transition-all shadow-sm group-hover:shadow-md">
+                    <div class="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-400 group-focus-within:text-primary-500 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                        </svg>
+                    </div>
+                </form>
+
+                <div class="flex gap-3">
+                    <x-form.button @click="uploadModal = true" class="!px-6 !py-3 !rounded-2xl shadow-lg shadow-primary-500/20">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-4">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                        </svg>
+                        Đóng góp tài liệu
+                    </x-form.button>
+
+                    @if(Auth::check() && Auth::user()->hasRole('admin'))
+                        <x-form.button href="{{ route('files.review') }}" variant="secondary" class="!px-6 !py-3 !rounded-2xl">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-4">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                            </svg>
+                            Duyệt bài
+                        </x-form.button>
+                    @endif
+                </div>
             </div>
         </x-prezet.subpage-header>
 
         <div class="py-12">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 @if($files->isNotEmpty())
-                    <div class="grid grid-cols-1 gap-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                         @foreach($files as $file)
-                            <div
-                                class="group relative flex items-center justify-between p-4 sm:p-5 rounded-2xl bg-white dark:bg-zinc-950 border border-zinc-100 dark:border-zinc-800 hover:border-primary-500/50 hover:shadow-xl hover:shadow-primary-500/5 transition-all duration-300">
-                                <div class="flex items-center gap-4 min-w-0">
-                                    <div
-                                        class="size-12 rounded-xl bg-zinc-50 dark:bg-zinc-900 flex items-center justify-center text-zinc-400 group-hover:text-primary-500 transition-colors shrink-0">
-                                        @if($file->mime_type === 'application/pdf')
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                                                stroke="currentColor" class="size-6">
-                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
-                                            </svg>
+                            @php 
+                                $isProcessing = $file->status_upload !== \App\Enums\FileUploadStatus::READY; 
+                                $isPending = $file->status_moderation === \App\Enums\FileModerationStatus::PENDING;
+                                $isRejected = $file->status_moderation === \App\Enums\FileModerationStatus::REJECTED;
+                                $isAdmin = Auth::check() && Auth::user()->hasRole('admin');
+                                $icon = app(\App\Services\FileService::class)->getIconForMime($file->mime_type);
+                            @endphp
+                            <div class="group flex flex-col bg-white dark:bg-zinc-950 border border-zinc-100 dark:border-zinc-800 rounded-3xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-zinc-200/50 dark:hover:shadow-primary-900/10 hover:-translate-y-1 {{ ($isProcessing || $isPending) ? 'opacity-75' : '' }}">
+                                <div class="relative aspect-[4/3] bg-zinc-50 dark:bg-zinc-900 flex items-center justify-center p-8">
+                                    <div class="text-zinc-300 dark:text-zinc-700 group-hover:text-primary-500 transition-colors duration-500">
+                                        @if($icon === 'book')
+                                            <x-icons.book class="size-20" />
+                                        @elseif($icon === 'markdown')
+                                            <x-icons.markdown class="size-20" />
                                         @else
-                                            <x-prezet.icon-file class="size-6" />
+                                            <x-prezet.icon-file class="size-20" />
                                         @endif
                                     </div>
-                                    <div class="flex flex-col min-w-0">
-                                        <a href="{{ route('files.show', $file) }}"
-                                            class="text-base font-bold text-zinc-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors truncate">
-                                            {{ $file->name }}
-                                        </a>
-                                        <div class="flex items-center gap-3 mt-1">
-                                            <span
-                                                class="text-xs text-zinc-400 dark:text-zinc-500 uppercase">{{ explode('/', $file->mime_type)[1] ?? $file->mime_type }}</span>
-                                            <span class="text-zinc-300 dark:text-zinc-700 text-xs">•</span>
-                                            <span
-                                                class="text-xs text-zinc-400 dark:text-zinc-500">{{ number_format($file->size / 1024, 1) }}
-                                                KB</span>
-                                            @if($file->is_public)
-                                                <span class="text-zinc-300 dark:text-zinc-700 text-xs">•</span>
-                                                <span
-                                                    class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-50 dark:bg-green-500/10 text-[10px] font-bold text-green-600 dark:text-green-400 uppercase tracking-wider">
-                                                    Công khai
-                                                </span>
+                                    
+                                    @if($isPending)
+                                        <div class="absolute top-4 right-4 px-2 py-1 rounded-lg bg-amber-500/10 backdrop-blur-md text-amber-600 text-[10px] font-bold uppercase tracking-wider border border-amber-500/20">
+                                            Chờ duyệt
+                                        </div>
+                                    @endif
+
+                                    @if($isProcessing)
+                                        <div class="absolute inset-0 bg-white/60 dark:bg-zinc-950/60 backdrop-blur-[2px] flex flex-col items-center justify-center gap-3">
+                                            <div class="size-10 border-4 border-primary-500/20 border-t-primary-500 rounded-full animate-spin"></div>
+                                            <span class="text-[10px] font-bold text-zinc-600 dark:text-zinc-400 uppercase tracking-widest animate-pulse">
+                                                {{ $file->status_upload->label() }}
+                                            </span>
+                                        </div>
+                                    @endif
+                                </div>
+
+                                <div class="p-6 flex flex-col flex-1">
+                                    <div class="flex-1 min-h-[3.5rem] relative">
+                                        @if($isProcessing || ($isPending && !$isAdmin))
+                                            <h3 class="text-lg font-bold text-zinc-400 dark:text-zinc-600 line-clamp-2 group-hover:line-clamp-none transition-all duration-300 leading-tight" title="{{ $file->name }}">
+                                                {{ $file->name }}
+                                            </h3>
+                                        @else
+                                            <a href="{{ route('files.show', $file) }}" class="text-lg font-bold text-zinc-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-all duration-300 line-clamp-2 group-hover:line-clamp-none leading-tight" title="{{ $file->name }}">
+                                                {{ $file->name }}
+                                            </a>
+                                        @endif
+                                        
+                                        <div class="mt-3 flex items-center gap-2">
+                                            <div class="size-6 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-[10px] font-bold text-zinc-500 uppercase">
+                                                {{ substr($file->uploader_name, 0, 1) }}
+                                            </div>
+                                            <span class="text-xs text-zinc-500 truncate">Bởi <span class="font-semibold text-zinc-700 dark:text-zinc-300">{{ $file->uploader_name }}</span></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="mt-6 pt-6 border-t border-zinc-50 dark:border-zinc-900 flex items-center justify-between">
+                                        <div class="flex flex-col">
+                                            <span class="text-[10px] text-zinc-400 uppercase font-bold tracking-wider">{{ strtoupper(explode('/', $file->mime_type)[1] ?? 'DOC') }}</span>
+                                            <span class="text-[10px] text-zinc-500">{{ number_format($file->size / 1024, 1) }} KB</span>
+                                        </div>
+
+                                        <div class="flex gap-1">
+                                            <button @click="openShare({{ json_encode($file) }})" 
+                                                class="p-2 rounded-xl bg-zinc-50 dark:bg-zinc-900 text-zinc-400 hover:text-primary-500 hover:bg-primary-50 dark:hover:bg-primary-900/20 transition-all {{ ($isProcessing || $isPending) ? 'cursor-not-allowed' : '' }}"
+                                                :disabled="{{ ($isProcessing || $isPending) ? 'true' : 'false' }}">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-5">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M7.217 10.907a2.25 2.25 0 1 0 0 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186 9.566-5.314m-9.566 7.5 9.566 5.314m0 0a2.25 2.25 0 1 0 3.935 2.186 2.25 2.25 0 0 0-3.935-2.186Zm0-12.814a2.25 2.25 0 1 0 3.933-2.185 2.25 2.25 0 0 0-3.933 2.185Z" />
+                                                </svg>
+                                            </button>
+                                            
+                                            @if(!$isProcessing && (!$isPending || $isAdmin))
+                                                <a href="{{ route('files.show', $file) }}" class="p-2 rounded-xl bg-primary-500 text-white shadow-lg shadow-primary-500/20 hover:bg-primary-600 transition-all">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-5">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.967 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.967 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
+                                                    </svg>
+                                                </a>
                                             @endif
                                         </div>
                                     </div>
                                 </div>
-                                <div class="flex items-center gap-2">
-                                    <x-form.button type="button" variant="secondary"
-                                        @click="openShare({{ json_encode($file) }})" class="!py-2 !px-4 !rounded-xl">
-                                        Chia sẻ
-                                    </x-form.button>
-                                    <a href="{{ route('files.show', $file) }}"
-                                        class="p-2 rounded-xl bg-zinc-100 dark:bg-zinc-800 text-zinc-500 hover:text-primary-500 transition-colors">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                                            stroke="currentColor" class="size-5">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                                        </svg>
-                                    </a>
-                                </div>
                             </div>
                         @endforeach
                     </div>
+
+                    <div class="mt-12">
+                        {{ $files->links() }}
+                    </div>
                 @else
                     <div class="py-20 text-center">
-                        <div
-                            class="size-16 bg-zinc-50 dark:bg-zinc-900/50 rounded-full flex items-center justify-center mx-auto mb-4 text-zinc-300 dark:text-zinc-700 border border-zinc-100 dark:border-zinc-800">
-                            <x-prezet.icon-file class="size-8" />
+                        <div class="size-20 bg-zinc-50 dark:bg-zinc-900/50 rounded-full flex items-center justify-center mx-auto mb-6 text-zinc-300 dark:text-zinc-700 border border-zinc-100 dark:border-zinc-800 shadow-inner">
+                            <x-icons.book class="size-10" />
                         </div>
-                        <p class="text-zinc-500 dark:text-zinc-400 font-medium">Chưa có tệp tin nào được tải lên.</p>
+                        <h3 class="text-xl font-bold text-zinc-900 dark:text-white mb-2">Thư viện đang trống</h3>
+                        <p class="text-zinc-500 dark:text-zinc-400 font-medium max-w-sm mx-auto">Chưa có tài liệu nào phù hợp với tìm kiếm của bạn hoặc thư viện chưa có nội dung.</p>
+                        <div class="mt-8">
+                            <x-form.button @click="uploadModal = true" variant="secondary">Tải lên tài liệu đầu tiên</x-form.button>
+                        </div>
                     </div>
                 @endif
             </div>
@@ -230,7 +289,7 @@
                         x-transition:leave="ease-in duration-200" x-transition:leave-start="opacity-100"
                         x-transition:leave-end="opacity-0"
                         class="fixed inset-0 bg-zinc-900/80 backdrop-blur-sm transition-opacity"
-                        @click="uploadModal = false"></div>
+                        @click="if(!isUploading) uploadModal = false"></div>
 
                     <div x-show="uploadModal" x-transition:enter="ease-out duration-300"
                         x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
@@ -238,11 +297,11 @@
                         x-transition:leave="ease-in duration-200"
                         x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
                         x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" @click.stop
-                        class="relative inline-block align-middle bg-white dark:bg-zinc-900 rounded-3xl text-left overflow-hidden shadow-2xl transform transition-all sm:my-8 sm:max-w-lg sm:w-full ring-1 ring-zinc-900/5 dark:ring-white/10">
+                        class="relative inline-block align-middle bg-white dark:bg-zinc-900 rounded-[2rem] text-left overflow-hidden shadow-2xl transform transition-all sm:my-8 sm:max-w-xl sm:w-full ring-1 ring-zinc-900/5 dark:ring-white/10">
                         <div class="px-8 pt-8 pb-10">
                             <div class="flex items-center justify-between mb-8">
-                                <h3 class="text-2xl font-bold text-zinc-900 dark:text-white">Tải lên tệp mới</h3>
-                                <button @click="uploadModal = false"
+                                <h3 class="text-2xl font-bold text-zinc-900 dark:text-white">Đóng góp tri thức</h3>
+                                <button @click="uploadModal = false" x-show="!isUploading"
                                     class="text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 transition-colors p-2"><svg
                                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="2" stroke="currentColor" class="size-6">
@@ -251,55 +310,64 @@
                             </div>
 
                             <div x-show="!isUploading">
-                                <form @submit.prevent="uploadFile()" enctype="multipart/form-data" class="space-y-6">
+                                <form @submit.prevent="uploadFiles()" enctype="multipart/form-data" class="space-y-6">
                                     @csrf
+                                    @guest
                                     <div>
-                                        <x-form.label value="Chọn tệp tin (TXT, MD, PDF)" required="true" />
+                                        <x-form.label value="Tên tác giả / Người đóng góp" required="true" />
+                                        <x-form.input x-model="uploaderName" placeholder="Nhập tên của bạn" required class="!rounded-2xl" />
+                                    </div>
+                                    @endguest
+
+                                    <div>
+                                        <x-form.label value="Chọn tài liệu (PDF, Markdown, Text)" required="true" />
                                         <div
-                                            class="mt-2 flex justify-center px-6 pt-5 pb-6 border-2 border-zinc-100 dark:border-zinc-800 border-dashed rounded-3xl hover:border-primary-500/50 transition-colors group">
-                                            <div class="space-y-1 text-center">
-                                                <svg class="mx-auto h-12 w-12 text-zinc-300 group-hover:text-primary-500 transition-colors"
-                                                    stroke="currentColor" fill="none" viewBox="0 0 48 48"
-                                                    aria-hidden="true">
-                                                    <path
-                                                        d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
-                                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                                </svg>
-                                                <div class="flex text-sm text-zinc-600 dark:text-zinc-400">
+                                            class="mt-2 flex justify-center px-6 pt-10 pb-10 border-2 border-zinc-100 dark:border-zinc-800 border-dashed rounded-[2rem] hover:border-primary-500/50 transition-colors group bg-zinc-50/50 dark:bg-zinc-900/30">
+                                            <div class="space-y-2 text-center">
+                                                <div class="flex justify-center text-zinc-300 group-hover:text-primary-500 transition-colors duration-500">
+                                                    <x-icons.book class="size-16" />
+                                                </div>
+                                                <div class="flex text-sm text-zinc-600 dark:text-zinc-400 justify-center">
                                                     <label for="file-upload"
                                                         class="relative cursor-pointer bg-transparent rounded-md font-bold text-primary-600 hover:text-primary-500">
-                                                        <span x-text="selectedFileName || 'Tải lên một tệp'"></span>
-                                                        <input id="file-upload" name="file" type="file" class="sr-only"
-                                                            required accept=".txt,.md,.pdf" @change="handleFileSelect($event)">
+                                                        <span x-text="filesToUpload.length > 0 ? 'Đã chọn ' + filesToUpload.length + ' tài liệu' : 'Chọn tệp từ máy tính'"></span>
+                                                        <input id="file-upload" name="file[]" type="file" class="sr-only"
+                                                            required accept=".txt,.md,.pdf" multiple @change="handleFileSelect($event)">
                                                     </label>
-                                                    <p class="pl-1" x-show="!selectedFileName">hoặc kéo và thả</p>
                                                 </div>
-                                                <p class="text-xs text-zinc-500">TXT, MD, PDF lên đến 30MB</p>
+                                                <p class="text-[10px] text-zinc-400 uppercase tracking-widest font-bold">Tối đa 30MB mỗi tệp</p>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="pt-4 flex gap-4">
                                         <x-form.button type="button" variant="secondary" @click="uploadModal = false"
-                                            class="flex-1">Hủy bỏ</x-form.button>
-                                        <x-form.button class="flex-1">Bắt đầu tải lên</x-form.button>
+                                            class="flex-1 !py-4 !rounded-2xl">Hủy</x-form.button>
+                                        <x-form.button class="flex-1 !py-4 !rounded-2xl">Bắt đầu tải lên</x-form.button>
                                     </div>
                                 </form>
                             </div>
 
-                            <div x-show="isUploading" class="space-y-6">
-                                <div class="text-center">
-                                    <div class="mb-4">
-                                        <span class="text-zinc-500 text-sm">Đang tải lên: </span>
-                                        <span class="font-bold text-zinc-900 dark:text-white" x-text="selectedFileName"></span>
-                                    </div>
-                                    <div class="w-full bg-zinc-100 dark:bg-zinc-800 rounded-full h-4 overflow-hidden shadow-inner">
-                                        <div class="bg-primary-500 h-4 rounded-full transition-all duration-300 shadow-[0_0_10px_rgba(var(--primary-500-rgb),0.5)]"
-                                            :style="`width: ${uploadProgress}%` text-align: center; color: white; font-size: 10px; line-height: 1rem;">
-                                            <span x-text="uploadProgress + '%'"></span>
+                            <div x-show="isUploading" class="space-y-4 max-h-[400px] overflow-y-auto px-1">
+                                <template x-for="(item, index) in filesToUpload" :key="index">
+                                    <div class="p-5 rounded-3xl bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-100 dark:border-zinc-700">
+                                        <div class="flex justify-between items-center mb-3">
+                                            <div class="flex items-center gap-3">
+                                                <div class="text-zinc-400"><x-icons.book class="size-5" /></div>
+                                                <span class="text-sm font-bold text-zinc-900 dark:text-white truncate max-w-[250px]" x-text="item.name"></span>
+                                            </div>
+                                            <span class="text-[10px] font-bold text-primary-500" x-text="item.status === 'completed' ? 'HOÀN TẤT' : (item.status === 'error' ? 'LỖI' : item.progress + '%')"></span>
+                                        </div>
+                                        <div class="relative w-full bg-zinc-200 dark:bg-zinc-700 rounded-full h-1.5 overflow-hidden">
+                                            <div class="bg-primary-500 h-full rounded-full transition-all duration-500 ease-out"
+                                                :class="item.status === 'error' ? 'bg-red-500' : (item.status === 'completed' ? 'bg-green-500' : 'bg-primary-500')"
+                                                :style="`width: ${item.progress}%`">
+                                            </div>
                                         </div>
                                     </div>
-                                    <p class="mt-4 text-zinc-500 text-sm">Vui lòng không đóng cửa sổ này...</p>
+                                </template>
+                                <div class="mt-8 p-4 rounded-2xl bg-primary-50 dark:bg-primary-900/10 border border-primary-100 dark:border-primary-900/20">
+                                    <p class="text-center text-primary-700 dark:text-primary-400 text-xs font-medium">Hệ thống đang lưu trữ và xử lý tri thức của bạn. Vui lòng giữ cửa sổ này mở.</p>
                                 </div>
                             </div>
                         </div>
@@ -325,10 +393,10 @@
                         x-transition:leave="ease-in duration-200"
                         x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
                         x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" @click.stop
-                        class="relative inline-block align-middle bg-white dark:bg-zinc-900 rounded-3xl text-left overflow-hidden shadow-2xl transform transition-all sm:my-8 sm:max-w-lg sm:w-full ring-1 ring-zinc-900/5 dark:ring-white/10">
+                        class="relative inline-block align-middle bg-white dark:bg-zinc-900 rounded-[2rem] text-left overflow-hidden shadow-2xl transform transition-all sm:my-8 sm:max-w-lg sm:w-full ring-1 ring-zinc-900/5 dark:ring-white/10">
                         <div class="px-8 pt-8 pb-10">
                             <div class="flex items-center justify-between mb-8">
-                                <h3 class="text-2xl font-bold text-zinc-900 dark:text-white">Cài đặt chia sẻ</h3>
+                                <h3 class="text-2xl font-bold text-zinc-900 dark:text-white">Chia sẻ tri thức</h3>
                                 <button @click="shareModal = false"
                                     class="text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 transition-colors p-2"><svg
                                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -339,11 +407,10 @@
 
                             <div class="space-y-6">
                                 <div
-                                    class="flex items-center justify-between p-4 rounded-2xl bg-zinc-50 dark:bg-zinc-800/50">
+                                    class="flex items-center justify-between p-6 rounded-3xl bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-100 dark:border-zinc-800">
                                     <div>
-                                        <h4 class="font-bold text-zinc-900 dark:text-white">Chế độ công khai</h4>
-                                        <p class="text-xs text-zinc-500">Bất kỳ ai có liên kết đều có thể xem tệp này.
-                                        </p>
+                                        <h4 class="font-bold text-zinc-900 dark:text-white">Công khai tài liệu</h4>
+                                        <p class="text-xs text-zinc-500">Cho phép mọi người truy cập qua liên kết.</p>
                                     </div>
                                     <button @click="sharePublic = !sharePublic"
                                         :class="sharePublic ? 'bg-primary-500' : 'bg-zinc-200 dark:bg-zinc-700'"
@@ -353,23 +420,23 @@
                                     </button>
                                 </div>
 
-                                <div x-show="sharePublic" class="space-y-4">
+                                <div x-show="sharePublic" class="space-y-4" x-transition>
                                     <div>
-                                        <x-form.label value="Mật khẩu bảo vệ (tùy chọn)" />
+                                        <x-form.label value="Mật khẩu bảo vệ (Không bắt buộc)" />
                                         <x-form.input type="password" x-model="sharePassword"
-                                            placeholder="Nhập mật khẩu nếu muốn" />
+                                            placeholder="••••••••" class="!rounded-2xl" />
                                     </div>
 
                                     <div
-                                        class="p-4 rounded-2xl bg-zinc-50 dark:bg-zinc-800 border border-zinc-100 dark:border-zinc-700">
-                                        <x-form.label value="Liên kết chia sẻ" />
-                                        <div class="mt-2 flex gap-2">
+                                        class="p-6 rounded-3xl bg-zinc-50 dark:bg-zinc-800 border border-zinc-100 dark:border-zinc-700">
+                                        <x-form.label value="Liên kết truy cập" />
+                                        <div class="mt-3 flex gap-2">
                                             <div class="flex-grow">
                                                 <input type="text" x-model="shareUrl" readonly
-                                                    class="w-full bg-white dark:bg-zinc-900 border-none rounded-xl text-xs py-2 px-3 text-zinc-500 focus:ring-0">
+                                                    class="w-full bg-white dark:bg-zinc-900 border-none rounded-xl text-xs py-3 px-4 text-zinc-500 focus:ring-0">
                                             </div>
                                             <button @click="copyShareUrl"
-                                                class="shrink-0 p-2 text-primary-600 hover:bg-primary-50 dark:hover:bg-primary-900/20 rounded-xl transition-colors">
+                                                class="shrink-0 p-3 bg-primary-500 text-white rounded-xl transition-all hover:bg-primary-600 active:scale-95 shadow-lg shadow-primary-500/20">
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                                     stroke-width="2" stroke="currentColor" class="size-5">
                                                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -383,8 +450,8 @@
 
                             <div class="pt-8 flex gap-4">
                                 <x-form.button type="button" variant="secondary" @click="shareModal = false"
-                                    class="flex-1">Đóng</x-form.button>
-                                <x-form.button @click="saveShare" class="flex-1">Lưu thay đổi</x-form.button>
+                                    class="flex-1 !py-4 !rounded-2xl">Đóng</x-form.button>
+                                <x-form.button @click="saveShare" class="flex-1 !py-4 !rounded-2xl">Lưu thiết lập</x-form.button>
                             </div>
                         </div>
                     </div>
