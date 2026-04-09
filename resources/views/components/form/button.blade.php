@@ -1,4 +1,4 @@
-@props(['type' => 'submit', 'variant' => 'primary'])
+@props(['type' => 'submit', 'variant' => 'primary', 'href' => null])
 
 @php
     $baseClasses =
@@ -22,8 +22,16 @@
     $v = $variants[$variant] ?? $variants['primary'];
 @endphp
 
-<button {{ $attributes->merge(['type' => $type, 'class' => $baseClasses . ' ' . $v['button']]) }}>
-    <span class="flex items-center justify-center gap-2 uppercase tracking-[0.15em] text-[10px] font-black">
-        {{ $slot }}
-    </span>
-</button>
+@if($href)
+    <a {{ $attributes->merge(['href' => $href, 'class' => $baseClasses . ' ' . $v['button']]) }}>
+        <span class="flex items-center justify-center gap-2 uppercase tracking-[0.15em] text-[10px] font-black">
+            {{ $slot }}
+        </span>
+    </a>
+@else
+    <button {{ $attributes->merge(['type' => $type, 'class' => $baseClasses . ' ' . $v['button']]) }}>
+        <span class="flex items-center justify-center gap-2 uppercase tracking-[0.15em] text-[10px] font-black">
+            {{ $slot }}
+        </span>
+    </button>
+@endif

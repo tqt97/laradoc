@@ -118,9 +118,16 @@ return [
                 'noreferrer' => 'external',
             ],
             'phiki' => [
-                'theme' => Theme::Monokai,
-                'with_wrapper' => false,
-                'with_gutter' => false,
+                'theme' => Theme::Vesper,
+                'with_wrapper' => true,
+                'with_gutter' => true,
+            ],
+            'table' => [
+                'wrap' => [
+                    'enabled' => true,
+                    'tag' => 'div',
+                    'attributes' => ['class' => 'table-responsive'],
+                ],
             ],
             'default_language' => 'php',
         ],

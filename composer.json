@@ -13,8 +13,11 @@
         "laravel/framework": "^12.0",
         "laravel/socialite": "^5.26",
         "laravel/tinker": "^2.10.1",
+        "league/commonmark": "^2.8",
         "prezet/prezet": "^1.3",
         "spatie/browsershot": "^5.2",
+        "spatie/laravel-activitylog": "^5.0",
+        "spatie/laravel-markdown": "^2.8",
         "spatie/laravel-permission": "^7.2"
     },
     "require-dev": {

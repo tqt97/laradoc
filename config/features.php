@@ -122,4 +122,17 @@ return [
         ],
     ],
 
+    'files' => [
+        'enabled' => env('FEATURE_FILES_ENABLED', true),
+        'roles' => [],
+        'show' => true,
+        'location' => 'header-left',
+        'description' => 'Secure file storage and sharing system.',
+        'ui' => [
+            'text' => 'Tệp tin',
+            'route' => 'files.index',
+            'icon' => 'prezet.icon-file',
+        ],
+    ],
+
 ];

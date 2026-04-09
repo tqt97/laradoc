@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Middleware\CheckFeature;
+use App\Http\Middleware\CheckFeatureEnabled;
+use App\Http\Middleware\CheckFilePermissions;
+use App\Http\Middleware\CheckRole;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -20,6 +23,9 @@ return Application::configure(basePath: dirname(__DIR__))
             'permission' => PermissionMiddleware::class,
             'role_or_permission' => RoleOrPermissionMiddleware::class,
             'feature' => CheckFeature::class,
+            'feature.enabled' => CheckFeatureEnabled::class,
+            'file.permission' => CheckFilePermissions::class,
+            'check_role' => CheckRole::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
