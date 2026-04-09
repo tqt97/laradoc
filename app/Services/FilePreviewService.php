@@ -49,6 +49,8 @@ class FilePreviewService
         // Use relative URL to avoid APP_URL issues
         $url = '/storage/'.$file->path;
 
-        return "<iframe src='{$url}' class='w-full h-full border-0' allowfullscreen></iframe>";
+        return "<div class='w-full h-full bg-zinc-100 dark:bg-zinc-900 overflow-hidden'>
+                    <iframe src='{$url}' class='w-full h-full border-0' allowfullscreen></iframe>
+                </div>";
     }
 }

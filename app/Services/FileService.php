@@ -18,16 +18,22 @@ class FileService
      */
     public function getLibraryItems(Request $request, int $perPage = 12): LengthAwarePaginator
     {
-        $query = File::latest();
+        $query = File::query();
+
+        // Sorting
+        $sort = $request->get('sort', 'latest');
+        if ($sort === 'oldest') {
+            $query->oldest();
+        } else {
+            $query->latest();
+        }
 
         // Filter by moderation status for non-admins/super-admins
         if (! Auth::check() || ! Auth::user()->hasAnyRole(['admin', 'super-admin'])) {
-            $query->where(function ($q) {
-                $q->where('status_moderation', FileModerationStatus::APPROVED);
-                if (Auth::check()) {
-                    $q->orWhere('user_id', Auth::id());
-                }
-            });
+            $query->where('status_moderation', FileModerationStatus::APPROVED);
+            if (Auth::check()) {
+                $query->orWhere('user_id', Auth::id());
+            }
         }
 
         // Search logic
@@ -37,6 +43,11 @@ class FileService
                 $q->where('name', 'like', "%{$search}%")
                     ->orWhere('uploader_name', 'like', "%{$search}%");
             });
+        }
+
+        // Date filter
+        if ($request->filled('date')) {
+            $query->whereDate('created_at', $request->date);
         }
 
         return $query->paginate($perPage)->withQueryString();

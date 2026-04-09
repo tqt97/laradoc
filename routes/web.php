@@ -93,10 +93,10 @@ Route::middleware('feature:files')->group(function () {
     Route::get('/files/{file}', [FileController::class, 'show'])->name('files.show');
     Route::post('/files/{file}/share', [FileController::class, 'share'])->name('files.share');
 
-    Route::middleware(['auth', 'role:admin|super-admin'])->group(function () {
-        Route::get('/upload/review', [FileController::class, 'review'])->name('files.review');
-        Route::post('/files/{file}/approve', [FileController::class, 'approve'])->name('files.approve');
-        Route::post('/files/{file}/reject', [FileController::class, 'reject'])->name('files.reject');
+    Route::middleware(['auth'])->group(function () {
+        Route::get('/upload/review', [FileController::class, 'review'])->middleware('check_role:admin')->name('files.review');
+        Route::post('/files/{file}/approve', [FileController::class, 'approve'])->middleware('check_role:admin')->name('files.approve');
+        Route::post('/files/{file}/reject', [FileController::class, 'reject'])->middleware('check_role:admin')->name('files.reject');
     });
 });
 Route::get('/s/{token}', [FileController::class, 'shared'])

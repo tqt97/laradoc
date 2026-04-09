@@ -20,7 +20,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-4 group-hover:-translate-x-0.5 transition-transform">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
                         </svg>
-                        <span class="text-xs font-medium uppercase tracking-wider hidden sm:inline">Quay lại</span>
+                        <span class="text-xs font-medium uppercase tracking-wider hidden sm:inline">Thư viện</span>
                     </a>
                 </div>
                 
@@ -29,7 +29,9 @@
                 </div>
 
                 <div class="flex justify-end gap-3">
-                    {{ $actions ?? '' }}
+                    @if(isset($actions))
+                        {{ $actions }}
+                    @endif
                 </div>
             </div>
         </header>
