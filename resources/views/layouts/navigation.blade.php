@@ -27,6 +27,12 @@
                         {{ __('Analytics') }}
                     </x-nav-link>
                     @endfeature
+
+                    @feature('quizzes')
+                    <x-nav-link :href="route('quizzes.index')" :active="request()->routeIs('quizzes.*')">
+                        {{ __('Quizzes') }}
+                    </x-nav-link>
+                    @endfeature
                 </div>
             </div>
 
@@ -95,6 +101,12 @@
             @feature('dashboard_analytics')
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('analytics')">
                 {{ __('Analytics') }}
+            </x-responsive-nav-link>
+            @endfeature
+
+            @feature('quizzes')
+            <x-responsive-nav-link :href="route('quizzes.index')" :active="request()->routeIs('quizzes.*')">
+                {{ __('Quizzes') }}
             </x-responsive-nav-link>
             @endfeature
         </div>

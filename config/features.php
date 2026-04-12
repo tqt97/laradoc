@@ -92,6 +92,20 @@ return [
         ],
     ],
 
+    'quizzes' => [
+        'enabled' => env('FEATURE_QUIZZES_ENABLED', true),
+        'roles' => [],
+        'show' => true,
+        'location' => 'header-left',
+        'description' => 'Interview preparation with flashcards and quizzes.',
+        'ui' => [
+            'text' => 'Câu hỏi phỏng vấn',
+            'route' => 'quizzes.index',
+            'route_active' => 'quizzes*',
+            'icon' => 'prezet.icon-quiz',
+        ],
+    ],
+
     // --- Restricted Features ---
 
     'gallery' => [

@@ -14,6 +14,7 @@ use App\Http\Controllers\Prezet\OgimageController;
 use App\Http\Controllers\Prezet\SearchController;
 use App\Http\Controllers\Prezet\ShowController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\QuizController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SeriesController;
 use App\Http\Controllers\SnippetController;
@@ -44,6 +45,15 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    // Quiz features
+    Route::middleware('feature:quizzes')->group(function () {
+        Route::get('quizzes', [QuizController::class, 'index'])->name('quizzes.index');
+        Route::get('quizzes/{topic}', [QuizController::class, 'show'])->name('quizzes.show');
+        Route::get('quizzes/{topic}/study', [QuizController::class, 'study'])->name('quizzes.study');
+        Route::get('quizzes/{topic}/quiz', [QuizController::class, 'quiz'])->name('quizzes.quiz');
+        Route::post('quizzes/questions/{question}/progress', [QuizController::class, 'recordProgress'])->name('quizzes.progress');
+    });
 });
 
 Route::post('newsletter/subscribe', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
