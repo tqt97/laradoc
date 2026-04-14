@@ -236,33 +236,83 @@
 
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/knowledge/sample-knowledge</loc>
-        <lastmod>2026-04-14T14:58:51+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/knowledge/vi/laravel-the-basics</loc>
+        <lastmod>2026-04-14T16:49:48+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/knowledge/laravel-architecture-concepts</loc>
-        <lastmod>2026-04-14T15:24:06+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/knowledge/vi/laravel-digging-deeper</loc>
+        <lastmod>2026-04-14T16:49:51+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/knowledge/laravel-the-basics</loc>
-        <lastmod>2026-04-14T15:25:17+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/knowledge/vi/architecture-system-design</loc>
+        <lastmod>2026-04-14T16:49:54+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/knowledge/laravel-database</loc>
-        <lastmod>2026-04-14T15:25:43+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/knowledge/vi/database-theory</loc>
+        <lastmod>2026-04-14T16:49:56+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/knowledge/laravel-security</loc>
-        <lastmod>2026-04-14T15:26:09+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/knowledge/vi/http-web-fundamentals</loc>
+        <lastmod>2026-04-14T16:49:59+07:00</lastmod>
 
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/knowledge/laravel-digging-deeper</loc>
-        <lastmod>2026-04-14T15:29:17+07:00</lastmod>
+        <loc>http://127.0.0.1:8000/knowledge/vi/laravel-architecture-concepts</loc>
+        <lastmod>2026-04-14T16:50:02+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/knowledge/vi/laravel-architecture-deep-dive</loc>
+        <lastmod>2026-04-14T16:50:05+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/knowledge/vi/laravel-database</loc>
+        <lastmod>2026-04-14T16:50:08+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/knowledge/vi/laravel-security</loc>
+        <lastmod>2026-04-14T16:50:11+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/knowledge/vi/php-fundamentals-oop</loc>
+        <lastmod>2026-04-14T16:50:17+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/knowledge/vi/aws-devops-cloud</loc>
+        <lastmod>2026-04-14T16:50:20+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/knowledge/vi/js-react-core</loc>
+        <lastmod>2026-04-14T16:50:23+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/knowledge/vi/queue-caching-session</loc>
+        <lastmod>2026-04-14T16:50:26+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/knowledge/vi/web-performance-seo</loc>
+        <lastmod>2026-04-14T16:50:29+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/knowledge/vi/data-structures-algorithms-php</loc>
+        <lastmod>2026-04-14T16:50:32+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/knowledge/vi/php-advanced-internals</loc>
+        <lastmod>2026-04-14T16:50:35+07:00</lastmod>
 
             </url>
 </urlset>
