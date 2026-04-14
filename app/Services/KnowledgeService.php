@@ -13,7 +13,7 @@ class KnowledgeService
      */
     public function getPaginatedKnowledge(?string $search = null, int $perPage = 10): array
     {
-        $query = PrezetDocument::active()->inPath('knowledge');
+        $query = PrezetDocument::active()->inPath('knowledge/vi');
 
         if ($search) {
             $query->search($search);
