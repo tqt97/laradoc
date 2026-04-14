@@ -4,8 +4,7 @@ excerpt: Tìm hiểu Factory Pattern từ lý thuyết chi tiết, bản chất 
 category: Design pattern
 date: 2026-03-10
 order: 3
-image:
-
+image: /prezet/img/ogimages/series-design-pattern-factory-pattern.webp
 ---
 
 > Pattern thuộc nhóm **Creational Pattern (Khởi tạo)**

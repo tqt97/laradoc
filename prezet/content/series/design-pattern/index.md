@@ -4,8 +4,7 @@ excerpt: Design Pattern (mẫu thiết kế) là những giải pháp đã đư�
 category: Design pattern
 date: 2026-03-10
 order: 1
-image:
-
+image: /prezet/img/ogimages/series-design-pattern-index.webp
 ---
 
 ## 1. Design Pattern là gì?

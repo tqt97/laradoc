@@ -4,8 +4,7 @@ excerpt: Tìm hiểu Strategy Pattern từ A-Z. Cách hoạt động, ví dụ P
 category: Design pattern
 date: 2026-03-10
 order: 2
-image:
-
+image: /prezet/img/ogimages/series-design-pattern-strategy-pattern.webp
 ---
 
 > **Pattern thuộc nhóm Behavioral Pattern (Hành vi)**

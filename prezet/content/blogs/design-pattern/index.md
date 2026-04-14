@@ -3,7 +3,7 @@ title: Design Pattern là gì?
 excerpt: Tìm hiểu Design Pattern là gì, cách hoạt động, sự khác biệt với thuật toán và phân loại 3 nhóm Design Pattern phổ biến trong lập trình.
 date: 2026-02-27
 category: Design pattern
-image:
+image: /prezet/img/ogimages/blogs-design-pattern-index.webp
 ---
 
 ## 1. Design Pattern là gì?

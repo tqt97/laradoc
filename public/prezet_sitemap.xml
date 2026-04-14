@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
     <url>
+        <loc>http://127.0.0.1:8000/series/design-pattern/factory-pattern</loc>
+        <lastmod>2026-04-14T14:26:34+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/design-pattern/index</loc>
+        <lastmod>2026-04-14T14:26:37+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/design-pattern/strategy-pattern</loc>
+        <lastmod>2026-04-14T14:26:40+07:00</lastmod>
+
+            </url>
+    <url>
         <loc>http://127.0.0.1:8000/series/javascript-basics/index</loc>
         <lastmod>2026-03-19T00:13:47+07:00</lastmod>
 
@@ -98,6 +113,11 @@
     <url>
         <loc>http://127.0.0.1:8000/blogs/features/newsletter</loc>
         <lastmod>2026-03-19T00:14:43+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/blogs/design-pattern/index</loc>
+        <lastmod>2026-04-14T14:28:45+07:00</lastmod>
 
             </url>
     <url>
@@ -213,31 +233,6 @@
     <url>
         <loc>http://127.0.0.1:8000/blogs/laravel-events</loc>
         <lastmod>2026-03-19T00:15:54+07:00</lastmod>
-
-            </url>
-    <url>
-        <loc>http://127.0.0.1:8000/series/design-pattern/index</loc>
-        <lastmod>2026-04-09T13:41:38+07:00</lastmod>
-
-            </url>
-    <url>
-        <loc>http://127.0.0.1:8000/series/design-pattern/sample</loc>
-        <lastmod>2026-04-09T14:17:02+07:00</lastmod>
-
-            </url>
-    <url>
-        <loc>http://127.0.0.1:8000/series/design-pattern/strategy-pattern</loc>
-        <lastmod>2026-04-09T14:20:40+07:00</lastmod>
-
-            </url>
-    <url>
-        <loc>http://127.0.0.1:8000/series/design-pattern/factory-pattern</loc>
-        <lastmod>2026-04-09T14:26:44+07:00</lastmod>
-
-            </url>
-    <url>
-        <loc>http://127.0.0.1:8000/blogs/design-pattern/index</loc>
-        <lastmod>2026-04-12T10:36:07+07:00</lastmod>
 
             </url>
 </urlset>
