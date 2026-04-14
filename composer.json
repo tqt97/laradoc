@@ -45,7 +45,8 @@
     "scripts": {
         "prezet-index": [
             "@php artisan prezet:index",
-            "@php artisan idea:sync-published"
+            "@php artisan idea:sync-published",
+            "php artisan db:seed --class=FeatureSeeder && php artisan cache:forget app_features_all"
         ],
         "setup": [
             "composer install",

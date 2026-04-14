@@ -39,6 +39,20 @@ return [
         ],
     ],
 
+    'knowledge' => [
+        'enabled' => env('FEATURE_KNOWLEDGE_ENABLED', true),
+        'roles' => [],
+        'show' => true,
+        'location' => 'header-left',
+        'description' => 'Structured knowledge review modules.',
+        'ui' => [
+            'text' => 'Kiến thức',
+            'route' => 'knowledge.index',
+            'route_active' => 'knowledge*',
+            'icon' => 'prezet.icon-knowledge',
+        ],
+    ],
+
     'series' => [
         'enabled' => env('FEATURE_SERIES_ENABLED', true),
         'roles' => [],
@@ -80,9 +94,9 @@ return [
     ],
 
     'ideas' => [
-        'enabled' => env('FEATURE_IDEAS_ENABLED', true),
+        'enabled' => env('FEATURE_IDEAS_ENABLED', false),
         'roles' => [],
-        'show' => true,
+        'show' => false,
         'location' => 'header-left',
         'description' => 'Community-driven content suggestions.',
         'ui' => [

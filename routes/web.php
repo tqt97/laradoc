@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\FeatureController as AdminFeatureController;
 use App\Http\Controllers\IdeaController;
 use App\Http\Controllers\ImageGalleryController;
+use App\Http\Controllers\KnowledgeController;
 use App\Http\Controllers\LinkController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\PermissionController;
@@ -46,6 +47,11 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+// Knowledge Review feature
+Route::get('knowledge', [KnowledgeController::class, 'index'])->name('knowledge.index');
+Route::get('knowledge/{slug}', [KnowledgeController::class, 'show'])->name('knowledge.show');
+
+// Newsletter
 Route::post('newsletter/subscribe', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
 
 // Links feature
