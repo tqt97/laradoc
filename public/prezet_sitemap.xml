@@ -240,4 +240,29 @@
         <lastmod>2026-04-14T14:58:51+07:00</lastmod>
 
             </url>
+    <url>
+        <loc>http://127.0.0.1:8000/knowledge/laravel-architecture-concepts</loc>
+        <lastmod>2026-04-14T15:24:06+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/knowledge/laravel-the-basics</loc>
+        <lastmod>2026-04-14T15:25:17+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/knowledge/laravel-database</loc>
+        <lastmod>2026-04-14T15:25:43+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/knowledge/laravel-security</loc>
+        <lastmod>2026-04-14T15:26:09+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/knowledge/laravel-digging-deeper</loc>
+        <lastmod>2026-04-14T15:29:17+07:00</lastmod>
+
+            </url>
 </urlset>
