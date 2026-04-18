@@ -17,13 +17,17 @@ class KnowledgeController extends Controller
     public function index(Request $request): View
     {
         $search = $request->input('q');
-        $data = $this->knowledgeService->getPaginatedKnowledge($search);
+        $tag = $request->input('tag');
+        $data = $this->knowledgeService->getPaginatedKnowledge($search, $tag);
+
+        $title = $tag ? "Thẻ: {$tag}" : 'Review Kiến thức Lập trình';
 
         return view('knowledge.index', array_merge([
             'knowledge' => $data['knowledge'],
             'paginator' => $data['paginator'],
             'search' => $search,
-            'seo' => PrezetHelper::getSeoData('Review Kiến thức Lập trình', 'Thư viện các kiến thức lập trình được tóm tắt và đúc kết dưới dạng các thẻ kiến thức dễ nhớ, dễ ôn tập.', null, config('prezet.seo.default_image')),
+            'currentTag' => $tag,
+            'seo' => PrezetHelper::getSeoData($title, 'Thư viện các kiến thức lập trình được tóm tắt và đúc kết dưới dạng các thẻ kiến thức dễ nhớ, dễ ôn tập.', null, config('prezet.seo.default_image')),
         ], PrezetHelper::getCommonData()));
     }
 
@@ -37,6 +41,8 @@ class KnowledgeController extends Controller
             'knowledge' => $knowledge,
             'body' => $html,
             'slug' => $slug,
+            'headings' => Prezet::getHeadings($html),
+            'relatedArticles' => $this->knowledgeService->getRelatedKnowledge($knowledge),
             'seo' => PrezetHelper::getSeoData(
                 $knowledge->frontmatter->title,
                 $knowledge->frontmatter->excerpt,

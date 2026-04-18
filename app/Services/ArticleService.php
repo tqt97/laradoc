@@ -49,6 +49,22 @@ class ArticleService
     }
 
     /**
+     * Get articles grouped by category.
+     */
+    public function getArticlesByCategory(int $limitPerCategory = 4): Collection
+    {
+        return PrezetDocument::active()
+            ->blogs()
+            ->whereNotNull('category')
+            ->orderBy('created_at', 'desc')
+            ->get()
+            ->groupBy('category')
+            ->map(function ($articles) use ($limitPerCategory) {
+                return $articles->take($limitPerCategory)->map(fn ($doc) => $this->mapToArticleData($doc));
+            });
+    }
+
+    /**
      * Map a Document model to a structured article object.
      */
     public function mapToArticleData(object $doc): object

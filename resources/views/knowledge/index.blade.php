@@ -2,12 +2,13 @@
     /* @var \Illuminate\Support\Collection $knowledge */
     /* @var array $seo */
     /* @var string $search */
+    /* @var string $currentTag */
 @endphp
 
 <x-prezet.template>
     @seo($seo)
 
-    <x-prezet.subpage-header title="Knowledge Review"
+    <x-prezet.subpage-header title="Ôn tập kiến thức"
         subtitle="Thư viện các kiến thức lập trình được tóm tắt và đúc kết dưới dạng các thẻ kiến thức dễ nhớ, dễ ôn tập.">
         <x-prezet.index-search :action="route('knowledge.index')" :value="$search"
             placeholder="Tìm kiếm kiến thức..." />
@@ -15,6 +16,27 @@
 
     <div id="articles" class="py-12 lg:py-12">
         <div class="max-w-7xl mx-auto px-4">
+            {{-- Active Tag Indicator --}}
+            @if($currentTag)
+                <div
+                    class="mb-12 flex items-center justify-between p-6 rounded-3xl bg-primary-50 dark:bg-primary-900/10 border border-primary-100 dark:border-primary-900/20">
+                    <div class="flex items-center gap-4">
+                        <div class="p-2 rounded-xl bg-primary-500 text-white">
+                            <x-prezet.icon-tag class="size-5" />
+                        </div>
+                        <div>
+                            <p class="text-xs font-black uppercase tracking-widest text-primary-600 dark:text-primary-400">
+                                Đang lọc theo thẻ</p>
+                            <h2 class="text-xl font-black text-zinc-900 dark:text-white">#{{ $currentTag }}</h2>
+                        </div>
+                    </div>
+                    <a href="{{ route('knowledge.index') }}"
+                        class="text-xs font-black uppercase tracking-widest text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">
+                        Xóa lọc
+                    </a>
+                </div>
+            @endif
+
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 @forelse($knowledge as $item)
                     <article
@@ -39,6 +61,18 @@
                             {{ $item->frontmatter->description ?? $item->frontmatter->excerpt }}
                         </p>
 
+                        {{-- Tags Section --}}
+                        @if(isset($item->frontmatter->tags) && is_array($item->frontmatter->tags))
+                            <div class="relative z-10 flex flex-wrap items-center gap-2 mb-8">
+                                @foreach($item->frontmatter->tags as $tag)
+                                    <a href="{{ route('knowledge.index', ['tag' => $tag]) }}"
+                                        class="inline-flex items-center rounded-xl bg-zinc-50 dark:bg-zinc-800 px-2.5 py-1 text-[10px] font-bold tracking-widest text-zinc-500 transition-colors hover:bg-primary-500 hover:text-white">
+                                        #{{ $tag }}
+                                    </a>
+                                @endforeach
+                            </div>
+                        @endif
+
                         <div
                             class="mt-auto pt-6 border-t border-zinc-50 dark:border-zinc-800 flex items-center justify-between">
                             <div class="flex items-center gap-2 text-xs font-bold text-zinc-400 leading-none">
@@ -46,7 +80,7 @@
                                 <span>{{ $item->createdAt->format('d/m/Y') }}</span>
                             </div>
                             <div
-                                class="text-primary-500 opacity-0 group-hover:opacity-100 transition-opacity translate-x-2 group-hover:translate-x-0 transition-transform duration-300">
+                                class="text-primary-500 opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-transform duration-300">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
                                     stroke="currentColor" class="size-5">
                                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -66,7 +100,8 @@
                             </svg>
                         </div>
                         <h3 class="text-xl font-bold text-zinc-900 dark:text-white mb-2">Không tìm thấy kiến thức nào</h3>
-                        <p class="text-zinc-500 dark:text-zinc-400 font-medium">Hãy thử tìm kiếm với từ khóa khác.</p>
+                        <p class="text-zinc-500 dark:text-zinc-400 font-medium">Hãy thử tìm kiếm với từ khóa khác hoặc xóa
+                            lọc thẻ.</p>
                     </div>
                 @endforelse
             </div>

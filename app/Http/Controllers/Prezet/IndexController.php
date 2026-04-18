@@ -23,11 +23,12 @@ class IndexController extends Controller
     public function __invoke(): View
     {
         $version = PrezetCache::version();
-        $cacheKey = "prezet_v{$version}_index_home_v3";
+        $cacheKey = "prezet_v{$version}_index_home_v4";
 
         $data = Cache::remember($cacheKey, 86400, function () {
             return [
-                'articles' => $this->articleService->getLatestArticles(6),
+                'articles' => $this->articleService->getLatestArticles(4),
+                'articlesByCategory' => $this->articleService->getArticlesByCategory(4),
                 'series' => $this->seriesService->getAllSeries()->take(4),
                 'seo' => [
                     'title' => 'tuantq.online | Blog Chia sẻ Kiến thức & Kinh nghiệm Lập trình Web',

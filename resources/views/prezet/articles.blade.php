@@ -93,7 +93,7 @@
                         <div class="flex flex-wrap gap-2.5">
                             @foreach ($allTags as $tag)
                                 <a href="{{ route('prezet.articles', ['tag' => strtolower($tag->name)]) }}"
-                                    class="inline-flex items-center gap-1.5 py-2 px-3.5 rounded-3xl text-xs font-bold transition-all {{ $currentTag == strtolower($tag->name) ? 'bg-primary-50/40 text-primary-500 dark:bg-white dark:text-zinc-900 shadow-xl' : 'bg-zinc-50 dark:bg-zinc-800 text-zinc-500 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-700 hover:text-primary-500 dark:hover:text-zinc-200 border border-transparent' }}">
+                                    class="inline-flex items-center gap-1  rounded-2xl text-xs transition-all {{ $currentTag == strtolower($tag->name) ? ' text-primary-500 dark:bg-white dark:text-zinc-900 shadow-xl' : ' dark:bg-zinc-800 text-zinc-500 dark:text-zinc-400 hover:text-primary-500 dark:hover:text-zinc-200 border border-transparent' }}">
                                     <x-prezet.icon-tag class="size-3" />
                                     <span>{{ $tag->name }}</span>
                                     <span class="text-[10px] font-bold opacity-80">{{ $tag->documents_count }}</span>

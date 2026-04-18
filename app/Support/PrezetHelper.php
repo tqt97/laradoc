@@ -157,6 +157,42 @@ class PrezetHelper
     }
 
     /**
+     * Extract headings from HTML for Table of Contents.
+     */
+    public static function extractHeadings(string $html): array
+    {
+        preg_match_all('/<h([2-3])[^>]*id="([^"]*)"[^>]*>(.*?)<\/h\1>/', $html, $matches);
+
+        // If IDs are not found, try without IDs
+        if (empty($matches[0])) {
+            preg_match_all('/<h([2-3])[^>]*>(.*?)<\/h\1>/', $html, $matches);
+            $headings = [];
+            foreach ($matches[1] as $index => $level) {
+                $text = strip_tags($matches[2][$index]);
+                $id = str($text)->slug()->value();
+                $headings[] = [
+                    'level' => (int) $level,
+                    'text' => $text,
+                    'id' => $id,
+                ];
+            }
+
+            return $headings;
+        }
+
+        $headings = [];
+        foreach ($matches[1] as $index => $level) {
+            $headings[] = [
+                'level' => (int) $level,
+                'id' => $matches[2][$index],
+                'text' => strip_tags($matches[3][$index]),
+            ];
+        }
+
+        return $headings;
+    }
+
+    /**
      * Resolve a relative URL into an absolute one.
      */
     public static function resolveAbsoluteUrl(string $baseUrl, string $relativeUrl): string

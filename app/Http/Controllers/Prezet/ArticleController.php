@@ -54,7 +54,9 @@ class ArticleController extends Controller
                         ->where('content_type', 'article')
                         ->where('filepath', 'like', 'content/blogs%');
                 }])
+                ->orderByDesc('documents_count')
                 ->orderBy('name')
+                ->limit(30)
                 ->get();
 
             $allPostsCount = PrezetDocument::active()->blogs()->count();
