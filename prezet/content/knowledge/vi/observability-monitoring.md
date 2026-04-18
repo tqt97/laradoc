@@ -6,11 +6,9 @@ tags: [observability, monitoring, logging, tracing, metrics]
 image: /prezet/img/ogimages/knowledge-vi-observability-monitoring.webp
 ---
 
-# 📌 Chủ đề: Observability & Monitoring
+> Đừng đợi đến khi người dùng phàn nàn mới biết hệ thống lỗi. Khả năng quan sát (Observability) giúp bạn hiểu "tại sao" hệ thống lại hành xử như vậy.
 
-Đừng đợi đến khi người dùng phàn nàn mới biết hệ thống lỗi. Khả năng quan sát (Observability) giúp bạn hiểu "tại sao" hệ thống lại hành xử như vậy.
-
-## 🟢 Cấp độ: Người mới bắt đầu (Beginner)
+## Người mới bắt đầu (Beginner)
 
 <details>
   <summary>Q1: Monitoring (Giám sát) và Observability (Khả năng quan sát) khác nhau thế nào?</summary>
@@ -85,9 +83,7 @@ image: /prezet/img/ogimages/knowledge-vi-observability-monitoring.webp
   Thời gian hệ thống hoạt động liên tục mà không bị sập, thường tính theo tỷ lệ phần trăm (ví dụ: 99.9% uptime).
 </details>
 
----
-
-## 🟡 Cấp độ: Trung cấp (Intermediate)
+## Trung cấp (Intermediate)
 
 <details>
   <summary>Q1: Structured Logging là gì và tại sao nó tốt hơn Plain text logging?</summary>
@@ -169,9 +165,7 @@ image: /prezet/img/ogimages/knowledge-vi-observability-monitoring.webp
 
 </details>
 
----
-
-## 🔴 Cấp độ: Nâng cao (Advanced)
+## Nâng cao (Advanced)
 
 <details>
   <summary>Q1: Giải thích cơ chế hoạt động của ELK Stack (Elasticsearch, Logstash, Kibana).</summary>
@@ -246,9 +240,7 @@ image: /prezet/img/ogimages/knowledge-vi-observability-monitoring.webp
   Wrap các cuộc gọi API bằng các công cụ đo lường thời gian và tỷ lệ lỗi. Dùng cơ chế Circuit Breaker để tự động ngắt khi API bên ngoài sập.
 </details>
 
----
-
-## 🧠 Cấp độ: Kiến trúc sư (Architect)
+## Kiến trúc sư (Architect)
 
 <details>
   <summary>Q1: Thiết kế hệ thống Observability cho kiến trúc 100+ Microservices.</summary>
@@ -290,9 +282,7 @@ image: /prezet/img/ogimages/knowledge-vi-observability-monitoring.webp
   Sử dụng máy học để tự động phát hiện hành vi bất thường (Anomaly detection) mà con người không thể định nghĩa bằng các luật tĩnh (static rules).
 </details>
 
----
-
-## 💻 Practical Scenarios (Thực chiến)
+## Tình huống thực tế (Practical Scenarios)
 
 <details>
   <summary>S1: User báo lỗi "Không thể thanh toán" nhưng bạn kiểm tra log Error không thấy gì. Giải pháp?</summary>
@@ -306,24 +296,19 @@ image: /prezet/img/ogimages/knowledge-vi-observability-monitoring.webp
   **Xử lý:** 1. Khẩn cấp: Xóa file log cũ (`.log.1`, `.gz`). 2. Lâu dài: Cấu hình `logrotate`, đẩy log về server trung tâm, và kiểm tra lại Log Level.
 </details>
 
----
-
-## 🚨 MUST-KNOW
+## Nên biết
 
 - 3 trụ cột: Logs, Metrics, Traces.
 - Các mức độ Log Level.
 - Cách thiết lập Alerting cơ bản.
 
-## ⚠️ Pitfalls
+## Lưu ý
 
 - Log thông tin nhạy cảm (mật khẩu, token) vào log file.
 - Đặt cảnh báo quá nhạy dẫn đến "nhiễu" cảnh báo.
 - Chỉ giám sát App mà quên giám sát Hạ tầng (CPU, Disk, Network).
 
-## 🧩 Tips & Tricks
+## Tips & Tricks
 
 - Luôn đính kèm ngữ cảnh (Context) vào log: User ID, Request ID, IP.
 - Dùng `Log::channel()` trong Laravel để tách biệt các loại log khác nhau vào các file/server khác nhau.
-
----
-*Biên soạn bởi Senior Site Reliability Engineer.*

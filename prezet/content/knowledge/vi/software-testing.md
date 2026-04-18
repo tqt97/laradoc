@@ -6,11 +6,9 @@ tags: [testing, phpunit, tdd, laravel, quality]
 image: /prezet/img/ogimages/knowledge-vi-software-testing.webp
 ---
 
-# 📌 Chủ đề: Software Testing
+> Testing không phải là tìm lỗi, mà là xây dựng sự tự tin để thay đổi mã nguồn mà không sợ làm hỏng hệ thống.
 
-Testing không phải là tìm lỗi, mà là xây dựng sự tự tin để thay đổi mã nguồn mà không sợ làm hỏng hệ thống.
-
-## 🟢 Cấp độ: Người mới bắt đầu (Beginner)
+## Người mới bắt đầu (Beginner)
 
 <details>
   <summary>Q1: Tại sao chúng ta cần viết Test?</summary>
@@ -85,9 +83,7 @@ Testing không phải là tìm lỗi, mà là xây dựng sự tự tin để th
   Phần trăm mã nguồn đã được thực thi bởi các bộ test. Tuy nhiên, coverage cao không đồng nghĩa với việc không có bug.
 </details>
 
----
-
-## 🟡 Cấp độ: Trung cấp (Intermediate)
+## Trung cấp (Intermediate)
 
 <details>
   <summary>Q1: Integration Test khác gì với Unit Test?</summary>
@@ -162,9 +158,7 @@ Testing không phải là tìm lỗi, mà là xây dựng sự tự tin để th
   `assertTrue` kiểm tra giá trị là true. `assertSame` kiểm tra cả giá trị và kiểu dữ liệu (strict comparison) giữa hai biến.
 </details>
 
----
-
-## 🔴 Cấp độ: Nâng cao (Advanced)
+## Nâng cao (Advanced)
 
 <details>
   <summary>Q1: Phân tích chiến lược "Testing Pyramid" (Kim tự tháp kiểm thử).</summary>
@@ -236,9 +230,7 @@ Testing không phải là tìm lỗi, mà là xây dựng sự tự tin để th
   Dùng `$this->withoutExceptionHandling()` để Laravel throw lỗi thật ra thay vì trả về view lỗi, giúp bạn debug trực tiếp trong terminal khi test fail.
 </details>
 
----
-
-## 🧠 Cấp độ: Kiến trúc sư (Architect)
+## Kiến trúc sư (Architect)
 
 <details>
   <summary>Q1: Thiết kế hệ thống CI/CD đảm bảo 100% code mới phải có test và coverage > 80%.</summary>
@@ -275,9 +267,7 @@ Testing không phải là tìm lỗi, mà là xây dựng sự tự tin để th
   TDD rất tốt cho logic phức tạp nhưng có thể làm chậm quá trình prototype. Cần linh hoạt: TDD cho core logic, Feature test cho UI/Flow.
 </details>
 
----
-
-## 💻 Practical Scenarios (Thực chiến)
+## Tình huống thực tế (Practical Scenarios)
 
 <details>
   <summary>S1: Bộ test của bạn chạy mất 20 phút. Làm sao để tối ưu xuống dưới 5 phút?</summary>
@@ -291,24 +281,19 @@ Testing không phải là tìm lỗi, mà là xây dựng sự tự tin để th
   **Xử lý:** 1. Viết một test case tái hiện đúng bug đó (test sẽ fail). 2. Sửa code để test pass. 3. Deploy code kèm theo test case đó để đảm bảo bug không quay lại.
 </details>
 
----
-
-## 🚨 MUST-KNOW
+## Nên biết
 
 - Sự khác biệt giữa Unit, Feature và E2E Test.
 - Cách dùng Mockery và PHPUnit Assertions.
 - Quy trình Red-Green-Refactor của TDD.
 
-## ⚠️ Pitfalls
+## Lưu ý
 
 - Viết test quá phụ thuộc vào dữ liệu DB (dễ bị fail khi data đổi).
 - Không test các trường hợp lỗi (Edge cases).
 - Coi Code Coverage là mục tiêu duy nhất.
 
-## 🧩 Tips & Tricks
+## Tips & Tricks
 
 - Dùng `dump()` hoặc `dd()` ngay trong test để debug dữ liệu response.
 - Sử dụng thư viện `Faker` để tạo dữ liệu ngẫu nhiên nhưng hợp lệ.
-
----
-*Biên soạn bởi Senior QA Engineer & Laravel Expert.*

@@ -6,11 +6,9 @@ tags: [css, frontend, ui, design-system, responsive]
 image: /prezet/img/ogimages/knowledge-vi-css-ui-engineering.webp
 ---
 
-# 📌 Chủ đề: CSS & UI Engineering
+> Giao diện là bộ mặt của ứng dụng. Một UI Engineer giỏi không chỉ biết làm cho đẹp, mà còn phải làm cho nó nhẹ, dễ bảo trì và khả năng tương thích cao.
 
-Giao diện là bộ mặt của ứng dụng. Một UI Engineer giỏi không chỉ biết làm cho đẹp, mà còn phải làm cho nó nhẹ, dễ bảo trì và khả năng tương thích cao.
-
-## 🟢 Cấp độ: Người mới bắt đầu (Beginner)
+## Người mới bắt đầu (Beginner)
 
 <details>
   <summary>Q1: CSS Box Model là gì?</summary>
@@ -93,9 +91,7 @@ Giao diện là bộ mặt của ứng dụng. Một UI Engineer giỏi không c
   Sử dụng Media Queries (`@media`) để thay đổi CSS dựa trên kích thước màn hình.
 </details>
 
----
-
-## 🟡 Cấp độ: Trung cấp (Intermediate)
+## Trung cấp (Intermediate)
 
 <details>
   <summary>Q1: CSS Grid vs Flexbox: Khi nào dùng cái nào?</summary>
@@ -109,14 +105,14 @@ Giao diện là bộ mặt của ứng dụng. Một UI Engineer giỏi không c
 
 <details>
   <summary>Q2: Giải thích về "Specificity" (Độ ưu tiên) trong CSS.</summary>
-  
+
   **Trả lời:**
   Thứ tự ưu tiên: Inline style > ID > Class/Attribute/Pseudo-class > Element/Pseudo-element. Nếu bằng nhau, cái viết sau sẽ thắng.
 </details>
 
 <details>
   <summary>Q3: BEM (Block Element Modifier) là gì và tại sao cần nó?</summary>
-  
+
   **Trả lời:**
   Là quy tắc đặt tên class (ví dụ: `.card__title--active`). Giúp code CSS dễ đọc, tránh xung đột tên và dễ tái sử dụng.
 </details>
@@ -179,9 +175,7 @@ Giao diện là bộ mặt của ứng dụng. Một UI Engineer giỏi không c
   Tailwind là Utility-first framework. Bạn viết CSS trực tiếp qua các class ngắn gọn trong HTML. Giúp dev nhanh hơn và không cần phải đau đầu đặt tên class.
 </details>
 
----
-
-## 🔴 Cấp độ: Nâng cao (Advanced)
+## Nâng cao (Advanced)
 
 <details>
   <summary>Q1: Giải thích về "Stacking Context" trong CSS.</summary>
@@ -256,9 +250,7 @@ Giao diện là bộ mặt của ứng dụng. Một UI Engineer giỏi không c
   Sử dụng các thuộc tính `transform` và `opacity` vì chúng được xử lý bởi GPU, không gây ra re-layout (Reflow) và re-paint, giúp animation mượt mà 60fps.
 </details>
 
----
-
-## 🧠 Cấp độ: Kiến trúc sư (Architect)
+## Kiến trúc sư (Architect)
 
 <details>
   <summary>Q1: Thiết kế một Design System / Component Library dùng chung cho nhiều dự án.</summary>
@@ -291,9 +283,7 @@ Giao diện là bộ mặt của ứng dụng. Một UI Engineer giỏi không c
   Cho phép lập trình viên can thiệp trực tiếp vào quá trình Rendering của trình duyệt bằng JavaScript, mở ra khả năng tạo ra các hiệu ứng hình ảnh và bố cục chưa từng có.
 </details>
 
----
-
-## 💻 Practical Scenarios (Thực chiến)
+## Tình huống thực tế (Practical Scenarios)
 
 <details>
   <summary>S1: Giao diện hiển thị đúng trên Chrome nhưng bị lệch trên Safari. Cách xử lý?</summary>
@@ -303,28 +293,23 @@ Giao diện là bộ mặt của ứng dụng. Một UI Engineer giỏi không c
 
 <details>
   <summary>S2: File CSS của bạn quá lớn (> 500KB) làm chậm trang web. Cách tối ưu?</summary>
-  
+
   **Xử lý:** 1. Sử dụng PurgeCSS để xóa code thừa. 2. Chia nhỏ CSS theo trang. 3. Bật nén Brotli/Gzip. 4. Sử dụng Tailwind để giảm thiểu lặp lại code.
 </details>
 
----
-
-## 🚨 MUST-KNOW
+## Nên biết
 
 - Box Model và Flexbox/Grid.
 - CSS Specificity.
 - Responsive Design với Media Queries.
 
-## ⚠️ Pitfalls
+## Lưu ý
 
 - Sử dụng `!important` quá nhiều (gây khó khăn khi ghi đè).
 - Đặt tên class quá chung chung (gây xung đột).
 - Quên không tối ưu CSS cho Mobile.
 
-## 🧩 Tips & Tricks
+## Tips & Tricks
 
 - Dùng `gap` cho Flexbox (đã hỗ trợ hầu hết trình duyệt hiện đại) thay vì margin.
 - Tận dụng `clamp()` để tạo font-size linh hoạt giữa các màn hình mà không cần quá nhiều media queries.
-
----
-*Biên soạn bởi Senior UI Engineer & Design System Expert.*

@@ -6,11 +6,9 @@ tags: [business, product, career, leadership, architecture]
 image: /prezet/img/ogimages/knowledge-vi-business-product-thinking.webp
 ---
 
-# 📌 Chủ đề: Business & Product Thinking
+> Một Senior Engineer không chỉ giải quyết các vấn đề kỹ thuật, mà còn phải biết giải quyết các vấn đề kinh doanh thông qua kỹ thuật.
 
-Một Senior Engineer không chỉ giải quyết các vấn đề kỹ thuật, mà còn phải biết giải quyết các vấn đề kinh doanh thông qua kỹ thuật.
-
-## 🟢 Cấp độ: Người mới bắt đầu (Beginner)
+## Người mới bắt đầu (Beginner)
 
 <details>
   <summary>Q1: Tại sao lập trình viên cần hiểu về Business (mô hình kinh doanh)?</summary>
@@ -88,9 +86,7 @@ Một Senior Engineer không chỉ giải quyết các vấn đề kỹ thuật,
   Để đảm bảo các bên (Dev, Design, Product, Client) hiểu đúng yêu cầu, tránh việc xây dựng sai thứ người dùng cần.
 </details>
 
----
-
-## 🟡 Cấp độ: Trung cấp (Intermediate)
+## Trung cấp (Intermediate)
 
 <details>
   <summary>Q1: Phân tích "Trade-off" (Sự đánh đổi) trong thiết kế hệ thống.</summary>
@@ -170,9 +166,7 @@ Một Senior Engineer không chỉ giải quyết các vấn đề kỹ thuật,
   Khả năng hệ thống tăng trưởng để phục vụ lượng khách hàng lớn hơn mà không cần tăng chi phí nhân sự/hạ tầng một cách tuyến tính.
 </details>
 
----
-
-## 🔴 Cấp độ: Nâng cao (Advanced)
+## Nâng cao (Advanced)
 
 <details>
   <summary>Q1: Chiến lược "Cost Optimization" trên Cloud (AWS/Azure/GCP).</summary>
@@ -209,9 +203,7 @@ Một Senior Engineer không chỉ giải quyết các vấn đề kỹ thuật,
   Phần mềm không bao giờ thực sự "xong". Nó là vòng lặp liên tục: Launch -> Measure -> Learn -> Iterate. Kỹ sư cần thiết kế kiến trúc sao cho việc "Iterate" (thay đổi) là dễ dàng nhất.
 </details>
 
----
-
-## 🧠 Cấp độ: Kiến trúc sư (Architect)
+## Kiến trúc sư (Architect)
 
 <details>
   <summary>Q1: Làm thế nào để đánh giá một công nghệ mới từ góc độ rủi ro kinh doanh?</summary>
@@ -245,9 +237,7 @@ Một Senior Engineer không chỉ giải quyết các vấn đề kỹ thuật,
   Kỹ sư chủ động đề xuất các giải pháp công nghệ tạo ra dòng tiền mới hoặc tiết kiệm chi phí vận hành khổng lồ, thay vì chỉ ngồi đợi nhận task từ Product Manager.
 </details>
 
----
-
-## 💻 Practical Scenarios (Phỏng vấn Senior/Architect)
+## Practical Scenarios (Phỏng vấn Senior/Architect)
 
 <details>
   <summary>S1: Sếp yêu cầu ra mắt tính năng mới trong 2 tuần, nhưng bạn biết cần ít nhất 1 tháng để làm đúng chuẩn. Bạn làm gì?</summary>
@@ -261,24 +251,19 @@ Một Senior Engineer không chỉ giải quyết các vấn đề kỹ thuật,
   **Xử lý:** 1. Audit lại toàn bộ tài nguyên (xóa các server rác, ổ cứng không dùng). 2. Kiểm tra log traffic để tìm các endpoint bị call vô tội vạ. 3. Áp dụng Caching và CDN để giảm tải server chính. 4. Xem xét Reserved Instances cho các server chạy 24/7.
 </details>
 
----
-
-## 🚨 MUST-KNOW
+## Nên biết
 
 - Hiểu rõ sự khác biệt giữa Business Value và Tech Style.
 - Biết cách tính toán ROI (Return on Investment) sơ bộ cho giải pháp kỹ thuật.
 - Kỹ năng đàm phán và quản lý kỳ vọng.
 
-## ⚠️ Pitfalls
+## Lưu ý
 
 - "Gold Plating": Dành quá nhiều thời gian làm những thứ hoàn hảo mà khách hàng không cần.
 - "Not Invented Here" Syndrome: Cái gì cũng muốn tự viết lại từ đầu thay vì dùng các giải pháp có sẵn.
 - Quên không tính toán chi phí vận hành lâu dài của một giải pháp.
 
-## 🧩 Tips & Tricks
+## Tips & Tricks
 
 - Luôn hỏi "TẠI SAO" chúng ta cần làm tính năng này trước khi bắt tay vào code.
 - Học cách đọc các chỉ số kinh doanh cơ bản (Churn rate, Retention, ARPU).
-
----
-*Biên soạn bởi Technical Co-founder & CTO.*

@@ -6,11 +6,9 @@ tags: [refactoring, clean-code, code-quality, code-review, architecture]
 image: /prezet/img/ogimages/knowledge-vi-refactoring-code-quality.webp
 ---
 
-# 📌 Chủ đề: Refactoring & Code Quality
+> Viết code chạy được là chưa đủ. Viết code mà đồng nghiệp (và chính bạn trong 6 tháng tới) có thể đọc, hiểu và sửa đổi mới là đẳng cấp của một kỹ sư thực thụ.
 
-Viết code chạy được là chưa đủ. Viết code mà đồng nghiệp (và chính bạn trong 6 tháng tới) có thể đọc, hiểu và sửa đổi mới là đẳng cấp của một kỹ sư thực thụ.
-
-## 🟢 Cấp độ: Người mới bắt đầu (Beginner)
+## Người mới bắt đầu (Beginner)
 
 <details>
   <summary>Q1: Refactoring là gì?</summary>
@@ -85,9 +83,7 @@ Viết code chạy được là chưa đủ. Viết code mà đồng nghiệp (v
   Giúp toàn bộ codebase trông như do một người viết duy nhất, giảm gánh nặng nhận thức khi đọc code của người khác.
 </details>
 
----
-
-## 🟡 Cấp độ: Trung cấp (Intermediate)
+## Trung cấp (Intermediate)
 
 <details>
   <summary>Q1: Phân tích các Code Smells phổ biến: Long Method, Large Class, Long Parameter List.</summary>
@@ -166,9 +162,7 @@ Viết code chạy được là chưa đủ. Viết code mà đồng nghiệp (v
   Khi hai class quá hiểu rõ và can thiệp sâu vào "chuyện riêng tư" (private data) của nhau. Cần tách biệt nhiệm vụ rõ ràng hơn.
 </details>
 
----
-
-## 🔴 Cấp độ: Nâng cao (Advanced)
+## Nâng cao (Advanced)
 
 <details>
   <summary>Q1: Refactoring Pattern: "Replace Conditional with Polymorphism".</summary>
@@ -240,9 +234,7 @@ Viết code chạy được là chưa đủ. Viết code mà đồng nghiệp (v
   Khi một hàm trong Class A liên tục truy cập dữ liệu của Class B để tính toán. Hãy chuyển hàm đó sang Class B (nơi chứa dữ liệu).
 </details>
 
----
-
-## 🧠 Cấp độ: Kiến trúc sư (Architect)
+## Kiến trúc sư (Architect)
 
 <details>
   <summary>Q1: Thiết kế quy trình "Engineering Excellence" cho một team 50 người.</summary>
@@ -272,9 +264,7 @@ Viết code chạy được là chưa đủ. Viết code mà đồng nghiệp (v
   Refactoring không phải là một task riêng biệt, nó là một phần không thể tách rời của việc viết code hàng ngày. Một task chỉ xong khi code đã được refactor sạch sẽ.
 </details>
 
----
-
-## 💻 Practical Scenarios (Thực chiến)
+## Tình huống thực tế (Practical Scenarios)
 
 <details>
   <summary>S1: Bạn nhận một project "Spaghetti code" khổng lồ và được yêu cầu thêm tính năng mới gấp. Cách tiếp cận?</summary>
@@ -288,24 +278,19 @@ Viết code chạy được là chưa đủ. Viết code mà đồng nghiệp (v
   **Xử lý:** Đưa ra các ví dụ cụ thể về việc code này sẽ khó bảo trì thế nào. Đề xuất một cách viết khác (ví dụ dùng Early Return thay vì If/Else lồng nhau) và giải thích lợi ích.
 </details>
 
----
-
-## 🚨 MUST-KNOW
+## Nên biết
 
 - Nguyên lý DRY, KISS, YAGNI.
 - Các Code Smells cơ bản (Long method, Magic numbers).
 - Quy trình Code Review chuyên nghiệp.
 
-## ⚠️ Pitfalls
+## Lưu ý
 
 - "Over-refactoring": Sửa code quá mức cần thiết dẫn đến trễ deadline mà không mang lại giá trị thực tế.
 - Refactor mà không có Unit Test bảo vệ (cực kỳ rủi ro).
 - Áp dụng Design Patterns quá sớm khi bài toán chưa yêu cầu.
 
-## 🧩 Tips & Tricks
+## Tips & Tricks
 
 - Dùng kỹ thuật "Early Return" (Guard Clauses) để xóa bỏ các tầng `if/else` lồng nhau.
 - Sử dụng công cụ `PHP CS Fixer` để tự động định dạng code theo chuẩn.
-
----
-*Biên soạn bởi Senior Software Architect & Clean Code Evangelist.*
