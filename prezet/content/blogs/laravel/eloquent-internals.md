@@ -36,7 +36,7 @@ Lỗi N+1 xảy ra khi bạn truy cập quan hệ mà không khai báo trước.
 1. **Lazy Loading:** Mỗi lần bạn gọi `$user->posts`, một câu query mới được bắn vào DB. Nếu có 100 user, bạn có 100 query.
 2. **Eager Loading (`with`):** Laravel thu thập tất cả ID của user, sau đó chỉ chạy **duy nhất 1 câu query** với toán tử `WHERE IN (id1, id2, ...)`. Sau đó, nó map kết quả vào từng user object bằng cách duyệt mảng trong PHP. Tốc độ PHP xử lý mảng nhanh hơn hàng nghìn lần so với round-trip tới Database.
 
-## 5. Quizz cho phỏng vấn Senior
+## 5.Câu hỏi nhanh
 
 **Câu hỏi:** Tại sao việc sử dụng `update(['status' => 'active'])` trên một Builder (`User::where(...)->update(...)`) lại không kích hoạt các Eloquent Observers như `updated` hay `updating`?
 

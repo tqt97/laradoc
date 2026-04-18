@@ -45,7 +45,7 @@ Nếu hàm của bạn nhận vào 5-7 tham số (`$name, $email, $phone, $addre
 
 Đừng đợi đến khi có một đợt tổng refactor lớn (thường sẽ không bao giờ xảy ra). Hãy áp dụng **Surgical Refactoring**: mỗi khi bạn chạm vào một đoạn code cũ để sửa bug, hãy dành 5-10 phút để làm nó "sạch" hơn một chút.
 
-## 4. Quizz cho phỏng vấn Senior
+## 4.Câu hỏi nhanh
 
 **Câu hỏi:** Bạn được giao refactor một module core đang chạy trên Production nhưng không hề có Unit Test. Bạn sẽ làm gì để đảm bảo an toàn?
 

@@ -48,7 +48,7 @@ JIT là bước tiến lớn nhất của PHP 8. Thay vì để máy ảo Zend V
 - **Lợi ích:** Cực kỳ mạnh cho các tác vụ tính toán (CPU-bound) như xử lý ảnh, AI, mã hóa.
 - **Lưu ý:** Với các app Web thông thường (IO-bound - đợi DB/Mạng), JIT không mang lại nhiều khác biệt vì nút thắt nằm ở Database chứ không phải ở PHP.
 
-## 5. Quizz cho phỏng vấn Senior
+## 5.Câu hỏi nhanh
 
 **Câu hỏi:** Tại sao việc lạm dụng tham chiếu (`&$variable`) trong PHP 7+ đôi khi lại làm code chạy **chậm hơn** so với truyền giá trị thông thường?
 

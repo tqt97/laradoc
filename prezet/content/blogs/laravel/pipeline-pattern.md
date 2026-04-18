@@ -78,7 +78,7 @@ public function handle($order, $next)
 - **Dễ Unit Test:** Bạn có thể test từng Pipe một cách cô lập.
 - **Code "Sạch":** Hàm chính của bạn cực kỳ ngắn gọn và mang tính khai báo (Declarative).
 
-## 5. Quizz cho phỏng vấn Senior
+## 5.Câu hỏi nhanh
 
 **Câu hỏi:** Điều gì xảy ra nếu một "Pipe" không gọi hàm `$next($passable)` mà trả về kết quả ngay lập tức?
 

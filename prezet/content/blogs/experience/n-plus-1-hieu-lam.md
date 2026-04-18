@@ -1,7 +1,7 @@
 ---
 title: "N+1 Query: Những hiểu lầm tai hại và cách giải quyết triệt để"
 excerpt: Phân tích lỗi N+1 Query trong Laravel Eloquent, tại sao Eager Loading đôi khi vẫn chậm và các kỹ thuật nâng cao để tối ưu hóa hiệu năng Database.
-date: 2026-04-18
+date: 2026-04-12
 category: Kinh nghiệm
 image: /prezet/img/ogimages/blogs-experience-n-plus-1-hieu-lam.webp
 tags: [laravel, n+1-query, eloquent, database, performance, optimization]
@@ -62,7 +62,7 @@ public function boot()
 
 Trong môi trường Dev, Laravel sẽ **ném ra Exception** ngay lập tức nếu bạn quên không dùng `with()`. Đây là cách tốt nhất để rèn luyện kỷ luật viết code.
 
-## 5. Quizz cho phỏng vấn Senior
+## 5.Câu hỏi nhanh
 
 **Câu hỏi:** Làm thế nào để giải quyết N+1 khi bạn cần lấy "Bài viết mới nhất" của mỗi User trong danh sách 1000 người? (Lưu ý: `with('latestPost')` vẫn sẽ nạp rất nhiều dữ liệu không cần thiết).
 

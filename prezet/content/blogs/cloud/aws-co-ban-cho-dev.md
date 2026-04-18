@@ -44,7 +44,7 @@ Bạn chỉ viết code (function), AWS tự lo việc chạy code đó khi có 
 - **Nguyên tắc:** Luôn dùng **IAM Roles** thay vì Access Keys.
 - Nếu ứng dụng chạy trên EC2 cần truy cập S3, hãy gán Role cho EC2 đó. Bạn không cần phải lưu mã bí mật (`AWS_SECRET_KEY`) vào file `.env`, giảm thiểu rủi ro bị lộ key lên Github.
 
-## 6. Quizz cho phỏng vấn Senior
+## 6.Câu hỏi nhanh
 
 **Câu hỏi:** Làm thế nào để bảo mật các file "nhạy cảm" (ví dụ: hóa đơn khách hàng) trên S3 mà không cần để file ở chế độ Public?
 

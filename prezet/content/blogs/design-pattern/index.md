@@ -53,54 +53,34 @@ Ví dụ: QuickSort, Binary Search
 
 ### 4.1 Creational Patterns (Nhóm khởi tạo)
 
-| Pattern          | Mô tả ngắn                  |
-| ---------------- | --------------------------- |
-| Singleton        | Đảm bảo chỉ có 1 instance   |
-| Factory Method   | Tạo object thông qua method |
-| Abstract Factory | Tạo họ object liên quan     |
-| Builder          | Xây dựng object từng bước   |
-| Prototype        | Clone object có sẵn         |
-
-**Khi dùng:**
-
-- Khi việc khởi tạo object phức tạp
-- Khi cần control cách object được tạo
+| Pattern          | Mô tả ngắn                  | Link |
+| ---------------- | --------------------------- | ---- |
+| Singleton        | Đảm bảo chỉ có 1 instance   | [Xem chi tiết](/blogs/design-pattern/singleton-pattern-in-laravel) |
+| Factory Method   | Tạo object thông qua method | [Xem chi tiết](/blogs/design-pattern/factory-method-pattern) |
+| Abstract Factory | Tạo họ object liên quan     | [Xem chi tiết](/blogs/design-pattern/abstract-factory-pattern) |
+| Builder          | Xây dựng object phức tạp    | [Xem chi tiết](/blogs/design-pattern/builder-pattern-deep-dive) |
+| Prototype        | Clone đối tượng linh hoạt   | [Xem chi tiết](/blogs/design-pattern/prototype-pattern) |
 
 ### 4.2 Structural Patterns (Nhóm cấu trúc)
 
-| Pattern   | Mô tả ngắn                               |
-| --------- | ---------------------------------------- |
-| Adapter   | Chuyển interface không tương thích       |
-| Bridge    | Tách abstraction và implementation       |
-| Composite | Cấu trúc dạng cây                        |
-| Decorator | Mở rộng hành vi runtime                  |
-| Facade    | Interface đơn giản cho hệ thống phức tạp |
-| Flyweight | Tối ưu memory                            |
-| Proxy     | Đại diện cho object khác                 |
-
-**Khi dùng:**
-
-- Khi cần tổ chức hệ thống lớn
-- Khi muốn giảm coupling giữa các module
+| Pattern   | Mô tả ngắn                               | Link |
+| --------- | ---------------------------------------- | ---- |
+| Adapter   | Chuyển interface không tương thích       | [Xem chi tiết](/blogs/design-pattern/adapter-pattern-integration) |
+| Composite | Xử lý cấu trúc cây                       | [Xem chi tiết](/blogs/design-pattern/composite-pattern) |
+| Decorator | Mở rộng hành vi runtime                  | [Xem chi tiết](/blogs/design-pattern/decorator-pattern-real-world) |
+| Facade    | Interface đơn giản cho hệ thống phức tạp | [Xem chi tiết](/blogs/design-pattern/facade-pattern) |
+| Proxy     | Đại diện ủy quyền                         | [Xem chi tiết](/blogs/design-pattern/proxy-pattern) |
 
 ### 4.3 Behavioral Patterns (Nhóm hành vi)
 
-| Pattern                 | Mô tả ngắn                       |
-| ----------------------- | -------------------------------- |
-| Observer                | Lắng nghe và notify              |
-| Strategy                | Thay đổi thuật toán runtime      |
-| Command                 | Đóng gói request thành object    |
-| Chain of Responsibility | Xử lý theo chuỗi                 |
-| State                   | Thay đổi hành vi theo trạng thái |
-| Mediator                | Trung gian giao tiếp             |
-| Iterator                | Duyệt collection                 |
-| Template Method         | Định nghĩa skeleton              |
-| Visitor                 | Tách logic khỏi object           |
-
-**Khi dùng:**
-
-- Khi logic phức tạp
-- Khi cần tách biệt hành vi
+| Pattern                 | Mô tả ngắn                       | Link |
+| ----------------------- | -------------------------------- | ---- |
+| Observer                | Lắng nghe và notify              | [Xem chi tiết](/blogs/design-pattern/observer-pattern-laravel-events) |
+| Strategy                | Thay đổi thuật toán runtime      | [Xem chi tiết](/blogs/design-pattern/strategy-pattern) |
+| Command                 | Đóng gói tác vụ thành đối tượng  | [Xem chi tiết](/blogs/design-pattern/command-pattern) |
+| Chain of Responsibility | Chuỗi xử lý Middleware           | [Xem chi tiết](/blogs/design-pattern/chain-of-responsibility) |
+| State                   | Thay đổi hành vi theo trạng thái | [Xem chi tiết](/blogs/design-pattern/state-pattern) |
+| Template Method         | Định nghĩa bộ khung xử lý        | [Xem chi tiết](/blogs/design-pattern/template-method-pattern) |
 
 ## 5. Tổng kết
 

@@ -39,7 +39,7 @@ User::whereRaw("id = ?", [$id])->get();
 
 - **Validation:** Đừng bao giờ tin tưởng dữ liệu từ Request. Luôn luôn sử dụng `request()->validate()`.
 
-## 4. Quizz cho phỏng vấn Senior
+## 4.Câu hỏi nhanh
 
 **Câu hỏi:** Tại sao Prepared Statements (PDO Parameter Binding) lại có thể ngăn chặn hoàn toàn SQL Injection?
 

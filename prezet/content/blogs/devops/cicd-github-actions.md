@@ -70,7 +70,7 @@ jobs:
             php artisan up
 ```
 
-## 4. Quizz cho phỏng vấn Senior
+## 4.Câu hỏi nhanh
 
 **Câu hỏi:** Làm thế nào để thực hiện **Zero-downtime Deployment** bằng Github Actions mà không dùng các công cụ đắt tiền như Envoyer hay Deployer?
 

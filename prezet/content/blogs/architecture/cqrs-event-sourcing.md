@@ -39,7 +39,7 @@ CQRS và Event Sourcing thường đi đôi với nhau:
 2. Một tiến trình ngầm (Worker) lắng nghe Event này và cập nhật dữ liệu vào **Read Database** (ví dụ mảng phẳng trong MySQL hoặc NoSQL).
 3. Ứng dụng chỉ việc Query từ Read Database để hiển thị cho người dùng cực nhanh.
 
-## 4. Quizz cho phỏng vấn Senior
+## 4.Câu hỏi nhanh
 
 **Câu hỏi:** Nhược điểm lớn nhất của sự kết hợp CQRS + Event Sourcing là gì?
 

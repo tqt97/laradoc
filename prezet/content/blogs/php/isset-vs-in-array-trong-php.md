@@ -2,7 +2,7 @@
 title: isset() vs in_array() trong PHP
 excerpt: Bài viết này giải thích sâu về bản chất của `isset()` và `in_array()` trong PHP
 date: 2026-03-05
-category: php
+category: PHP
 image: /prezet/img/ogimages/blogs-php-isset-vs-in-array-trong-php.webp
 tags: [php]
 ---

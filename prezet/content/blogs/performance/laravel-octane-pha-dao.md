@@ -38,7 +38,7 @@ Nếu bạn thêm một phần tử vào mảng `static` trong class ở mỗi r
 
 Hãy tưởng tượng User A đăng nhập, bạn lưu thông tin user vào một Singleton Service. Request của User B đến ngay sau đó và Worker đó vẫn đang giữ dữ liệu của User A. User B bỗng dưng thấy mình đang ở trong tài khoản của User A. **Cực kỳ nguy hiểm!**
 
-## 4. Quizz cho phỏng vấn Senior
+## 4.Câu hỏi nhanh
 
 **Câu hỏi:** Làm thế nào để đảm bảo một Singleton Service trong Laravel Octane được "reset" lại trạng thái sau mỗi request?
 

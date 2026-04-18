@@ -48,7 +48,7 @@ Terraform lưu trạng thái hạ tầng vào một file gọi là `terraform.tf
 - **Lưu ý quan trọng:** Đừng bao giờ sửa file này bằng tay.
 - **Tip Senior:** Trong môi trường làm việc nhóm, hãy lưu file State này trên **S3** và bật tính năng **State Locking** bằng DynamoDB để tránh trường hợp 2 người cùng chạy lệnh một lúc gây xung đột.
 
-## 5. Quizz cho phỏng vấn Senior
+## 5.Câu hỏi nhanh
 
 **Câu hỏi:** Phân biệt sự khác biệt giữa **Terraform** và các công cụ quản lý cấu hình như **Ansible**?
 

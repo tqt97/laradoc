@@ -1,7 +1,7 @@
 ---
 title: "Xử lý Race Condition trong hệ thống thanh toán: Từ lý thuyết đến thực chiến"
 excerpt: Chia sẻ kinh nghiệm xương máu về lỗi trùng lặp giao dịch (Race Condition), phân tích các kỹ thuật Locking trong Database và cách sử dụng Redis Distributed Lock để bảo vệ hệ thống.
-date: 2026-04-18
+date: 2026-01-18
 category: Kinh nghiệm
 image: /prezet/img/ogimages/blogs-experience-race-condition-thanh-toan.webp
 tags: [race-condition, database, locking, payment-system, concurrency, redis]
@@ -82,7 +82,7 @@ if ($lock) {
 }
 ```
 
-## 5. Quizz cho phỏng vấn Senior
+## 5.Câu hỏi nhanh
 
 **Câu hỏi:** Tại sao chúng ta cần thời gian hết hạn (TTL/Expiration) cho khóa trong Redis (`EX 10` ở ví dụ trên)?
 

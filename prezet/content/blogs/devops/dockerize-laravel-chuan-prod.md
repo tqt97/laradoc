@@ -61,7 +61,7 @@ USER www-data
 - **Không chạy bằng Root:** Luôn khai báo `USER www-data` để hạn chế quyền hạn của tiến trình PHP nếu container bị chiếm quyền điều khiển.
 - **.dockerignore:** Cực kỳ quan trọng! Hãy liệt kê `.git`, `node_modules`, `tests`, `storage/logs` vào đây để Docker không copy những thứ thừa thãi vào image.
 
-## 4. Quizz cho phỏng vấn Senior
+## 4.Câu hỏi nhanh
 
 **Câu hỏi:** Tại sao chúng ta không nên chạy lệnh `php artisan migrate` bên trong `Dockerfile` hoặc trong bước khởi động của Container (Entrypoint) khi chạy trên một cụm máy chủ (như Kubernetes)?
 

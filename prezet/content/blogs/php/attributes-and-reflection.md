@@ -50,7 +50,7 @@ Attributes là linh hồn của các Framework hiện đại.
 - **Symfony:** Dùng cực kỳ nhiều cho Dependency Injection, Routing, Serializer.
 - **Custom Framework:** Bạn có thể tự viết một hệ thống "Auto-wire" dựa trên Attributes để tự động đăng ký các class vào Container.
 
-## 5. Quizz cho phỏng vấn Senior
+## 5.Câu hỏi nhanh
 
 **Câu hỏi:** Việc sử dụng Reflection API và Attributes ở Runtime có làm chậm ứng dụng không? Làm thế nào để tối ưu?
 

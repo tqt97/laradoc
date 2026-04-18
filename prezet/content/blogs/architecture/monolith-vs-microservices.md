@@ -31,7 +31,7 @@ Chia ứng dụng thành các dịch vụ nhỏ, độc lập, giao tiếp qua A
 2. **Nhu cầu Scale đặc thù:** Một phần của hệ thống cần tài nguyên gấp 100 lần các phần khác.
 3. **Độ cô lập cao:** Bạn muốn một lỗi ở module này tuyệt đối không được ảnh hưởng đến module kia.
 
-## 4. Quizz cho phỏng vấn Senior
+## 4.Câu hỏi nhanh
 
 **Câu hỏi:** Làm thế nào để đảm bảo tính nhất quán của dữ liệu (Data Consistency) khi một hành động nghiệp vụ cần cập nhật dữ liệu ở 2 Microservices khác nhau (ví dụ: Trừ tiền ở Service Ví và Tạo đơn ở Service Đơn hàng)?
 

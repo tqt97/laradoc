@@ -44,7 +44,7 @@
 
                 @if ($paginator->hasPages())
                     <div class="mt-24 border-t border-zinc-100 dark:border-zinc-800 pt-16">
-                        {{ $paginator->links() }}
+                        {{ $paginator->withQueryString()->links() }}
                     </div>
                 @endif
             </main>

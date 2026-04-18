@@ -1,7 +1,7 @@
 ---
 title: "Thuật toán cho Web Developer: Khi nào cần O(1) thay vì O(n)?"
 excerpt: Khám phá cách các thuật toán kinh điển như Sorting, HashMap và Caching được ứng dụng thực tế để giải quyết các vấn đề về hiệu năng trong phát triển Web hiện đại.
-date: 2026-04-18
+date: 2025-04-18
 category: Algorithms
 image: /prezet/img/ogimages/blogs-algorithms-thuat-toan-cho-web-dev.webp
 tags: [algorithms, php, computer-science, problem-solving, performance, hashmap]
@@ -11,7 +11,7 @@ Nhiều web dev nghĩ rằng thuật toán chỉ để "vượt qua phỏng vấ
 
 ## 1. Mảng (Array) vs Hash Map: Cuộc chiến O(n) và O(1)
 
-Trong PHP, mọi mảng thực chất là một Hash Map (HashTable). 
+Trong PHP, mọi mảng thực chất là một Hash Map (HashTable).
 
 - **Vấn đề:** Bạn có 10.000 sản phẩm và cần kiểm tra xem sản phẩm có ID là 500 có tồn tại không.
 - **Cách tệ (O(n)):** `in_array(500, $productIds)`. PHP sẽ lặp qua từng phần tử. Nếu xui xẻo, nó phải lặp 10.000 lần.
