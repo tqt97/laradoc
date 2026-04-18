@@ -275,7 +275,7 @@ image: /prezet/img/ogimages/knowledge-vi-debugging-troubleshooting.webp
 - Debug trực tiếp trên Production mà không có phương án dự phòng.
 - Bỏ qua các cảnh báo Warning/Notice (chúng thường là khởi đầu của lỗi Error).
 
-## Tips & Tricks
+## Mẹo và thủ thuật
 
 - Luôn kiểm tra những thứ đơn giản nhất trước (sai chính tả, thiếu dấu `;`, sai file cấu hình).
 - Sử dụng `git checkout .` để xóa hết các thay đổi thử nghiệm sau khi debug xong mà không tìm ra lỗi.

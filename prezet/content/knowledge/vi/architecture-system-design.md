@@ -322,7 +322,7 @@ image: /prezet/img/ogimages/knowledge-vi-architecture-system-design.webp
 * Quên không xử lý lỗi mạng giữa các service (Network is unreliable).
 * Database trở thành nút thắt cổ chai do join quá nhiều bảng.
 
-## Tips & Tricks
+## Mẹo và thủ thuật
 
 * Luôn thiết kế hệ thống theo hướng **Stateless** ngay từ đầu.
 * Sử dụng **Feature Flags** để bật/tắt tính năng mới mà không cần deploy lại.

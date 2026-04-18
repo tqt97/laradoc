@@ -330,7 +330,7 @@ image: /prezet/img/ogimages/knowledge-vi-queue-caching-session.webp
 - Không đặt timeout cho Queue Job (làm nghẽn worker mãi mãi).
 - Tin tưởng tuyệt đối vào Cache (Cache có thể sập bất cứ lúc nào).
 
-## Tips & Tricks
+## Mẹo và thủ thuật
 
 - Luôn dùng `Redis::pipeline()` hoặc `transaction()` khi cần thực hiện nhiều lệnh Redis cùng lúc để giảm độ trễ mạng.
 - Sử dụng `tags` trong Laravel Cache để dễ dàng xóa một nhóm các key liên quan.

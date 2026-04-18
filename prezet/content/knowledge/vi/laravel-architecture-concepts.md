@@ -324,7 +324,7 @@ image: /prezet/img/ogimages/knowledge-vi-laravel-architecture-concepts.webp
 * Lạm dụng Facades dẫn đến code khó test và phụ thuộc quá nhiều vào Framework.
 * Quên không đăng ký Service Provider mới vào `config/app.php` (hoặc `bootstrap/providers.php`).
 
-## Tips & Tricks
+## Mẹo và thủ thuật
 
 * Dùng lệnh `php artisan about` để xem danh sách các providers và cấu hình hệ thống.
 * Sử dụng `Container::getInstance()` để truy cập container ở bất kỳ đâu nếu không có helper.

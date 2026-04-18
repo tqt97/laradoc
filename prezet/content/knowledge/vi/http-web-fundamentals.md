@@ -326,7 +326,7 @@ image: /prezet/img/ogimages/knowledge-vi-http-web-fundamentals.webp
 - Không cấu hình HSTS dẫn đến rủi ro bị hạ cấp xuống HTTP (SSL Stripping).
 - Lưu thông tin nhạy cảm vào JWT Payload mà không mã hóa.
 
-## Tips & Tricks
+## Mẹo và thủ thuật
 
 - Dùng `Vary: Accept-Encoding` header để tránh lỗi cache file nén cho trình duyệt không hỗ trợ.
 - Sử dụng `Brotli` compression thay cho `Gzip` để đạt tỷ lệ nén tốt hơn 15-20%.

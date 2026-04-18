@@ -328,7 +328,7 @@ image: /prezet/img/ogimages/knowledge-vi-laravel-the-basics.webp
 * Viết quá nhiều logic nghiệp vụ (tính toán, query DB) ngay trong file Route.
 * Sử dụng biến không tồn tại trong Blade dẫn đến lỗi crash trang.
 
-## Tips & Tricks
+## Mẹo và thủ thuật
 
 * Dùng lệnh `php artisan route:list` thường xuyên để kiểm soát các đường dẫn của ứng dụng.
 * Sử dụng directive `@auth` và `@guest` để hiện nội dung theo trạng thái đăng nhập một cách gọn gàng.

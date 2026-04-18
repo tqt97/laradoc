@@ -369,7 +369,7 @@ image: /prezet/img/ogimages/knowledge-vi-php-fundamentals-oop.webp
 - Quên kiểm tra `isset()` trước khi truy cập phần tử mảng.
 - Không sử dụng Prepared Statements khi query DB (SQL Injection).
 
-## Tips & Tricks
+## Mẹo và thủ thuật
 
 - Luôn dùng `strict_types=1` để bắt lỗi kiểu dữ liệu sớm.
 - Tận dụng Opcache để tăng tốc độ thực thi lên gấp nhiều lần.

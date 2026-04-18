@@ -308,7 +308,7 @@ image: /prezet/img/ogimages/knowledge-vi-observability-monitoring.webp
 - Đặt cảnh báo quá nhạy dẫn đến "nhiễu" cảnh báo.
 - Chỉ giám sát App mà quên giám sát Hạ tầng (CPU, Disk, Network).
 
-## Tips & Tricks
+## Mẹo và thủ thuật
 
 - Luôn đính kèm ngữ cảnh (Context) vào log: User ID, Request ID, IP.
 - Dùng `Log::channel()` trong Laravel để tách biệt các loại log khác nhau vào các file/server khác nhau.

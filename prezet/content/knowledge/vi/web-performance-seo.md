@@ -346,7 +346,7 @@ image: /prezet/img/ogimages/knowledge-vi-web-performance-seo.webp
 - Chèn các script quảng cáo trực tiếp vào `<head>` mà không dùng `async/defer`.
 - Bỏ qua dung lượng ảnh trên Mobile.
 
-## Tips & Tricks
+## Mẹo và thủ thuật
 
 - Luôn kiểm tra trang web trên mạng "Slow 3G" để thấy nỗi đau của người dùng.
 - Dùng `purgecss` để tự động xóa bỏ toàn bộ CSS thừa không được sử dụng trong codebase.

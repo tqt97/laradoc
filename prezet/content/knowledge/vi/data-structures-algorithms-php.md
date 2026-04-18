@@ -326,7 +326,7 @@ image: /prezet/img/ogimages/knowledge-vi-data-structures-algorithms-php.webp
 - Dùng mảng PHP làm Stack/Queue cho dữ liệu khổng lồ (tốn RAM không cần thiết).
 - Quên rằng `in_array()` là O(n), trong khi `isset($map[$key])` là O(1).
 
-## Tips & Tricks
+## Mẹo và thủ thuật
 
 - Luôn ưu tiên dùng các hàm có sẵn của PHP (đã được tối ưu bằng C) thay vì tự viết lại thuật toán bằng PHP.
 - Dùng thư viện `Spl` (Standard PHP Library) khi cần các cấu trúc dữ liệu chuẩn như `SplStack`, `SplQueue`, `SplPriorityQueue`.

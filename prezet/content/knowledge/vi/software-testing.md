@@ -293,7 +293,7 @@ image: /prezet/img/ogimages/knowledge-vi-software-testing.webp
 - Không test các trường hợp lỗi (Edge cases).
 - Coi Code Coverage là mục tiêu duy nhất.
 
-## Tips & Tricks
+## Mẹo và thủ thuật
 
 - Dùng `dump()` hoặc `dd()` ngay trong test để debug dữ liệu response.
 - Sử dụng thư viện `Faker` để tạo dữ liệu ngẫu nhiên nhưng hợp lệ.

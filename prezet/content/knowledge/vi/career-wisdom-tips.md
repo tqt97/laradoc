@@ -115,7 +115,7 @@ image: /prezet/img/ogimages/knowledge-vi-career-wisdom-tips.webp
   Chấp nhận rằng kiến thức là vô tận và bạn không thể biết hết mọi thứ. Tập trung vào giá trị bạn mang lại và khả năng học hỏi không ngừng. Càng lên cao, bạn càng thấy mình biết ít đi - đó là dấu hiệu của sự trưởng thành.
 </details>
 
-## Tips & Tricks (Practical Wisdom)
+## Mẹo và thủ thuật (Practical Wisdom)
 
 <details>
   <summary>T1: Mẹo tối ưu hóa bộ nhớ khi xử lý mảng lớn trong PHP.</summary>

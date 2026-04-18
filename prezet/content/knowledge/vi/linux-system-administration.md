@@ -317,7 +317,7 @@ image: /prezet/img/ogimages/knowledge-vi-linux-system-administration.webp
 - Chỉnh sửa file cấu hình mà không backup file cũ.
 - Để server Production chạy bằng user `root`.
 
-## Tips & Tricks
+## Mẹo và thủ thuật
 
 - Dùng phím `Tab` để tự động hoàn thành lệnh/đường dẫn.
 - Sử dụng `alias` để tạo các lệnh ngắn gọn cho những tổ hợp lệnh dài hay dùng.

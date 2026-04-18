@@ -343,7 +343,7 @@ image: /prezet/img/ogimages/knowledge-vi-php-advanced-internals.webp
 - Quên rằng biến trong vòng lặp `foreach` (`&$item`) vẫn tồn tại sau khi vòng lặp kết thúc (gây lỗi logic nghiêm trọng).
 - Không cấu hình giới hạn tài nguyên cho PHP-FPM dẫn đến sập cả Server.
 
-## Tips & Tricks
+## Mẹo và thủ thuật
 
 - Sử dụng `password_hash()` thay vì tự chế thuật toán băm mật khẩu.
 - Dùng `Generator` khi đọc file CSV hàng triệu dòng để RAM luôn ổn định ở mức vài MB.

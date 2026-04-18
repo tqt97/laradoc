@@ -296,7 +296,7 @@ image: /prezet/img/ogimages/knowledge-vi-api-design.webp
 - Không có tài liệu (Document) hoặc tài liệu sai lệch với code.
 - Để lộ thông tin nhạy cảm (như mật khẩu, token) trong URL.
 
-## Tips & Tricks
+## Mẹo và thủ thuật
 
 - Luôn sử dụng `Snake_case` hoặc `camelCase` thống nhất cho toàn bộ API.
 - Dùng `UUID` thay vì `Auto-increment ID` trong URL để bảo mật thông tin.

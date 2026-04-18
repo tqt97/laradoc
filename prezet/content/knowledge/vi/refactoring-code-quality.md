@@ -290,7 +290,7 @@ image: /prezet/img/ogimages/knowledge-vi-refactoring-code-quality.webp
 - Refactor mà không có Unit Test bảo vệ (cực kỳ rủi ro).
 - Áp dụng Design Patterns quá sớm khi bài toán chưa yêu cầu.
 
-## Tips & Tricks
+## Mẹo và thủ thuật
 
 - Dùng kỹ thuật "Early Return" (Guard Clauses) để xóa bỏ các tầng `if/else` lồng nhau.
 - Sử dụng công cụ `PHP CS Fixer` để tự động định dạng code theo chuẩn.

@@ -337,7 +337,7 @@ image: /prezet/img/ogimages/knowledge-vi-laravel-database.webp
 - Filter dữ liệu bằng Collection (`->filter()`) thay vì bằng Query (`->where()`) - làm chậm app cực lớn vì phải load hết data về PHP.
 - Không đánh index cho các cột thường xuyên nằm trong điều kiện WHERE.
 
-## Tips & Tricks
+## Mẹo và thủ thuật
 
 - Dùng `toSql()` để xem câu lệnh SQL thực tế mà Eloquent sinh ra.
 - Sử dụng `exists()` thay vì `count() > 0` để kiểm tra sự tồn tại (nhanh hơn nhiều).

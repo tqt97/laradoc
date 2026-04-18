@@ -338,7 +338,7 @@ image: /prezet/img/ogimages/knowledge-vi-laravel-architecture-deep-dive.webp
 - Quên không `unset` các reference lớn trong Octane (gây leak).
 - Resolve Container quá nhiều lần trong 1 vòng lặp (nên dùng injection hoặc resolve 1 lần).
 
-## Tips & Tricks
+## Mẹo và thủ thuật
 
 - Dùng `app()->make(ClassName::class)` thay vì `new ClassName()` để tận dụng sức mạnh của Container.
 - Sử dụng `resolving` callback để log/debug các dependency được nạp vào hệ thống.

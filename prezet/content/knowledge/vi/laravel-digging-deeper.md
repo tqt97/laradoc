@@ -328,7 +328,7 @@ image: /prezet/img/ogimages/knowledge-vi-laravel-digging-deeper.webp
 - Lưu trữ các object quá lớn (như Model đầy đủ) vào Queue Payload thay vì chỉ lưu ID.
 - Dùng `Sync` driver trên Production (làm treo request người dùng).
 
-## Tips & Tricks
+## Mẹo và thủ thuật
 
 - Dùng `Collection::make()` để biến bất kỳ mảng nào thành Collection và tận dụng các hàm tiện ích.
 - Tận dụng `Cache::remember()` để gộp lệnh kiểm tra và nạp cache vào làm một, code sạch hơn rất nhiều.

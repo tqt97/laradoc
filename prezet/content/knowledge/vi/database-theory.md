@@ -342,7 +342,7 @@ image: /prezet/img/ogimages/knowledge-vi-database-theory.webp
 - Sử dụng `SELECT *` trong code (tốn bandwidth và RAM).
 - Quên không đóng kết nối database (gây lỗi "Too many connections").
 
-## Tips & Tricks
+## Mẹo và thủ thuật
 
 - Luôn sử dụng `EXPLAIN` cho mọi câu query quan trọng.
 - Sử dụng `Integer` làm khóa chính thay vì `String` (UUID) nếu có thể để tối ưu index.

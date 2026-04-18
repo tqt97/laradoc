@@ -361,7 +361,7 @@ image: /prezet/img/ogimages/knowledge-vi-laravel-security.webp
 - Để `APP_DEBUG=true` trên môi trường Production (lộ toàn bộ cấu trúc code khi lỗi).
 - Quên không phân quyền cho các API endpoints.
 
-## Tips & Tricks
+## Mẹo và thủ thuật
 
 - Luôn dùng `password_verify()` của PHP (hoặc `Hash::check()` của Laravel) để so sánh mật khẩu.
 - Tận dụng `Can` middleware trực tiếp trong Route: `middleware('can:update,post')`.

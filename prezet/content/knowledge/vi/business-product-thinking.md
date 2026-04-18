@@ -263,7 +263,7 @@ image: /prezet/img/ogimages/knowledge-vi-business-product-thinking.webp
 - "Not Invented Here" Syndrome: Cái gì cũng muốn tự viết lại từ đầu thay vì dùng các giải pháp có sẵn.
 - Quên không tính toán chi phí vận hành lâu dài của một giải pháp.
 
-## Tips & Tricks
+## Mẹo và thủ thuật
 
 - Luôn hỏi "TẠI SAO" chúng ta cần làm tính năng này trước khi bắt tay vào code.
 - Học cách đọc các chỉ số kinh doanh cơ bản (Churn rate, Retention, ARPU).

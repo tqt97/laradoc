@@ -409,7 +409,7 @@ image: /prezet/img/ogimages/knowledge-vi-js-react-core.webp
 - Thay đổi trực tiếp (mutate) state thay vì dùng `setState`.
 - Sử dụng index làm key trong danh sách có thể thay đổi thứ tự.
 
-## Tips & Tricks
+## Mẹo và thủ thuật
 
 - Dùng `Optional Chaining` (`?.`) để tránh lỗi crash trang khi dữ liệu bị NULL.
 - Tận dụng `Strict Mode` để phát hiện các side effects không mong muốn trong quá trình phát triển.

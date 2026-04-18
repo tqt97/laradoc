@@ -309,7 +309,7 @@ image: /prezet/img/ogimages/knowledge-vi-css-ui-engineering.webp
 - Đặt tên class quá chung chung (gây xung đột).
 - Quên không tối ưu CSS cho Mobile.
 
-## Tips & Tricks
+## Mẹo và thủ thuật
 
 - Dùng `gap` cho Flexbox (đã hỗ trợ hầu hết trình duyệt hiện đại) thay vì margin.
 - Tận dụng `clamp()` để tạo font-size linh hoạt giữa các màn hình mà không cần quá nhiều media queries.

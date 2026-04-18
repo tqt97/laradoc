@@ -333,7 +333,7 @@ image: /prezet/img/ogimages/knowledge-vi-aws-devops-cloud.webp
 - Để lộ AWS Access Key trong mã nguồn đẩy lên Github.
 - Không giới hạn Resource (CPU/RAM) cho Container dẫn đến 1 container làm sập cả máy host.
 
-## Tips & Tricks
+## Mẹo và thủ thuật
 
 - Luôn sử dụng `.dockerignore` để tránh copy `node_modules` hoặc `.git` vào image, giúp giảm size image đáng kể.
 - Sử dụng `Healthcheck` trong Docker để Load Balancer tự động loại bỏ các container đang bị treo.
