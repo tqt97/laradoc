@@ -1,7 +1,7 @@
 ---
 title: "Software Testing: Đảm bảo Chất lượng Phần mềm"
 description: Hệ thống hơn 50 câu hỏi về Unit Test, Integration Test, Mocking, TDD và chiến lược kiểm thử trong Laravel.
-date: 2026-04-18
+date: 2026-04-19
 tags: [testing, phpunit, tdd, laravel, quality]
 image: /prezet/img/ogimages/knowledge-vi-software-testing.webp
 ---

@@ -1,7 +1,7 @@
 ---
 title: "PHP Advanced & Internals: Chinh phục Zend Engine"
 description: Hệ thống hơn 50 câu hỏi về Zend VM, JIT, Concurrency, Fiber, Memory Management và tối ưu PHP hiệu năng cao.
-date: 2026-04-14
+date: 2025-10-04
 tags: [php, internals, zend-engine, performance, advanced]
 image: /prezet/img/ogimages/knowledge-vi-php-advanced-internals.webp
 ---

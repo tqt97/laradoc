@@ -1,7 +1,7 @@
 ---
 title: "Cơ sở dữ liệu trong Laravel: Eloquent và Hơn thế nữa"
 description: Hệ thống hơn 50 câu hỏi về Eloquent ORM, Query Builder, Relationship chuyên sâu và Database Performance.
-date: 2026-04-14
+date: 2026-02-18
 tags: [laravel, database, eloquent, orm, performance]
 image: /prezet/img/ogimages/knowledge-vi-laravel-database.webp
 ---

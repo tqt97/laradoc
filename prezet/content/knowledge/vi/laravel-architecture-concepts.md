@@ -1,7 +1,7 @@
 ---
 title: "Các khái niệm Kiến trúc Laravel: Đi sâu vào bản chất"
 description: Hệ thống hơn 50 câu hỏi về Request Lifecycle, Service Container chuyên sâu, Service Providers, Facades và Contracts.
-date: 2026-04-14
+date: 2025-12-02
 tags: [laravel, architecture, theory, interview]
 image: /prezet/img/ogimages/knowledge-vi-laravel-architecture-concepts.webp
 ---

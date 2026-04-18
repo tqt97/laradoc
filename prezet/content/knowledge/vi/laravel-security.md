@@ -1,7 +1,7 @@
 ---
 title: "Bảo mật Laravel: Phòng thủ Chiều sâu"
 description: Hệ thống hơn 50 câu hỏi về Authentication, Authorization, Encryption, Hashing và phòng chống OWASP Top 10.
-date: 2026-04-14
+date: 2025-02-22
 tags: [laravel, security, auth, authorization, hashing]
 image: /prezet/img/ogimages/knowledge-vi-laravel-security.webp
 ---

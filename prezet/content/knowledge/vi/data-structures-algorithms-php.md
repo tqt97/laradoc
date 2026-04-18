@@ -1,7 +1,7 @@
 ---
 title: "Cấu trúc dữ liệu & Thuật toán trong PHP: Tư duy Giải thuật"
 description: Hệ thống hơn 50 câu hỏi về Big-O, Sorting, Searching, Tree, Graph và tối ưu thuật toán trong PHP.
-date: 2026-04-14
+date: 2026-03-23
 tags: [algorithm, data-structures, php, big-o, logic]
 image: /prezet/img/ogimages/knowledge-vi-data-structures-algorithms-php.webp
 ---

@@ -1,7 +1,7 @@
 ---
 title: "Observability & Monitoring: Làm chủ Trạng thái Hệ thống"
 description: Hệ thống hơn 50 câu hỏi về Logging, Metrics, Tracing, APM và chiến lược giám sát hệ thống phân tán.
-date: 2026-04-18
+date: 2026-02-19
 tags: [observability, monitoring, logging, tracing, metrics]
 image: /prezet/img/ogimages/knowledge-vi-observability-monitoring.webp
 ---

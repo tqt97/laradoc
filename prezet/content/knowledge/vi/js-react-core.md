@@ -1,7 +1,7 @@
 ---
 title: "JavaScript & React Core: Từ Cơ bản đến Chuyên gia"
 description: Hệ thống hơn 50 câu hỏi về JavaScript Internals, React Hooks, State Management và Performance Optimization.
-date: 2026-04-14
+date: 2025-08-07
 tags: [js, react, frontend, internals, performance]
 image: /prezet/img/ogimages/knowledge-vi-js-react-core.webp
 ---

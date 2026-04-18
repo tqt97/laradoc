@@ -1,7 +1,7 @@
 ---
 title: "Lý thuyết Cơ sở dữ liệu: Nền tảng của Sự bền vững"
 description: Hệ thống hơn 50 câu hỏi về ACID, Indexing chuyên sâu, Transaction Isolation, Query Optimization và Scaling Database.
-date: 2026-04-14
+date: 2025-11-11
 tags: [database, sql, acid, indexing, theory]
 image: /prezet/img/ogimages/knowledge-vi-database-theory.webp
 ---

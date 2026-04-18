@@ -1,7 +1,7 @@
 ---
 title: "Linux & System Administration: Quản trị Máy chủ chuyên nghiệp"
 description: Hệ thống câu hỏi về quản lý tiến trình, file system, permissions, shell scripting và tối ưu hóa hiệu năng server Linux.
-date: 2026-04-18
+date: 2026-03-22
 tags: [linux, server, sysadmin, bash, devops]
 image: /prezet/img/ogimages/knowledge-vi-linux-system-administration.webp
 ---

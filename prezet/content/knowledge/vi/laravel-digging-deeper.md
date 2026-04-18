@@ -1,7 +1,7 @@
 ---
 title: "Laravel Khám phá Sâu hơn: Vượt xa những điều Cơ bản"
 description: Hệ thống hơn 50 câu hỏi về Artisan, Queues chuyên sâu, Events/Listeners, Collections nâng cao và Performance Optimization.
-date: 2026-04-14
+date: 2025-09-11
 tags: [laravel, queues, events, collections, performance]
 image: /prezet/img/ogimages/knowledge-vi-laravel-digging-deeper.webp
 ---

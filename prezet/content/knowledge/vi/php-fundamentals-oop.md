@@ -1,7 +1,7 @@
 ---
 title: "Lập trình Core & Nền tảng PHP: Từ Cơ bản đến Chuyên gia"
 description: Hệ thống hơn 50 câu hỏi chuyên sâu về PHP Internals, OOP, SOLID và Tư duy lập trình Backend.
-date: 2026-04-14
+date: 2026-01-25
 tags: [php, core, oop, solid, internals]
 image: /prezet/img/ogimages/knowledge-vi-php-fundamentals-oop.webp
 ---

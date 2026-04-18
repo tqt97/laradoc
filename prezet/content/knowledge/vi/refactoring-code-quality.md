@@ -1,7 +1,7 @@
 ---
 title: "Refactoring & Code Quality: Xây dựng Mã nguồn Bền vững"
 description: Hệ thống hơn 50 câu hỏi về Code Smells, Refactoring Patterns, Clean Code, Code Review và quy trình kỹ thuật chuyên nghiệp.
-date: 2026-04-18
+date: 2026-04-15
 tags: [refactoring, clean-code, code-quality, code-review, architecture]
 image: /prezet/img/ogimages/knowledge-vi-refactoring-code-quality.webp
 ---

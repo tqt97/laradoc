@@ -1,7 +1,7 @@
 ---
 title: "Laravel Cơ bản: Nền tảng phát triển Web"
 description: Hệ thống hơn 50 câu hỏi về Routing, Middleware, Validation, Blade Engine và kiến trúc Controller.
-date: 2026-04-14
+date: 2025-10-11
 tags: [laravel, basics, routing, middleware, validation]
 image: /prezet/img/ogimages/knowledge-vi-laravel-the-basics.webp
 ---

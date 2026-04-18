@@ -1,7 +1,7 @@
 ---
 title: "AWS, DevOps & Cloud Computing: Từ Code đến Hạ tầng"
 description: Hệ thống hơn 50 câu hỏi về AWS EC2, S3, Docker, Kubernetes, CI/CD và Infrastructure as Code.
-date: 2026-04-14
+date: 2026-04-18
 tags: [aws, devops, docker, cloud, cicd]
 image: /prezet/img/ogimages/knowledge-vi-aws-devops-cloud.webp
 ---

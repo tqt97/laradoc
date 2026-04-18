@@ -1,7 +1,7 @@
 ---
 title: "Advanced Networking: Hiểu sâu về Hạ tầng Mạng"
 description: Hệ thống câu hỏi về DNS, TCP/UDP internals, TLS handshake, CDN và các kỹ thuật debug mạng nâng cao.
-date: 2026-04-18
+date: 2025-12-18
 tags: [networking, tcp, udp, dns, tls, security]
 image: /prezet/img/ogimages/knowledge-vi-advanced-networking.webp
 ---

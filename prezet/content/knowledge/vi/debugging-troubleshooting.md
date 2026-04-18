@@ -1,7 +1,7 @@
 ---
 title: "Debugging & Troubleshooting: Nghệ thuật Giải quyết Vấn đề"
 description: Hệ thống hơn 50 câu hỏi về kỹ thuật Debugging, Xử lý Production Issues, Race Conditions và tư duy thám tử trong lập trình.
-date: 2026-04-18
+date: 2025-09-18
 tags: [debugging, troubleshooting, production, performance, logs]
 image: /prezet/img/ogimages/knowledge-vi-debugging-troubleshooting.webp
 ---

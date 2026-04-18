@@ -1,7 +1,7 @@
 ---
 title: "Web Performance & SEO: Tối ưu cho Người dùng và Search Engine"
 description: Hệ thống hơn 50 câu hỏi về Core Web Vitals, Page Speed Optimization, Technical SEO và chiến lược Rendering.
-date: 2026-04-14
+date: 2026-02-02
 tags: [performance, seo, optimization, web-vitals]
 image: /prezet/img/ogimages/knowledge-vi-web-performance-seo.webp
 ---

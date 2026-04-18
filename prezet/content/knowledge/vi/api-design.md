@@ -1,7 +1,7 @@
 ---
 title: "API Design: Xây dựng Giao diện Lập trình Chuyên nghiệp"
 description: Hệ thống hơn 50 câu hỏi về RESTful, gRPC, GraphQL, Versioning, Security và thiết kế API có khả năng mở rộng.
-date: 2026-04-18
+date: 2025-12-05
 tags: [api, rest, graphql, grpc, design]
 image: /prezet/img/ogimages/knowledge-vi-api-design.webp
 ---

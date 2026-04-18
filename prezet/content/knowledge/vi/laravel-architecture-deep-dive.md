@@ -1,7 +1,7 @@
 ---
 title: "Kiến trúc Laravel (Deep Dive): Hiểu để Làm chủ"
 description: Hệ thống hơn 50 câu hỏi chuyên sâu về Container internals, Pipeline pattern, Facade mechanics và kiến trúc Core.
-date: 2026-04-14
+date: 2025-01-22
 tags: [laravel, architecture, internals, container, facades]
 image: /prezet/img/ogimages/knowledge-vi-laravel-architecture-deep-dive.webp
 ---

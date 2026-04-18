@@ -1,7 +1,7 @@
 ---
 title: "Business & Product Thinking: Tư duy ngoài Mã nguồn"
 description: Hệ thống hơn 50 câu hỏi về Tối ưu chi phí, Đánh đổi (Trade-offs), SLA/SLO, Tư duy sản phẩm và kỹ năng phỏng vấn Senior/Architect.
-date: 2026-04-18
+date: 2026-03-14
 tags: [business, product, career, leadership, architecture]
 image: /prezet/img/ogimages/knowledge-vi-business-product-thinking.webp
 ---

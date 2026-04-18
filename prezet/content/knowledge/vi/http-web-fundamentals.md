@@ -1,7 +1,7 @@
 ---
 title: "HTTP & Web Fundamentals: Nền tảng của Internet"
 description: Hệ thống hơn 50 câu hỏi chuyên sâu về HTTP/2, HTTP/3, Security Headers, Web Caching và RESTful API.
-date: 2026-04-14
+date: 2025-02-05
 tags: [http, web, rest, security, fundamentals]
 image: /prezet/img/ogimages/knowledge-vi-http-web-fundamentals.webp
 ---
