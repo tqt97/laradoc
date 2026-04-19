@@ -1,9 +1,9 @@
 ---
-title: "Eloquent ORM Deep Dive – Tránh N+1, tối ưu query và hiểu đúng để scale"
+title: Eloquent ORM Deep Dive – Tránh N+1, tối ưu query và hiểu đúng để scale
 excerpt: Tìm hiểu sâu Eloquent ORM trong Laravel, cách hoạt động, N+1 problem, eager loading và các kỹ thuật tối ưu query trong production.
 date: 2026-04-19
 category: Laravel
-image: /prezet/img/ogimages/blogs-laravel-eloquent-deep-dive.webp
+image: /prezet/img/ogimages/series-laravel-basics-laravel-eloquent-orm-deep-dive.webp
 tags: [laravel, eloquent, orm, performance, n+1]
 order: 5
 ---

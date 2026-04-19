@@ -1,9 +1,9 @@
 ---
-title: "System Design Basics cho Backend Developer – Từ Monolith đến Scaling"
+title: System Design Basics cho Backend Developer – Từ Monolith đến Scaling
 excerpt: "Tìm hiểu các khái niệm nền tảng trong system design: monolith vs microservices, scaling, load balancing và database design."
 date: 2026-04-19
 category: System Design
-image: /prezet/img/ogimages/blogs-system-design-basics.webp
+image: /prezet/img/ogimages/series-laravel-basics-laravel-system-design.webp
 tags: [system design, backend, scaling, architecture]
 order: 15
 ---

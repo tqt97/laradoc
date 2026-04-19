@@ -1,9 +1,9 @@
 ---
-title: "Caching trong Laravel – Chiến lược đúng để tăng performance x10"
+title: Caching trong Laravel – Chiến lược đúng để tăng performance x10
 excerpt: Tìm hiểu caching trong Laravel từ cơ bản đến nâng cao, các chiến lược cache, cache invalidation và cách áp dụng trong production.
 date: 2026-04-19
 category: Laravel
-image: /prezet/img/ogimages/blogs-laravel-caching.webp
+image: /prezet/img/ogimages/series-laravel-basics-laravel-caching.webp
 tags: [laravel, cache, performance, redis, architecture]
 order: 6
 ---

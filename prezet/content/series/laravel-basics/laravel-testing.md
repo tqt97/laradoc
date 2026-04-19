@@ -1,9 +1,9 @@
 ---
-title: "Testing trong Laravel – Unit, Feature và chiến lược test production"
+title: Testing trong Laravel – Unit, Feature và chiến lược test production
 excerpt: Tìm hiểu testing trong Laravel từ cơ bản đến nâng cao, unit test, feature test, mock, fake và cách xây dựng chiến lược test hiệu quả.
 date: 2026-04-19
 category: Laravel
-image: /prezet/img/ogimages/blogs-laravel-testing.webp
+image: /prezet/img/ogimages/series-laravel-basics-laravel-testing.webp
 tags: [laravel, testing, unit test, feature test, tdd]
 order: 12
 ---

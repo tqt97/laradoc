@@ -58,40 +58,46 @@ class SeriesService
      */
     public function getSeriesPosts(string $seriesSlug): Collection
     {
-        return PrezetDocument::active()
-            ->where('filepath', 'like', "content/series/{$seriesSlug}/%")
-            ->get()
-            ->map(function (PrezetDocument $doc) {
-                $data = app(DocumentData::class)::fromModel($doc);
-                $data->series_slug = str_replace('series/', '', $data->slug);
-                $data->is_index = Str::endsWith($doc->filepath, 'index.md');
+        $version = PrezetCache::version();
+        $cacheKey = "series_posts_{$seriesSlug}_v{$version}";
 
-                // Optimized order extraction
-                $fm = (array) $doc->frontmatter;
-                $data->order = $fm['order'] ?? null;
+        return Cache::remember($cacheKey, 86400, function () use ($seriesSlug) {
+            return PrezetDocument::active()
+                ->where('filepath', 'like', "content/series/{$seriesSlug}/%")
+                ->get()
+                ->map(function (PrezetDocument $doc) {
+                    $data = app(DocumentData::class)::fromModel($doc);
+                    $title = $data->frontmatter->title;
+                    $slug = str_replace('series/', '', $data->slug);
 
-                return $data;
-            })
-            ->sort(function ($a, $b) {
-                if ($a->is_index && ! $b->is_index) {
-                    return -1;
-                }
-                if (! $a->is_index && $b->is_index) {
-                    return 1;
-                }
+                    return [
+                        'title' => $title,
+                        'slug' => $slug,
+                        'is_index' => Str::endsWith($doc->filepath, 'index.md'),
+                        'order' => ((array) $doc->frontmatter)['order'] ?? null,
+                    ];
+                })
+                ->sort(function ($a, $b) {
+                    if ($a['is_index'] && ! $b['is_index']) {
+                        return -1;
+                    }
+                    if (! $a['is_index'] && $b['is_index']) {
+                        return 1;
+                    }
 
-                if ($a->order !== null && $b->order !== null) {
-                    return (int) $a->order <=> (int) $b->order;
-                }
-                if ($a->order !== null) {
-                    return -1;
-                }
-                if ($b->order !== null) {
-                    return 1;
-                }
+                    if ($a['order'] !== null && $b['order'] !== null) {
+                        return (int) $a['order'] <=> (int) $b['order'];
+                    }
+                    if ($a['order'] !== null) {
+                        return -1;
+                    }
+                    if ($b['order'] !== null) {
+                        return 1;
+                    }
 
-                return strnatcasecmp($a->slug, $b->slug);
-            })
-            ->values();
+                    return strnatcasecmp($a['slug'], $b['slug']);
+                })
+                ->values();
+        });
     }
 }

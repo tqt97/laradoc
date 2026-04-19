@@ -1,10 +1,9 @@
 ---
-
-title: "Middleware Deep Dive trong Laravel – Kiểm soát Request/Response như một Senior"
+title: Middleware Deep Dive trong Laravel – Kiểm soát Request/Response như một Senior
 excerpt: Phân tích sâu Middleware trong Laravel, pipeline pattern, before/after, global vs route và cách áp dụng trong production.
 date: 2026-04-19
 category: Laravel
-image: /prezet/img/ogimages/blogs-laravel-middleware-deep-dive.webp
+image: /prezet/img/ogimages/series-laravel-basics-laravel-middleware-deep-dive.webp
 tags: [laravel, middleware, pipeline, architecture, http]
 order: 9
 ---

@@ -1,9 +1,9 @@
 ---
-title: "Clean Architecture trong Laravel – Tổ chức code cho hệ thống lớn"
+title: Clean Architecture trong Laravel – Tổ chức code cho hệ thống lớn
 excerpt: Tìm hiểu Clean Architecture trong Laravel, cách tổ chức layer, dependency rule và áp dụng vào hệ thống thực tế.
 date: 2026-04-19
 category: Laravel
-image: /prezet/img/ogimages/blogs-laravel-clean-architecture.webp
+image: /prezet/img/ogimages/series-laravel-basics-laravel-clean-architecture.webp
 tags: [laravel, clean architecture, system design, architecture]
 order: 14
 ---

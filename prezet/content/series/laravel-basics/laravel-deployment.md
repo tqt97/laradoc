@@ -1,9 +1,9 @@
 ---
-title: "Deployment & DevOps trong Laravel – Từ local đến production"
+title: Deployment & DevOps trong Laravel – Từ local đến production
 excerpt: Hướng dẫn deploy Laravel từ local lên production, CI/CD, Docker, cấu hình môi trường và zero downtime deployment.
 date: 2026-04-19
 category: DevOps
-image: /prezet/img/ogimages/blogs-laravel-devops.webp
+image: /prezet/img/ogimages/series-laravel-basics-laravel-deployment.webp
 tags: [laravel, devops, deployment, docker, cicd]
 order: 16
 ---

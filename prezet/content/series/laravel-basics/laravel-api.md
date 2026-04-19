@@ -1,9 +1,9 @@
 ---
-title: "API Design & Best Practices trong Laravel – Thiết kế chuẩn RESTful & scalable"
+title: API Design & Best Practices trong Laravel – Thiết kế chuẩn RESTful & scalable
 excerpt: Hướng dẫn thiết kế API trong Laravel theo chuẩn RESTful, versioning, pagination, error handling và best practices trong production.
 date: 2026-04-19
 category: Laravel
-image: /prezet/img/ogimages/blogs-laravel-api-design.webp
+image: /prezet/img/ogimages/series-laravel-basics-laravel-api.webp
 tags: [laravel, api, rest, design, backend]
 order: 13
 ---

@@ -1,9 +1,9 @@
 ---
-title: "Performance Tuning trong Laravel – Tối ưu toàn hệ thống từ code đến hạ tầng"
+title: Performance Tuning trong Laravel – Tối ưu toàn hệ thống từ code đến hạ tầng
 excerpt: "Hướng dẫn tối ưu hiệu năng Laravel: phân tích bottleneck, tối ưu query, cache strategy, profiling và tuning PHP-FPM."
 date: 2026-04-19
 category: Performance
-image: /prezet/img/ogimages/blogs-laravel-performance.webp
+image: /prezet/img/ogimages/series-laravel-basics-laravel-performance-tuning.webp
 tags: [laravel, performance, optimization, cache, database]
 order: 17
 ---

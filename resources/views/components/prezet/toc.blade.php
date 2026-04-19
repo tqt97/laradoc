@@ -13,7 +13,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round"
                     d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0ZM3.75 12h.007v.008H3.75V12Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm-3.75 5.25h.007v.008H3.75v-.008Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
             </svg>
-            <span class="[writing-mode:vertical-lr] rotate-180 text-[10px] font-bold uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
+            <span class="hidden sm:block [writing-mode:vertical-lr] rotate-180 text-[10px] font-semibold uppercase tracking-widest text-zinc-600 dark:text-zinc-400">
                 Mục lục
             </span>
         </div>

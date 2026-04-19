@@ -1,9 +1,9 @@
 ---
-title: "Event & Listener trong Laravel – Xây dựng Event-Driven Architecture"
+title: Event & Listener trong Laravel – Xây dựng Event-Driven Architecture
 excerpt: Tìm hiểu Event và Listener trong Laravel, cách hoạt động, khi nào dùng và áp dụng kiến trúc event-driven trong production.
 date: 2026-04-19
 category: Laravel
-image: /prezet/img/ogimages/blogs-laravel-event-listener.webp
+image: /prezet/img/ogimages/series-laravel-basics-laravel-event-listener.webp
 tags: [laravel, event, listener, architecture, event-driven]
 order: 8
 ---

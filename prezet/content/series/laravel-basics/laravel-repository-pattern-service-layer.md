@@ -1,9 +1,9 @@
 ---
-title: "Repository Pattern vs Service Layer trong Laravel – Dùng đúng hay over-engineering?"
-excerpt: "Phân biệt Repository Pattern và Service Layer trong Laravel, khi nào nên dùng, khi nào không và các anti-pattern thường gặp trong thực tế."
+title: Repository Pattern vs Service Layer trong Laravel – Dùng đúng hay over-engineering?
+excerpt: Phân biệt Repository Pattern và Service Layer trong Laravel, khi nào nên dùng, khi nào không và các anti-pattern thường gặp trong thực tế.
 date: 2026-04-19
 category: Laravel
-image: /prezet/img/ogimages/blogs-laravel-repository-service.webp
+image: /prezet/img/ogimages/series-laravel-basics-laravel-repository-pattern-service-layer.webp
 tags: [laravel, repository pattern, service layer, architecture]
 order: 4
 ---

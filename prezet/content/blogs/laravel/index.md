@@ -1,9 +1,9 @@
 ---
-title: "Laravel là gì? Tại sao nên dùng Laravel trong 2026?"
+title: Laravel là gì? Tại sao nên dùng Laravel trong 2026?
 excerpt: Laravel là gì? Tìm hiểu framework PHP phổ biến nhất hiện nay, ưu điểm, cách hoạt động và khi nào nên dùng Laravel trong thực tế.
 date: 2026-04-18
 category: Laravel
-image: /prezet/img/ogimages/blogs-laravel-helper-filesystem-mechanics.webp
+image: /prezet/img/ogimages/blogs-laravel-index.webp
 tags: [laravel, filesystem, helpers, architecture]
 ---
 

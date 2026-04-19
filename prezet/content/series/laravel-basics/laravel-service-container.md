@@ -1,9 +1,9 @@
 ---
-title: "Laravel Service Container là gì? Deep Dive để Master Dependency Injection"
+title: Laravel Service Container là gì? Deep Dive để Master Dependency Injection
 excerpt: Tìm hiểu Laravel Service Container từ cơ bản đến nâng cao, cách hoạt động, anti-pattern và áp dụng thực tế trong production.
 date: 2026-04-19
 category: Laravel
-image: /prezet/img/ogimages/blogs-laravel-service-container.webp
+image: /prezet/img/ogimages/series-laravel-basics-laravel-service-container.webp
 tags: [laravel, service container, dependency injection, architecture]
 order: 3
 ---

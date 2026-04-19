@@ -1,9 +1,9 @@
 ---
-title: "Authentication & Authorization trong Laravel – Bảo mật hệ thống đúng cách"
+title: Authentication & Authorization trong Laravel – Bảo mật hệ thống đúng cách
 excerpt: Phân biệt Authentication và Authorization trong Laravel, sử dụng Guards, Policies, Gates, Sanctum/Passport và áp dụng RBAC trong production.
 date: 2026-04-19
 category: Laravel
-image: /prezet/img/ogimages/blogs-laravel-auth-authz.webp
+image: /prezet/img/ogimages/series-laravel-basics-laravel-auth.webp
 tags: [laravel, authentication, authorization, security, sanctum, policy]
 ---
 

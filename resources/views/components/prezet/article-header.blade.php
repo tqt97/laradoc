@@ -15,13 +15,13 @@
     </h1>
 
     <div class="flex flex-wrap items-center gap-4 border-b border-zinc-200 pb-8 dark:border-zinc-800">
-        <div class="flex items-center gap-6 text-xs font-bold text-zinc-500 dark:text-zinc-400">
+        <div class="flex flex-wrap items-center gap-y-4 gap-x-6 text-xs font-bold text-zinc-500 dark:text-zinc-400">
             <time datetime="{{ $document->createdAt->format('Y-m-d') }}"
                 class="flex items-center gap-1.5 leading-none">
                 <x-prezet.icon-calendar class="size-3.5 mb-0.5" />
                 {{ $document->createdAt->format('d/m/Y') }}
             </time>
-            <span class="text-zinc-300 dark:text-zinc-700">&bull;</span>
+            <span class="hidden sm:block text-zinc-300 dark:text-zinc-700">&bull;</span>
             <span class="flex items-center gap-1.5 leading-none">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                     stroke-width="2" stroke="currentColor" class="size-3.5 mb-0.5">
@@ -30,6 +30,17 @@
                 </svg>
                 {{ $readingTime }} phút đọc
             </span>
+
+            @if(!empty($document->frontmatter->tags))
+                <span class="hidden sm:block text-zinc-300 dark:text-zinc-700">&bull;</span>
+                <div class="flex flex-wrap gap-2">
+                    @foreach($document->frontmatter->tags as $tag)
+                        <span class="text-primary-600 dark:text-primary-400">
+                            #{{ $tag }}
+                        </span>
+                    @endforeach
+                </div>
+            @endif
         </div>
     </div>
 

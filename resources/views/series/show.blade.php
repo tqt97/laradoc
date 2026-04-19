@@ -2,7 +2,7 @@
     /* @var string $body */
     /* @var array $headings */
     /* @var string $linkedData */
-    /* @var \Prezet\Prezet\Data\DocumentData $document */
+    /* @var object $document */
     /* @var \Illuminate\Support\Collection $seriesPosts */
     /* @var string $currentSeriesSlug */
 @endphp
@@ -20,12 +20,12 @@
         {{-- Article Header --}}
         <x-prezet.article-header :document="$document" :readingTime="$readingTime" class="mb-10" />
 
-        <x-prezet.alpine class="flex flex-col lg:flex-row gap-8 lg:gap-12 transition-all duration-500">
+        <x-prezet.alpine class="flex flex-col lg:flex-row gap-8 lg:gap-12">
 
             {{-- Left Sidebar: Series Navigation --}}
             <aside :class="sidebarCollapsed ? 'lg:w-20' : 'lg:w-80'"
-                class="hidden md:block relative w-full transition-all duration-500 lg:border-r lg:border-zinc-100 lg:dark:border-zinc-800 lg:pr-8 shrink-0">
-                <div class="sticky top-4 overflow-hidden">
+                class="hidden md:block relative w-full lg:border-r lg:border-zinc-100 lg:dark:border-zinc-800 lg:pr-8 shrink-0">
+                <div class="sticky top-24 overflow-hidden">
                     {{-- Sidebar Header & Toggle --}}
                     <div class="mb-6 lg:mb-10 flex items-center justify-between">
                         <h3 x-show="!sidebarCollapsed" x-transition:enter="transition ease-out duration-300"
@@ -75,12 +75,13 @@
                             <nav class="space-y-2 pb-4 ml-1">
                                 @foreach ($seriesPosts as $index => $post)
                                     @php
-                                        $isActive = $post->slug === $document->slug;
+                                        // $post is now an array
+                                        $isActive = $post['slug'] === str_replace('series/', '', $document->slug);
                                     @endphp
-                                    <a href="{{ route('prezet.series.show', $post->series_slug) }}"
+                                    <a href="{{ route('prezet.series.show', $post['slug']) }}"
                                         class="group flex items-center gap-3 py-2 px-2 rounded-full transition-all duration-200 {{ $isActive ? 'bg-primary-50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400 ring-1 ring-primary-100 dark:ring-primary-900/50' : 'text-zinc-500 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 hover:text-zinc-900 dark:hover:text-zinc-200' }}"
                                         :class="sidebarCollapsed ? 'lg:justify-center p-1!' : ''"
-                                        title="{{ $post->frontmatter->title }}">
+                                        title="{{ $post['title'] }}">
                                         <div
                                             class="shrink-0 flex items-center justify-center size-8 rounded-full transition-colors duration-200 {{ $isActive ? 'bg-primary-500 text-white shadow-lg shadow-primary-500/30' : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-400 group-hover:bg-primary-100 dark:group-hover:bg-primary-900/30 group-hover:text-primary-500' }}">
                                             <span class="text-[10px] font-bold leading-none">
@@ -92,7 +93,7 @@
                                             x-transition:enter-start="opacity-0 -translate-x-2"
                                             x-transition:enter-end="opacity-100 translate-x-0"
                                             class="text-sm font-semibold leading-tight truncate lg:max-w-xs">
-                                            {{ $post->frontmatter->title }}
+                                            {{ $post['title'] }}
                                         </span>
                                     </a>
                                 @endforeach

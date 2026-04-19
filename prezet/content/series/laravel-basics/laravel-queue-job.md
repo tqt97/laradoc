@@ -1,9 +1,9 @@
 ---
-title: "Queue & Job trong Laravel – Xử lý bất đồng bộ để scale hệ thống"
+title: Queue & Job trong Laravel – Xử lý bất đồng bộ để scale hệ thống
 excerpt: Tìm hiểu Queue và Job trong Laravel, cách hoạt động, khi nào dùng và cách triển khai trong production để tăng khả năng chịu tải.
 date: 2026-04-19
 category: Laravel
-image: /prezet/img/ogimages/blogs-laravel-queue-job.webp
+image: /prezet/img/ogimages/series-laravel-basics-laravel-queue-job.webp
 tags: [laravel, queue, job, async, scaling]
 order: 7
 ---

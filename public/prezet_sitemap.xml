@@ -16,43 +16,8 @@
 
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/series/javascript-basics/index</loc>
-        <lastmod>2026-03-19T00:13:47+07:00</lastmod>
-
-            </url>
-    <url>
-        <loc>http://127.0.0.1:8000/series/javascript-basics/installing</loc>
-        <lastmod>2026-03-19T00:13:50+07:00</lastmod>
-
-            </url>
-    <url>
-        <loc>http://127.0.0.1:8000/series/javascript-basics/queue</loc>
-        <lastmod>2026-03-19T00:13:53+07:00</lastmod>
-
-            </url>
-    <url>
-        <loc>http://127.0.0.1:8000/series/javascript-basics/run</loc>
-        <lastmod>2026-03-19T00:13:56+07:00</lastmod>
-
-            </url>
-    <url>
         <loc>http://127.0.0.1:8000/series/laravel-basics/index</loc>
-        <lastmod>2026-03-19T00:14:01+07:00</lastmod>
-
-            </url>
-    <url>
-        <loc>http://127.0.0.1:8000/series/laravel-basics/installing</loc>
-        <lastmod>2026-03-19T00:14:05+07:00</lastmod>
-
-            </url>
-    <url>
-        <loc>http://127.0.0.1:8000/series/laravel-basics/queue</loc>
-        <lastmod>2026-03-19T00:14:08+07:00</lastmod>
-
-            </url>
-    <url>
-        <loc>http://127.0.0.1:8000/series/laravel-basics/run</loc>
-        <lastmod>2026-03-19T00:14:11+07:00</lastmod>
+        <lastmod>2026-04-19T03:14:12+07:00</lastmod>
 
             </url>
     <url>
@@ -1262,7 +1227,167 @@
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/javascript/async-map-problem</loc>
-        <lastmod>2026-04-18T13:33:43+07:00</lastmod>
+        <lastmod>2026-04-18T13:48:36+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/blogs/laravel/index</loc>
+        <lastmod>2026-04-19T14:35:03+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/laravel-basics/laravel-lifecycle</loc>
+        <lastmod>2026-04-19T14:35:05+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/laravel-basics/laravel-service-container</loc>
+        <lastmod>2026-04-19T14:35:09+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/laravel-basics/laravel-repository-pattern-service-layer</loc>
+        <lastmod>2026-04-19T14:35:15+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/laravel-basics/laravel-eloquent-orm-deep-dive</loc>
+        <lastmod>2026-04-19T14:35:18+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/laravel-basics/laravel-caching</loc>
+        <lastmod>2026-04-19T14:35:21+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/laravel-basics/laravel-queue-job</loc>
+        <lastmod>2026-04-19T14:35:25+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/laravel-basics/laravel-event-listener</loc>
+        <lastmod>2026-04-19T14:35:28+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/laravel-basics/laravel-middleware-deep-dive</loc>
+        <lastmod>2026-04-19T14:35:33+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/laravel-basics/laravel-validation</loc>
+        <lastmod>2026-04-19T14:35:35+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/laravel-basics/laravel-auth</loc>
+        <lastmod>2026-04-19T14:35:40+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/laravel-basics/laravel-testing</loc>
+        <lastmod>2026-04-19T14:35:42+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/laravel-basics/laravel-api</loc>
+        <lastmod>2026-04-19T14:35:46+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/laravel-basics/laravel-clean-architecture</loc>
+        <lastmod>2026-04-19T14:35:49+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/laravel-basics/laravel-deployment</loc>
+        <lastmod>2026-04-19T14:35:53+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/laravel-basics/laravel-performance-tuning</loc>
+        <lastmod>2026-04-19T14:35:56+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/laravel-basics/laravel-system-design</loc>
+        <lastmod>2026-04-19T14:36:00+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/laravel-advanced/index</loc>
+        <lastmod>2026-04-19T14:36:08+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/laravel-advanced/eloquent</loc>
+        <lastmod>2026-04-19T14:36:12+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/laravel-advanced/database</loc>
+        <lastmod>2026-04-19T14:36:15+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/laravel-advanced/caching</loc>
+        <lastmod>2026-04-19T14:36:20+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/laravel-advanced/event-driven</loc>
+        <lastmod>2026-04-19T14:36:23+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/laravel-advanced/queue</loc>
+        <lastmod>2026-04-19T14:36:27+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/laravel-advanced/api-design</loc>
+        <lastmod>2026-04-19T14:36:30+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/laravel-advanced/modular</loc>
+        <lastmod>2026-04-19T14:36:34+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/laravel-advanced/microservices</loc>
+        <lastmod>2026-04-19T14:36:37+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/laravel-advanced/cqrs</loc>
+        <lastmod>2026-04-19T14:36:44+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/laravel-advanced/system-design</loc>
+        <lastmod>2026-04-19T14:36:47+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/laravel-advanced/architecture-and-design</loc>
+        <lastmod>2026-04-19T14:36:50+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/laravel-advanced/dependency-injection-service-container</loc>
+        <lastmod>2026-04-19T14:36:53+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/laravel-advanced/redis-websocket</loc>
+        <lastmod>2026-04-19T14:36:57+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/laravel-advanced/security</loc>
+        <lastmod>2026-04-19T09:06:45+07:00</lastmod>
 
             </url>
 </urlset>

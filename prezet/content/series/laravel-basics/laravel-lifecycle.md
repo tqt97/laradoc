@@ -1,9 +1,9 @@
 ---
-title: "Laravel Request Lifecycle là gì? Hiểu sâu để trở thành Senior Laravel Developer"
+title: Laravel Request Lifecycle là gì? Hiểu sâu để trở thành Senior Laravel Developer
 excerpt: Laravel Request Lifecycle là gì? Phân tích toàn bộ vòng đời request trong Laravel 12 từ khi nhận request đến response, giúp bạn hiểu framework ở level senior.
 date: 2026-04-19
 category: Laravel
-image: /prezet/img/ogimages/blogs-laravel-request-lifecycle.webp
+image: /prezet/img/ogimages/series-laravel-basics-laravel-lifecycle.webp
 tags: [laravel, request lifecycle, middleware, service container, architecture]
 order: 2
 ---

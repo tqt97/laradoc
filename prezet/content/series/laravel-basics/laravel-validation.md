@@ -1,9 +1,9 @@
 ---
-title: "Validation Deep Dive trong Laravel – Từ Form Request đến Custom Rule & Security"
+title: Validation Deep Dive trong Laravel – Từ Form Request đến Custom Rule & Security
 excerpt: Tìm hiểu validation trong Laravel từ cơ bản đến nâng cao, Form Request, custom rule và các vấn đề bảo mật trong production.
 date: 2026-04-19
 category: Laravel
-image: /prezet/img/ogimages/blogs-laravel-validation-deep-dive.webp
+image: /prezet/img/ogimages/series-laravel-basics-laravel-validation.webp
 tags: [laravel, validation, security, form request]
 order: 11
 ---
