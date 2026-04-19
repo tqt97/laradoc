@@ -12,8 +12,8 @@
 
     @push('jsonld')
         <script type="application/ld+json">
-            {!! $linkedData !!}
-        </script>
+                {!! $linkedData !!}
+            </script>
     @endpush
 
     <div class="py-12 lg:py-24">
@@ -42,34 +42,37 @@
                         </div>
                     </div>
 
-                    <nav class="space-y-1">
-                        @foreach ($seriesPosts as $index => $post)
-                            @php
-                                $isActive = $post->slug === $document->slug;
-                            @endphp
-                            <a href="{{ route('prezet.series.show', $post->series_slug) }}"
-                                class="group flex items-center gap-3 py-3 px-4 rounded-3xl transition-all duration-200 {{ $isActive ? 'bg-primary-50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400 ring-1 ring-primary-100 dark:ring-primary-900/50' : 'text-zinc-500 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 hover:text-zinc-900 dark:hover:text-zinc-200' }}">
-                                <div class="flex-shrink-0 flex items-center justify-center">
-                                    @if ($isActive)
-                                        <div class="size-2 rounded-full bg-primary-500 animate-pulse"></div>
-                                    @else
-                                        <span class="text-[10px] font-bold opacity-30 group-hover:opacity-100 group-hover:text-primary-500 leading-none">
-                                            {{ sprintf('%02d', $index + 1) }}.
-                                        </span>
-                                    @endif
-                                </div>
-                                <span class="text-sm font-semibold leading-tight group-hover:text-primary-500">
-                                    {{ $post->frontmatter->title }}
-                                </span>
-                            </a>
-                        @endforeach
-                    </nav>
+                    <div class="max-h-[calc(100vh-20rem)] overflow-y-auto pr-4 custom-scrollbar">
+                        <nav class="space-y-1">
+                            @foreach ($seriesPosts as $index => $post)
+                                @php
+                                    $isActive = $post->slug === $document->slug;
+                                @endphp
+                                <a href="{{ route('prezet.series.show', $post->series_slug) }}"
+                                    class="group flex items-center gap-3 py-3 px-4 rounded-3xl transition-all duration-200 {{ $isActive ? 'bg-primary-50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400 ring-1 ring-primary-100 dark:ring-primary-900/50' : 'text-zinc-500 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 hover:text-zinc-900 dark:hover:text-zinc-200' }}">
+                                    <div class="flex-shrink-0 flex items-center justify-center">
+                                        @if ($isActive)
+                                            <div class="size-2 rounded-full bg-primary-500 animate-pulse"></div>
+                                        @else
+                                            <span
+                                                class="text-[10px] font-bold opacity-30 group-hover:opacity-100 group-hover:text-primary-500 leading-none">
+                                                {{ sprintf('%02d', $index + 1) }}.
+                                            </span>
+                                        @endif
+                                    </div>
+                                    <span class="text-sm font-semibold leading-tight group-hover:text-primary-500">
+                                        {{ $post->frontmatter->title }}
+                                    </span>
+                                </a>
+                            @endforeach
+                        </nav>
+                    </div>
 
                     <div class="mt-12 pt-8 border-t border-zinc-100 dark:border-zinc-800">
                         <a href="{{ route('prezet.series.index') }}"
                             class="flex items-center gap-2 text-xs font-semibold text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke-width="2.5" stroke="currentColor" class="size-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
+                                stroke="currentColor" class="size-3">
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                     d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
                             </svg>
@@ -81,8 +84,7 @@
 
             {{-- Main Content --}}
             <main class="col-span-12 lg:col-span-6">
-                <article
-                    class="prose prose-zinc dark:prose-invert max-w-none
+                <article class="prose prose-zinc dark:prose-invert max-w-none
                     prose-headings:font-bold prose-headings:tracking-tight
                     prose-a:text-primary-600 dark:prose-a:text-primary-400 prose-a:no-underline hover:prose-a:underline
                     prose-pre:rounded-3xl prose-pre:bg-zinc-900 prose-pre:ring-1 prose-pre:ring-white/10
