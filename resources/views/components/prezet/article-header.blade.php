@@ -10,7 +10,7 @@
         </div>
     @endif
 
-    <h1 class="mb-6 text-3xl font-bold !leading-tight text-zinc-900 sm:text-4xl md:text-5xl dark:text-white font-['Be_Vietnam_Pro']">
+    <h1 class="mb-6 text-3xl font-bold leading-tight! text-zinc-900 sm:text-4xl md:text-5xl dark:text-white font-['Be_Vietnam_Pro']">
         {{ $document->frontmatter->title }}
     </h1>
 

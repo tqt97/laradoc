@@ -356,6 +356,26 @@
     .zoomable-loading-indicator[hidden] {
         display: none;
     }
+
+    .custom-scrollbar::-webkit-scrollbar {
+        width: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: var(--color-gray-200);
+        border-radius: 10px;
+    }
+    .custom-scrollbar:hover::-webkit-scrollbar-thumb {
+        background: var(--color-gray-300);
+    }
+    .dark .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: var(--color-gray-800);
+    }
+    .dark .custom-scrollbar:hover::-webkit-scrollbar-thumb {
+        background: var(--color-gray-700);
+    }
 }
 
 @keyframes mouse-scroll {

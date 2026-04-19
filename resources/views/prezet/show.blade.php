@@ -23,18 +23,18 @@
                 </div>
 
                 {{-- Right Sidebar --}}
-                <div class="col-span-12 lg:order-last lg:col-span-3">
-                    <div class="flex-none overflow-y-auto lg:sticky lg:top-[6rem] lg:h-[calc(100vh-4.75rem)] ml-4">
+                {{-- <div class="col-span-12 lg:order-last lg:col-span-3">
+                    <div class="flex-none overflow-y-auto lg:sticky lg:top-[6rem] lg:h-[calc(100vh-4.75rem)] ml-4"> --}}
                         <x-prezet.toc :headings="$headings" class="px-2" />
-                    </div>
-                </div>
+                    {{-- </div>
+                </div> --}}
 
                 <div class="col-span-12 lg:hidden">
                     <div class="h-px w-full border-0 bg-zinc-200 dark:bg-zinc-700"></div>
                 </div>
 
                 {{-- Main Content --}}
-                <div class="col-span-12 lg:col-span-9">
+                <div class="col-span-12 lg:col-span-12">
                     <article
                         class="prose-pre:rounded-3xl prose-headings:font-display prose prose-zinc prose-a:border-b prose-a:border-dashed prose-a:border-black/30 prose-a:font-semibold prose-a:no-underline prose-a:hover:border-solid prose-img:rounded-3xl dark:prose-invert max-w-none">
                         {!! $body !!}

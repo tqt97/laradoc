@@ -10,7 +10,7 @@
 
     <div class="max-w-7xl mx-auto px-4 py-8 lg:py-16">
         {{-- Top Navigation --}}
-        <div class="flex items-center justify-between mb-12">
+        <div class="flex items-center justify-between">
             <nav class="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-zinc-400">
                 <a href="{{ route('knowledge.index') }}" class="hover:text-primary-500 transition-colors">Kiến thức</a>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
@@ -33,9 +33,9 @@
 
         <x-prezet.alpine class="grid grid-cols-12 gap-8 lg:gap-16">
             {{-- Right Sidebar / TOC Desktop --}}
-            <div class="col-span-12 lg:order-last lg:col-span-3">
+            <x-prezet.toc :headings="$headings" class="px-2" />
+            {{-- <div class="col-span-12 lg:order-last lg:col-span-3">
                 <div class="flex-none overflow-y-auto lg:sticky lg:top-[6rem] lg:h-[calc(100vh-4.75rem)]">
-                    <x-prezet.toc :headings="$headings" class="px-2" />
 
                     <div
                         class="mt-8 hidden lg:block p-8 rounded-[40px] bg-primary-600 text-white relative overflow-hidden shadow-2xl shadow-primary-500/20">
@@ -56,14 +56,14 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
             <div class="col-span-12 lg:hidden">
                 <div class="h-px w-full border-0 bg-zinc-200 dark:bg-zinc-700"></div>
             </div>
 
             {{-- Main Content --}}
-            <article class="col-span-12 lg:col-span-9 min-w-0">
+            <article class="col-span-12 lg:col-span-12 min-w-0">
                 <header class="mb-12">
                     {{-- <div class="flex items-center gap-3 mb-6">
                         <span
