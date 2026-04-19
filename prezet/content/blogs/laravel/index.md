@@ -1,10 +1,10 @@
 ---
-title: Laravel là gì? Tại sao nên dùng Laravel trong 2026
+title: "Laravel là gì? Tại sao nên dùng Laravel trong 2026?"
 excerpt: Laravel là gì? Tìm hiểu framework PHP phổ biến nhất hiện nay, ưu điểm, cách hoạt động và khi nào nên dùng Laravel trong thực tế.
+date: 2026-04-18
 category: Laravel
-date: 2026-03-08
-order: 1
-image: /prezet/img/ogimages/series-laravel-basics-index.webp
+image: /prezet/img/ogimages/blogs-laravel-helper-filesystem-mechanics.webp
+tags: [laravel, filesystem, helpers, architecture]
 ---
 
 Nếu bạn từng viết PHP thuần, bạn sẽ gặp những vấn đề như:
@@ -26,13 +26,13 @@ Mục tiêu của Laravel:
 * Phát triển nhanh hơn
 * Dễ bảo trì hơn
 
-Nói đơn giản:
+👉 Nói đơn giản:
 
 > Laravel là bộ công cụ giúp bạn viết PHP “đúng cách” như một engineer chuyên nghiệp.
 
 ## Laravel giải quyết vấn đề gì?
 
-### Cấu trúc code rõ ràng
+### 1. Cấu trúc code rõ ràng
 
 Laravel áp dụng mô hình MVC:
 
@@ -40,13 +40,13 @@ Laravel áp dụng mô hình MVC:
 * **View** → hiển thị UI
 * **Controller** → xử lý logic
 
-Giúp:
+👉 Giúp:
 
 * Dễ đọc code
 * Dễ scale
 * Dễ onboard team
 
-### Tích hợp sẵn rất nhiều thứ
+### 2. Tích hợp sẵn rất nhiều thứ
 
 Nếu dùng PHP thuần, bạn phải tự build:
 
@@ -62,13 +62,13 @@ Laravel đã có sẵn tất cả:
 * Blade template
 * Queue, Cache, Event
 
-Giảm rất nhiều thời gian phát triển.
+👉 Giảm rất nhiều thời gian phát triển.
 
-### Code ít hơn nhưng mạnh hơn
+### 3. Code ít hơn nhưng mạnh hơn
 
 Ví dụ:
 
-**PHP thuần**
+❌ PHP thuần
 
 ```php
 $conn = new mysqli(...);
@@ -79,7 +79,7 @@ while ($row = $result->fetch_assoc()) {
 }
 ```
 
-**Laravel**
+✅ Laravel
 
 ```php
 $users = User::all();
@@ -89,7 +89,7 @@ foreach ($users as $user) {
 }
 ```
 
-Ngắn hơn, dễ hiểu hơn, ít bug hơn.
+👉 Ngắn hơn, dễ hiểu hơn, ít bug hơn.
 
 ### Hệ sinh thái cực mạnh
 
@@ -100,7 +100,7 @@ Laravel không chỉ là framework, mà là **ecosystem**:
 * Laravel Nova → admin dashboard
 * Laravel Sail → môi trường dev
 
-Bạn gần như không cần build lại từ đầu.
+👉 Bạn gần như không cần build lại từ đầu.
 
 ## So sánh Laravel với PHP thuần
 
@@ -112,7 +112,7 @@ Bạn gần như không cần build lại từ đầu.
 | Bảo mật          | Tự xử lý  | Có sẵn    |
 | Scale            | Khó       | Dễ        |
 
-Kết luận: Laravel phù hợp với project thực tế hơn.
+👉 Kết luận: Laravel phù hợp với project thực tế hơn.
 
 ## Khi nào nên dùng Laravel?
 
@@ -140,7 +140,7 @@ Mà sẽ hỏi:
 * Trade-off giữa speed vs control?
 * Laravel có phù hợp domain không?
 
-Ví dụ:
+👉 Ví dụ:
 
 * Startup → Laravel rất hợp (dev nhanh)
 * System lớn (10M users) → cần optimize sâu hơn
@@ -152,7 +152,7 @@ Ví dụ:
 * Không hiểu Service Container
 * Không optimize query
 
-Laravel không làm bạn thành senior — cách bạn dùng nó mới quyết định.
+👉 Laravel không làm bạn thành senior — cách bạn dùng nó mới quyết định.
 
 ## Kết luận
 
@@ -166,4 +166,4 @@ Nếu bạn muốn:
 * Build hệ thống lớn
 * Làm việc team hiệu quả
 
-Laravel là lựa chọn rất đáng học.
+👉 Laravel là lựa chọn rất đáng học.
