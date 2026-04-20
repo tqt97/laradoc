@@ -18,6 +18,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SeriesController;
 use App\Http\Controllers\SnippetController;
+use App\Http\Controllers\StoryController;
 use Illuminate\Support\Facades\Route;
 
 // Roles and Permissions management
@@ -50,6 +51,10 @@ Route::middleware('auth')->group(function () {
 // Knowledge Review feature
 Route::get('knowledge', [KnowledgeController::class, 'index'])->name('knowledge.index');
 Route::get('knowledge/{slug}', [KnowledgeController::class, 'show'])->name('knowledge.show');
+
+// Stories feature
+Route::get('stories', [StoryController::class, 'index'])->name('stories.index');
+Route::get('stories/{slug}', [StoryController::class, 'show'])->name('stories.show');
 
 // Newsletter
 Route::post('newsletter/subscribe', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');

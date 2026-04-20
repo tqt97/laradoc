@@ -53,6 +53,20 @@ return [
         ],
     ],
 
+    'stories' => [
+        'enabled' => env('FEATURE_STORIES_ENABLED', true),
+        'roles' => [],
+        'show' => true,
+        'location' => 'header-left',
+        'description' => 'Personal stories and diary entries.',
+        'ui' => [
+            'text' => 'Nhật ký',
+            'route' => 'stories.index',
+            'route_active' => 'stories*',
+            'icon' => 'prezet.icon-story',
+        ],
+    ],
+
     'series' => [
         'enabled' => env('FEATURE_SERIES_ENABLED', true),
         'roles' => [],

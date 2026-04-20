@@ -63,6 +63,14 @@ class PrezetDocument extends Document
     }
 
     /**
+     * Scope a query to only include stories.
+     */
+    public function scopeStories(Builder $query): Builder
+    {
+        return $query->where('filepath', 'like', 'content/stories%');
+    }
+
+    /**
      * Scope a query to search by title or content.
      */
     public function scopeSearch(Builder $query, ?string $term): Builder
