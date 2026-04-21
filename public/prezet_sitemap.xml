@@ -1387,7 +1387,107 @@
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/laravel-advanced/security</loc>
-        <lastmod>2026-04-19T09:06:45+07:00</lastmod>
+        <lastmod>2026-04-19T14:37:00+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/php-best-practices/error-custom-exceptions</loc>
+        <lastmod>2026-04-21T18:10:02+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/php-best-practices/index</loc>
+        <lastmod>2026-04-21T17:56:18+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/php-best-practices/error-exception-hierarchy</loc>
+        <lastmod>2026-04-21T18:10:07+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/php-best-practices/error-finally-cleanup</loc>
+        <lastmod>2026-04-21T18:10:09+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/php-best-practices/error-try-catch-specific</loc>
+        <lastmod>2026-04-21T18:10:12+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/php-best-practices/modern-arrow-functions</loc>
+        <lastmod>2026-04-21T18:10:14+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/php-best-practices/perf-array-functions</loc>
+        <lastmod>2026-04-21T18:10:17+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/php-best-practices/perf-generators</loc>
+        <lastmod>2026-04-21T18:10:19+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/php-best-practices/perf-lazy-loading</loc>
+        <lastmod>2026-04-21T18:10:22+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/php-best-practices/perf-string-functions</loc>
+        <lastmod>2026-04-21T18:10:24+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/php-best-practices/sec-file-uploads</loc>
+        <lastmod>2026-04-21T18:10:27+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/php-best-practices/sec-input-validation</loc>
+        <lastmod>2026-04-21T18:10:29+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/php-best-practices/sec-output-escaping</loc>
+        <lastmod>2026-04-21T18:10:36+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/php-best-practices/sec-password-hashing</loc>
+        <lastmod>2026-04-21T18:10:38+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/php-best-practices/sec-sql-prepared</loc>
+        <lastmod>2026-04-21T18:10:42+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/php-best-practices/solid-dip</loc>
+        <lastmod>2026-04-21T18:10:45+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/php-best-practices/solid-isp</loc>
+        <lastmod>2026-04-21T18:10:48+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/php-best-practices/solid-lsp</loc>
+        <lastmod>2026-04-21T18:10:51+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/php-best-practices/solid-ocp</loc>
+        <lastmod>2026-04-21T18:10:54+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/php-best-practices/solid-srp</loc>
+        <lastmod>2026-04-21T17:45:15+07:00</lastmod>
 
             </url>
 </urlset>
