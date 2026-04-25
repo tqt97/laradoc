@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Prezet;
 use App\Http\Controllers\Controller;
 use App\Models\PrezetDocument;
 use App\Services\ArticleService;
+use App\Services\PostViewService;
 use App\Support\PrezetHelper;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -13,7 +14,8 @@ use Prezet\Prezet\Prezet;
 class ShowController extends Controller
 {
     public function __construct(
-        protected ArticleService $articleService
+        protected ArticleService $articleService,
+        protected PostViewService $postViewService
     ) {}
 
     /**
@@ -31,12 +33,8 @@ class ShowController extends Controller
             abort(404);
         }
 
-        // Increment views
-        $sessionKey = 'viewed_post_'.$doc->id;
-        if (! session()->has($sessionKey)) {
-            $doc->increment('views');
-            session()->put($sessionKey, true);
-        }
+        // Track view using service
+        $this->postViewService->track($doc);
 
         $md = Prezet::getMarkdown($doc->filepath);
         $html = Prezet::parseMarkdown($md)->getContent();

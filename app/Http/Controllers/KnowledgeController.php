@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\PrezetDocument;
 use App\Services\KnowledgeService;
+use App\Services\PostViewService;
 use App\Support\PrezetHelper;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
@@ -12,7 +13,8 @@ use Prezet\Prezet\Prezet;
 class KnowledgeController extends Controller
 {
     public function __construct(
-        protected KnowledgeService $knowledgeService
+        protected KnowledgeService $knowledgeService,
+        protected PostViewService $postViewService
     ) {}
 
     public function index(Request $request): View
@@ -36,12 +38,8 @@ class KnowledgeController extends Controller
     {
         $doc = PrezetDocument::where('slug', 'knowledge/'.$slug)->firstOrFail();
 
-        // Increment views
-        $sessionKey = 'viewed_post_'.$doc->id;
-        if (! session()->has($sessionKey)) {
-            $doc->increment('views');
-            session()->put($sessionKey, true);
-        }
+        // Track view using service
+        $this->postViewService->track($doc);
 
         $knowledge = $this->knowledgeService->getKnowledgeBySlug($slug);
         $md = Prezet::getMarkdown($knowledge->filepath);

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreSnippetRequest;
 use App\Models\PrezetDocument;
+use App\Services\PostViewService;
 use App\Services\SnippetService;
 use App\Support\PrezetHelper;
 use Illuminate\Contracts\View\View;
@@ -14,7 +15,8 @@ use Prezet\Prezet\Prezet;
 class SnippetController extends Controller
 {
     public function __construct(
-        protected SnippetService $snippetService
+        protected SnippetService $snippetService,
+        protected PostViewService $postViewService
     ) {}
 
     public function index(Request $request): View
@@ -59,12 +61,8 @@ class SnippetController extends Controller
     {
         $doc = PrezetDocument::where('slug', 'snippets/'.$slug)->firstOrFail();
 
-        // Increment views
-        $sessionKey = 'viewed_post_'.$doc->id;
-        if (! session()->has($sessionKey)) {
-            $doc->increment('views');
-            session()->put($sessionKey, true);
-        }
+        // Track view using service
+        $this->postViewService->track($doc);
 
         $snippet = $this->snippetService->getSnippetBySlug($slug);
         $md = Prezet::getMarkdown($snippet->filepath);
