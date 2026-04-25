@@ -2,1492 +2,1772 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
     <url>
         <loc>http://127.0.0.1:8000/series/design-pattern/factory-pattern</loc>
-        <lastmod>2026-04-14T14:26:34+07:00</lastmod>
+        <lastmod>2026-04-25T15:34:07+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/design-pattern/index</loc>
-        <lastmod>2026-04-14T14:26:37+07:00</lastmod>
+        <lastmod>2026-04-25T15:33:50+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/design-pattern/strategy-pattern</loc>
-        <lastmod>2026-04-14T14:26:40+07:00</lastmod>
+        <lastmod>2026-04-25T15:34:03+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/laravel-basics/index</loc>
-        <lastmod>2026-04-19T03:14:12+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:39+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/refactoring/basic-concept</loc>
-        <lastmod>2026-03-29T02:25:55+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:39+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/refactoring/index</loc>
-        <lastmod>2026-03-29T02:25:55+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:39+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/refactoring/large-class</loc>
-        <lastmod>2026-03-29T02:25:55+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:39+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/refactoring/long-method</loc>
-        <lastmod>2026-03-29T02:25:55+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:39+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/refactoring/refactor-large-class</loc>
-        <lastmod>2026-03-29T02:25:55+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:39+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/refactoring/refactor-long-method</loc>
-        <lastmod>2026-03-29T02:25:55+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:39+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/snippets/example-test</loc>
-        <lastmod>2026-03-19T00:14:28+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:39+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/snippets/hello-world</loc>
-        <lastmod>2026-03-19T00:14:34+07:00</lastmod>
+        <lastmod>2026-04-25T09:24:52+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/design-pattern/index</loc>
-        <lastmod>2026-04-18T10:32:28+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:39+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/refactoring/clean-code-thuc-chien</loc>
-        <lastmod>2026-04-18T13:08:02+07:00</lastmod>
+        <lastmod>2026-04-25T14:43:22+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/laravel/eloquent-internals</loc>
-        <lastmod>2026-04-18T13:08:02+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:39+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/database/indexing-than-chu</loc>
-        <lastmod>2026-04-18T13:08:02+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:39+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/devops/dockerize-laravel-chuan-prod</loc>
-        <lastmod>2026-04-18T13:08:02+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:39+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/performance/laravel-octane-pha-dao</loc>
-        <lastmod>2026-04-18T13:08:02+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:39+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/experience/race-condition-thanh-toan</loc>
-        <lastmod>2026-04-18T13:08:02+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:39+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/cloud/aws-co-ban-cho-dev</loc>
-        <lastmod>2026-04-18T13:08:02+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:39+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/architecture/monolith-vs-microservices</loc>
-        <lastmod>2026-04-18T13:08:02+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:39+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/algorithms/thuat-toan-cho-web-dev</loc>
-        <lastmod>2026-04-18T12:47:20+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:39+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/laravel/pipeline-pattern</loc>
-        <lastmod>2026-04-18T13:08:02+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:39+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/devops/cicd-github-actions</loc>
-        <lastmod>2026-04-18T13:08:02+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:39+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/architecture/cqrs-event-sourcing</loc>
-        <lastmod>2026-04-18T13:08:02+07:00</lastmod>
+        <lastmod>2026-04-25T09:24:52+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/experience/n-plus-1-hieu-lam</loc>
-        <lastmod>2026-04-18T13:08:02+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:39+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/security/sql-injection-deep-dive</loc>
-        <lastmod>2026-04-18T13:08:02+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:39+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/cloud/terraform-aws-intro</loc>
-        <lastmod>2026-04-18T13:08:02+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:39+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/knowledge/software-testing</loc>
-        <lastmod>2026-04-18T08:42:24+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:39+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/knowledge/aws-devops-cloud</loc>
-        <lastmod>2026-04-18T08:42:28+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:39+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/knowledge/career-wisdom-tips</loc>
-        <lastmod>2026-04-18T08:42:31+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:40+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/knowledge/code-review-engineering-practices</loc>
-        <lastmod>2026-04-18T08:42:38+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:40+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/knowledge/refactoring-code-quality</loc>
-        <lastmod>2026-04-18T08:42:41+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:40+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/knowledge/architecture-system-design</loc>
-        <lastmod>2026-04-18T08:42:45+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:40+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/knowledge/data-structures-algorithms-php</loc>
-        <lastmod>2026-04-18T08:42:48+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:40+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/knowledge/linux-system-administration</loc>
-        <lastmod>2026-04-18T08:42:51+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:43+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/knowledge/business-product-thinking</loc>
-        <lastmod>2026-04-18T08:42:54+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:43+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/knowledge/queue-caching-session</loc>
-        <lastmod>2026-04-18T08:42:56+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:43+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/knowledge/database-design-practice</loc>
-        <lastmod>2026-04-18T08:42:59+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:43+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/knowledge/css-ui-engineering</loc>
-        <lastmod>2026-04-18T08:43:02+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:43+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/knowledge/observability-monitoring</loc>
-        <lastmod>2026-04-18T08:43:05+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:43+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/knowledge/laravel-database</loc>
-        <lastmod>2026-04-18T08:43:07+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:43+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/knowledge/web-security-hacking</loc>
-        <lastmod>2026-04-18T08:43:14+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:43+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/knowledge/laravel-eloquent-builder</loc>
-        <lastmod>2026-04-18T08:43:18+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:43+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/knowledge/web-performance-seo</loc>
-        <lastmod>2026-04-18T08:43:23+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:44+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/knowledge/php-fundamentals-oop</loc>
-        <lastmod>2026-04-18T08:43:26+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:44+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/knowledge/php-internals-functions</loc>
-        <lastmod>2026-04-18T08:43:29+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:44+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/knowledge/optimization-performance</loc>
-        <lastmod>2026-04-18T08:43:31+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:44+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/knowledge/advanced-networking</loc>
-        <lastmod>2026-04-18T08:43:36+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:44+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/knowledge/api-design</loc>
-        <lastmod>2026-04-18T08:43:39+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:44+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/knowledge/laravel-architecture-concepts</loc>
-        <lastmod>2026-04-18T08:43:43+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:44+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/knowledge/database-theory</loc>
-        <lastmod>2026-04-18T08:43:50+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:44+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/knowledge/laravel-the-basics</loc>
-        <lastmod>2026-04-18T08:43:53+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:44+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/knowledge/php-advanced-internals</loc>
-        <lastmod>2026-04-18T08:43:56+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:44+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/knowledge/debugging-troubleshooting</loc>
-        <lastmod>2026-04-18T08:44:00+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:44+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/knowledge/laravel-digging-deeper</loc>
-        <lastmod>2026-04-18T08:44:02+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:44+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/knowledge/js-react-core</loc>
-        <lastmod>2026-04-18T08:44:05+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:44+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/knowledge/laravel-security</loc>
-        <lastmod>2026-04-18T08:44:08+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:44+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/knowledge/http-web-fundamentals</loc>
-        <lastmod>2026-04-18T08:44:11+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:44+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/knowledge/laravel-architecture-deep-dive</loc>
-        <lastmod>2026-04-18T08:44:14+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:45+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/architecture/solid-principles-revisited</loc>
-        <lastmod>2026-04-18T13:08:02+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:45+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/react/react-reconciliation-engine</loc>
-        <lastmod>2026-04-18T13:38:18+07:00</lastmod>
+        <lastmod>2026-04-25T09:24:53+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/architecture/saga-pattern-microservices</loc>
-        <lastmod>2026-04-18T13:38:21+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:45+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/performance/browser-rendering-optimization</loc>
-        <lastmod>2026-04-18T13:38:24+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:45+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/laravel/laravel-service-container-deep-dive</loc>
-        <lastmod>2026-04-18T13:38:28+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:45+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/design-pattern/decorator-pattern-real-world</loc>
-        <lastmod>2026-04-18T13:38:31+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:45+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/refactoring/composition-over-inheritance</loc>
-        <lastmod>2026-04-18T13:38:34+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:45+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/architecture/circuit-breaker-pattern</loc>
-        <lastmod>2026-04-18T13:38:37+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:45+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/architecture/clean-architecture-basics</loc>
-        <lastmod>2026-04-18T13:38:40+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:45+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/database/covering-index-optimization</loc>
-        <lastmod>2026-04-18T13:38:43+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:45+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/design-pattern/abstract-factory-pattern</loc>
-        <lastmod>2026-04-18T13:38:46+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:45+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/design-pattern/adapter-pattern-integration</loc>
-        <lastmod>2026-04-18T13:38:49+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:45+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/design-pattern/chain-of-responsibility</loc>
-        <lastmod>2026-04-18T13:38:56+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:45+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/design-pattern/observer-pattern-laravel-events</loc>
-        <lastmod>2026-04-18T13:38:59+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:45+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/design-pattern/repository-pattern-best-practices</loc>
-        <lastmod>2026-04-18T13:39:02+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:45+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/design-pattern/singleton-pattern-in-laravel</loc>
-        <lastmod>2026-04-18T13:39:05+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:45+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/design-pattern/strategy-pattern</loc>
-        <lastmod>2026-04-18T13:39:09+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:46+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/devops/zero-downtime-deployment-symlinks</loc>
-        <lastmod>2026-04-18T13:39:13+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:46+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/laravel/eloquent-hydration-process</loc>
-        <lastmod>2026-04-18T13:39:16+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:46+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/laravel/laravel-service-provider-bootstrapping</loc>
-        <lastmod>2026-04-18T13:39:19+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:46+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/security/jwt-security-pitfalls</loc>
-        <lastmod>2026-04-18T13:39:22+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:46+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/laravel/facade-internals</loc>
-        <lastmod>2026-04-18T10:48:08+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:46+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/design-pattern/builder-pattern</loc>
-        <lastmod>2026-04-18T13:39:32+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:46+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/design-pattern/builder-pattern-deep-dive</loc>
-        <lastmod>2026-04-18T13:39:35+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:46+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/architecture/pipeline-pattern</loc>
-        <lastmod>2026-04-18T13:39:39+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:46+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/laravel/laravel-middleware-mechanics</loc>
-        <lastmod>2026-04-18T13:39:42+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:46+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/design-pattern/factory-method-pattern</loc>
-        <lastmod>2026-04-18T13:39:45+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:46+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/design-pattern/state-pattern</loc>
-        <lastmod>2026-04-18T13:39:48+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:46+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/design-pattern/prototype-pattern</loc>
-        <lastmod>2026-04-18T13:39:51+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:46+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/architecture/event-driven-kafka-concepts</loc>
-        <lastmod>2026-04-18T13:39:54+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:46+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/database/database-sharding-scaling</loc>
-        <lastmod>2026-04-18T13:39:57+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:46+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/laravel/laravel-service-provider-internals</loc>
-        <lastmod>2026-04-18T13:40:00+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:46+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/architecture/api-gateway-pattern</loc>
-        <lastmod>2026-04-18T13:40:07+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:46+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/database/database-partitioning</loc>
-        <lastmod>2026-04-18T13:40:11+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:46+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/database/redis-advanced-patterns</loc>
-        <lastmod>2026-04-18T13:40:14+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:46+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/architecture/grpc-microservices-communication</loc>
-        <lastmod>2026-04-18T13:40:17+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:46+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/design-pattern/command-pattern</loc>
-        <lastmod>2026-04-18T13:40:20+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:46+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/design-pattern/composite-pattern</loc>
-        <lastmod>2026-04-18T13:40:23+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:46+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/design-pattern/facade-pattern</loc>
-        <lastmod>2026-04-18T13:40:26+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:46+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/design-pattern/proxy-pattern</loc>
-        <lastmod>2026-04-18T13:40:29+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:46+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/design-pattern/template-method-pattern</loc>
-        <lastmod>2026-04-18T13:40:32+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:46+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/laravel/laravel-fundamentals-overview</loc>
-        <lastmod>2026-04-18T13:40:35+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:46+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/laravel/laravel-advanced-architecture</loc>
-        <lastmod>2026-04-18T13:40:42+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:46+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/laravel/eloquent-internals-deep-dive</loc>
-        <lastmod>2026-04-18T13:40:45+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:46+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/architecture/event-driven-laravel</loc>
-        <lastmod>2026-04-18T13:40:49+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:46+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/architecture/dto-action-pattern</loc>
-        <lastmod>2026-04-18T13:40:52+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:46+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/laravel/container-resolving-hooks</loc>
-        <lastmod>2026-04-18T13:40:55+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:46+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/architecture/cqrs-in-laravel</loc>
-        <lastmod>2026-04-18T13:40:58+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:46+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/architecture/api-gateway-deep-dive</loc>
-        <lastmod>2026-04-18T13:41:01+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:46+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/database/database-partitioning-deep-dive</loc>
-        <lastmod>2026-04-18T13:41:04+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:47+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/security/advanced-security-hardening</loc>
-        <lastmod>2026-04-18T13:41:07+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:47+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/testing/advanced-testing-strategies</loc>
-        <lastmod>2026-04-18T13:41:11+07:00</lastmod>
+        <lastmod>2026-04-25T09:24:55+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/algorithms/hashmap-btree-internals</loc>
-        <lastmod>2026-04-18T13:41:17+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:47+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/algorithms/heap-priority-queue</loc>
-        <lastmod>2026-04-18T13:41:20+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:47+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/algorithms/kmp-string-search</loc>
-        <lastmod>2026-04-18T13:41:23+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:47+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/algorithms/sorting-quicksort-mergesort</loc>
-        <lastmod>2026-04-18T13:41:26+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:47+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/algorithms/graph-bfs-dfs</loc>
-        <lastmod>2026-04-18T13:41:29+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:47+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/algorithms/dijkstra-shortest-path</loc>
-        <lastmod>2026-04-18T13:41:32+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:47+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/algorithms/dynamic-programming-basics</loc>
-        <lastmod>2026-04-18T13:41:35+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:47+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/algorithms/sliding-window-pattern</loc>
-        <lastmod>2026-04-18T13:41:38+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:47+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/algorithms/external-sorting</loc>
-        <lastmod>2026-04-18T13:07:27+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:47+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/algorithms/trie-prefix-tree</loc>
-        <lastmod>2026-04-18T13:41:45+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:47+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/algorithms/bloom-filter</loc>
-        <lastmod>2026-04-18T13:07:28+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:47+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/algorithms/knapsack-dp</loc>
-        <lastmod>2026-04-18T13:41:54+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:47+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/algorithms/top-k-elements-heap</loc>
-        <lastmod>2026-04-18T13:41:57+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:47+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/algorithms/geohash-spatial-indexing</loc>
-        <lastmod>2026-04-18T13:42:00+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:47+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/algorithms/top-k-heap-optimization</loc>
-        <lastmod>2026-04-18T13:42:03+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:47+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/algorithms/quick-select</loc>
-        <lastmod>2026-04-18T13:07:27+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:47+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/algorithms/binary-search-variants</loc>
-        <lastmod>2026-04-18T13:42:09+07:00</lastmod>
+        <lastmod>2026-04-25T09:24:55+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/algorithms/two-pointers-pattern</loc>
-        <lastmod>2026-04-18T13:42:12+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:47+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/algorithms/subarray-sum-k</loc>
-        <lastmod>2026-04-18T13:42:15+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:47+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/algorithms/leetcode-two-sum</loc>
-        <lastmod>2026-04-18T12:11:28+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:47+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/algorithms/leetcode-merge-k-sorted-lists</loc>
-        <lastmod>2026-04-18T13:42:22+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:47+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/algorithms/lru-cache</loc>
-        <lastmod>2026-04-18T13:42:25+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:47+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/algorithms/merge-sort-deep-dive</loc>
-        <lastmod>2026-04-18T13:42:31+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:47+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/algorithms/laravel-nested-sets</loc>
-        <lastmod>2026-04-18T13:42:34+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:47+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/algorithms/php-array-optimization</loc>
-        <lastmod>2026-04-18T13:42:37+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:47+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/architecture/consistent-hashing</loc>
-        <lastmod>2026-04-18T13:07:27+07:00</lastmod>
+        <lastmod>2026-04-25T09:24:55+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/algorithms/lcs-dynamic-programming</loc>
-        <lastmod>2026-04-18T13:42:43+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:47+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/architecture/saga-distributed-transactions</loc>
-        <lastmod>2026-04-18T13:42:46+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:47+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/laravel/laravel-pipeline-internals</loc>
-        <lastmod>2026-04-18T13:42:49+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:47+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/laravel/laravel-architect-best-practices</loc>
-        <lastmod>2026-04-18T13:42:52+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:47+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/laravel/auth-guards-providers</loc>
-        <lastmod>2026-04-18T13:42:55+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:47+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/laravel/gate-policy-internals</loc>
-        <lastmod>2026-04-18T13:42:58+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:47+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/laravel/helper-filesystem-mechanics</loc>
-        <lastmod>2026-04-18T13:43:05+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:47+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/laravel/security-hashing-encryption</loc>
-        <lastmod>2026-04-18T13:43:08+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:47+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/laravel/auth-verify-reset</loc>
-        <lastmod>2026-04-18T13:43:11+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:47+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/laravel/queue-job-internals</loc>
-        <lastmod>2026-04-18T13:43:15+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:47+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/architecture/solid-clean-code-laravel</loc>
-        <lastmod>2026-04-18T13:43:18+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:48+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/architecture/dry-solid-real-world</loc>
-        <lastmod>2026-04-18T13:43:22+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:48+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/architecture/laravel-architect-tips</loc>
-        <lastmod>2026-04-18T13:43:24+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:48+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/laravel/debugging-observability-strategy</loc>
-        <lastmod>2026-04-18T13:43:27+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:48+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/database/eloquent-query-tuning</loc>
-        <lastmod>2026-04-18T13:43:30+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:48+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/architecture/laravel-architect-mindset</loc>
-        <lastmod>2026-04-18T13:43:33+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:48+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/laravel/service-container-lifecycle-tips</loc>
-        <lastmod>2026-04-18T13:43:36+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:48+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/api/api-caching-etag</loc>
-        <lastmod>2026-04-18T13:43:42+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:48+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/api/api-optimization-tips</loc>
-        <lastmod>2026-04-18T13:43:45+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:48+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/api/api-security-best-practices</loc>
-        <lastmod>2026-04-18T13:43:48+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:48+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/api/global-exception-handler</loc>
-        <lastmod>2026-04-18T13:43:52+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:48+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/api/restful-design-versioning</loc>
-        <lastmod>2026-04-18T13:43:55+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:48+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/api/throttling-signed-urls</loc>
-        <lastmod>2026-04-18T13:43:58+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:48+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/architecture/decision-framework</loc>
-        <lastmod>2026-04-18T13:44:01+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:48+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/architecture/decision-matrix</loc>
-        <lastmod>2026-04-18T13:44:04+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:48+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/architecture/framework-tradeoffs</loc>
-        <lastmod>2026-04-18T13:44:07+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:48+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/architecture/laravel-design-choices</loc>
-        <lastmod>2026-04-18T13:44:10+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:48+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/architecture/naming-conventions-skills</loc>
-        <lastmod>2026-04-18T13:44:16+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:48+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/architecture/senior-coding-standards</loc>
-        <lastmod>2026-04-18T13:44:19+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:48+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/architecture/senior-standards</loc>
-        <lastmod>2026-04-18T13:44:22+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:48+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/database/database-deadlock-handling</loc>
-        <lastmod>2026-04-18T13:44:25+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:48+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/devops/worker-memory-leak</loc>
-        <lastmod>2026-04-18T13:44:28+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:48+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/experience/cache-stampede</loc>
-        <lastmod>2026-04-18T12:44:49+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:48+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/git/advanced-workflow</loc>
-        <lastmod>2026-04-18T13:44:34+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:48+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/git/git-architect-handbook</loc>
-        <lastmod>2026-04-18T13:44:37+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:48+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/git/git-bisect-debugging</loc>
-        <lastmod>2026-04-18T13:44:40+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:48+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/git/git-cherry-pick</loc>
-        <lastmod>2026-04-18T13:44:43+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:48+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/git/git-interactive-rebase</loc>
-        <lastmod>2026-04-18T13:44:46+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:48+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/git/git-internals-dag</loc>
-        <lastmod>2026-04-18T13:44:53+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:48+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/git/git-internals-snapshots</loc>
-        <lastmod>2026-04-18T13:44:56+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:48+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/git/git-workflow-best-practices</loc>
-        <lastmod>2026-04-18T13:44:59+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:48+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/git/reset-revert-checkout</loc>
-        <lastmod>2026-04-18T13:45:01+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:48+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/testing/testing-manual-automation-balance</loc>
-        <lastmod>2026-04-18T13:45:04+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:48+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/testing/mocking-contracts-best-practices</loc>
-        <lastmod>2026-04-18T13:45:07+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:48+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/refactoring/refactor-strategy</loc>
-        <lastmod>2026-04-18T13:45:10+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:48+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/refactoring/code-smells</loc>
-        <lastmod>2026-04-18T13:45:13+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:48+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/refactoring/replace-conditionals-with-strategy</loc>
-        <lastmod>2026-04-18T13:45:16+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:48+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/refactoring/extract-class</loc>
-        <lastmod>2026-04-18T13:45:18+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:48+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/refactoring/test-as-safety-net</loc>
-        <lastmod>2026-04-18T13:45:21+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:48+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/refactoring/branch-by-abstraction</loc>
-        <lastmod>2026-04-18T13:45:28+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:49+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/experience/boy-scout-rule</loc>
-        <lastmod>2026-04-18T13:45:31+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:49+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/architecture/modular-monolith-transition</loc>
-        <lastmod>2026-04-18T13:45:34+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:49+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/refactoring/event-driven-decoupling</loc>
-        <lastmod>2026-04-18T13:45:37+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:49+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/refactoring/characterization-testing</loc>
-        <lastmod>2026-04-18T13:45:39+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:49+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/refactoring/refactor-long-method</loc>
-        <lastmod>2026-04-18T13:45:42+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:49+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/refactoring/feature-envy</loc>
-        <lastmod>2026-04-18T13:07:27+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:49+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/refactoring/data-clumps</loc>
-        <lastmod>2026-04-18T13:07:27+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:49+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/refactoring/data-class</loc>
-        <lastmod>2026-04-18T13:07:27+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:49+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/refactoring/dead-code</loc>
-        <lastmod>2026-04-18T13:07:27+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:49+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/refactoring/inappropriate-intimacy</loc>
-        <lastmod>2026-04-18T13:45:56+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:49+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/refactoring/long-parameter-list</loc>
-        <lastmod>2026-04-18T13:45:59+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:49+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/refactoring/message-chains</loc>
-        <lastmod>2026-04-18T13:07:27+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:49+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/refactoring/middle-man</loc>
-        <lastmod>2026-04-18T13:07:27+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:49+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/refactoring/primitive-obsession</loc>
-        <lastmod>2026-04-18T13:46:12+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:49+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/refactoring/shotgun-surgery</loc>
-        <lastmod>2026-04-18T13:46:15+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:49+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/refactoring/speculative-generality</loc>
-        <lastmod>2026-04-18T13:46:18+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:49+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/refactoring/parallel-inheritance</loc>
-        <lastmod>2026-04-18T13:46:20+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:49+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/refactoring/large-class</loc>
-        <lastmod>2026-04-18T13:07:27+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:49+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/refactoring/temporary-field</loc>
-        <lastmod>2026-04-18T13:46:26+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:49+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/knowledge/advanced-system-design</loc>
-        <lastmod>2026-04-18T09:53:11+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:49+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/php/attributes-and-reflection</loc>
-        <lastmod>2026-04-18T13:12:52+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:49+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/php/garbage-collection-deep-dive</loc>
-        <lastmod>2026-04-18T13:46:35+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:49+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/php/php-advanced-closure-callback</loc>
-        <lastmod>2026-04-18T13:46:41+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:49+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/php/php-autoloading-composer</loc>
-        <lastmod>2026-04-18T13:46:44+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:49+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/php/php-fiber-concurrency</loc>
-        <lastmod>2026-04-18T13:46:47+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:49+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/php/php-garbage-collection-internals</loc>
-        <lastmod>2026-04-18T13:46:50+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:49+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/php/php-generators</loc>
-        <lastmod>2026-04-18T13:46:53+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:49+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/php/php-serialization-internals</loc>
-        <lastmod>2026-04-18T13:46:56+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:49+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/php/php-traits-conflict-resolution</loc>
-        <lastmod>2026-04-18T13:46:59+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:49+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/php/php-traits-vs-abstract</loc>
-        <lastmod>2026-04-18T13:47:02+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:49+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/php/php-vs-laravel-architect-mindset</loc>
-        <lastmod>2026-04-18T13:47:05+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:49+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/php/php-vs-laravel-tradeoff</loc>
-        <lastmod>2026-04-18T13:47:08+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:49+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/php/value-vs-reference-cow</loc>
-        <lastmod>2026-04-18T13:47:11+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:49+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/php/value-vs-reference</loc>
-        <lastmod>2026-04-18T13:47:17+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:49+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/php/zend-engine-co-ban</loc>
-        <lastmod>2026-04-18T13:08:02+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:49+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/php/isset-vs-in-array-trong-php</loc>
-        <lastmod>2026-04-18T13:12:47+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:50+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/react/state-management-patterns</loc>
-        <lastmod>2026-04-18T13:47:26+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:50+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/javascript/js-event-loop</loc>
-        <lastmod>2026-04-18T13:47:29+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:50+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/react/performance-optimization</loc>
-        <lastmod>2026-04-18T13:47:32+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:50+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/react/custom-hooks-architecture</loc>
-        <lastmod>2026-04-18T13:47:35+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:50+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/javascript/js-prototype-inheritance</loc>
-        <lastmod>2026-04-18T13:47:38+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:50+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/javascript/js-closure-lexical-scope</loc>
-        <lastmod>2026-04-18T13:47:41+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:50+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/javascript/js-call-apply-bind</loc>
-        <lastmod>2026-04-18T13:47:44+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:50+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/javascript/js-async-promises</loc>
-        <lastmod>2026-04-18T13:47:47+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:50+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/javascript/js-modules-esm-cjs</loc>
-        <lastmod>2026-04-18T13:47:54+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:50+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/javascript/js-memory-leaks</loc>
-        <lastmod>2026-04-18T13:47:57+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:50+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/javascript/js-proxy-reflect</loc>
-        <lastmod>2026-04-18T13:48:00+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:50+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/javascript/js-event-delegation</loc>
-        <lastmod>2026-04-18T13:48:03+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:50+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/javascript/js-currying-composition</loc>
-        <lastmod>2026-04-18T13:48:06+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:50+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/javascript/js-execution-context</loc>
-        <lastmod>2026-04-18T13:48:09+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:50+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/javascript/js-event-loop-deep-dive</loc>
-        <lastmod>2026-04-18T13:48:12+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:50+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/javascript/js-memory-management</loc>
-        <lastmod>2026-04-18T13:48:15+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:50+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/javascript/debounce-throttle</loc>
-        <lastmod>2026-04-18T13:48:18+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:50+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/react/hoc-vs-hooks</loc>
-        <lastmod>2026-04-18T13:48:21+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:50+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/javascript/race-conditions</loc>
-        <lastmod>2026-04-18T13:48:27+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:50+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/react/stale-state-closure</loc>
-        <lastmod>2026-04-18T13:48:30+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:50+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/react/memory-leak-useeffect</loc>
-        <lastmod>2026-04-18T13:48:33+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:50+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/javascript/async-map-problem</loc>
-        <lastmod>2026-04-18T13:48:36+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:50+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/blogs/laravel/index</loc>
-        <lastmod>2026-04-19T14:35:03+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:50+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/laravel-basics/laravel-lifecycle</loc>
-        <lastmod>2026-04-19T14:35:05+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:50+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/laravel-basics/laravel-service-container</loc>
-        <lastmod>2026-04-19T14:35:09+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:50+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/laravel-basics/laravel-repository-pattern-service-layer</loc>
-        <lastmod>2026-04-19T14:35:15+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:50+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/laravel-basics/laravel-eloquent-orm-deep-dive</loc>
-        <lastmod>2026-04-19T14:35:18+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:50+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/laravel-basics/laravel-caching</loc>
-        <lastmod>2026-04-19T14:35:21+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:50+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/laravel-basics/laravel-queue-job</loc>
-        <lastmod>2026-04-19T14:35:25+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:50+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/laravel-basics/laravel-event-listener</loc>
-        <lastmod>2026-04-19T14:35:28+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:50+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/laravel-basics/laravel-middleware-deep-dive</loc>
-        <lastmod>2026-04-19T14:35:33+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:50+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/laravel-basics/laravel-validation</loc>
-        <lastmod>2026-04-19T14:35:35+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:50+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/laravel-basics/laravel-auth</loc>
-        <lastmod>2026-04-19T14:35:40+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:50+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/laravel-basics/laravel-testing</loc>
-        <lastmod>2026-04-19T14:35:42+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:50+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/laravel-basics/laravel-api</loc>
-        <lastmod>2026-04-19T14:35:46+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:50+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/laravel-basics/laravel-clean-architecture</loc>
-        <lastmod>2026-04-19T14:35:49+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:50+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/laravel-basics/laravel-deployment</loc>
-        <lastmod>2026-04-19T14:35:53+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:50+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/laravel-basics/laravel-performance-tuning</loc>
-        <lastmod>2026-04-19T14:35:56+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:51+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/laravel-basics/laravel-system-design</loc>
-        <lastmod>2026-04-19T14:36:00+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:51+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/laravel-advanced/index</loc>
-        <lastmod>2026-04-19T14:36:08+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:51+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/laravel-advanced/eloquent</loc>
-        <lastmod>2026-04-19T14:36:12+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:51+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/laravel-advanced/database</loc>
-        <lastmod>2026-04-19T14:36:15+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:51+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/laravel-advanced/caching</loc>
-        <lastmod>2026-04-19T14:36:20+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:51+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/laravel-advanced/event-driven</loc>
-        <lastmod>2026-04-19T14:36:23+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:51+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/laravel-advanced/queue</loc>
-        <lastmod>2026-04-19T14:36:27+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:51+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/laravel-advanced/api-design</loc>
-        <lastmod>2026-04-19T14:36:30+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:51+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/laravel-advanced/modular</loc>
-        <lastmod>2026-04-19T14:36:34+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:51+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/laravel-advanced/microservices</loc>
-        <lastmod>2026-04-19T14:36:37+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:51+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/laravel-advanced/cqrs</loc>
-        <lastmod>2026-04-19T14:36:44+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:51+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/laravel-advanced/system-design</loc>
-        <lastmod>2026-04-19T14:36:47+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:51+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/laravel-advanced/architecture-and-design</loc>
-        <lastmod>2026-04-19T14:36:50+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:51+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/laravel-advanced/dependency-injection-service-container</loc>
-        <lastmod>2026-04-19T14:36:53+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:51+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/laravel-advanced/redis-websocket</loc>
-        <lastmod>2026-04-19T14:36:57+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:51+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/laravel-advanced/security</loc>
-        <lastmod>2026-04-19T14:37:00+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:51+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/php-best-practices/error-custom-exceptions</loc>
-        <lastmod>2026-04-21T18:10:02+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:51+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/php-best-practices/index</loc>
-        <lastmod>2026-04-21T17:56:18+07:00</lastmod>
+        <lastmod>2026-04-25T10:00:02+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/php-best-practices/error-exception-hierarchy</loc>
-        <lastmod>2026-04-21T18:10:07+07:00</lastmod>
+        <lastmod>2026-04-25T10:00:03+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/php-best-practices/error-finally-cleanup</loc>
-        <lastmod>2026-04-21T18:10:09+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:51+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/php-best-practices/error-try-catch-specific</loc>
-        <lastmod>2026-04-21T18:10:12+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:51+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/php-best-practices/modern-arrow-functions</loc>
-        <lastmod>2026-04-21T18:10:14+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:51+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/php-best-practices/perf-array-functions</loc>
-        <lastmod>2026-04-21T18:10:17+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:51+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/php-best-practices/perf-generators</loc>
-        <lastmod>2026-04-21T18:10:19+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:51+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/php-best-practices/perf-lazy-loading</loc>
-        <lastmod>2026-04-21T18:10:22+07:00</lastmod>
+        <lastmod>2026-04-25T10:00:30+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/php-best-practices/perf-string-functions</loc>
-        <lastmod>2026-04-21T18:10:24+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:51+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/php-best-practices/sec-file-uploads</loc>
-        <lastmod>2026-04-21T18:10:27+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:51+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/php-best-practices/sec-input-validation</loc>
-        <lastmod>2026-04-21T18:10:29+07:00</lastmod>
+        <lastmod>2026-04-25T10:00:07+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/php-best-practices/sec-output-escaping</loc>
-        <lastmod>2026-04-21T18:10:36+07:00</lastmod>
+        <lastmod>2026-04-25T10:01:53+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/php-best-practices/sec-password-hashing</loc>
-        <lastmod>2026-04-21T18:10:38+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:51+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/php-best-practices/sec-sql-prepared</loc>
-        <lastmod>2026-04-21T18:10:42+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:51+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/php-best-practices/solid-dip</loc>
-        <lastmod>2026-04-21T18:10:45+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:51+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/php-best-practices/solid-isp</loc>
-        <lastmod>2026-04-21T18:10:48+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:51+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/php-best-practices/solid-lsp</loc>
-        <lastmod>2026-04-21T18:10:51+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:51+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/php-best-practices/solid-ocp</loc>
-        <lastmod>2026-04-21T18:10:54+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:51+07:00</lastmod>
 
             </url>
     <url>
         <loc>http://127.0.0.1:8000/series/php-best-practices/solid-srp</loc>
-        <lastmod>2026-04-21T17:45:15+07:00</lastmod>
+        <lastmod>2026-04-25T09:59:51+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/clean-code-principles/index</loc>
+        <lastmod>2026-04-25T09:59:51+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/clean-code-principles/core-dry-extraction</loc>
+        <lastmod>2026-04-25T09:25:00+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/clean-code-principles/core-dry-single-source</loc>
+        <lastmod>2026-04-25T09:59:52+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/clean-code-principles/core-dry</loc>
+        <lastmod>2026-04-25T09:59:52+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/clean-code-principles/core-encapsulation</loc>
+        <lastmod>2026-04-25T09:59:52+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/clean-code-principles/core-fail-fast</loc>
+        <lastmod>2026-04-25T09:59:52+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/clean-code-principles/core-kiss-readability</loc>
+        <lastmod>2026-04-25T09:59:52+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/clean-code-principles/core-kiss-simplicity</loc>
+        <lastmod>2026-04-25T09:59:52+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/clean-code-principles/core-law-demeter</loc>
+        <lastmod>2026-04-25T09:59:52+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/clean-code-principles/core-separation-concerns</loc>
+        <lastmod>2026-04-25T09:59:52+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/clean-code-principles/core-yagni-abstractions</loc>
+        <lastmod>2026-04-25T09:59:52+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/clean-code-principles/core-yagni-features</loc>
+        <lastmod>2026-04-25T09:59:52+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/clean-code-principles/pattern-repository</loc>
+        <lastmod>2026-04-25T09:59:52+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/clean-code-principles/solid-dip-abstractions</loc>
+        <lastmod>2026-04-25T09:59:52+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/clean-code-principles/solid-dip-injection</loc>
+        <lastmod>2026-04-25T09:59:52+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/clean-code-principles/solid-isp-clients</loc>
+        <lastmod>2026-04-25T09:59:52+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/clean-code-principles/solid-isp-interfaces</loc>
+        <lastmod>2026-04-25T09:59:52+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/clean-code-principles/solid-lsp-contracts</loc>
+        <lastmod>2026-04-25T09:59:52+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/clean-code-principles/solid-lsp-preconditions</loc>
+        <lastmod>2026-04-25T09:59:52+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/clean-code-principles/solid-ocp-abstraction</loc>
+        <lastmod>2026-04-25T09:59:52+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/clean-code-principles/solid-ocp-extension</loc>
+        <lastmod>2026-04-25T09:59:52+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/clean-code-principles/solid-srp-class</loc>
+        <lastmod>2026-04-25T09:59:52+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/clean-code-principles/solid-srp-function</loc>
+        <lastmod>2026-04-25T09:59:52+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/clean-code-principles/core-composition</loc>
+        <lastmod>2026-04-25T09:59:52+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/blogs/experience/checklist-clean-code-senior</loc>
+        <lastmod>2026-04-25T12:19:40+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/design-pattern/singleton-pattern</loc>
+        <lastmod>2026-04-25T15:17:17+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/design-pattern/adapter-pattern</loc>
+        <lastmod>2026-04-25T15:34:11+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/design-pattern/observer-pattern</loc>
+        <lastmod>2026-04-25T15:35:16+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/design-pattern/facade-pattern</loc>
+        <lastmod>2026-04-25T08:21:09+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/design-pattern/builder-pattern</loc>
+        <lastmod>2026-04-25T15:34:11+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/design-pattern/decorator-pattern</loc>
+        <lastmod>2026-04-25T08:20:57+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/design-pattern/proxy-pattern</loc>
+        <lastmod>2026-04-25T08:21:47+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/design-pattern/repository-pattern</loc>
+        <lastmod>2026-04-25T08:21:56+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/design-pattern/abstract-factory-pattern</loc>
+        <lastmod>2026-04-25T08:19:41+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/design-pattern/command-pattern</loc>
+        <lastmod>2026-04-25T08:20:39+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/design-pattern/chain-of-responsibility-pattern</loc>
+        <lastmod>2026-04-25T08:53:16+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/design-pattern/state-pattern</loc>
+        <lastmod>2026-04-25T15:35:56+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/design-pattern/template-method-pattern</loc>
+        <lastmod>2026-04-25T08:53:21+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/design-pattern/bridge-pattern</loc>
+        <lastmod>2026-04-25T08:53:25+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/design-pattern/composite-pattern</loc>
+        <lastmod>2026-04-25T08:20:48+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/design-pattern/dto-pattern</loc>
+        <lastmod>2026-04-25T08:21:03+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/design-pattern/mediator-pattern</loc>
+        <lastmod>2026-04-25T08:53:36+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/design-pattern/specification-pattern</loc>
+        <lastmod>2026-04-25T08:22:06+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/design-pattern/iterator-pattern</loc>
+        <lastmod>2026-04-25T08:21:15+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/design-pattern/prototype-pattern</loc>
+        <lastmod>2026-04-25T08:53:44+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/design-pattern/value-object-pattern</loc>
+        <lastmod>2026-04-25T15:34:15+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/design-pattern/dependency-injection-pattern</loc>
+        <lastmod>2026-04-25T08:53:50+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/design-pattern/memento-pattern</loc>
+        <lastmod>2026-04-25T08:24:29+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/design-pattern/visitor-pattern</loc>
+        <lastmod>2026-04-25T08:24:55+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/design-pattern/flyweight-pattern</loc>
+        <lastmod>2026-04-25T15:25:47+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/design-pattern/service-locator-pattern</loc>
+        <lastmod>2026-04-25T08:26:13+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/design-pattern/data-mapper-pattern</loc>
+        <lastmod>2026-04-25T08:26:21+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/design-pattern/unit-of-work-pattern</loc>
+        <lastmod>2026-04-25T08:26:45+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/design-pattern/active-record-pattern</loc>
+        <lastmod>2026-04-25T15:35:59+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/design-pattern/null-object-pattern</loc>
+        <lastmod>2026-04-25T08:27:20+07:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/series/design-pattern/factory-method-pattern</loc>
+        <lastmod>2026-04-25T08:54:16+07:00</lastmod>
 
             </url>
 </urlset>
