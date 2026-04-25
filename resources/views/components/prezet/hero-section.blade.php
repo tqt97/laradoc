@@ -4,7 +4,23 @@
 
 <div
     class="relative py-16 lg:py-24 overflow-hidden border-b border-zinc-100 dark:border-zinc-800/50 bg-white dark:bg-zinc-950 font-['Be_Vietnam_Pro']">
+
+    {{-- Artistic Background --}}
+    <div class="absolute inset-0 z-0">
+        {{-- Dot Grid Pattern --}}
+        <div class="absolute inset-0 opacity-[0.15] dark:opacity-[0.1]"
+            style="background-image: radial-gradient(var(--color-primary-500) 0.5px, transparent 0.5px); background-size: 24px 24px;">
+        </div>
+
+        {{-- Modern Gradients --}}
+        <div class="absolute -top-24 -left-20 size-125 bg-primary-500/10 rounded-full blur-[120px]"></div>
+        <div class="absolute top-1/2 -right-20 size-150 bg-indigo-500/10 rounded-full blur-[140px] -translate-y-1/2">
+        </div>
+        <div class="absolute -bottom-24 left-1/3 size-100 bg-emerald-500/5 rounded-full blur-[100px]"></div>
+    </div>
+
     <div class="relative z-10 w-full flex flex-col items-center">
+        ...
 
         {{-- Headline Section --}}
         <div class="text-center max-w-7xl mb-16 px-4">
@@ -24,7 +40,8 @@
                                 <stop offset="100%" style="stop-color:var(--color-indigo-500)" />
                             </linearGradient>
                         </defs>
-                        <path d="M10 8v8H6c0 4.418 3.582 8 8 8V24c-6.627 0-12-5.373-12-12V8h8zm18 0v8h-4c0 4.418 3.582 8 8 8V24c-6.627 0-12-5.373-12-12V8h8z" />
+                        <path
+                            d="M10 8v8H6c0 4.418 3.582 8 8 8V24c-6.627 0-12-5.373-12-12V8h8zm18 0v8h-4c0 4.418 3.582 8 8 8V24c-6.627 0-12-5.373-12-12V8h8z" />
                     </svg>
                 </div>
 
@@ -35,7 +52,8 @@
                 {{-- Gradient Quote Icon (Right) --}}
                 <div class="absolute -bottom-8 -right-4 size-16 opacity-50 dark:opacity-50 -z-10 rotate-180">
                     <svg fill="url(#quote-gradient)" viewBox="0 0 32 32">
-                        <path d="M10 8v8H6c0 4.418 3.582 8 8 8V24c-6.627 0-12-5.373-12-12V8h8zm18 0v8h-4c0 4.418 3.582 8 8 8V24c-6.627 0-12-5.373-12-12V8h8z" />
+                        <path
+                            d="M10 8v8H6c0 4.418 3.582 8 8 8V24c-6.627 0-12-5.373-12-12V8h8zm18 0v8h-4c0 4.418 3.582 8 8 8V24c-6.627 0-12-5.373-12-12V8h8z" />
                     </svg>
                 </div>
             </div>
@@ -54,16 +72,15 @@
                             </div>
                             <div
                                 class="relative size-14 rounded-xl bg-white/40 dark:bg-zinc-800/40 backdrop-blur-xl border border-white/40 dark:border-zinc-700/40 shadow-sm flex items-center justify-center text-primary-500 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 ring-1 ring-zinc-900/5 dark:ring-white/5">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="1.5" stroke="currentColor" class="size-7">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                    stroke="currentColor" class="size-7">
                                     {!! $f['icon'] !!}
                                 </svg>
                             </div>
                         </div>
 
                         <div class="flex flex-col min-w-0">
-                            <span
-                                class="text-base font-bold text-zinc-900 dark:text-white mb-0.5">{{ $f['label'] }}</span>
+                            <span class="text-base font-bold text-zinc-900 dark:text-white mb-0.5">{{ $f['label'] }}</span>
                             <span
                                 class="text-[10px] font-bold text-zinc-400 dark:text-zinc-500 truncate">{{ $f['sub'] }}</span>
                         </div>
@@ -73,8 +90,7 @@
                         class="shrink-0 transition-all duration-500 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 mr-2">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
                             stroke="currentColor" class="size-5 text-primary-500">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
                         </svg>
                     </div>
 
@@ -92,7 +108,8 @@
                 <div class="w-1 h-2 bg-zinc-400 dark:bg-zinc-500 rounded-full animate-bounce"></div>
             </div>
             <span
-                class="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-400 dark:text-zinc-600 group-hover:text-primary-500 transition-colors duration-300">Khám phá bài viết </span>
+                class="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-400 dark:text-zinc-600 group-hover:text-primary-500 transition-colors duration-300">Khám
+                phá bài viết </span>
         </a>
     </div>
 </div>
