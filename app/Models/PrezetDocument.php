@@ -10,6 +10,13 @@ use Prezet\Prezet\Models\Tag;
 class PrezetDocument extends Document
 {
     /**
+     * The database connection used by the model.
+     *
+     * @var string
+     */
+    protected $connection = 'prezet';
+
+    /**
      * The table associated with the model.
      *
      * @var string

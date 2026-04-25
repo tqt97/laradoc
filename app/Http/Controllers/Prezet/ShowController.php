@@ -31,6 +31,13 @@ class ShowController extends Controller
             abort(404);
         }
 
+        // Increment views
+        $sessionKey = 'viewed_post_'.$doc->id;
+        if (! session()->has($sessionKey)) {
+            $doc->increment('views');
+            session()->put($sessionKey, true);
+        }
+
         $md = Prezet::getMarkdown($doc->filepath);
         $html = Prezet::parseMarkdown($md)->getContent();
         $docData = Prezet::getDocumentDataFromFile($doc->filepath);
@@ -67,6 +74,7 @@ class ShowController extends Controller
 
         return view('prezet.show', array_merge([
             'document' => $docData,
+            'views' => $doc->views,
             'linkedData' => $linkedData,
             'headings' => $headings,
             'body' => $html,

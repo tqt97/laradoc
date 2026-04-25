@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PrezetDocument;
 use App\Services\SeriesService;
 use App\Support\PrezetCache;
 use App\Support\PrezetHelper;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Str;
 use Illuminate\View\View;
 use Prezet\Prezet\Prezet;
 
@@ -81,6 +83,20 @@ class SeriesController extends Controller
             abort(404);
         }
 
+        // Increment views
+        $fullSlug = Str::startsWith($slug, 'series/') ? $slug : 'series/'.$slug;
+        $docForView = PrezetDocument::where('slug', $fullSlug)->first();
+
+        $viewsCount = 0;
+        if ($docForView) {
+            $sessionKey = 'viewed_post_'.$docForView->id;
+            if (! session()->has($sessionKey)) {
+                $docForView->increment('views');
+                session()->put($sessionKey, true);
+            }
+            $viewsCount = $docForView->views;
+        }
+
         // Khôi phục Document object với đầy đủ thuộc tính cho Component
         $document = (object) [
             'slug' => $cachedData['slug'],
@@ -95,6 +111,7 @@ class SeriesController extends Controller
 
         return view('series.show', array_merge([
             'document' => $document,
+            'views' => $viewsCount,
             'linkedData' => $cachedData['linkedData'],
             'headings' => $cachedData['headings'],
             'body' => $cachedData['html'],

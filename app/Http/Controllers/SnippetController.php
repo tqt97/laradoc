@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreSnippetRequest;
+use App\Models\PrezetDocument;
 use App\Services\SnippetService;
 use App\Support\PrezetHelper;
 use Illuminate\Contracts\View\View;
@@ -56,12 +57,22 @@ class SnippetController extends Controller
 
     public function show($slug): View
     {
+        $doc = PrezetDocument::where('slug', 'snippets/'.$slug)->firstOrFail();
+
+        // Increment views
+        $sessionKey = 'viewed_post_'.$doc->id;
+        if (! session()->has($sessionKey)) {
+            $doc->increment('views');
+            session()->put($sessionKey, true);
+        }
+
         $snippet = $this->snippetService->getSnippetBySlug($slug);
         $md = Prezet::getMarkdown($snippet->filepath);
         $html = Prezet::parseMarkdown($md)->getContent();
 
         return view('snippets.show', array_merge([
             'snippet' => $snippet,
+            'views' => $doc->views,
             'body' => $html,
             'slug' => $slug,
             'seo' => PrezetHelper::getSeoData(

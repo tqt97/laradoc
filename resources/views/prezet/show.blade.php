@@ -19,7 +19,7 @@
         <div id="articles-content">
             <x-prezet.alpine class="grid grid-cols-12 gap-8">
                 <div class="col-span-12">
-                    <x-prezet.article-header :document="$document" :readingTime="$readingTime" />
+                    <x-prezet.article-header :document="$document" :readingTime="$readingTime" :views="$views" />
                 </div>
 
                 {{-- Right Sidebar --}}

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PrezetDocument;
 use App\Services\KnowledgeService;
 use App\Support\PrezetHelper;
 use Illuminate\Contracts\View\View;
@@ -33,12 +34,22 @@ class KnowledgeController extends Controller
 
     public function show($slug): View
     {
+        $doc = PrezetDocument::where('slug', 'knowledge/'.$slug)->firstOrFail();
+
+        // Increment views
+        $sessionKey = 'viewed_post_'.$doc->id;
+        if (! session()->has($sessionKey)) {
+            $doc->increment('views');
+            session()->put($sessionKey, true);
+        }
+
         $knowledge = $this->knowledgeService->getKnowledgeBySlug($slug);
         $md = Prezet::getMarkdown($knowledge->filepath);
         $html = Prezet::parseMarkdown($md)->getContent();
 
         return view('knowledge.show', array_merge([
             'knowledge' => $knowledge,
+            'views' => $doc->views,
             'body' => $html,
             'slug' => $slug,
             'headings' => Prezet::getHeadings($html),

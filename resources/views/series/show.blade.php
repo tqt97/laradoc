@@ -18,7 +18,7 @@
 
     <div class="py-12 lg:py-24" x-data="{ sidebarCollapsed: false }">
         {{-- Article Header --}}
-        <x-prezet.article-header :document="$document" :readingTime="$readingTime" class="mb-10" />
+        <x-prezet.article-header :document="$document" :readingTime="$readingTime" :views="$views" class="mb-10" />
 
         <x-prezet.alpine class="flex flex-col lg:flex-row gap-8 lg:gap-12">
 
