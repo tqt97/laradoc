@@ -34,6 +34,17 @@
             }
         })()
     </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CMF5S21FVT"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-CMF5S21FVT');
+    </script>
+
     <style>
         @keyframes gradientMove {
 

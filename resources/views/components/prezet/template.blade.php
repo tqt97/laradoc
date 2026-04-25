@@ -13,14 +13,15 @@
     <x-prezet.meta />
 
     <!-- Fonts Preload -->
-    <link rel="preload" href="/build/assets/be-vietnam-pro-v12-latin_vietnamese-regular-CnRXpc0c.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/build/assets/be-vietnam-pro-v12-latin_vietnamese-regular-CnRXpc0c.woff2" as="font"
+        type="font/woff2" crossorigin>
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @stack('jsonld')
 
     <script>
-        (function() {
+        (function () {
             const stored = localStorage.getItem('theme')
             const prefersDark = window.matchMedia(
                 '(prefers-color-scheme: dark)'
@@ -32,6 +33,16 @@
                 document.documentElement.classList.add('dark')
             }
         })()
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CMF5S21FVT"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-CMF5S21FVT');
     </script>
 </head>
 
